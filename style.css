@@ -1260,13 +1260,16 @@ img {
 /* Cart Sidebar (UI Update) */
 .cart-overlay {
     position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.4);
-    backdrop-filter: blur(4px);
-    z-index: 1500;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(8px);
+    z-index: 9500; /* Just below the sidebar, but above the header */
     opacity: 0;
     visibility: hidden;
-    transition: var(--transition);
+    transition: all 0.4s ease;
 }
 
 .cart-overlay.active {
@@ -1274,7 +1277,6 @@ img {
     visibility: visible;
 }
 
-/* Sidebar del Carrito - Rediseño Premium */
 .cart-sidebar {
     position: fixed;
     top: 0;
@@ -1284,7 +1286,7 @@ img {
     height: 100%;
     background-color: #fff;
     box-shadow: -15px 0 50px rgba(0,0,0,0.1);
-    z-index: 2000;
+    z-index: 10000; /* Higher than header (9000) */
     transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
     display: flex;
     flex-direction: column;
@@ -1292,25 +1294,6 @@ img {
 
 .cart-sidebar.open {
     right: 0;
-}
-
-.cart-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.3);
-    backdrop-filter: blur(8px); /* El blur se queda solo en el fondo */
-    z-index: 1900; /* Por debajo del carrito */
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.4s ease;
-}
-
-.cart-overlay.active {
-    opacity: 1;
-    visibility: visible;
 }
 
 .cart-header {
