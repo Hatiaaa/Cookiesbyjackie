@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@400;600;800;900&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
     
     <!-- CSS -->
-    <link rel="stylesheet" href="style.css?v=4.1">
+    <link rel="stylesheet" href="style.css?v=4.5">
     
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -27,24 +27,38 @@
             </button>
 
             <a href="#" class="logo">
-                <span class="logo-main">COOKIES</span>
-                <span class="logo-sub">by Jackie</span>
+                <div class="logo-text">
+                    <span class="logo-main">COOKIES</span>
+                    <span class="logo-sub">by Jackie</span>
+                </div>
+                <img src="assets/logo.png" alt="Cookies by Jackie" class="logo-img">
             </a>
 
             <nav class="nav-links">
                 <a href="#shop" class="nav-link" data-i18n="nav_shop">tienda</a>
-                <a href="#about" class="nav-link" data-i18n="nav_about">nuestra historia</a>
+
+                <!-- Delivery dropdown -->
+                <div class="nav-dropdown-wrapper">
+                    <span class="nav-link nav-dropdown-trigger" data-i18n="nav_delivery">
+                        delivery <i class="fas fa-chevron-down nav-dropdown-arrow"></i>
+                    </span>
+                    <div class="nav-dropdown-menu">
+                        <a href="https://www.ubereats.com/store/cookies-by-jackie/unP0-ZwaV229nPo_rFi9_A?diningMode=DELIVERY&effect=&marketing_vistor_id=10e86284-e7ec-481f-8d7e-b7aa1717cf97&pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMlNhbWFuZXMlMjAyJTIyJTJDJTIycmVmZXJlbmNlJTIyJTNBJTIyQ2hJSkk0QV82YlFTTFpBUlVWSDhrWU1aRUIwJTIyJTJDJTIycmVmZXJlbmNlVHlwZSUyMiUzQSUyMmdvb2dsZV9wbGFjZXMlMjIlMkMlMjJsYXRpdHVkZSUyMiUzQS0yLjExMjQzODk5OTk5OTk5OTclMkMlMjJsb25naXR1ZGUlMjIlM0EtNzkuOTAzMTc3NTk5OTk5OTklN0Q%3D&ps=1&storeOfdSearchQuery=Snickerdoodle"
+                           target="_blank" class="nav-dropdown-item">
+                            <i class="fab fa-uber nav-dropdown-icon"></i> Uber Eats
+                        </a>
+                    </div>
+                </div>
+
                 <a href="#faq" class="nav-link" data-i18n="nav_contact">contacto</a>
             </nav>
             
             <div class="nav-actions">
                 <div class="lang-switcher">
-                    <button class="lang-btn active" data-lang="es">es</button>
-                    <span>|</span>
-                    <button class="lang-btn" data-lang="en">en</button>
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="es">ES</button>
                 </div>
-                <a href="#" class="search-btn"><i class="fas fa-search" aria-label="Search"></i></a>
-                <a href="#" class="user-btn desktop-only"><i class="far fa-user" aria-label="Account"></i></a>
+                <button class="search-btn" id="search-open-btn" aria-label="Buscar"><i class="fas fa-search"></i></button>
                 <a href="#" class="cart-toggle" id="cart-btn" aria-label="View Cart">
                     <i class="fas fa-shopping-bag"></i>
                     <span class="cart-count">0</span>
@@ -52,6 +66,18 @@
             </div>
         </div>
     </header>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="search-overlay" aria-hidden="true">
+        <div class="search-overlay-box">
+            <div class="search-input-row">
+                <i class="fas fa-search search-input-icon"></i>
+                <input type="text" id="search-input" class="search-input" placeholder="buscar productos, secciones..." autocomplete="off" spellcheck="false">
+                <button class="search-close-btn" id="search-close-btn" aria-label="Cerrar"><i class="fas fa-times"></i></button>
+            </div>
+            <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
 
     <!-- Mobile Menu Backdrop -->
     <div id="mobile-menu-backdrop" onclick="document.getElementById('mobile-menu').style.display='none'; this.style.display='none';" style="display:none; position:fixed; top:0; left:0; width:100%; height:100vh; background:rgba(45, 45, 45, 0.3); z-index:99998; backdrop-filter: blur(4px);"></div>
@@ -76,22 +102,24 @@
         <!-- Navigation Links (Montserrat) -->
         <nav style="display:flex; flex-direction:column; align-items:center; gap:0.5rem; width:100%; margin-top:1rem;">
             <a href="#shop" class="mobile-nav-link" data-i18n="nav_shop" style="display:block; width:80%; text-align:center; padding:1.2rem; font-family:var(--font-heading); font-size:1.1rem; font-weight:600; color:var(--color-text); text-decoration:none; text-transform:lowercase; letter-spacing:0.05em; border-bottom:1px solid rgba(0,0,0,0.03);">tienda</a>
-            <a href="#about" class="mobile-nav-link" data-i18n="nav_about" style="display:block; width:80%; text-align:center; padding:1.2rem; font-family:var(--font-heading); font-size:1.1rem; font-weight:600; color:var(--color-text); text-decoration:none; text-transform:lowercase; letter-spacing:0.05em; border-bottom:1px solid rgba(0,0,0,0.03);">nuestra historia</a>
+            <a href="https://www.ubereats.com/store/cookies-by-jackie/unP0-ZwaV229nPo_rFi9_A?diningMode=DELIVERY&effect=&marketing_vistor_id=10e86284-e7ec-481f-8d7e-b7aa1717cf97&pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMlNhbWFuZXMlMjAyJTIyJTJDJTIycmVmZXJlbmNlJTIyJTNBJTIyQ2hJSkk4QV82YlFTTFpBUlVWSDhrWU1aRUIwJTIyJTJDJTIycmVmZXJlbmNlVHlwZSUyMiUzQSUyMmdvb2dsZV9wbGFjZXMlMjIlMkMlMjJsYXRpdHVkZSUyMiUzQS0yLjExMjQzODk5OTk5OTk5OTclMkMlMjJsb25naXR1ZGUlMjIlM0EtNzkuOTAzMTc3NTk5OTk5OTklN0Q%3D&ps=1&storeOfdSearchQuery=Snickerdoodle" target="_blank" class="mobile-nav-link" data-i18n="nav_delivery" style="display:flex; align-items:center; justify-content:center; gap:0.5rem; width:80%; text-align:center; padding:1.2rem; font-family:var(--font-heading); font-size:1.1rem; font-weight:600; color:var(--color-text); text-decoration:none; text-transform:lowercase; letter-spacing:0.05em; border-bottom:1px solid rgba(0,0,0,0.03);">delivery <i class="fas fa-external-link-alt" style="font-size:0.7rem; opacity:0.5;"></i></a>
             <a href="#faq" class="mobile-nav-link" data-i18n="nav_contact" style="display:block; width:80%; text-align:center; padding:1.2rem; font-family:var(--font-heading); font-size:1.1rem; font-weight:600; color:var(--color-text); text-decoration:none; text-transform:lowercase; letter-spacing:0.05em;">contacto</a>
         </nav>
 
         <!-- Social Connections -->
-        <div style="margin-top:2rem; display:flex; gap:2rem; align-items:center;">
-            <a href="https://www.instagram.com/cookiesbyjackie.nyc/" target="_blank" style="color:var(--color-primary); font-size:1.2rem; transition: transform 0.3s ease;"><i class="fab fa-instagram"></i></a>
-            <a href="https://wa.me/12123896151" target="_blank" style="color:var(--color-primary); font-size:1.2rem; transition: transform 0.3s ease;"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://www.tiktok.com/@cookiesbyjackie.nyc" target="_blank" style="color:var(--color-primary); font-size:1.2rem; transition: transform 0.3s ease;"><i class="fab fa-tiktok"></i></a>
+        <div style="margin-top:2rem; display:flex; gap:2rem; align-items:center; flex-wrap:wrap;">
+            <a href="https://www.instagram.com/cookiesbyjackienyc/" target="_blank" style="color:var(--color-primary); font-size:1.2rem; transition: transform 0.3s ease;"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61579656540554" target="_blank" style="color:var(--color-primary); font-size:1.2rem; transition: transform 0.3s ease;"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.tiktok.com/@cookies.by.jackie" target="_blank" style="color:var(--color-primary); font-size:1.2rem; transition: transform 0.3s ease;"><i class="fab fa-tiktok"></i></a>
+            <a href="https://x.com/cookies_ja41229" target="_blank" style="color:var(--color-primary); font-size:1.2rem; transition: transform 0.3s ease;"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://www.youtube.com/@CookiesbyJackie" target="_blank" style="color:var(--color-primary); font-size:1.2rem; transition: transform 0.3s ease;"><i class="fab fa-youtube"></i></a>
         </div>
 
         <!-- Language Switcher inside Menu -->
         <div class="lang-switcher" style="margin-top:2rem; display:flex; align-items:center; gap:0.8rem; font-family:var(--font-heading); font-size:0.9rem; font-weight:600; text-transform:uppercase; letter-spacing:1px;">
-            <button class="lang-btn active" data-lang="es" style="background:none; border:none; color:var(--color-text); cursor:pointer; padding:5px; opacity:1;">es</button>
+            <button class="lang-btn active" data-lang="en">en</button>
             <span style="opacity:0.3; font-weight:300;">|</span>
-            <button class="lang-btn" data-lang="en" style="background:none; border:none; color:var(--color-text); cursor:pointer; padding:5px; opacity:0.4;">en</button>
+            <button class="lang-btn" data-lang="es">es</button>
         </div>
     </div>
 
@@ -100,127 +128,103 @@
         <section class="single-hero">
             <div class="hero-content fade-up">
                 <h2 class="hero-label" data-i18n="hero_label">Repostería de Autor</h2>
-                <h1 class="hero-title" data-i18n="hero_title">Dulces<br>Momentos</h1>
-                <p class="hero-description" data-i18n="hero_desc">Elaboramos postres y galletas artesanales con mantequilla europea e ingredientes premium. Una experiencia de lujo en cada bocado.</p>
+                <h1 class="hero-title" data-i18n="hero_title">Hecho Fresco<br>Cada Día con Amor</h1>
+                <p class="hero-description" data-i18n="hero_desc">Cada día horneamos postres frescos y artesanales con los ingredientes de mayor calidad, sabores irresistibles y un toque especial de amor. Descubre la alegría de disfrutar delicias auténticas creadas para cautivar tus sentidos.</p>
                 <div class="hero-actions">
                     <a href="#shop" class="btn btn-primary" data-i18n="hero_btn">Ver Menú</a>
                 </div>
             </div>
             
-            <div class="hero-visual fade-up" style="transition-delay: 0.1s;">
-                <!-- Partículas orbitando la galleta (Solo Trozos de Chocolate) -->
-                <div class="canvas-3d-layer">
-                    <!-- 1. Top Center-Left (Large) -->
-                    <img src="assets/trozo_choco (5).png" class="particle p-large" alt="" style="top: 10%; left: 25%; transform: rotate(-30deg);">
-                    
-                    <!-- 2. Top Right (Medium) -->
-                    <img src="assets/trozo_choco (2).png" class="particle p-medium" alt="" style="top: 15%; right: 20%; transform: rotate(10deg);">
-                    
-                    <!-- 3. Mid-Top Left (Small) -->
-                    <img src="assets/trozo_choco (6).png" class="particle p-small" alt="" style="top: 25%; left: 15%; transform: rotate(45deg);">
-                    
-                    <!-- 4. Mid Left (Medium) -->
-                    <img src="assets/trozo_choco (1).png" class="particle p-medium" alt="" style="top: 35%; left: 10%; transform: rotate(-15deg);">
-                    
-                    <!-- 5. Mid-Bottom Left (Tiny blurred) -->
-                    <img src="assets/trozo_choco (6).png" class="particle p-tiny p-blur-mid" alt="" style="top: 45%; left: 5%; transform: rotate(80deg);">
-                    
-                    <!-- 6. Bottom Left Upper (Small) -->
-                    <img src="assets/trozo_choco (3).png" class="particle p-small" alt="" style="bottom: 40%; left: 15%; transform: rotate(-40deg);">
-                    
-                    <!-- 7. Bottom Left Middle (Large) -->
-                    <img src="assets/trozo_choco (4).png" class="particle p-large" alt="" style="bottom: 25%; left: 20%; transform: rotate(-15deg);">
-                    
-                    <!-- 8. Bottom Left Lower (Tiny) -->
-                    <img src="assets/trozo_choco (1).png" class="particle p-tiny p-blur-far" alt="" style="bottom: 10%; left: 10%; transform: rotate(30deg);">
-                    
-                    <!-- 9. Bottom Center Left (Medium) -->
-                    <img src="assets/trozo_choco (2).png" class="particle p-medium" alt="" style="bottom: 15%; left: 35%; transform: rotate(10deg);">
-                    
-                    <!-- 10. Bottom Center Right (Medium) -->
-                    <img src="assets/trozo_choco (3).png" class="particle p-medium" alt="" style="bottom: 25%; right: 25%; transform: rotate(25deg);">
-                    
-                    <!-- 11. Bottom Right (Small) -->
-                    <img src="assets/trozo_choco (6).png" class="particle p-small p-blur-mid" alt="" style="bottom: 5%; right: 35%; transform: rotate(-45deg);">
-                </div>
-
-                <!-- Producto Principal -->
-                <div class="product-wrapper">
-                    <div class="product-shadow"></div>
-                    <img src="assets/coockie.png" class="main-product" alt="Classic Cookie">
-                </div>
-            </div>
         </section>
 
         <!-- Favorites Section - Rediseño Asimétrico Compacto -->
         <section class="favorites-section section-spacing">
-            <div class="container favorites-layout">
-                <div class="favorites-left fade-up">
-                    <h2 class="favorites-title" data-i18n="fav_title">los más vendidos</h2>
-                    <p class="favorites-subtitle" data-i18n="fav_subtitle">Nuestra selección más querida, horneada diariamente con la pasión y calidad que nos define.</p>
-                    <a href="#shop" class="btn btn-outline" data-i18n="fav_btn" style="margin-top: 1rem;">ver menú completo</a>
+            <div class="container">
+
+                <!-- Encabezado -->
+                <div class="fav-heading fade-up">
+                    <span class="fav-tag" data-i18n="badge_best">mejor vendido</span>
+                    <h2 class="favorites-title" data-i18n="fav_title">Nuestros Más Vendidos</h2>
+                    <p class="favorites-subtitle" data-i18n="fav_subtitle">Descubre los favoritos de nuestros clientes que todos aman — recién hechos, llenos de sabor e imposibles de resistir.</p>
                 </div>
-                
-                <div class="favorites-right">
-                    <div class="favorites-grid">
-                        <!-- Product Card 1 -->
-                        <div class="fav-card offset-up fade-up">
-                            <div class="product-img-wrapper small-img">
-                                <span class="badge-best-seller" data-i18n="badge_best">mejor vendido</span>
-                                <img src="assets/coockies/Chocolate Chip Cookie.png" alt="Chocolate Chip Cookie">
-                                <div class="product-hover-action">
-                                    <button class="btn btn-primary add-to-cart-btn">Agregar</button>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <h3 class="product-title" data-i18n="prod_chip">clásica chispas</h3>
-                                <p class="product-price">$4.75</p>
-                            </div>
+
+                <!-- Grid de tarjetas -->
+                <div class="fav-cards-grid">
+
+                    <div class="fav-card fade-up" style="--card-bg:#F5D5D8;--strip-bg:#C4788A;">
+                        <div class="fav-card-img">
+                            <img src="assets/Best seller/Red Velvet Cupcake with Cream Cheese Icing_pixian_ai.png" alt="Red Velvet Cupcake">
+                            <div class="fav-strip" data-i18n="fav1_strip">red velvet · cream cheese · vainilla</div>
                         </div>
-                        
-                        <!-- Product Card 2 -->
-                        <div class="fav-card fade-up" style="transition-delay: 0.1s;">
-                            <div class="product-img-wrapper small-img">
-                                <img src="assets/mini individual/Red velvet Cake.png" alt="Red Velvet">
-                                <div class="product-hover-action">
-                                    <button class="btn btn-primary add-to-cart-btn">Agregar</button>
-                                </div>
+                        <div class="fav-card-body">
+                            <div class="fav-card-row">
+                                <h3 class="fav-card-name">Red Velvet Cupcake</h3>
+                                <button class="fav-view-btn" data-tab="cupcakes-tab" data-i18n="fav_view_btn">Ver más ↗</button>
                             </div>
-                            <div class="product-info">
-                                <h3 class="product-title" data-i18n="prod_red">red velvet supreme</h3>
-                                <p class="product-price">$7.50</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Product Card 3 -->
-                        <div class="fav-card offset-up fade-up" style="transition-delay: 0.2s;">
-                            <div class="product-img-wrapper small-img">
-                                <img src="assets/cake/Vintage Heart Cakes Vanilla.png" alt="Vintage Heart Cake">
-                                <div class="product-hover-action">
-                                    <button class="btn btn-primary add-to-cart-btn">Agregar</button>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <h3 class="product-title" data-i18n="prod_heart">vintage heart</h3>
-                                <p class="product-price">$69.95</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Product Card 4 -->
-                        <div class="fav-card fade-up" style="transition-delay: 0.3s;">
-                            <div class="product-img-wrapper small-img">
-                                <img src="assets/pastries/Chocolate Fudge Brownies.png" alt="Chocolate Fudge Brownies">
-                                <div class="product-hover-action">
-                                    <button class="btn btn-primary add-to-cart-btn">Agregar</button>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <h3 class="product-title" data-i18n="prod_brownie">fudge brownies</h3>
-                                <p class="product-price">$3.95</p>
+                            <div class="fav-pills">
+                                <span class="fav-pill" data-i18n="fav1_pill1">red velvet</span>
+                                <span class="fav-pill" data-i18n="fav1_pill2">cream cheese</span>
+                                <span class="fav-pill" data-i18n="fav1_pill3">vainilla</span>
                             </div>
                         </div>
                     </div>
+
+                    <div class="fav-card fade-up" style="--card-bg:#EDD9B0;--strip-bg:#B8916A;transition-delay:0.1s;">
+                        <div class="fav-card-img">
+                            <img src="assets/Best seller/Salted Caramel Chocolate Chip Cookie_pixian_ai.png" alt="Salted Caramel Cookie">
+                            <div class="fav-strip" data-i18n="fav2_strip">chocolate chip · caramelo · sal marina</div>
+                        </div>
+                        <div class="fav-card-body">
+                            <div class="fav-card-row">
+                                <h3 class="fav-card-name">Salted Caramel Cookie</h3>
+                                <button class="fav-view-btn" data-tab="cookies-tab" data-i18n="fav_view_btn">Ver más ↗</button>
+                            </div>
+                            <div class="fav-pills">
+                                <span class="fav-pill" data-i18n="fav2_pill1">chocolate chip</span>
+                                <span class="fav-pill" data-i18n="fav2_pill2">caramelo</span>
+                                <span class="fav-pill" data-i18n="fav2_pill3">sal marina</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="fav-card fade-up" style="--card-bg:#FFE0E8;--strip-bg:#D97090;transition-delay:0.2s;">
+                        <div class="fav-card-img">
+                            <img src="assets/Best seller/Strawberry cheesecake_pixian_ai.png" alt="Strawberry Cheesecake">
+                            <div class="fav-strip" data-i18n="fav3_strip">fresa · cheesecake · crema</div>
+                        </div>
+                        <div class="fav-card-body">
+                            <div class="fav-card-row">
+                                <h3 class="fav-card-name">Strawberry Cheesecake</h3>
+                                <button class="fav-view-btn" data-tab="pastries-tab" data-i18n="fav_view_btn">Ver más ↗</button>
+                            </div>
+                            <div class="fav-pills">
+                                <span class="fav-pill" data-i18n="fav3_pill1">fresa</span>
+                                <span class="fav-pill" data-i18n="fav3_pill2">cheesecake</span>
+                                <span class="fav-pill" data-i18n="fav3_pill3">crema</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="fav-card fade-up" style="--card-bg:#E8D5C0;--strip-bg:#A07048;transition-delay:0.3s;">
+                        <div class="fav-card-img">
+                            <img src="assets/Best seller/Vintage Heart Cakes Chocolate_pixian_ai.png" alt="Vintage Heart Cake">
+                            <div class="fav-strip" data-i18n="fav4_strip">chocolate · mantequilla · vainilla</div>
+                        </div>
+                        <div class="fav-card-body">
+                            <div class="fav-card-row">
+                                <h3 class="fav-card-name">Vintage Heart Cake</h3>
+                                <button class="fav-view-btn" data-tab="cakes-tab" data-i18n="fav_view_btn">Ver más ↗</button>
+                            </div>
+                            <div class="fav-pills">
+                                <span class="fav-pill" data-i18n="fav4_pill1">chocolate</span>
+                                <span class="fav-pill" data-i18n="fav4_pill2">mantequilla</span>
+                                <span class="fav-pill" data-i18n="fav4_pill3">vainilla</span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
+
             </div>
         </section>
 
@@ -231,174 +235,725 @@
                     <button class="shop-tab active" data-target="cookies-tab" data-i18n="tab_cookies">galletas</button>
                     <button class="shop-tab" data-target="cakes-tab" data-i18n="tab_cakes">pasteles</button>
                     <button class="shop-tab" data-target="cupcakes-tab" data-i18n="tab_cupcakes">cupcakes</button>
-                    <button class="shop-tab" data-target="pastries-tab" data-i18n="tab_pastries">bollería</button>
+                    <button class="shop-tab" data-target="pastries-tab" data-i18n="tab_pastries">Pastries</button>
                     <button class="shop-tab" data-target="macarons-tab" data-i18n="tab_macarons">macarons</button>
                     <button class="shop-tab" data-target="mini-tab" data-i18n="tab_minis">mini individual</button>
                     <button class="shop-tab" data-target="pies-tab" data-i18n="tab_pies">tartas</button>
-                    <button class="shop-tab" data-target="drinks-tab" data-i18n="tab_drinks">bebidas</button>
                     <button class="shop-tab" data-target="prepacks-tab" data-i18n="tab_packs">packs especiales</button>
                 </div>
                 
                 <div class="tab-content active" id="cookies-tab">
                     <div class="tabbed-product-grid">
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/coockies/Biscoff Chocolate Chip Cookie.png" alt="Biscoff Chocolate Chip Cookie"></div><div class="tab-product-info"><h3>Biscoff Chocolate Chip Cookie</h3><p class="tab-product-price">$4.75</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/coockies/Brookie Cookie.png" alt="Brookie Cookie"></div><div class="tab-product-info"><h3>Brookie Cookie</h3><p class="tab-product-price">$4.75</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/coockies/Caramel Pistachio White Chocolate Chip Cookie.png" alt="Caramel Pistachio White Chocolate Chip Cookie"></div><div class="tab-product-info"><h3>Caramel Pistachio White Choc Chip</h3><p class="tab-product-price">$5.75</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/coockies/Chocolate Chip Cookie Sandwich with Vanilla Buttercream.png" alt="Chocolate Chip Cookie Sandwich with Vanilla Buttercream"></div><div class="tab-product-info"><h3>Choc Chip Cookie Sandwich Vanilla</h3><p class="tab-product-price">$4.75</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><div class="badge">favorito</div><img src="assets/coockies/Chocolate Chip Cookie.png" alt="Chocolate Chip Cookie"></div><div class="tab-product-info"><h3>Chocolate Chip Cookie</h3><p class="tab-product-price">$4.75</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/coockies/Fruity Pebbles Sugar Cookie.png" alt="Fruity Pebbles Sugar Cookie"></div><div class="tab-product-info"><h3>Fruity Pebbles Sugar Cookie</h3><p class="tab-product-price">$4.75</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/coockies/Gluten Free Chocolate Chip.png" alt="Gluten Free Chocolate Chip"></div><div class="tab-product-info"><h3>Gluten Free Chocolate Chip</h3><p class="tab-product-price">$5.75</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/coockies/M&M Chocolate Chip Cookie.png" alt="M&M Chocolate Chip Cookie"></div><div class="tab-product-info"><h3>M&amp;M Chocolate Chip Cookie</h3><p class="tab-product-price">$4.75</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/coockies/Nutella Chocolate Chip.png" alt="Nutella Chocolate Chip"></div><div class="tab-product-info"><h3>Nutella Chocolate Chip</h3><p class="tab-product-price">$4.75</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/coockies/Oatmeal Raisin Cookie.png" alt="Oatmeal Raisin Cookie"></div><div class="tab-product-info"><h3>Oatmeal Raisin Cookie</h3><p class="tab-product-price">$4.75</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/coockies/Oreo Chocolate Chip.png" alt="Oreo Chocolate Chip"></div><div class="tab-product-info"><h3>Oreo Chocolate Chip</h3><p class="tab-product-price">$4.75</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/coockies/Oreo Red Velvet Cookie.png" alt="Oreo Red Velvet Cookie"></div><div class="tab-product-info"><h3>Oreo Red Velvet Cookie</h3><p class="tab-product-price">$4.75</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/coockies/Peanut Butter and Jelly Cookie.png" alt="Peanut Butter and Jelly Cookie"></div><div class="tab-product-info"><h3>Peanut Butter and Jelly Cookie</h3><p class="tab-product-price">$4.75</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/coockies/Pistachio White Chocolate Chip Cookie.png" alt="Pistachio White Chocolate Chip Cookie"></div><div class="tab-product-info"><h3>Pistachio White Choc Chip Cookie</h3><p class="tab-product-price">$5.75</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><div class="badge">favorito</div><img src="assets/coockies/Red Velvet Cookie.png" alt="Red Velvet Cookie"></div><div class="tab-product-info"><h3>Red Velvet Cookie</h3><p class="tab-product-price">$4.75</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/coockies/Selted Caramel Chocolate Chip Cookie.png" alt="Salted Caramel Chocolate Chip Cookie"></div><div class="tab-product-info"><h3>Salted Caramel Choc Chip Cookie</h3><p class="tab-product-price">$5.75</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/coockies/Snickerdoodle Cookie Sandwich with Vanilla Buttercream.png" alt="Snickerdoodle Cookie Sandwich"></div><div class="tab-product-info"><h3>Snickerdoodle Sandwich Vanilla</h3><p class="tab-product-price">$5.75</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/coockies/Snickerdoodle.png" alt="Snickerdoodle"></div><div class="tab-product-info"><h3>Snickerdoodle</h3><p class="tab-product-price">$4.75</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/coockies/Sugar Cookie Sandwich With Vanilla Buttercream.png" alt="Sugar Cookie Sandwich"></div><div class="tab-product-info"><h3>Sugar Cookie Sandwich Vanilla</h3><p class="tab-product-price">$4.75</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/coockies/Sugar cookie.png" alt="Sugar Cookie"></div><div class="tab-product-info"><h3>Sugar Cookie</h3><p class="tab-product-price">$4.75</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/coockies/Triple Chocolate Chip Cookie.png" alt="Triple Chocolate Chip Cookie"></div><div class="tab-product-info"><h3>Triple Chocolate Chip Cookie</h3><p class="tab-product-price">$4.75</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                    </div>
-                    <div class="load-more-container">
-                        <button class="btn btn-outline" onclick="loadMore(this)">Cargar más</button>
+
+                        <!-- Cajas / Packs -->
+                        <div class="tab-product-card fade-up">
+                            <div class="tab-img-wrapper product-carousel">
+                                <img src="assets/Pick 6 Cookie Box/Chocolate Chip Cookie.png" alt="Chocolate Chip Cookie" class="active">
+                                <img src="assets/Pick 6 Cookie Box/Salted Caramel Chocolate Chip Cookie.png" alt="Salted Caramel">
+                                <img src="assets/Pick 6 Cookie Box/Brookie Cookie.png" alt="Brookie Cookie">
+                                <img src="assets/Pick 6 Cookie Box/Snickerdoodle.png" alt="Snickerdoodle">
+                                <div class="carousel-dots">
+                                    <span class="dot active" data-index="0"></span>
+                                    <span class="dot" data-index="1"></span>
+                                    <span class="dot" data-index="2"></span>
+                                    <span class="dot" data-index="3"></span>
+                                </div>
+                            </div>
+                            <div class="tab-product-info">
+                                <h3>Specialty Cookie Box</h3>
+                                <p class="tab-product-desc" data-i18n="cook1_desc">4 unidades de nuestros productos predeterminados: Chocolate Chip Cookie, Salted Caramel Chocolate Chip Cookie, Brookie Cookie y Snickerdoodle.</p>
+                                <p class="tab-product-price">$19.95</p>
+                                <button class="tab-add-btn" data-btn-key="btn_add"><i class="fas fa-plus"></i> Agregar</button>
+                            </div>
+                        </div>
+
+                        <div class="tab-product-card fade-up">
+                            <div class="tab-img-wrapper product-carousel" id="carousel-pick6">
+                                <img src="assets/Pick 6 Cookie Box/Red Velvet Cookie.png" alt="Red Velvet Cookie" class="active">
+                                <img src="assets/Pick 6 Cookie Box/Oreo Chocolate Chip.png" alt="Oreo Chocolate Chip">
+                                <img src="assets/Pick 6 Cookie Box/Nutella Chocolate Chip.png" alt="Nutella Chocolate Chip">
+                                <img src="assets/Pick 6 Cookie Box/Biscoff Chocolate Chip Cookie.png" alt="Biscoff Chocolate Chip">
+                                <div class="carousel-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                            </div>
+                            <div class="tab-product-info">
+                                <h3>Pick 6 Cookie Box</h3>
+                                <p class="tab-product-desc" data-i18n="cook2_desc">6 unidades. Elige tus sabores favoritos de nuestra lista.</p>
+                                <p class="tab-product-price">$30.00</p>
+                                <button class="tab-add-btn btn-open-modal" data-max="6" data-product="Pick 6 Cookie Box" data-price="30.00" data-btn-key="btn_select"><i class="fas fa-list"></i> Elige tus opciones</button>
+                            </div>
+                        </div>
+
+                        <div class="tab-product-card fade-up">
+                            <div class="tab-img-wrapper product-carousel" id="carousel-pick12">
+                                <img src="assets/Pick 6 Cookie Box/Nutella Chocolate Chip.png" alt="Nutella Chocolate Chip" class="active">
+                                <img src="assets/Pick 6 Cookie Box/Biscoff Chocolate Chip Cookie.png" alt="Biscoff Chocolate Chip Cookie">
+                                <img src="assets/Pick 6 Cookie Box/Salted Caramel Chocolate Chip Cookie.png" alt="Salted Caramel Chocolate Chip Cookie">
+                                <img src="assets/Pick 6 Cookie Box/Brookie Cookie.png" alt="Brookie Cookie">
+                                <div class="carousel-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                            </div>
+                            <div class="tab-product-info">
+                                <h3>Pick 12 Cookie Box</h3>
+                                <p class="tab-product-desc" data-i18n="cook3_desc">12 unidades. Elige tus sabores favoritos de nuestra lista.</p>
+                                <p class="tab-product-price">$55.95</p>
+                                <button class="tab-add-btn btn-open-modal" data-max="12" data-product="Pick 12 Cookie Box" data-price="55.95" data-btn-key="btn_select"><i class="fas fa-list"></i> Elige tus opciones</button>
+                            </div>
+                        </div>
+
+                        <div class="tab-product-card fade-up">
+                            <div class="tab-img-wrapper product-carousel" id="carousel-mini-catering">
+                                <img src="assets/Pick 6 Cookie Box/M&M Chocolate Chip Cookie.png" alt="M&M Cookie" class="active">
+                                <img src="assets/Pick 6 Cookie Box/Triple Chocolate Chip Cookie.png" alt="Triple Chocolate Chip">
+                                <img src="assets/Pick 6 Cookie Box/Peanut Butter and Jelly Cookie.png" alt="Peanut Butter Jelly">
+                                <img src="assets/Pick 6 Cookie Box/Oatmeal Raisin Cookie.png" alt="Oatmeal Raisin">
+                                <div class="carousel-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                            </div>
+                            <div class="tab-product-info">
+                                <h3>Mini Cookies Catering box</h3>
+                                <p class="tab-product-desc" data-i18n="cook4_desc">25 galletas predeterminadas (5 de cada una): Chocolate Chip, Oreo, M&amp;M, Snickerdoodle.</p>
+                                <p class="tab-product-price">$62.50</p>
+                                <button class="tab-add-btn" data-btn-key="btn_add"><i class="fas fa-plus"></i> Agregar</button>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 
                 <div class="tab-content" id="cakes-tab">
                     <div class="tabbed-product-grid">
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><div class="badge">favorito</div><img src="assets/cake/Chocolate Chip Cookie Cake.png" alt="Chocolate Chip Cookie Cake"></div><div class="tab-product-info"><h3>Chocolate Chip Cookie Cake</h3><p class="tab-product-price">$39.95</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/cake/Chocolate Fudge Brownie Cake.png" alt="Chocolate Fudge Brownie Cake"></div><div class="tab-product-info"><h3>Chocolate Fudge Brownie Cake</h3><p class="tab-product-price" id="price-brownie-cake">$52.95</p><div class="product-variants"><select class="variant-select" onchange="updateProductPrice(this, 'price-brownie-cake')"><option value="52.95">12 Porciones</option><option value="98.95">24 Porciones</option></select></div><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/cake/Double-Layered Chocolate Chip Cookie Cake.png" alt="Double-Layered Chocolate Chip Cookie Cake"></div><div class="tab-product-info"><h3>Double-Layered Choc Chip Cookie Cake</h3><p class="tab-product-price">$75.95</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/cake/Vintage Heart Cakes Chocolate.png" alt="Vintage Heart Cake Chocolate"></div><div class="tab-product-info"><h3>Vintage Heart Cake Chocolate</h3><p class="tab-product-price">$69.95</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><div class="badge">favorito</div><img src="assets/cake/Vintage Heart Cakes Red velvet.png" alt="Vintage Heart Cake Red Velvet"></div><div class="tab-product-info"><h3>Vintage Heart Cake Red Velvet</h3><p class="tab-product-price">$69.95</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/cake/Vintage Heart Cakes Vanilla.png" alt="Vintage Heart Cake Vanilla"></div><div class="tab-product-info"><h3>Vintage Heart Cake Vanilla</h3><p class="tab-product-price">$69.95</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/cake/Vintage Round Cakes Chocolate.png" alt="Vintage Round Cake Chocolate"></div><div class="tab-product-info"><h3>Vintage Round Cake Chocolate</h3><p class="tab-product-price">$34.95</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/cake/Vintage Round Cakes Red velvet.png" alt="Vintage Round Cake Red Velvet"></div><div class="tab-product-info"><h3>Vintage Round Cake Red Velvet</h3><p class="tab-product-price">$34.95</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/cake/Vintage Round Cakes Vanilla.png" alt="Vintage Round Cake Vanilla"></div><div class="tab-product-info"><h3>Vintage Round Cake Vanilla</h3><p class="tab-product-price">$34.95</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                    </div>
-                    <div class="load-more-container">
-                        <button class="btn btn-outline" onclick="loadMore(this)">Cargar más</button>
+
+                        <!-- 1. Vintage Heart Cakes -->
+                        <div class="tab-product-card fade-up">
+                            <div class="tab-img-wrapper product-carousel" id="carousel-vintage-heart">
+                                <img src="assets/cake/Vintage Heart Cakes/Vintage Heart Cakes Chocolate.png" alt="Vintage Heart Cake Chocolate" class="active">
+                                <img src="assets/cake/Vintage Heart Cakes/Vintage Heart Cakes Red velvet.png" alt="Vintage Heart Cake Red Velvet">
+                                <img src="assets/cake/Vintage Heart Cakes/Vintage Heart Cakes Vanilla.png" alt="Vintage Heart Cake Vanilla">
+                                <div class="carousel-dots">
+                                    <span class="dot active"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                </div>
+                            </div>
+                            <div class="tab-product-info">
+                                <h3>Vintage Heart Cakes</h3>
+                                <p class="tab-product-desc" data-i18n="cake1_desc">Personaliza sabor y color. Pedido mínimo 3 días antes.</p>
+                                <p class="tab-product-price">$85.95</p>
+                                <button class="tab-add-btn btn-open-cake-modal" data-type="vintage" data-name="Vintage Heart Cakes" data-price="85.95" data-btn-key="btn_customize"><i class="fas fa-plus"></i> Personalizar</button>
+                            </div>
+                        </div>
+
+                        <!-- 2. Vintage Round Cakes -->
+                        <div class="tab-product-card fade-up">
+                            <div class="tab-img-wrapper product-carousel" id="carousel-vintage-round">
+                                <img src="assets/cake/Vintage Round Cakes/Vintage Round Cakes Chocolate.png" alt="Vintage Round Cake Chocolate" class="active">
+                                <img src="assets/cake/Vintage Round Cakes/Vintage Round Cakes Red velvet.png" alt="Vintage Round Cake Red Velvet">
+                                <img src="assets/cake/Vintage Round Cakes/Vintage Round Cakes Vanilla.png" alt="Vintage Round Cake Vanilla">
+                                <div class="carousel-dots">
+                                    <span class="dot active"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                </div>
+                            </div>
+                            <div class="tab-product-info">
+                                <h3>Vintage Round Cakes</h3>
+                                <p class="tab-product-desc" data-i18n="cake1_desc">Personaliza sabor y color. Pedido mínimo 3 días antes.</p>
+                                <p class="tab-product-price">$45.95</p>
+                                <button class="tab-add-btn btn-open-cake-modal" data-type="vintage" data-name="Vintage Round Cakes" data-price="45.95" data-btn-key="btn_customize"><i class="fas fa-plus"></i> Personalizar</button>
+                            </div>
+                        </div>
+
+                        <!-- 3. Naked Cake -->
+                        <div class="tab-product-card fade-up">
+                            <div class="tab-img-wrapper product-carousel" id="carousel-naked-cake">
+                                <img src="assets/cake/Naked Cake/NAKED CAKE 1.png" alt="Naked Cake 1" class="active">
+                                <img src="assets/cake/Naked Cake/NAKED CAKE 2.png" alt="Naked Cake 2">
+                                <img src="assets/cake/Naked Cake/NAKED CAKE 3.png" alt="Naked Cake 3">
+                                <div class="carousel-dots">
+                                    <span class="dot active"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                </div>
+                            </div>
+                            <div class="tab-product-info">
+                                <h3>Naked Cake</h3>
+                                <p class="tab-product-desc" data-i18n="cake3_desc">Elige tamaño 8" (10-12p) o 10" (15-18p), sabor y cobertura.</p>
+                                <p class="tab-product-price">Desde $49.95</p>
+                                <button class="tab-add-btn btn-open-cake-modal" data-type="naked" data-name="Naked Cake" data-price="49.95" data-btn-key="btn_customize"><i class="fas fa-plus"></i> Personalizar</button>
+                            </div>
+                        </div>
+
+                        <!-- 4. 10" Chocolate Chip Cookie Cake -->
+                        <div class="tab-product-card fade-up">
+                            <div class="tab-img-wrapper">
+                                <img src="assets/cake/10 Chocolate Chip Cookie Cake.png" alt="10 Chocolate Chip Cookie Cake" onerror="this.src='assets/logo.png'">
+                            </div>
+                            <div class="tab-product-info">
+                                <h3>10" Chocolate Chip Cookie Cake</h3>
+                                <p class="tab-product-desc" data-i18n="cake4_desc">Galleta gigante clásica con chispas de chocolate.</p>
+                                <p class="tab-product-price">$39.95</p>
+                                <button class="tab-add-btn" data-btn-key="btn_add"><i class="fas fa-plus"></i> Agregar</button>
+                            </div>
+                        </div>
+
+                        <!-- 5. Chocolate Fudge Brownie Cake -->
+                        <div class="tab-product-card fade-up">
+                            <div class="tab-img-wrapper">
+                                <img src="assets/cake/Chocolate Fudge Brownie Cake.png" alt="Chocolate Fudge Brownie Cake" onerror="this.src='assets/logo.png'">
+                            </div>
+                            <div class="tab-product-info">
+                                <h3>Chocolate Fudge Brownie Cake</h3>
+                                <p class="tab-product-desc" data-i18n="cake5_desc">Rinde 12 porciones de brownie fudge irresistible.</p>
+                                <p class="tab-product-price">$52.95</p>
+                                <button class="tab-add-btn" data-btn-key="btn_add"><i class="fas fa-plus"></i> Agregar</button>
+                            </div>
+                        </div>
+
+                        <!-- 6. Double-Layered 10" Chocolate Chip Cookie Cake -->
+                        <div class="tab-product-card fade-up">
+                            <div class="tab-img-wrapper">
+                                <img src="assets/cake/Double-Layered 10 Chocolate Chip Cookie Cake.png" alt="Double-Layered Cookie Cake" onerror="this.src='assets/logo.png'">
+                            </div>
+                            <div class="tab-product-info">
+                                <h3>Double-Layered 10" Cookie Cake</h3>
+                                <p class="tab-product-desc" data-i18n="cake6_desc">Doble capa de galleta gigante para los más golosos.</p>
+                                <p class="tab-product-price">$79.95</p>
+                                <button class="tab-add-btn" data-btn-key="btn_add"><i class="fas fa-plus"></i> Agregar</button>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
                 <div class="tab-content" id="cupcakes-tab">
                     <div class="tabbed-product-grid">
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/cupcakes/Carrot Cupcake with Cream Cheese Icing.png" alt="Carrot Cupcake with Cream Cheese Icing"></div><div class="tab-product-info"><h3>Carrot Cupcake Cream Cheese</h3><p class="tab-product-price">$4.50</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/cupcakes/Chocolate cupcake with chocolate buttercream.png" alt="Chocolate cupcake with chocolate buttercream"></div><div class="tab-product-info"><h3>Chocolate Cupcake Choco Buttercream</h3><p class="tab-product-price">$4.50</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/cupcakes/Chocolate cupcake with vanilla buttercream.png" alt="Chocolate cupcake with vanilla buttercream"></div><div class="tab-product-info"><h3>Chocolate Cupcake Vanilla Buttercream</h3><p class="tab-product-price">$4.50</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><div class="badge">favorito</div><img src="assets/cupcakes/Red Velvet Cupcake with Cream Cheese Icing.png" alt="Red Velvet Cupcake with Cream Cheese Icing"></div><div class="tab-product-info"><h3>Red Velvet Cupcake Cream Cheese</h3><p class="tab-product-price">$4.50</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/cupcakes/Vanilla cupcake with chocolate buttercream.png" alt="Vanilla cupcake with chocolate buttercream"></div><div class="tab-product-info"><h3>Vanilla Cupcake Choco Buttercream</h3><p class="tab-product-price">$4.50</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/cupcakes/Vanilla Cupcake with Vanilla Buttercream.png" alt="Vanilla Cupcake with Vanilla Buttercream"></div><div class="tab-product-info"><h3>Vanilla Cupcake Vanilla Buttercream</h3><p class="tab-product-price">$4.50</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
+
+                        <!-- Cupcakes 6 pk -->
+                        <div class="tab-product-card fade-up">
+                            <div class="tab-img-wrapper product-carousel" id="carousel-cupcakes-6pk">
+                                <img src="assets/cup cakes/Vanilla Cupcake with Vanilla Buttercream.png" alt="Vanilla Cupcake" class="active">
+                                <img src="assets/cup cakes/Chocolate cupcake with chocolate buttercream.png" alt="Chocolate Cupcake">
+                                <img src="assets/cup cakes/Red Velvet Cupcake with Cream Cheese Icing.png" alt="Red Velvet Cupcake">
+                                <div class="carousel-dots">
+                                    <span class="dot active"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                </div>
+                            </div>
+                            <div class="tab-product-info">
+                                <h3>Cupcakes 6 pk</h3>
+                                <p class="tab-product-desc" data-i18n="cup_desc">Elige cualquier sabor de nuestra lista de cupcakes.</p>
+                                <p class="tab-product-price">$26.95</p>
+                                <button class="tab-add-btn btn-open-cupcake-modal" data-max="6" data-product="Cupcakes 6 pk" data-price="26.95" data-btn-key="btn_select"><i class="fas fa-list"></i> Elige tus opciones</button>
+                            </div>
+                        </div>
+
+                        <!-- Cupcakes 12 pk -->
+                        <div class="tab-product-card fade-up">
+                            <div class="tab-img-wrapper product-carousel" id="carousel-cupcakes-12pk">
+                                <img src="assets/cup cakes/Chocolate cupcake with vanilla buttercream.png" alt="Chocolate Vanilla Cupcake" class="active">
+                                <img src="assets/cup cakes/Carrot Cupcake with Cream Cheese Icing.png" alt="Carrot Cupcake">
+                                <img src="assets/cup cakes/Vanilla cupcake with chocolate buttercrem vanilla.png" alt="Vanilla Chocolate Cupcake">
+                                <div class="carousel-dots">
+                                    <span class="dot active"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                </div>
+                            </div>
+                            <div class="tab-product-info">
+                                <h3>Cupcakes 12 pk</h3>
+                                <p class="tab-product-desc" data-i18n="cup_desc">Elige cualquier sabor de nuestra lista de cupcakes.</p>
+                                <p class="tab-product-price">$53.95</p>
+                                <button class="tab-add-btn btn-open-cupcake-modal" data-max="12" data-product="Cupcakes 12 pk" data-price="53.95" data-btn-key="btn_select"><i class="fas fa-list"></i> Elige tus opciones</button>
+                            </div>
+                        </div>
+
+                        <!-- Cupcakes 24 pk -->
+                        <div class="tab-product-card fade-up">
+                            <div class="tab-img-wrapper product-carousel" id="carousel-cupcakes-24pk">
+                                <img src="assets/cup cakes/Vanilla Cupcake with Vanilla Buttercream.png" alt="Vanilla Cupcake" class="active">
+                                <img src="assets/cup cakes/Chocolate cupcake with chocolate buttercream.png" alt="Chocolate Cupcake">
+                                <img src="assets/cup cakes/Red Velvet Cupcake with Cream Cheese Icing.png" alt="Red Velvet Cupcake">
+                                <img src="assets/cup cakes/Chocolate cupcake with vanilla buttercream.png" alt="Chocolate Vanilla Cupcake">
+                                <img src="assets/cup cakes/Carrot Cupcake with Cream Cheese Icing.png" alt="Carrot Cupcake">
+                                <img src="assets/cup cakes/Vanilla cupcake with chocolate buttercrem vanilla.png" alt="Vanilla Chocolate Cupcake">
+                                <div class="carousel-dots">
+                                    <span class="dot active"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                </div>
+                            </div>
+                            <div class="tab-product-info">
+                                <h3>Cupcakes 24 pk</h3>
+                                <p class="tab-product-desc" data-i18n="cup_desc">Elige cualquier sabor de nuestra lista de cupcakes.</p>
+                                <p class="tab-product-price">$105.95</p>
+                                <button class="tab-add-btn btn-open-cupcake-modal" data-max="24" data-product="Cupcakes 24 pk" data-price="105.95" data-btn-key="btn_select"><i class="fas fa-list"></i> Elige tus opciones</button>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
                 <div class="tab-content" id="pastries-tab">
                     <div class="tabbed-product-grid">
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/pastries/Cinnamon Rolls.png" alt="Cinnamon Rolls"></div><div class="tab-product-info"><h3>Cinnamon Rolls</h3><p class="tab-product-price">$6.25</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/pastries/Banana Bread Slice.png" alt="Banana Bread Slice"></div><div class="tab-product-info"><h3>Banana Bread Slice</h3><p class="tab-product-price">$4.75</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/pastries/Blueberry Scone.png" alt="Blueberry Scone"></div><div class="tab-product-info"><h3>Blueberry Scone</h3><p class="tab-product-price">$4.96</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/pastries/Chocolate Fudge Brownies.png" alt="Chocolate Fudge Brownies"></div><div class="tab-product-info"><h3>Chocolate Fudge Brownies</h3><p class="tab-product-price">$3.95</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/pastries/Glazed Donut.png" alt="Glazed Donut"></div><div class="tab-product-info"><h3>Glazed Donut</h3><p class="tab-product-price">$4.50</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/pastries/Cinnamon Sugar Donut.png" alt="Cinnamon Sugar Donut"></div><div class="tab-product-info"><h3>Cinnamon Sugar Donut</h3><p class="tab-product-price">$4.50</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/pastries/Fruity Pebbles Donut Topped.png" alt="Fruity Pebbles Donut Topped"></div><div class="tab-product-info"><h3>Fruity Pebbles Donut Topped</h3><p class="tab-product-price">$4.75</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/pastries/Oreo Topped Donut.png" alt="Oreo Topped Donut"></div><div class="tab-product-info"><h3>Oreo Topped Donut</h3><p class="tab-product-price">$4.75</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/pastries/Strawberry Sprinkle Donut.png" alt="Strawberry Sprinkle Donut"></div><div class="tab-product-info"><h3>Strawberry Sprinkle Donut</h3><p class="tab-product-price">$4.75</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/pastries/Chocolate Sprinkle Donut.png" alt="Chocolate Sprinkle Donut"></div><div class="tab-product-info"><h3>Chocolate Sprinkle Donut</h3><p class="tab-product-price">$4.75</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/pastries/Buttermil Biscuit.png" alt="Buttermilk Biscuit"></div><div class="tab-product-info"><h3>Buttermilk Biscuit</h3><p class="tab-product-price">$4.75</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/pastries/Blueberry, Strawberry, Banana, Granola Bar.png" alt="Blueberry, Strawberry, Banana, Granola bar"></div><div class="tab-product-info"><h3>Blueberry, Strawberry, Banana, Granola bar</h3><p class="tab-product-price">$4.75</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                    </div>
-                    <div class="load-more-container">
-                        <button class="btn btn-outline" onclick="loadMore(this)">Cargar más</button>
+                        <!-- 1. Cinnamon Rolls 6 pk -->
+                        <div class="tab-product-card fade-up">
+                            <div class="tab-img-wrapper">
+                                <img src="assets/pastries/Cinnamon Rolls.png" alt="Cinnamon Rolls 6 pk">
+                            </div>
+                            <div class="tab-product-info">
+                                <h3 data-i18n="past_roll_name">Cinnamon Rolls 6 pk</h3>
+                                <p class="tab-product-desc" data-i18n="past_roll_desc">6 unidades de nuestros rollos de canela clásicos con glaseado artesanal.</p>
+                                <p class="tab-product-price">$37.50</p>
+                                <button class="tab-add-btn" data-btn-key="btn_add"><i class="fas fa-plus"></i> Agregar</button>
+                            </div>
+                        </div>
+
+                        <!-- 2. Banana Bread loaf -->
+                        <div class="tab-product-card fade-up">
+                            <div class="tab-img-wrapper">
+                                <img src="assets/pastries/Banana Bread Slice.png" alt="Banana Bread loaf">
+                            </div>
+                            <div class="tab-product-info">
+                                <h3 data-i18n="past_banana_name">Banana Bread loaf</h3>
+                                <p class="tab-product-desc" data-i18n="past_banana_desc">6 unidades de nuestro pan de banana melcochudo y natural.</p>
+                                <p class="tab-product-price">$28.50</p>
+                                <button class="tab-add-btn" data-btn-key="btn_add"><i class="fas fa-plus"></i> Agregar</button>
+                            </div>
+                        </div>
+
+                        <!-- 3. Blueberry Scone 8 pk -->
+                        <div class="tab-product-card fade-up">
+                            <div class="tab-img-wrapper">
+                                <img src="assets/pastries/Blueberry Scone.png" alt="Blueberry Scone 8 pk">
+                            </div>
+                            <div class="tab-product-info">
+                                <h3 data-i18n="past_scone_name">Blueberry Scone 8 pk</h3>
+                                <p class="tab-product-desc" data-i18n="past_scone_desc">8 unidades de scones dorados con arándanos frescos.</p>
+                                <p class="tab-product-price">$39.90</p>
+                                <button class="tab-add-btn" data-btn-key="btn_add"><i class="fas fa-plus"></i> Agregar</button>
+                            </div>
+                        </div>
+
+                        <!-- 4. Chocolate Fudge Brownies 6 pk -->
+                        <div class="tab-product-card fade-up">
+                            <div class="tab-img-wrapper">
+                                <img src="assets/pastries/Chocolate Fudge Brownies.png" alt="Chocolate Fudge Brownies 6 pk">
+                            </div>
+                            <div class="tab-product-info">
+                                <h3 data-i18n="past_brownie_name">Chocolate Fudge Brownies 6 pk</h3>
+                                <p class="tab-product-desc" data-i18n="past_brownie_desc">6 unidades de brownies extra chocolate cortados en caja.</p>
+                                <p class="tab-product-price">$23.70</p>
+                                <button class="tab-add-btn" data-btn-key="btn_add"><i class="fas fa-plus"></i> Agregar</button>
+                            </div>
+                        </div>
+
+                        <!-- 5. Donuts 6 pk -->
+                        <div class="tab-product-card fade-up">
+                            <div class="tab-img-wrapper product-carousel" id="carousel-donuts">
+                                <img src="assets/pastries/Glazed Donut.png" alt="Glazed Donut" class="active">
+                                <img src="assets/pastries/Cinnamon Sugar Donut.png" alt="Cinnamon Sugar Donut">
+                                <img src="assets/pastries/Fruity Pebbles Donut Topped.png" alt="Fruity Pebbles Donut">
+                                <img src="assets/pastries/Oreo Topped Donut.png" alt="Oreo Topped Donut">
+                                <img src="assets/pastries/Strawberry Sprinkle Donut.png" alt="Strawberry Sprinkle Donut">
+                                <img src="assets/pastries/Chocolate Sprinkle Donut.png" alt="Chocolate Sprinkle Donut">
+                                <div class="carousel-dots">
+                                    <span class="dot active"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                </div>
+                            </div>
+                            <div class="tab-product-info">
+                                <h3 data-i18n="past_donut_name">Donuts 6 pk</h3>
+                                <p class="tab-product-desc" data-i18n="past_donut_desc">6 unidades, una de cada sabor: Glaseada, Azúcar y Canela, Fruity Pebbles, Oreo, Fresa con Sprinkles y Chocolate con Sprinkles.</p>
+                                <p class="tab-product-price">$28.50</p>
+                                <button class="tab-add-btn" data-btn-key="btn_add"><i class="fas fa-plus"></i> Agregar</button>
+                            </div>
+                        </div>
+
+                        <!-- 6. Buttermilk Biscuit 6 pk -->
+                        <div class="tab-product-card fade-up">
+                            <div class="tab-img-wrapper">
+                                <img src="assets/pastries/Buttermilk Biscuit.png" alt="Buttermilk Biscuit 6 pk">
+                            </div>
+                            <div class="tab-product-info">
+                                <h3 data-i18n="past_biscuit_name">Buttermilk Biscuit 6 pk</h3>
+                                <p class="tab-product-desc" data-i18n="past_biscuit_desc">6 unidades de nuestros clásicos y hojaldrados biscuits de mantequilla.</p>
+                                <p class="tab-product-price">$28.50</p>
+                                <button class="tab-add-btn" data-btn-key="btn_add"><i class="fas fa-plus"></i> Agregar</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="tab-content" id="macarons-tab">
                     <div class="tabbed-product-grid">
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/macarons/Macaron Birthday.png" alt="Macaron Birthday"></div><div class="tab-product-info"><h3>Macaron Birthday</h3><p class="tab-product-price">$3.75</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/macarons/Macaron Creme Brulee.png" alt="Macaron Creme Brulee"></div><div class="tab-product-info"><h3>Macaron Crème Brûlée</h3><p class="tab-product-price">$3.75</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/macarons/Macarons Churro.png" alt="Macarons Churro"></div><div class="tab-product-info"><h3>Macaron Churro</h3><p class="tab-product-price">$3.75</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><div class="badge">favorito</div><img src="assets/macarons/Macarons pistacho.png" alt="Macarons Pistacho"></div><div class="tab-product-info"><h3>Macaron Pistacho</h3><p class="tab-product-price">$3.75</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/macarons/Macarons Raspberry.png" alt="Macarons Raspberry"></div><div class="tab-product-info"><h3>Macaron Raspberry</h3><p class="tab-product-price">$3.75</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/macarons/Macarons Tiramisu.png" alt="Macarons Tiramisu"></div><div class="tab-product-info"><h3>Macaron Tiramisu</h3><p class="tab-product-price">$3.75</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/macarons/Macarons Vanilla.png" alt="Macarons Vanilla"></div><div class="tab-product-info"><h3>Macaron Vanilla</h3><p class="tab-product-price">$3.75</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
+
+                        <!-- France Macarons 6 pk -->
+                        <div class="tab-product-card fade-up">
+                            <div class="tab-img-wrapper product-carousel" id="carousel-mac-6">
+                                <img src="assets/macarons/Raspberry.png" alt="Raspberry Macaron" class="active">
+                                <img src="assets/macarons/Pistacho.png" alt="Pistacho Macaron">
+                                <img src="assets/macarons/Birthday.png" alt="Birthday Macaron">
+                                <img src="assets/macarons/Vanilla.png" alt="Vanilla Macaron">
+                                <div class="carousel-dots">
+                                    <span class="dot active" data-index="0"></span>
+                                    <span class="dot" data-index="1"></span>
+                                    <span class="dot" data-index="2"></span>
+                                    <span class="dot" data-index="3"></span>
+                                </div>
+                            </div>
+                            <div class="tab-product-info">
+                                <h3>France Macarons 6 pk</h3>
+                                <p class="tab-product-desc" data-i18n="mac6_desc">6 unidades de tu elección de nuestra selección de France Macarons.</p>
+                                <p class="tab-product-price">$19.50</p>
+                                <button class="tab-add-btn btn-open-macaron-modal" data-max="6" data-product="France Macarons 6 pk" data-price="19.50" data-btn-key="btn_select"><i class="fas fa-list"></i> Elige tus opciones</button>
+                            </div>
+                        </div>
+
+                        <!-- France Macarons 12 pk -->
+                        <div class="tab-product-card fade-up">
+                            <div class="tab-img-wrapper product-carousel" id="carousel-mac-12">
+                                <img src="assets/macarons/Tiramisú.png" alt="Tiramisú Macaron" class="active">
+                                <img src="assets/macarons/Churro.png" alt="Churro Macaron">
+                                <img src="assets/macarons/Crème Brûlée.png" alt="Crème Brûlée Macaron">
+                                <img src="assets/macarons/Raspberry.png" alt="Raspberry Macaron">
+                                <div class="carousel-dots">
+                                    <span class="dot active" data-index="0"></span>
+                                    <span class="dot" data-index="1"></span>
+                                    <span class="dot" data-index="2"></span>
+                                    <span class="dot" data-index="3"></span>
+                                </div>
+                            </div>
+                            <div class="tab-product-info">
+                                <h3>France Macarons 12 pk</h3>
+                                <p class="tab-product-desc" data-i18n="mac12_desc">12 unidades de tu elección de nuestra selección de France Macarons.</p>
+                                <p class="tab-product-price">$36.95</p>
+                                <button class="tab-add-btn btn-open-macaron-modal" data-max="12" data-product="France Macarons 12 pk" data-price="36.95" data-btn-key="btn_select"><i class="fas fa-list"></i> Elige tus opciones</button>
+                            </div>
+                        </div>
+
+                        <!-- France Macarons 24 pk -->
+                        <div class="tab-product-card fade-up">
+                            <div class="tab-img-wrapper product-carousel" id="carousel-mac-24">
+                                <img src="assets/macarons/Pistacho.png" alt="Pistacho Macaron" class="active">
+                                <img src="assets/macarons/Birthday.png" alt="Birthday Macaron">
+                                <img src="assets/macarons/Tiramisú.png" alt="Tiramisú Macaron">
+                                <img src="assets/macarons/Churro.png" alt="Churro Macaron">
+                                <div class="carousel-dots">
+                                    <span class="dot active" data-index="0"></span>
+                                    <span class="dot" data-index="1"></span>
+                                    <span class="dot" data-index="2"></span>
+                                    <span class="dot" data-index="3"></span>
+                                </div>
+                            </div>
+                            <div class="tab-product-info">
+                                <h3>France Macarons 24 pk</h3>
+                                <p class="tab-product-desc" data-i18n="mac24_desc">24 unidades de tu elección de nuestra selección de France Macarons.</p>
+                                <p class="tab-product-price">$72.95</p>
+                                <button class="tab-add-btn btn-open-macaron-modal" data-max="24" data-product="France Macarons 24 pk" data-price="72.95" data-btn-key="btn_select"><i class="fas fa-list"></i> Elige tus opciones</button>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
                 <div class="tab-content" id="mini-tab">
                     <div class="tabbed-product-grid">
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/mini individual/Cannoli Cheesecake.png" alt="Cannoli Cheesecake"></div><div class="tab-product-info"><h3>Cannoli Cheesecake</h3><p class="tab-product-price">$7.50</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/mini individual/Caramel cheesecake.png" alt="Caramel Cheesecake"></div><div class="tab-product-info"><h3>Caramel Cheesecake</h3><p class="tab-product-price">$7.50</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/mini individual/Carrot Cake.png" alt="Carrot Cake"></div><div class="tab-product-info"><h3>Carrot Cake</h3><p class="tab-product-price">$7.50</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/mini individual/Chocolate Cake.png" alt="Chocolate Cake"></div><div class="tab-product-info"><h3>Chocolate Cake</h3><p class="tab-product-price">$7.50</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/mini individual/Chocolate Cheesecake.png" alt="Chocolate Cheesecake"></div><div class="tab-product-info"><h3>Chocolate Cheesecake</h3><p class="tab-product-price">$7.50</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><div class="badge">favorito</div><img src="assets/mini individual/Chocolate Dipped Cheesecake.png" alt="Chocolate Dipped Cheesecake"></div><div class="tab-product-info"><h3>Chocolate Dipped Cheesecake</h3><p class="tab-product-price">$7.50</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/mini individual/Classic Cheesecake.png" alt="Classic Cheesecake"></div><div class="tab-product-info"><h3>Classic Cheesecake</h3><p class="tab-product-price">$7.50</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/mini individual/Confetti Cake.png" alt="Confetti Cake"></div><div class="tab-product-info"><h3>Confetti Cake</h3><p class="tab-product-price">$7.50</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/mini individual/Confetti Cheesecake.png" alt="Confetti Cheesecake"></div><div class="tab-product-info"><h3>Confetti Cheesecake</h3><p class="tab-product-price">$7.50</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/mini individual/Fruity Pebbles Cheesecake.png" alt="Fruity Pebbles Cheesecake"></div><div class="tab-product-info"><h3>Fruity Pebbles Cheesecake</h3><p class="tab-product-price">$7.50</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/mini individual/Oreo Cheesecake.png" alt="Oreo Cheesecake"></div><div class="tab-product-info"><h3>Oreo Cheesecake</h3><p class="tab-product-price">$7.50</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/mini individual/Red velvet Cake.png" alt="Red Velvet Cake"></div><div class="tab-product-info"><h3>Red Velvet Cake</h3><p class="tab-product-price">$7.50</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><div class="badge">favorito</div><img src="assets/mini individual/Red Velvet Cheesecake.png" alt="Red Velvet Cheesecake"></div><div class="tab-product-info"><h3>Red Velvet Cheesecake</h3><p class="tab-product-price">$7.50</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/mini individual/Strawberry cheesecake.png" alt="Strawberry Cheesecake"></div><div class="tab-product-info"><h3>Strawberry Cheesecake</h3><p class="tab-product-price">$7.50</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/mini individual/Tiramisu.png" alt="Tiramisu"></div><div class="tab-product-info"><h3>Tiramisu</h3><p class="tab-product-price">$7.50</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/mini individual/Tres leches.png" alt="Tres Leches"></div><div class="tab-product-info"><h3>Tres Leches</h3><p class="tab-product-price">$6.75</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                    </div>
-                    <div class="load-more-container">
-                        <button class="btn-load-more" onclick="loadMore(this)">Cargar más</button>
+
+                        <!-- Mini Individual Cakes 6 pk -->
+                        <div class="tab-product-card fade-up">
+                            <div class="tab-img-wrapper product-carousel" id="carousel-mini-6">
+                                <img src="assets/mini individual/Tiramisú.png" alt="Tiramisú" class="active">
+                                <img src="assets/mini individual/Red Velvet Cheesecake.png" alt="Red Velvet Cheesecake">
+                                <img src="assets/mini individual/Tres leches.png" alt="Tres Leches">
+                                <img src="assets/mini individual/Chocolate Cheesecake.png" alt="Chocolate Cheesecake">
+                                <div class="carousel-dots">
+                                    <span class="dot active" data-index="0"></span>
+                                    <span class="dot" data-index="1"></span>
+                                    <span class="dot" data-index="2"></span>
+                                    <span class="dot" data-index="3"></span>
+                                </div>
+                            </div>
+                            <div class="tab-product-info">
+                                <h3>Mini Individual Cakes 6 pk</h3>
+                                <p class="tab-product-desc" data-i18n="mini6_desc">6 unidades de tu elección de nuestra selección de Mini Individual Cakes.</p>
+                                <p class="tab-product-price">$45.00</p>
+                                <button class="tab-add-btn btn-open-mini-modal" data-max="6" data-product="Mini Individual Cakes 6 pk" data-price="45.00" data-btn-key="btn_select"><i class="fas fa-list"></i> Elige tus opciones</button>
+                            </div>
+                        </div>
+
+                        <!-- Mini Individual Cakes 12 pk -->
+                        <div class="tab-product-card fade-up">
+                            <div class="tab-img-wrapper product-carousel" id="carousel-mini-12">
+                                <img src="assets/mini individual/Oreo Cheesecake.png" alt="Oreo Cheesecake" class="active">
+                                <img src="assets/mini individual/Caramel cheesecake.png" alt="Caramel Cheesecake">
+                                <img src="assets/mini individual/Confetti Cake.png" alt="Confetti Cake">
+                                <img src="assets/mini individual/Carrot Cake.png" alt="Carrot Cake">
+                                <div class="carousel-dots">
+                                    <span class="dot active" data-index="0"></span>
+                                    <span class="dot" data-index="1"></span>
+                                    <span class="dot" data-index="2"></span>
+                                    <span class="dot" data-index="3"></span>
+                                </div>
+                            </div>
+                            <div class="tab-product-info">
+                                <h3>Mini Individual Cakes 12 pk</h3>
+                                <p class="tab-product-desc" data-i18n="mini12_desc">12 unidades de tu elección de nuestra selección de Mini Individual Cakes.</p>
+                                <p class="tab-product-price">$90.00</p>
+                                <button class="tab-add-btn btn-open-mini-modal" data-max="12" data-product="Mini Individual Cakes 12 pk" data-price="90.00" data-btn-key="btn_select"><i class="fas fa-list"></i> Elige tus opciones</button>
+                            </div>
+                        </div>
+
+                        <!-- Mini Individual Cakes 24 pk -->
+                        <div class="tab-product-card fade-up">
+                            <div class="tab-img-wrapper product-carousel" id="carousel-mini-24">
+                                <img src="assets/mini individual/Fruity Pebbles Cheesecake.png" alt="Fruity Pebbles Cheesecake" class="active">
+                                <img src="assets/mini individual/Chocolate Cake.png" alt="Chocolate Cake">
+                                <img src="assets/mini individual/Cannoli Cheesecake.png" alt="Cannoli Cheesecake">
+                                <img src="assets/mini individual/Strawberry cheesecake.png" alt="Strawberry Cheesecake">
+                                <div class="carousel-dots">
+                                    <span class="dot active" data-index="0"></span>
+                                    <span class="dot" data-index="1"></span>
+                                    <span class="dot" data-index="2"></span>
+                                    <span class="dot" data-index="3"></span>
+                                </div>
+                            </div>
+                            <div class="tab-product-info">
+                                <h3>Mini Individual Cakes 24 pk</h3>
+                                <p class="tab-product-desc" data-i18n="mini24_desc">24 unidades de tu elección de nuestra selección de Mini Individual Cakes.</p>
+                                <p class="tab-product-price">$180.00</p>
+                                <button class="tab-add-btn btn-open-mini-modal" data-max="24" data-product="Mini Individual Cakes 24 pk" data-price="180.00" data-btn-key="btn_select"><i class="fas fa-list"></i> Elige tus opciones</button>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
                 <div class="tab-content" id="pies-tab">
                     <div class="tabbed-product-grid">
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/pies/Apple Caramel crumb Pie Slice.png" alt="Apple Caramel Crumb Pie Slice"></div><div class="tab-product-info"><h3>Apple Caramel Crumb Pie</h3><p class="tab-product-price">$5.95</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/pies/Pecam Pie Slice.png" alt="Pecan Pie Slice"></div><div class="tab-product-info"><h3>Pecan Pie</h3><p class="tab-product-price">$5.95</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/pies/Peach Crumb Pie Slice.png" alt="Peach Crumb Pie Slice"></div><div class="tab-product-info"><h3>Peach Crumb Pie</h3><p class="tab-product-price">$5.95</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                    </div>
-                </div>
 
-                <div class="tab-content" id="drinks-tab">
-                    <div class="tabbed-product-grid">
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/cold drinks/Apple Juice 10oz.png" alt="Apple Juice 10oz"></div><div class="tab-product-info"><h3>Apple Juice 10oz</h3><p class="tab-product-price">$3.75</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/cold drinks/Coca-Cola 8oz.png" alt="Coca-Cola 8oz"></div><div class="tab-product-info"><h3>Coca-Cola 8oz</h3><p class="tab-product-price">$3.50</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/cold drinks/Double Draft Latte 11oz.png" alt="Double Draft Latte 11oz"></div><div class="tab-product-info"><h3>Double Draft Latte 11oz</h3><p class="tab-product-price">$4.50</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/cold drinks/Draft Latte Mocha 11oz.png" alt="Draft Latte Mocha 11oz"></div><div class="tab-product-info"><h3>Draft Latte Mocha 11oz</h3><p class="tab-product-price">$4.50</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/cold drinks/Draft Latte Triple 11oz.png" alt="Draft Latte Triple 11oz"></div><div class="tab-product-info"><h3>Draft Latte Triple 11oz</h3><p class="tab-product-price">$4.50</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/cold drinks/Oatmilk Everyday Draft Latte 11oz.png" alt="Oatmilk Everyday Draft Latte"></div><div class="tab-product-info"><h3>Oatmilk Everyday Draft Latte 11oz</h3><p class="tab-product-price">$4.50</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/cold drinks/Pellegrino water bottle 8oz.png" alt="Pellegrino Water Bottle 8oz"></div><div class="tab-product-info"><h3>Pellegrino Water Bottle 8oz</h3><p class="tab-product-price">$3.25</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/cold drinks/Sanpellegrino 11.15oz.png" alt="Sanpellegrino 11.15oz"></div><div class="tab-product-info"><h3>Sanpellegrino 11.15oz</h3><p class="tab-product-price">$4.50</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/cold drinks/Strawberry Mocha 11oz.png" alt="Strawberry Mocha 11oz"></div><div class="tab-product-info"><h3>Strawberry Mocha 11oz</h3><p class="tab-product-price">$4.50</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/cold drinks/Stwarts Root Beer 12oz.png" alt="Stwarts Root Beer 12oz"></div><div class="tab-product-info"><h3>Stewart's Root Beer 12oz</h3><p class="tab-product-price">$3.50</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/cold drinks/Vanilla Draft Latte 11oz.png" alt="Vanilla Draft Latte 11oz"></div><div class="tab-product-info"><h3>Vanilla Draft Latte 11oz</h3><p class="tab-product-price">$4.50</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/cold drinks/Water Bottle 12oz.png" alt="Water Bottle 12oz"></div><div class="tab-product-info"><h3>Water Bottle 12oz</h3><p class="tab-product-price">$2.18</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                    </div>
-                    <div class="load-more-container">
-                        <button class="btn-load-more" onclick="loadMore(this)">Cargar más</button>
+                        <div class="tab-product-card fade-up">
+                            <div class="tab-img-wrapper">
+                                <img src="assets/pies/9 ¨ Apple Caramel crumb.png" alt="Apple Caramel Crumb Pie">
+                            </div>
+                            <div class="tab-product-info">
+                                <h3>9" Apple Caramel Crumb Pie</h3>
+                                <p class="tab-product-desc" data-i18n="pie1_desc">Pie completo de 9". Manzana caramelizada con cubierta crujiente.</p>
+                                <p class="tab-product-price">$45.95</p>
+                                <button class="tab-add-btn" data-btn-key="btn_add"><i class="fas fa-plus"></i> Agregar</button>
+                            </div>
+                        </div>
+
+                        <div class="tab-product-card fade-up">
+                            <div class="tab-img-wrapper">
+                                <img src="assets/pies/9 ¨ Pecan Pie.png" alt="Pecan Pie">
+                            </div>
+                            <div class="tab-product-info">
+                                <h3>9" Pecan Pie</h3>
+                                <p class="tab-product-desc" data-i18n="pie2_desc">Pie completo de 9". Relleno clásico de nueces pecanas.</p>
+                                <p class="tab-product-price">$45.95</p>
+                                <button class="tab-add-btn" data-btn-key="btn_add"><i class="fas fa-plus"></i> Agregar</button>
+                            </div>
+                        </div>
+
+                        <div class="tab-product-card fade-up">
+                            <div class="tab-img-wrapper">
+                                <img src="assets/pies/9 ¨ Peach Crumb Pie.png" alt="Peach Crumb Pie">
+                            </div>
+                            <div class="tab-product-info">
+                                <h3>9" Peach Crumb Pie</h3>
+                                <p class="tab-product-desc" data-i18n="pie3_desc">Pie completo de 9". Durazno fresco con cubierta crujiente.</p>
+                                <p class="tab-product-price">$45.95</p>
+                                <button class="tab-add-btn" data-btn-key="btn_add"><i class="fas fa-plus"></i> Agregar</button>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
                 <div class="tab-content" id="prepacks-tab">
                     <div class="tabbed-product-grid">
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/prepacks/6 pk Macarons.png" alt="6 Pack Macarons"></div><div class="tab-product-info"><h3>6 pk Macarons</h3><p class="tab-product-price">$19.50</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/prepacks/Mini Cupcake Pack 12pc.png" alt="Mini Cupcake Pack 12pc"></div><div class="tab-product-info"><h3>Mini Cupcake Pack 12pc</h3><p class="tab-product-price">$21.95</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
+
                         <div class="tab-product-card fade-up">
-                            <div class="tab-img-wrapper"><img src="assets/prepacks/6 pk Cupcakes.png" alt="Cupcakes Pack"></div>
+                            <div class="tab-img-wrapper">
+                                <img src="assets/prepacks/Macarons 6pk.png" alt="Macarons 6pk">
+                            </div>
                             <div class="tab-product-info">
-                                <h3>Cupcakes Pack</h3>
-                                <select class="variant-select" onchange="updatePrice(this, {'6 Unidades': '$27.95', '12 Unidades': '$55.95'})">
-                                    <option>6 Unidades</option>
-                                    <option>12 Unidades</option>
-                                </select>
-                                <p class="tab-product-price">$27.95</p>
-                                <button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button>
+                                <h3>Macarons 6 pk</h3>
+                                <p class="tab-product-desc" data-i18n="prepack1_desc">6 unidades predeterminadas: Vanilla, Raspberry, Churro, Crème Brûlée, Tiramisú, Pistacho.</p>
+                                <p class="tab-product-price">$19.50</p>
+                                <button class="tab-add-btn" data-btn-key="btn_add"><i class="fas fa-plus"></i> Agregar</button>
                             </div>
                         </div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/prepacks/12 pk Macarons.png" alt="12 Pack Macarons"></div><div class="tab-product-info"><h3>12 pk Macarons</h3><p class="tab-product-price">$36.95</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><div class="badge">favorito</div><img src="assets/prepacks/6 pk Cookies.png" alt="6 Pack Cookies"></div><div class="tab-product-info"><h3>6 pk Cookies</h3><p class="tab-product-price">$28.50</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
-                        <div class="tab-product-card fade-up"><div class="tab-img-wrapper"><img src="assets/prepacks/12 pk Cookies.png" alt="12 Pack Cookies"></div><div class="tab-product-info"><h3>12 pk Cookies</h3><p class="tab-product-price">$36.95</p><button class="tab-add-btn"><i class="fas fa-plus"></i> Agregar</button></div></div>
+
+                        <div class="tab-product-card fade-up">
+                            <div class="tab-img-wrapper">
+                                <img src="assets/prepacks/Cupcakes Specialty 12 pk.png" alt="Mini Cupcake Pack 12pc">
+                            </div>
+                            <div class="tab-product-info">
+                                <h3>Mini Cupcake Pack 12pc</h3>
+                                <p class="tab-product-desc" data-i18n="prepack2_desc">12 unidades predeterminadas con los sabores más vendidos.</p>
+                                <p class="tab-product-price">$19.50</p>
+                                <button class="tab-add-btn" data-btn-key="btn_add"><i class="fas fa-plus"></i> Agregar</button>
+                            </div>
+                        </div>
+
+                        <div class="tab-product-card fade-up">
+                            <div class="tab-img-wrapper">
+                                <img src="assets/prepacks/Cookies Specialty 6 pk.png" alt="Cookies Specialty 6 pk">
+                            </div>
+                            <div class="tab-product-info">
+                                <h3>Cookies Specialty 6 pk</h3>
+                                <p class="tab-product-desc" data-i18n="prepack3_desc">6 unidades predeterminadas: Chocolate Chip, Salted Caramel, Brookie, Red Velvet, Snickerdoodle, Sugar Cookie.</p>
+                                <p class="tab-product-price">$28.50</p>
+                                <button class="tab-add-btn" data-btn-key="btn_add"><i class="fas fa-plus"></i> Agregar</button>
+                            </div>
+                        </div>
+
+                        <div class="tab-product-card fade-up">
+                            <div class="tab-img-wrapper">
+                                <img src="assets/prepacks/Macarons 12pk.png" alt="Macarons 12pk">
+                            </div>
+                            <div class="tab-product-info">
+                                <h3>Macarons 12 pk</h3>
+                                <p class="tab-product-desc" data-i18n="prepack4_desc">12 unidades predeterminadas, 2 de cada sabor: Vanilla, Raspberry, Churro, Crème Brûlée, Tiramisú, Pistacho.</p>
+                                <p class="tab-product-price">$19.50</p>
+                                <button class="tab-add-btn" data-btn-key="btn_add"><i class="fas fa-plus"></i> Agregar</button>
+                            </div>
+                        </div>
+
+                        <div class="tab-product-card fade-up">
+                            <div class="tab-img-wrapper">
+                                <img src="assets/prepacks/Cookies Specialty 12 pk.png" alt="Cookies Specialty 12 pk">
+                            </div>
+                            <div class="tab-product-info">
+                                <h3>Cookies Specialty 12 pk</h3>
+                                <p class="tab-product-desc" data-i18n="prepack5_desc">12 unidades, 2 de cada una productos determinados: Chocolate Chip, Salted Caramel, Brookie, Red Velvet, Snickerdoodle, Sugar Cookie.</p>
+                                <p class="tab-product-price">$36.95</p>
+                                <button class="tab-add-btn" data-btn-key="btn_add"><i class="fas fa-plus"></i> Agregar</button>
+                            </div>
+                        </div>
+
+                        <div class="tab-product-card fade-up">
+                            <div class="tab-img-wrapper">
+                                <img src="assets/prepacks/Cupcakes Specialty 12 pk.png" alt="Cupcakes Specialty 12 pk">
+                            </div>
+                            <div class="tab-product-info">
+                                <h3>Cupcakes Specialty 12 pk</h3>
+                                <p class="tab-product-desc" data-i18n="prepack6_desc">12 unidades predeterminadas: 4 Vanilla, 4 Chocolate, 4 Red Velvet.</p>
+                                <p class="tab-product-price">$55.95</p>
+                                <button class="tab-add-btn" data-btn-key="btn_add"><i class="fas fa-plus"></i> Agregar</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trending Products Section (Packs Especiales) -->
+        <section id="packs-section" class="trending-section section-spacing">
+            <div class="container">
+                <div class="trending-header">
+                    <h2 class="trending-title" data-i18n="trending_title">nuestros packs especiales</h2>
+                    <div class="trending-nav">
+                        <button class="trend-nav-btn" id="trend-prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+                        <button class="trend-nav-btn" id="trend-next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+
+                <div class="trending-slider-wrapper">
+                    <div class="trending-track" id="trending-track">
+
+                        <div class="trending-item">
+                            <div class="trend-img-box">
+                                <img src="assets/prepacks/Macarons 6pk.png" alt="Macarons 6pk">
+                            </div>
+                            <div class="trend-content">
+                                <span class="trend-category">Cookies by Jackie</span>
+                                <h3 class="trend-name">Macarons 6 pk</h3>
+                                <p class="trend-price">$19.50</p>
+                                <div class="trend-divider"></div>
+                                <p class="trend-desc" data-i18n="prepack1_desc">6 unidades predeterminadas: Vanilla, Raspberry, Churro, Crème Brûlée, Tiramisú, Pistacho.</p>
+                                <button class="btn btn-primary add-to-cart-btn">añadir al carrito</button>
+                            </div>
+                        </div>
+
+                        <div class="trending-item">
+                            <div class="trend-img-box">
+                                <img src="assets/prepacks/Cupcakes Specialty 12 pk.png" alt="Mini Cupcake Pack 12pc">
+                            </div>
+                            <div class="trend-content">
+                                <span class="trend-category">Cookies by Jackie</span>
+                                <h3 class="trend-name">Mini Cupcake Pack 12pc</h3>
+                                <p class="trend-price">$19.50</p>
+                                <div class="trend-divider"></div>
+                                <p class="trend-desc" data-i18n="prepack2_desc">12 unidades predeterminadas con los sabores más vendidos.</p>
+                                <button class="btn btn-primary add-to-cart-btn">añadir al carrito</button>
+                            </div>
+                        </div>
+
+                        <div class="trending-item">
+                            <div class="trend-img-box">
+                                <img src="assets/prepacks/Cookies Specialty 6 pk.png" alt="Cookies Specialty 6 pk">
+                            </div>
+                            <div class="trend-content">
+                                <span class="trend-category">Cookies by Jackie</span>
+                                <h3 class="trend-name">Cookies Specialty 6 pk</h3>
+                                <p class="trend-price">$28.50</p>
+                                <div class="trend-divider"></div>
+                                <p class="trend-desc" data-i18n="prepack3_desc">6 unidades predeterminadas: Chocolate Chip, Salted Caramel, Brookie, Red Velvet, Snickerdoodle, Sugar Cookie.</p>
+                                <button class="btn btn-primary add-to-cart-btn">añadir al carrito</button>
+                            </div>
+                        </div>
+
+                        <div class="trending-item">
+                            <div class="trend-img-box">
+                                <img src="assets/prepacks/Macarons 12pk.png" alt="Macarons 12pk">
+                            </div>
+                            <div class="trend-content">
+                                <span class="trend-category">Cookies by Jackie</span>
+                                <h3 class="trend-name">Macarons 12 pk</h3>
+                                <p class="trend-price">$19.50</p>
+                                <div class="trend-divider"></div>
+                                <p class="trend-desc" data-i18n="prepack4_desc">12 unidades predeterminadas, 2 de cada sabor: Vanilla, Raspberry, Churro, Crème Brûlée, Tiramisú, Pistacho.</p>
+                                <button class="btn btn-primary add-to-cart-btn">añadir al carrito</button>
+                            </div>
+                        </div>
+
+                        <div class="trending-item">
+                            <div class="trend-img-box">
+                                <img src="assets/prepacks/Cookies Specialty 12 pk.png" alt="Cookies Specialty 12 pk">
+                            </div>
+                            <div class="trend-content">
+                                <span class="trend-category">Cookies by Jackie</span>
+                                <h3 class="trend-name">Cookies Specialty 12 pk</h3>
+                                <p class="trend-price">$36.95</p>
+                                <div class="trend-divider"></div>
+                                <p class="trend-desc" data-i18n="prepack5_desc">12 unidades, 2 de cada una productos determinados: Chocolate Chip, Salted Caramel, Brookie, Red Velvet, Snickerdoodle, Sugar Cookie.</p>
+                                <button class="btn btn-primary add-to-cart-btn">añadir al carrito</button>
+                            </div>
+                        </div>
+
+                        <div class="trending-item">
+                            <div class="trend-img-box">
+                                <img src="assets/prepacks/Cupcakes Specialty 12 pk.png" alt="Cupcakes Specialty 12 pk">
+                            </div>
+                            <div class="trend-content">
+                                <span class="trend-category">Cookies by Jackie</span>
+                                <h3 class="trend-name">Cupcakes Specialty 12 pk</h3>
+                                <p class="trend-price">$55.95</p>
+                                <div class="trend-divider"></div>
+                                <p class="trend-desc" data-i18n="prepack6_desc">12 unidades predeterminadas: 4 Vanilla, 4 Chocolate, 4 Red Velvet.</p>
+                                <button class="btn btn-primary add-to-cart-btn">añadir al carrito</button>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -491,197 +1046,53 @@
                         <p class="story-text" data-i18n="story_p3">Ya sea un antojo de media tarde, un regalo detallista o una celebración especial, Cookies by Jackie está hecha para aportar algo dulce y memorable a cada historia de Nueva York.</p>
                     </div>
                     <p class="story-text mobile-only" data-i18n="story_mobile">Desde 2024, Cookies by Jackie es el destino dulce imprescindible en Nueva York. Ofrecemos una experiencia única que combina tradición casera con la más alta calidad, perfecta para regalar o darte un momento de pausa en medio del ritmo de la ciudad.</p>
-                    <p class="story-text" style="font-weight: bold; margin-top: 1.5rem;" data-i18n="story_cta">📍 Visítanos en el Underground Market de Columbus Circle y descubre por qué todo el mundo habla de nosotros.</p>
+                    <p class="story-text" style="font-weight: bold; margin-top: 1.5rem;" data-i18n="story_cta">📍  Visítanos en el Underground Market de Columbus Circle y descubre por qué todo el mundo habla de nosotros.</p>
                     <p class="story-text" style="font-family: var(--font-logo); font-size: 1.4rem; color: var(--color-primary); font-style: italic; margin-top: 1rem;" data-i18n="story_slogan">Cookies by Jackie: el sabor que Nueva York merece.</p>
                 </div>
             </div>
         </section>
 
         <!-- Visit Us (Location) -->
-        <section class="visit-section" style="background: var(--color-white); padding: var(--spacing-xl) 0;">
-            <div class="container story-container" style="grid-template-columns: 1fr 1fr;">
-                <div class="story-content" style="padding-left: 0;">
-                    <h2 class="story-title" data-i18n="visit_title">VISITA LA PASTELERÍA.</h2>
-                    <p class="story-text" data-i18n="visit_desc">¡Ven a saludar! Horneamos fresco todo el día en nuestra tienda principal. Toma un café, observa a nuestros pasteleros trabajar y huele la magia.</p>
-                    <div style="margin-top: 2rem; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 2rem; display: flex; gap: 2rem; flex-wrap: wrap;">
-                        <div style="min-width: 140px; flex: 1;">
-                            <h4 style="margin-bottom: 0.5rem;" data-i18n="visit_loc_title">UBICACIÓN</h4>
-                            <p style="opacity: 0.8; line-height: 1.4;" data-i18n="visit_loc_desc">1000 S 8th Ave<br>New York, NY 10019</p>
-                        </div>
-                        <div style="min-width: 140px; flex: 1;">
-                            <h4 style="margin-bottom: 0.5rem;" data-i18n="visit_hours_title">HORARIOS</h4>
-                            <p style="opacity: 0.8; line-height: 1.4;" data-i18n="visit_hours_desc">Lun-Sáb: 8am - 6pm<br>Dom: 9am - 4pm</p>
-                        </div>
-                    </div>
-                    <a href="#faq" class="btn btn-primary" style="margin-top: 2rem;" data-i18n="visit_btn">Obtener indicaciones</a>
-                </div>
-                <div class="story-image" style="aspect-ratio: 16/9;">
-                    <img src="assets/hero.png" alt="Store Front">
-                </div>
-            </div>
-        </section>
-
-        <!-- Trending Products Section (Packs Especiales) -->
-        <section id="packs-section" class="trending-section section-spacing">
-            <div class="container">
-                <div class="trending-header">
-                    <h2 class="trending-title" data-i18n="trending_title">nuestros packs especiales</h2>
-                    <div class="trending-nav">
-                        <button class="trend-nav-btn" id="trend-prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
-                        <button class="trend-nav-btn" id="trend-next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
-                    </div>
-                </div>
-                
-                <div class="trending-slider-wrapper">
-                    <div class="trending-track" id="trending-track">
-                        <!-- Item 1: 6 pk Cookies -->
-                        <div class="trending-item">
-                            <div class="trend-img-box">
-                                <img src="assets/prepacks/6 pk Cookies.png" alt="Box de 6 Galletas">
-                            </div>
-                            <div class="trend-content">
-                                <span class="trend-category">Cookies by Jackie</span>
-                                <h3 class="trend-name" data-i18n="pack1_name">signature cookie box</h3>
-                                <p class="trend-price">$24.00</p>
-                                <div class="trend-divider"></div>
-                                <p class="trend-desc" data-i18n="pack1_desc">Nuestras 6 galletas más vendidas en una caja de presentación de lujo.</p>
-                                <button class="btn btn-primary add-to-cart-btn">añadir al carrito</button>
-                            </div>
-                        </div>
-
-                        <!-- Item 2: 12 pk Macarons -->
-                        <div class="trending-item">
-                            <div class="trend-img-box">
-                                <img src="assets/prepacks/12 pk Macarons.png" alt="Colección de 12 Macarons">
-                            </div>
-                            <div class="trend-content">
-                                <span class="trend-category">Cookies by Jackie</span>
-                                <h3 class="trend-name" data-i18n="pack2_name">macaron prestige box</h3>
-                                <p class="trend-price">$32.00</p>
-                                <div class="trend-divider"></div>
-                                <p class="trend-desc" data-i18n="pack2_desc">Una selección artesanal de 12 macarons franceses con rellenos cremosos.</p>
-                                <button class="btn btn-primary add-to-cart-btn">añadir al carrito</button>
-                            </div>
-                        </div>
-
-                        <!-- Item 3: 6 pk Cupcakes -->
-                        <div class="trending-item">
-                            <div class="trend-img-box">
-                                <img src="assets/prepacks/6 pk Cupcakes.png" alt="Pack de 6 Cupcakes">
-                            </div>
-                            <div class="trend-content">
-                                <span class="trend-category">Cookies by Jackie</span>
-                                <h3 class="trend-name" data-i18n="pack3_name">premium cupcake pack</h3>
-                                <p class="trend-price">$28.00</p>
-                                <div class="trend-divider"></div>
-                                <p class="trend-desc" data-i18n="pack3_desc">Seis cupcakes gourmet con nuestro famoso frosting de mantequilla.</p>
-                                <button class="btn btn-primary add-to-cart-btn">añadir al carrito</button>
-                            </div>
-                        </div>
-
-                        <!-- Item 4: 12 pk Cookies -->
-                        <div class="trending-item">
-                            <div class="trend-img-box">
-                                <img src="assets/prepacks/12 pk Cookies.png" alt="Box de 12 Galletas">
-                            </div>
-                            <div class="trend-content">
-                                <span class="trend-category">Cookies by Jackie</span>
-                                <h3 class="trend-name" data-i18n="pack4_name">family share box</h3>
-                                <p class="trend-price">$45.00</p>
-                                <div class="trend-divider"></div>
-                                <p class="trend-desc" data-i18n="pack4_desc">12 unidades de pura felicidad para compartir en familia o eventos.</p>
-                                <button class="btn btn-primary add-to-cart-btn">añadir al carrito</button>
-                            </div>
-                        </div>
-
-                        <!-- Item 5: 6 pk Macarons -->
-                        <div class="trending-item">
-                            <div class="trend-img-box">
-                                <img src="assets/prepacks/6 pk Macarons.png" alt="Pack de 6 Macarons">
-                            </div>
-                            <div class="trend-content">
-                                <span class="trend-category">Cookies by Jackie</span>
-                                <h3 class="trend-name" data-i18n="pack5_name">petite macaron box</h3>
-                                <p class="trend-price">$18.00</p>
-                                <div class="trend-divider"></div>
-                                <p class="trend-desc" data-i18n="pack5_desc">Seis de nuestros mejores macarons. Un detalle elegante y delicioso.</p>
-                                <button class="btn btn-primary add-to-cart-btn">añadir al carrito</button>
-                            </div>
-                        </div>
-
-                        <!-- Item 6: Mini Cupcake Pack -->
-                        <div class="trending-item">
-                            <div class="trend-img-box">
-                                <img src="assets/prepacks/Mini Cupcake Pack 12pc.png" alt="Mini Cupcake Pack">
-                            </div>
-                            <div class="trend-content">
-                                <span class="trend-category">Cookies by Jackie</span>
-                                <h3 class="trend-name" data-i18n="pack6_name">mini party pack</h3>
-                                <p class="trend-price">$26.00</p>
-                                <div class="trend-divider"></div>
-                                <p class="trend-desc" data-i18n="pack6_desc">12 mini cupcakes irresistibles. Ideales para probar todos nuestros sabores.</p>
-                                <button class="btn btn-primary add-to-cart-btn">añadir al carrito</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Instagram Feed -->
-        <section class="instagram-section section-spacing">
-            <div class="container">
-                <div class="section-header text-center" style="margin-bottom: 2rem;">
-                    <p style="font-weight: 700; letter-spacing: 0.1em; color: var(--color-primary);" data-i18n="insta_handle">@COOKIESBYJACKIE</p>
-                    <h2 class="section-title" data-i18n="insta_title">Sigue la historia</h2>
-                </div>
-                <div class="insta-grid">
-                    <div class="insta-post fade-up">
-                        <img src="assets/imagen (1).png" alt="Instagram Post">
-                        <div class="insta-overlay"><i class="fas fa-heart"></i></div>
-                    </div>
-                    <div class="insta-post fade-up" style="transition-delay: 0.1s;">
-                        <img src="assets/imagen (2).png" alt="Instagram Post">
-                        <div class="insta-overlay"><i class="fas fa-heart"></i></div>
-                    </div>
-                    <div class="insta-post fade-up" style="transition-delay: 0.2s;">
-                        <img src="assets/imagen (3).png" alt="Instagram Post">
-                        <div class="insta-overlay"><i class="fas fa-heart"></i></div>
-                    </div>
-                    <div class="insta-post fade-up" style="transition-delay: 0.3s;">
-                        <img src="assets/imagen (4).png" alt="Instagram Post">
-                        <div class="insta-overlay"><i class="fas fa-heart"></i></div>
-                    </div>
-                </div>
-                <div class="text-center" style="margin-top: 2rem;">
-                    <button class="btn btn-outline" style="cursor: default;" data-i18n="insta_btn">Síguenos en Instagram</button>
-                </div>
-            </div>
-        </section>
-        <!-- FAQ Section -->
+        <!-- Visita & FAQ -->
         <section id="faq" class="faq-section section-spacing">
             <div class="container faq-grid">
+
+                <!-- Columna izquierda -->
                 <div class="faq-left fade-up">
-                    <span class="faq-badge" data-i18n="faq_badge"><i class="fas fa-question-circle"></i> Ayuda & Soporte</span>
-                    <h2 class="faq-main-title" data-i18n="faq_title">Preguntas<br><span class="text-accent">frecuentes</span></h2>
-                    <p class="faq-description" data-i18n="faq_desc">Resolvemos tus dudas sobre nuestros productos, pedidos especiales y servicios para que tu experiencia sea perfecta.</p>
-                    
-                    <div class="faq-contact-info" style="margin-top: 3rem;">
-                        <p style="font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; color: var(--color-primary); margin-bottom: 1.5rem;" data-i18n="faq_contact_label">Contacto directo</p>
-                        <div style="display: flex; flex-direction: column; gap: 1rem;">
-                            <a href="tel:+12123896151" style="display: flex; align-items: center; gap: 1rem; color: var(--color-text); text-decoration: none; font-weight: 600;">
-                                <i class="fas fa-phone" style="color: var(--color-primary); width: 20px;"></i>
-                                +1 212-389-6151
-                            </a>
-                            <a href="mailto:info@cookiesbyjackie.com" style="display: flex; align-items: center; gap: 1rem; color: var(--color-text); text-decoration: none; font-weight: 600;">
-                                <i class="fas fa-envelope" style="color: var(--color-primary); width: 20px;"></i>
-                                info@cookiesbyjackie.com
-                            </a>
+                    <h2 class="faq-main-title" data-i18n="visit_find_us">encuéntranos.</h2>
+
+                    <div class="visit-info-cards">
+                        <div class="visit-info-card">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <span class="visit-info-label" data-i18n="visit_loc_title">Ubicación</span>
+                                <p>Underground Market, Columbus Circle<br>New York, NY 10019</p>
+                            </div>
+                        </div>
+                        <div class="visit-info-card">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <span class="visit-info-label" data-i18n="visit_hours_title">Horarios</span>
+                                <p data-i18n="visit_hours_desc">Lun–Dom: 7:00 AM – 10:00 PM</p>
+                            </div>
+                        </div>
+                        <div class="visit-info-card">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <span class="visit-info-label" data-i18n="visit_contact_title">Contacto</span>
+                                <a href="tel:+12123896151">+1 212-389-6151</a>
+                                <a href="mailto:info@cookiesbyjackie.com">info@cookiesbyjackie.com</a>
+                            </div>
                         </div>
                     </div>
+
+                    <a href="https://maps.google.com/?q=Columbus+Circle+New+York" target="_blank" class="btn btn-primary" data-i18n="visit_btn">obtener indicaciones</a>
                 </div>
-                
+
+                <!-- Columna derecha -->
                 <div class="faq-right">
+                    <h3 class="faq-sub-heading" data-i18n="faq_sub_title">preguntas frecuentes</h3>
+
                     <div class="faq-item fade-up">
                         <div class="faq-question">
                             <h3 data-i18n="faq_q1">¿Realizan envíos a domicilio?</h3>
@@ -698,7 +1109,7 @@
                             <span class="faq-circle-icon"><i class="fas fa-chevron-down"></i></span>
                         </div>
                         <div class="faq-answer">
-                            <p data-i18n="faq_a2">Nos encontramos en el <strong>Underground Market de Columbus Circle</strong>, en el corazón de Nueva York. Un lugar perfecto para una pausa dulce.</p>
+                            <p data-i18n="faq_a2">Nos encontramos en el <strong>Underground Market de Columbus Circle</strong>, en el corazón de Nueva York.</p>
                         </div>
                     </div>
 
@@ -708,7 +1119,7 @@
                             <span class="faq-circle-icon"><i class="fas fa-chevron-down"></i></span>
                         </div>
                         <div class="faq-answer">
-                            <p data-i18n="faq_a3">Estamos abiertos de Lunes a Sábado de 8:00 AM a 6:00 PM, y los Domingos de 9:00 AM a 4:00 PM.</p>
+                            <p data-i18n="faq_a3">Atendemos todos los días de la semana, de Lunes a Domingo, de 7:00 AM a 10:00 PM.</p>
                         </div>
                     </div>
 
@@ -718,7 +1129,7 @@
                             <span class="faq-circle-icon"><i class="fas fa-chevron-down"></i></span>
                         </div>
                         <div class="faq-answer">
-                            <p data-i18n="faq_a4">¡Sí! Preparamos pedidos especiales para eventos corporativos, fiestas y celebraciones. Contáctanos por WhatsApp para coordinar los detalles.</p>
+                            <p data-i18n="faq_a4">¡Sí! Pedidos especiales para eventos, fiestas y celebraciones. Contáctanos por WhatsApp para coordinar los detalles.</p>
                         </div>
                     </div>
 
@@ -728,10 +1139,11 @@
                             <span class="faq-circle-icon"><i class="fas fa-chevron-down"></i></span>
                         </div>
                         <div class="faq-answer">
-                            <p data-i18n="faq_a5">Absolutamente. Horneamos fresco cada mañana utilizando mantequilla europea e ingredientes de la más alta calidad para garantizar el mejor sabor.</p>
+                            <p data-i18n="faq_a5">Horneamos fresco cada mañana con mantequilla europea e ingredientes de la más alta calidad.</p>
                         </div>
                     </div>
                 </div>
+
             </div>
         </section>
     </main>
@@ -811,9 +1223,11 @@
                 <div class="footer-social-col">
                     <h4 data-i18n="footer_social_title">Conecta con nosotros</h4>
                     <div class="social-links" style="margin-bottom: 2rem;">
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/cookiesbyjackienyc/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@cookies.by.jackie" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61579656540554" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/cookies_ja41229" target="_blank" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://www.youtube.com/@CookiesbyJackie" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                     </div>
                     
                     <h4 style="margin-bottom: 1rem;" data-i18n="footer_payments_title">Métodos de pago</h4>
@@ -857,7 +1271,184 @@
         </div>
     </div>
 
-    <script src="script.js?v=4.1"></script>
+    <!-- Checkout Modal -->
+    <div class="modal-overlay" id="checkout-modal-overlay">
+        <div class="cookie-modal" style="height: 90vh;">
+            <div class="cookie-modal-header">
+                <h2>Resumen de Compra</h2>
+                <button class="cookie-modal-close" id="checkout-modal-close">&times;</button>
+                <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 5px;">Completa tus datos para proceder al pago</p>
+            </div>
+            
+            <div class="cookie-modal-body" id="checkout-modal-body" style="padding-top: 0;">
+                <div class="checkout-section">
+                    <h3 style="font-size: 1rem; margin: 1.5rem 0 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem;">Tu Pedido</h3>
+                    <div id="checkout-order-summary" style="font-size: 0.9rem;">
+                        <!-- Se llena con JS desde el carrito -->
+                    </div>
+                </div>
+
+                <div class="checkout-section">
+                    <h3 style="font-size: 1rem; margin: 1.5rem 0 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem;">Tus Datos</h3>
+                    <div class="form-group" style="margin-bottom: 1rem;">
+                        <label style="display: block; font-size: 0.85rem; margin-bottom: 5px; font-weight: 500;">Nombre Completo</label>
+                        <input type="text" id="checkout-name" class="checkout-input" placeholder="Ej. Ana Pérez" required>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 1rem;">
+                        <label style="display: block; font-size: 0.85rem; margin-bottom: 5px; font-weight: 500;">Correo Electrónico</label>
+                        <input type="email" id="checkout-email" class="checkout-input" placeholder="tu@email.com" required>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 1rem;">
+                        <label style="display: block; font-size: 0.85rem; margin-bottom: 5px; font-weight: 500;">Teléfono</label>
+                        <input type="tel" id="checkout-phone" class="checkout-input" placeholder="Ej. +1 234 567 8900" required>
+                    </div>
+                </div>
+
+                <div class="checkout-section">
+                    <h3 style="font-size: 1rem; margin: 1.5rem 0 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem;">Recogida del Pedido</h3>
+                    <div style="display: flex; gap: 10px; margin-bottom: 1rem;">
+                        <div class="form-group" style="flex: 1;">
+                            <label style="display: block; font-size: 0.85rem; margin-bottom: 5px; font-weight: 500;">Fecha</label>
+                            <input type="date" id="checkout-date" class="checkout-input" required>
+                        </div>
+                        <div class="form-group" style="flex: 1;">
+                            <label style="display: block; font-size: 0.85rem; margin-bottom: 5px; font-weight: 500;">Hora</label>
+                            <input type="time" id="checkout-time" class="checkout-input" required>
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 1rem;">
+                        <label style="display: block; font-size: 0.85rem; margin-bottom: 5px; font-weight: 500;">Instrucciones Especiales (Opcional)</label>
+                        <textarea id="checkout-notes" class="checkout-input" rows="2" placeholder="Alguna nota para nosotros..."></textarea>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cookie-modal-footer" style="display: flex; flex-direction: column; gap: 10px;">
+                <div style="display: flex; justify-content: space-between; font-weight: 600; font-size: 1.1rem; margin-bottom: 10px;">
+                    <span>Total a Pagar:</span>
+                    <span id="checkout-final-total">$0.00</span>
+                </div>
+                <button class="btn btn-primary cookie-confirm-btn" id="stripe-checkout-btn" style="background-color: #635bff; color: white;">Proceder al Pago Seguro</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Personalización de Pasteles -->
+    <div class="modal-overlay" id="cake-modal-overlay">
+        <div class="cookie-modal" style="height: auto; max-height: 90vh;">
+            <div class="cookie-modal-header">
+                <h2 id="cake-modal-title">Personaliza tu Pastel</h2>
+                <button class="cookie-modal-close" id="cake-modal-close">&times;</button>
+            </div>
+            
+            <div class="cookie-modal-body" id="cake-modal-body" style="padding-top: 1rem;">
+                <!-- Selectores dinámicos de pastel -->
+                <div id="cake-options-container"></div>
+            </div>
+            
+            <div class="cookie-modal-footer" style="display: flex; flex-direction: column; gap: 10px;">
+                <div style="display: flex; justify-content: space-between; font-weight: 600; font-size: 1.1rem; margin-bottom: 10px;">
+                    <span data-i18n="cake_price_label">Precio:</span>
+                    <span id="cake-modal-price">$0.00</span>
+                </div>
+                <button class="btn btn-primary cookie-confirm-btn" id="cake-confirm-btn" data-i18n="cake_confirm_btn">Añadir al Carrito</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Selección de Galletas -->
+    <div class="modal-overlay" id="cookie-modal-overlay">
+        <div class="cookie-modal">
+            <div class="cookie-modal-header">
+                <h2 id="cookie-modal-title">Elige tus 6 galletas</h2>
+                <button class="cookie-modal-close" id="cookie-modal-close">&times;</button>
+                <div class="cookie-modal-counter">
+                    <span id="cookie-count-text">Llevas 0 de 6</span>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="cookie-progress-bar"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cookie-modal-body" id="cookie-modal-list">
+                <!-- Se inyecta con JS -->
+            </div>
+            
+            <div class="cookie-modal-footer">
+                <button class="btn btn-primary cookie-confirm-btn" id="cookie-confirm-btn" disabled>Añadir al Carrito</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Selección de Macarons -->
+    <div class="modal-overlay" id="macaron-modal-overlay">
+        <div class="cookie-modal">
+            <div class="cookie-modal-header">
+                <h2 id="macaron-modal-title">Elige tus Macarons</h2>
+                <button class="cookie-modal-close" id="macaron-modal-close">&times;</button>
+                <div class="cookie-modal-counter">
+                    <span id="macaron-count-text">Llevas 0 de 6</span>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="macaron-progress-bar"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="cookie-modal-body" id="macaron-modal-list">
+                <!-- Se inyecta con JS -->
+            </div>
+            <div class="cookie-modal-footer">
+                <button class="btn btn-primary cookie-confirm-btn" id="macaron-confirm-btn" disabled>Añadir al Carrito</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Selección de Mini Individual Cakes -->
+    <div class="modal-overlay" id="mini-modal-overlay">
+        <div class="cookie-modal">
+            <div class="cookie-modal-header">
+                <h2 id="mini-modal-title">Elige tus Mini Cakes</h2>
+                <button class="cookie-modal-close" id="mini-modal-close">&times;</button>
+                <div class="cookie-modal-counter">
+                    <span id="mini-count-text">Llevas 0 de 6</span>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="mini-progress-bar"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="cookie-modal-body" id="mini-modal-list">
+                <!-- Se inyecta con JS -->
+            </div>
+            <div class="cookie-modal-footer">
+                <button class="btn btn-primary cookie-confirm-btn" id="mini-confirm-btn" disabled>Añadir al Carrito</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Selección de Cupcakes -->
+    <div class="modal-overlay" id="cupcake-modal-overlay">
+        <div class="cookie-modal">
+            <div class="cookie-modal-header">
+                <h2 id="cupcake-modal-title">Elige tus cupcakes</h2>
+                <button class="cookie-modal-close" id="cupcake-modal-close">&times;</button>
+                <div class="cookie-modal-counter">
+                    <span id="cupcake-count-text">Llevas 0 de 6</span>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="cupcake-progress-bar"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cookie-modal-body" id="cupcake-modal-list">
+                <!-- Se inyecta con JS -->
+            </div>
+            
+            <div class="cookie-modal-footer">
+                <button class="btn btn-primary cookie-confirm-btn" id="cupcake-confirm-btn" disabled>Añadir al Carrito</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js?v=5.3"></script>
     <script>
         // Scroll Animations
         const observer = new IntersectionObserver((entries) => {
@@ -870,15 +1461,8 @@
 
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-        // Header Scroll
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
+        // Header Scroll handled in script.js
     </script>
 </body>
 </html>
+

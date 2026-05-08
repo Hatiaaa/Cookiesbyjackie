@@ -9,14 +9,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const translations = {
         es: {
             nav_shop: "tienda",
-            nav_about: "nuestra historia",
+            nav_delivery: "delivery",
             nav_contact: "contacto",
             hero_label: "Repostería de Autor",
-            hero_title: "Dulces<br>Momentos",
-            hero_desc: "Elaboramos postres y galletas artesanales con mantequilla europea e ingredientes premium. Una experiencia de lujo en cada bocado.",
+            hero_title: "Fresco Cada Día.<br>Hecho con Amor.",
+            hero_desc: "Cada día horneamos postres frescos y artesanales con los ingredientes de mayor calidad, sabores irresistibles y un toque especial de amor. Descubre la alegría de disfrutar delicias auténticas creadas para cautivar tus sentidos.",
             hero_btn: "Ver Menú",
-            fav_title: "los más vendidos",
-            fav_subtitle: "Nuestra selección más querida, horneada diariamente con la pasión y calidad que nos define.",
+            fav_title: "Nuestros Más Vendidos",
+            fav_subtitle: "Descubre los favoritos de nuestros clientes que todos aman — recién hechos, llenos de sabor e imposibles de resistir.",
             fav_btn: "ver menú completo",
             badge_best: "mejor vendido",
             prod_chip: "clásica chispas",
@@ -27,12 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
             tab_cookies: "galletas",
             tab_cakes: "pasteles",
             tab_cupcakes: "cupcakes",
-            tab_pastries: "bollería",
+            tab_pastries: "Pastries",
             tab_macarons: "macarons",
             tab_minis: "mini individual",
             tab_pies: "tartas",
-            tab_drinks: "bebidas",
-            tab_packs: "prepacks",
+            tab_packs: "packs especiales",
             cart_title: "tu carrito",
             cart_total: "Total:",
             cart_checkout: "Ir a Pagar",
@@ -91,30 +90,104 @@ document.addEventListener('DOMContentLoaded', () => {
             story_mobile: "Desde 2024, Cookies by Jackie es el destino dulce imprescindible en Nueva York. Ofrecemos una experiencia única que combina tradición casera con la más alta calidad, perfecta para regalar o darte un momento de pausa en medio del ritmo de la ciudad.",
             story_cta: "📍 Visítanos en el Underground Market de Columbus Circle y descubre por qué todo el mundo habla de nosotros.",
             story_slogan: "Cookies by Jackie: el sabor que Nueva York merece.",
+            visit_find_us: "encuéntranos.",
+            visit_contact_title: "Contacto",
+            faq_sub_title: "preguntas frecuentes",
             visit_title: "VISITA LA PASTELERÍA.",
             visit_desc: "¡Ven a saludar! Horneamos fresco todo el día en nuestra tienda principal. Toma un café, observa a nuestros pasteleros trabajar y huele la magia.",
             visit_loc_title: "UBICACIÓN",
             visit_loc_desc: "1000 S 8th Ave<br>New York, NY 10019",
             visit_hours_title: "HORARIOS",
-            visit_hours_desc: "Lun-Sáb: 8am - 6pm<br>Dom: 9am - 4pm",
+            visit_hours_desc: "Lun–Dom: 7:00 AM – 10:00 PM",
             visit_btn: "Obtener indicaciones",
             faq_q3: "¿Cuál es su horario de atención?",
-            faq_a3: "Estamos abiertos de Lunes a Sábado de 8:00 AM a 6:00 PM, y los Domingos de 9:00 AM a 4:00 PM.",
+            faq_a3: "Atendemos todos los días de la semana, de Lunes a Domingo, de 7:00 AM a 10:00 PM.",
             faq_q4: "¿Ofrecen servicios de catering?",
-            faq_a4: "¡Sí! Preparamos pedidos especiales para eventos corporativos, fiestas y celebraciones. Contáctanos por WhatsApp para coordinar los detalles.",
+            faq_a4: "¡Sí! Preparamos pedidos especiales para eventos corporativos, fiestas y celebraciones. Escríbenos a <a href='mailto:cookiesbyjackienyc@gmail.com'>cookiesbyjackienyc@gmail.com</a> para coordinar los detalles.",
             faq_q5: "¿Sus productos son frescos?",
-            faq_a5: "Absolutamente. Horneamos fresco cada mañana utilizando mantequilla europea e ingredientes de la más alta calidad para garantizar el mejor sabor."
+            faq_a5: "Absolutamente. Horneamos fresco cada mañana utilizando mantequilla europea e ingredientes de la más alta calidad para garantizar el mejor sabor.",
+            past_roll_name: "Cinnamon Rolls 6 pk",
+            past_roll_desc: "6 unidades de nuestros rollos de canela clásicos con glaseado artesanal.",
+            past_banana_name: "Banana Bread loaf",
+            past_banana_desc: "6 unidades de nuestro pan de banana melcochudo y natural.",
+            past_scone_name: "Blueberry Scone 8 pk",
+            past_scone_desc: "8 unidades de scones dorados con arándanos frescos.",
+            past_brownie_name: "Chocolate Fudge Brownies 6 pk",
+            past_brownie_desc: "6 unidades de brownies extra chocolate cortados en caja.",
+            past_donut_name: "Donuts 6 pk",
+            past_donut_desc: "6 unidades, una de cada sabor: Glaseada, Azúcar y Canela, Fruity Pebbles, Oreo, Fresa con Sprinkles y Chocolate con Sprinkles.",
+            past_biscuit_name: "Buttermilk Biscuit 6 pk",
+            past_biscuit_desc: "6 unidades de nuestros clásicos y hojaldrados biscuits de mantequilla.",
+            btn_add: "Agregar",
+            btn_select: "Elige tus opciones",
+            btn_customize: "Personalizar",
+            modal_add_cart: "¡Añadir al Carrito!",
+            modal_count: "Llevas {0} de {1}",
+            modal_cookies_title: "Elige tus {0} galletas",
+            modal_cookies_missing: "Faltan galletas por elegir",
+            modal_cupcakes_title: "Elige tus {0} cupcakes",
+            modal_cupcakes_missing: "Faltan cupcakes por elegir",
+            modal_macarons_title: "Elige tus {0} Macarons",
+            modal_macarons_missing: "Faltan macarons por elegir",
+            macaron_0: "Birthday", macaron_1: "Churro", macaron_2: "Crème Brûlée",
+            macaron_3: "Pistacho", macaron_4: "Raspberry", macaron_5: "Tiramisú", macaron_6: "Vanilla",
+            modal_mini_title: "Elige tus {0} Mini Cakes",
+            modal_mini_missing: "Faltan cakes por elegir",
+            cake_price_label: "Precio:",
+            cake_confirm_btn: "Añadir al Carrito",
+            cake_label_flavor: "Sabor del Pastel",
+            cake_label_color: "Color del Diseño",
+            cake_label_size: "Tamaño",
+            cake_label_frosting: "Cobertura (Frosting)",
+            cake_detail_flavor: "Sabor",
+            cake_detail_color: "Color",
+            cake_detail_size: "Tamaño",
+            cake_detail_frosting: "Cobertura",
+            cook1_desc: "4 unidades predeterminadas: Chocolate Chip Cookie, Salted Caramel Chocolate Chip Cookie, Brookie Cookie y Snickerdoodle.",
+            cook2_desc: "6 unidades. Elige tus sabores favoritos de nuestra lista.",
+            cook3_desc: "12 unidades. Elige tus sabores favoritos de nuestra lista.",
+            cook4_desc: "25 galletas predeterminadas (5 de cada una): Chocolate Chip, Oreo, M&amp;M, Snickerdoodle.",
+            cake1_desc: "Personaliza sabor y color. Pedido mínimo 3 días antes.",
+            cake3_desc: "Elige tamaño 8\" (10-12p) o 10\" (15-18p), sabor y cobertura.",
+            cake4_desc: "Galleta gigante clásica con chispas de chocolate.",
+            cake5_desc: "Rinde 12 porciones de brownie fudge irresistible.",
+            cake6_desc: "Doble capa de galleta gigante para los más golosos.",
+            cup_desc: "Elige cualquier sabor de nuestra lista de cupcakes.",
+            mac6_desc: "6 unidades de tu elección de nuestra selección de France Macarons.",
+            mac12_desc: "12 unidades de tu elección de nuestra selección de France Macarons.",
+            mac24_desc: "24 unidades de tu elección de nuestra selección de France Macarons.",
+            mini6_desc: "6 unidades de tu elección de nuestra selección de Mini Individual Cakes.",
+            mini12_desc: "12 unidades de tu elección de nuestra selección de Mini Individual Cakes.",
+            mini24_desc: "24 unidades de tu elección de nuestra selección de Mini Individual Cakes.",
+            pie1_desc: "Pie completo de 9\". Manzana caramelizada con cubierta crujiente.",
+            pie2_desc: "Pie completo de 9\". Relleno clásico de nueces pecanas.",
+            pie3_desc: "Pie completo de 9\". Durazno fresco con cubierta crujiente.",
+            prepack1_desc: "6 unidades predeterminadas: Vanilla, Raspberry, Churro, Crème Brûlée, Tiramisú, Pistacho.",
+            prepack2_desc: "12 unidades predeterminadas con los sabores más vendidos.",
+            prepack3_desc: "6 unidades predeterminadas: Chocolate Chip, Salted Caramel, Brookie, Red Velvet, Snickerdoodle, Sugar Cookie.",
+            prepack4_desc: "12 unidades predeterminadas, 2 de cada sabor: Vanilla, Raspberry, Churro, Crème Brûlée, Tiramisú, Pistacho.",
+            prepack5_desc: "12 unidades, 2 de cada una: Chocolate Chip, Salted Caramel, Brookie, Red Velvet, Snickerdoodle, Sugar Cookie.",
+            prepack6_desc: "12 unidades predeterminadas: 4 Vanilla, 4 Chocolate, 4 Red Velvet.",
+            fav_view_btn: "Ver más ↗",
+            fav1_strip: "red velvet · cream cheese · vainilla",
+            fav1_pill1: "red velvet", fav1_pill2: "cream cheese", fav1_pill3: "vainilla",
+            fav2_strip: "chocolate chip · caramelo · sal marina",
+            fav2_pill1: "chocolate chip", fav2_pill2: "caramelo", fav2_pill3: "sal marina",
+            fav3_strip: "fresa · cheesecake · crema",
+            fav3_pill1: "fresa", fav3_pill2: "cheesecake", fav3_pill3: "crema",
+            fav4_strip: "chocolate · mantequilla · vainilla",
+            fav4_pill1: "chocolate", fav4_pill2: "mantequilla", fav4_pill3: "vainilla"
         },
         en: {
             nav_shop: "the collection",
-            nav_about: "our legacy",
+            nav_delivery: "delivery",
             nav_contact: "get in touch",
             hero_label: "Signature Pastry",
-            hero_title: "Sweetest<br>Moments",
-            hero_desc: "Handcrafting artisanal masterpieces with European butter and premium ingredients. A luxury experience in every bite.",
+            hero_title: "Freshly Made Daily<br>with Love",
+            hero_desc: "Every day we bake fresh, handcrafted treats made with the highest quality ingredients, irresistible flavors, and a special touch of love. Discover the joy of enjoying authentic delights created to captivate your senses.",
             hero_btn: "Explore the Menu",
-            fav_title: "the best sellers",
-            fav_subtitle: "Our most beloved selection, baked daily with the passion and quality that defines us.",
+            fav_title: "Our Best Sellers",
+            fav_subtitle: "Discover the customer favorites everyone loves — freshly made, full of flavor, and impossible to resist.",
             fav_btn: "view full menu",
             badge_best: "best seller",
             prod_chip: "classic chocolate chip",
@@ -129,7 +202,6 @@ document.addEventListener('DOMContentLoaded', () => {
             tab_macarons: "macarons",
             tab_minis: "mini individual",
             tab_pies: "pies",
-            tab_drinks: "drinks",
             tab_packs: "prepacks",
             cart_title: "Your Bag",
             cart_total: "Total Amount:",
@@ -147,9 +219,9 @@ document.addEventListener('DOMContentLoaded', () => {
             faq_q2: "Where can I find you?",
             faq_a2: "We are located at the <strong>Columbus Circle Underground Market</strong>, in the heart of NYC. The perfect sanctuary for a sweet escape.",
             faq_q3: "What are your opening hours?",
-            faq_a3: "We are open Monday to Saturday from 8:00 AM to 6:00 PM, and Sundays from 9:00 AM to 4:00 PM.",
+            faq_a3: "We are open every day, Monday through Sunday, from 7:00 AM to 10:00 PM.",
             faq_q4: "Do you offer catering services?",
-            faq_a4: "Yes! We craft bespoke orders for corporate events, parties, and celebrations. Contact us via WhatsApp to arrange the details.",
+            faq_a4: "Yes! We craft bespoke orders for corporate events, parties, and celebrations. Reach us at <a href='mailto:cookiesbyjackienyc@gmail.com'>cookiesbyjackienyc@gmail.com</a> to arrange the details.",
             faq_q5: "Are your products baked fresh?",
             faq_a5: "Absolutely. We bake fresh every single morning using European butter and the finest ingredients to ensure a world-class flavor.",
             footer_tagline: "Baking memories every day with premium ingredients and artisanal passion in the heart of NYC.",
@@ -195,17 +267,91 @@ document.addEventListener('DOMContentLoaded', () => {
             story_mobile: "Since 2024, Cookies by Jackie is the ultimate sweet destination in NYC. We offer a unique experience blending home tradition with the highest quality, perfect for gifting or taking a moment for yourself.",
             story_cta: "📍 Visit us at the Columbus Circle Underground Market and discover why everyone is talking about us.",
             story_slogan: "Cookies by Jackie: the flavor New York deserves.",
+            visit_find_us: "find us.",
+            visit_contact_title: "Contact",
+            faq_sub_title: "frequently asked questions",
             visit_title: "VISIT THE BAKERY.",
             visit_desc: "Come say hi! We bake fresh all day at our flagship store. Grab a coffee, watch our pastry chefs at work, and smell the magic.",
             visit_loc_title: "LOCATION",
             visit_loc_desc: "1000 S 8th Ave<br>New York, NY 10019",
             visit_hours_title: "HOURS",
-            visit_hours_desc: "Mon-Sat: 8am - 6pm<br>Sun: 9am - 4pm",
-            visit_btn: "Get Directions"
+            visit_hours_desc: "Mon–Sun: 7:00 AM – 10:00 PM",
+            visit_btn: "Get Directions",
+            past_roll_name: "Cinnamon Rolls 6 pk",
+            past_roll_desc: "6 units of our classic cinnamon rolls with artisanal glaze.",
+            past_banana_name: "Banana Bread loaf",
+            past_banana_desc: "6 units of our moist and natural banana bread.",
+            past_scone_name: "Blueberry Scone 8 pk",
+            past_scone_desc: "8 units of golden scones with fresh blueberries.",
+            past_brownie_name: "Chocolate Fudge Brownies 6 pk",
+            past_brownie_desc: "6 units of extra chocolatey brownies cut in a box.",
+            past_donut_name: "Donuts 6 pk",
+            past_donut_desc: "6 units, one of each flavor: Glazed, Cinnamon Sugar, Fruity Pebbles, Oreo, Strawberry Sprinkle, and Chocolate Sprinkle.",
+            past_biscuit_name: "Buttermilk Biscuit 6 pk",
+            past_biscuit_desc: "6 units of our classic flaky buttermilk biscuits.",
+            btn_add: "Add",
+            btn_select: "Choose Options",
+            btn_customize: "Customize",
+            modal_add_cart: "Add to Cart!",
+            modal_count: "{0} of {1} selected",
+            modal_cookies_title: "Choose your {0} cookies",
+            modal_cookies_missing: "Select more cookies",
+            modal_cupcakes_title: "Choose your {0} cupcakes",
+            modal_cupcakes_missing: "Select more cupcakes",
+            modal_macarons_title: "Choose your {0} Macarons",
+            modal_macarons_missing: "Select more macarons",
+            macaron_0: "Birthday", macaron_1: "Churro", macaron_2: "Crème Brûlée",
+            macaron_3: "Pistachio", macaron_4: "Raspberry", macaron_5: "Tiramisu", macaron_6: "Vanilla",
+            modal_mini_title: "Choose your {0} Mini Cakes",
+            modal_mini_missing: "Select more mini cakes",
+            cake_price_label: "Price:",
+            cake_confirm_btn: "Add to Cart",
+            cake_label_flavor: "Cake Flavor",
+            cake_label_color: "Design Color",
+            cake_label_size: "Size",
+            cake_label_frosting: "Frosting",
+            cake_detail_flavor: "Flavor",
+            cake_detail_color: "Color",
+            cake_detail_size: "Size",
+            cake_detail_frosting: "Frosting",
+            cook1_desc: "4 preset units: Chocolate Chip Cookie, Salted Caramel Chocolate Chip Cookie, Brookie Cookie, and Snickerdoodle.",
+            cook2_desc: "6 units. Choose your favorite flavors from our list.",
+            cook3_desc: "12 units. Choose your favorite flavors from our list.",
+            cook4_desc: "25 preset cookies (5 of each): Chocolate Chip, Oreo, M&amp;M, Snickerdoodle.",
+            cake1_desc: "Customize flavor and color. Order at least 3 days in advance.",
+            cake3_desc: "Choose size 8\" (10–12 servings) or 10\" (15–18 servings), flavor and frosting.",
+            cake4_desc: "Classic giant cookie loaded with chocolate chips.",
+            cake5_desc: "Yields 12 irresistible chocolate fudge brownie servings.",
+            cake6_desc: "Double-layer giant cookie for the most devoted sweet tooth.",
+            cup_desc: "Choose any flavor from our cupcake list.",
+            mac6_desc: "6 units of your choice from our France Macaron selection.",
+            mac12_desc: "12 units of your choice from our France Macaron selection.",
+            mac24_desc: "24 units of your choice from our France Macaron selection.",
+            mini6_desc: "6 units of your choice from our Mini Individual Cakes selection.",
+            mini12_desc: "12 units of your choice from our Mini Individual Cakes selection.",
+            mini24_desc: "24 units of your choice from our Mini Individual Cakes selection.",
+            pie1_desc: "Full 9\" pie. Caramelized apple with a crunchy crumb topping.",
+            pie2_desc: "Full 9\" pie. Classic Southern pecan filling.",
+            pie3_desc: "Full 9\" pie. Fresh peach with a crunchy crumb topping.",
+            prepack1_desc: "6 preset units: Vanilla, Raspberry, Churro, Crème Brûlée, Tiramisú, Pistachio.",
+            prepack2_desc: "12 preset units with our best-selling flavors.",
+            prepack3_desc: "6 preset units: Chocolate Chip, Salted Caramel, Brookie, Red Velvet, Snickerdoodle, Sugar Cookie.",
+            prepack4_desc: "12 preset units, 2 of each flavor: Vanilla, Raspberry, Churro, Crème Brûlée, Tiramisú, Pistachio.",
+            prepack5_desc: "12 units, 2 of each: Chocolate Chip, Salted Caramel, Brookie, Red Velvet, Snickerdoodle, Sugar Cookie.",
+            prepack6_desc: "12 preset units: 4 Vanilla, 4 Chocolate, 4 Red Velvet.",
+            fav_view_btn: "See more ↗",
+            fav1_strip: "red velvet · cream cheese · vanilla",
+            fav1_pill1: "red velvet", fav1_pill2: "cream cheese", fav1_pill3: "vanilla",
+            fav2_strip: "chocolate chip · caramel · sea salt",
+            fav2_pill1: "chocolate chip", fav2_pill2: "caramel", fav2_pill3: "sea salt",
+            fav3_strip: "strawberry · cheesecake · cream",
+            fav3_pill1: "strawberry", fav3_pill2: "cheesecake", fav3_pill3: "cream",
+            fav4_strip: "chocolate · butter · vanilla",
+            fav4_pill1: "chocolate", fav4_pill2: "butter", fav4_pill3: "vanilla"
         }
     };
 
-    let currentLang = 'es';
+    let currentLang = 'en';
 
     function changeLanguage(lang) {
         currentLang = lang;
@@ -232,9 +378,10 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.tab-add-btn').forEach(btn => {
             // Preservar el icono si existe
             const icon = btn.querySelector('i');
+            const key = btn.getAttribute('data-btn-key') || 'add_btn';
             btn.innerHTML = '';
             if (icon) btn.appendChild(icon);
-            btn.appendChild(document.createTextNode(' ' + translations[lang].add_btn));
+            btn.appendChild(document.createTextNode(' ' + translations[lang][key]));
         });
         document.querySelectorAll('.badge').forEach(badge => {
             if (badge.textContent.toLowerCase() === 'favorito' || badge.textContent.toLowerCase() === 'fan favorite') {
@@ -259,6 +406,148 @@ document.addEventListener('DOMContentLoaded', () => {
             changeLanguage(btn.getAttribute('data-lang'));
         });
     });
+
+    // ─── Search ──────────────────────────────────────────────────────────────
+    const searchOverlay   = document.getElementById('search-overlay');
+    const searchOpenBtn   = document.getElementById('search-open-btn');
+    const searchCloseBtn  = document.getElementById('search-close-btn');
+    const searchInput     = document.getElementById('search-input');
+    const searchResultsEl = document.getElementById('search-results');
+
+    function openSearch() {
+        searchOverlay.classList.add('open');
+        searchOverlay.setAttribute('aria-hidden', 'false');
+        setTimeout(() => searchInput.focus(), 200);
+    }
+
+    function closeSearch() {
+        searchOverlay.classList.remove('open');
+        searchOverlay.setAttribute('aria-hidden', 'true');
+        searchInput.value = '';
+        searchResultsEl.innerHTML = '<p class="search-hint">escribe para buscar productos, secciones o preguntas frecuentes...</p>';
+    }
+
+    // Construye el índice de búsqueda a partir del DOM
+    function buildSearchIndex() {
+        const items = [];
+
+        // Productos de la tienda
+        document.querySelectorAll('.tab-product-card').forEach(card => {
+            const h3 = card.querySelector('h3');
+            const desc = card.querySelector('.tab-product-desc');
+            const price = card.querySelector('.tab-product-price');
+            if (!h3) return;
+            // Encontrar la tab donde está el producto
+            const tab = card.closest('[id^="tab-"]');
+            const tabLabel = tab ? tab.id.replace('tab-', '') : 'tienda';
+            items.push({
+                title: h3.textContent.trim(),
+                sub: price ? price.textContent.trim() : '',
+                icon: 'fa-cookie-bite',
+                action: () => {
+                    // Activar la tab correcta y hacer scroll
+                    if (tab) {
+                        document.querySelectorAll('.shop-tab').forEach(b => b.classList.remove('active'));
+                        document.querySelectorAll('.tab-content').forEach(p => p.classList.remove('active'));
+                        tab.classList.add('active');
+                        const tabBtn = document.querySelector(`.shop-tab[data-target="${tab.id}"]`);
+                        if (tabBtn) tabBtn.classList.add('active');
+                        // Mostrar card si estaba oculta (load more)
+                        card.style.display = '';
+                    }
+                    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    card.style.outline = '2px solid var(--color-primary)';
+                    card.style.borderRadius = 'var(--radius-card)';
+                    setTimeout(() => { card.style.outline = ''; }, 1800);
+                }
+            });
+        });
+
+        // Secciones principales
+        const sections = [
+            { sel: '#shop',   label: 'Tienda', icon: 'fa-store' },
+            { sel: '#about',  label: 'Nuestra Historia', icon: 'fa-heart' },
+            { sel: '#faq',    label: 'Visítanos & FAQ', icon: 'fa-map-marker-alt' },
+            { sel: '#packs-section', label: 'Packs especiales', icon: 'fa-star' },
+        ];
+        sections.forEach(({ sel, label, icon }) => {
+            const el = document.querySelector(sel);
+            if (!el) return;
+            items.push({
+                title: label,
+                sub: 'Sección',
+                icon,
+                action: () => el.scrollIntoView({ behavior: 'smooth' })
+            });
+        });
+
+        // FAQ
+        document.querySelectorAll('.faq-item').forEach(item => {
+            const q = item.querySelector('.faq-question, button, dt, summary, h3, h4');
+            if (!q) return;
+            items.push({
+                title: q.textContent.replace(/[+\-▼▲]/g, '').trim(),
+                sub: 'Preguntas frecuentes',
+                icon: 'fa-question-circle',
+                action: () => {
+                    item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    // Abrir acordeón si está cerrado
+                    const btn = item.querySelector('button, .faq-question');
+                    if (btn && !item.classList.contains('active')) btn.click();
+                }
+            });
+        });
+
+        return items;
+    }
+
+    let searchIndex = null;
+
+    function runSearch(query) {
+        if (!searchIndex) searchIndex = buildSearchIndex();
+        const q = query.trim().toLowerCase();
+
+        if (!q) {
+            searchResultsEl.innerHTML = '<p class="search-hint">escribe para buscar productos, secciones o preguntas frecuentes...</p>';
+            return;
+        }
+
+        const results = searchIndex.filter(item =>
+            item.title.toLowerCase().includes(q) || item.sub.toLowerCase().includes(q)
+        );
+
+        if (!results.length) {
+            searchResultsEl.innerHTML = `<p class="search-empty">sin resultados para "<strong>${query}</strong>"</p>`;
+            return;
+        }
+
+        searchResultsEl.innerHTML = results.slice(0, 8).map((r, i) => `
+            <div class="search-result-item" data-idx="${i}">
+                <div class="search-result-icon"><i class="fas ${r.icon}"></i></div>
+                <div class="search-result-text">
+                    <div class="search-result-title">${r.title}</div>
+                    ${r.sub ? `<div class="search-result-sub">${r.sub}</div>` : ''}
+                </div>
+            </div>
+        `).join('');
+
+        searchResultsEl.querySelectorAll('.search-result-item').forEach(el => {
+            el.addEventListener('click', () => {
+                results[parseInt(el.dataset.idx)].action();
+                closeSearch();
+            });
+        });
+    }
+
+    // Inicializar hint
+    searchResultsEl.innerHTML = '<p class="search-hint">escribe para buscar productos, secciones o preguntas frecuentes...</p>';
+
+    searchOpenBtn.addEventListener('click', openSearch);
+    searchCloseBtn.addEventListener('click', closeSearch);
+    searchOverlay.addEventListener('click', e => { if (e.target === searchOverlay) closeSearch(); });
+    searchInput.addEventListener('input', () => runSearch(searchInput.value));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSearch(); });
+    // ─────────────────────────────────────────────────────────────────────────
 
     // State
     let cart = [];
@@ -292,9 +581,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         cartItemsContainer.innerHTML = cart.map((item, index) => `
             <div class="cart-item">
-                <img src="${item.image}" alt="${item.title}">
+                <img src="${item.image || 'assets/logo.png'}" alt="${item.title}">
                 <div class="cart-item-info">
                     <div class="cart-item-title">${item.title}</div>
+                    ${item.details ? `<div style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 5px; line-height: 1.2;">${item.details}</div>` : ''}
                     <div class="cart-item-price">${item.price}</div>
                     <div class="cart-item-qty">
                         <button class="qty-btn" onclick="window.updateQty(${index}, -1)">-</button>
@@ -310,8 +600,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Update Total
         const total = cart.reduce((acc, item) => {
-            const price = parseFloat(item.price.replace('$', ''));
-            return acc + (price * item.quantity);
+            const price = parseFloat(item.price.replace(/[^0-9.]/g, ''));
+            return acc + (isNaN(price) ? 0 : price * item.quantity);
         }, 0);
         
         cartTotalElement.textContent = `$${total.toFixed(2)}`;
@@ -355,8 +645,8 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const addToCart = (product) => {
-        // Buscamos si ya existe exactamente el mismo producto (mismo nombre y variante)
-        const existingItem = cart.find(item => item.title === product.title);
+        // Buscamos si ya existe exactamente el mismo producto (mismo nombre y mismos detalles si los tiene)
+        const existingItem = cart.find(item => item.title === product.title && item.details === product.details);
         
         if (existingItem) {
             existingItem.quantity += 1;
@@ -406,7 +696,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         
-        if (e.target.closest('.tab-add-btn')) {
+        if (e.target.closest('.tab-add-btn') && !e.target.closest('.btn-open-cake-modal') && !e.target.closest('.btn-open-modal') && !e.target.closest('.btn-open-cupcake-modal') && !e.target.closest('.btn-open-mini-modal') && !e.target.closest('.btn-open-macaron-modal')) {
             const card = e.target.closest('.tab-product-card');
             let title = card.querySelector('h3').textContent;
             let price = card.querySelector('.tab-product-price') ? card.querySelector('.tab-product-price').textContent : "$0.00";
@@ -434,33 +724,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const slides = document.querySelectorAll('.testimonial-slide');
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
-    const dots = document.querySelectorAll('.dot');
-    
+    const testimonialDots = document.querySelectorAll('#slider-dots .dot');
+
     if (track && slides.length > 0) {
         let currentIndex = 0;
-        
+
         const updateSlider = () => {
             track.style.transform = `translateX(-${currentIndex * 100}%)`;
-            dots.forEach(dot => dot.classList.remove('active'));
-            dots[currentIndex].classList.add('active');
+            testimonialDots.forEach(dot => dot.classList.remove('active'));
+            if (testimonialDots[currentIndex]) testimonialDots[currentIndex].classList.add('active');
         };
-        
+
         nextBtn.addEventListener('click', () => {
             currentIndex = (currentIndex + 1) % slides.length;
             updateSlider();
         });
-        
+
         prevBtn.addEventListener('click', () => {
             currentIndex = (currentIndex - 1 + slides.length) % slides.length;
             updateSlider();
         });
-        
-        dots.forEach((dot, index) => {
+
+        testimonialDots.forEach((dot, index) => {
             dot.addEventListener('click', () => {
                 currentIndex = index;
                 updateSlider();
             });
         });
+
+        // Inicializar el slider al cargar
+        updateSlider();
     }
     
     // Tabbed Shop Logic
@@ -483,6 +776,18 @@ document.addEventListener('DOMContentLoaded', () => {
             if (window.innerWidth <= 768) {
                 tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
             }
+        });
+    });
+
+    // Favorites "Ver más" → activar tab del shop
+    document.querySelectorAll('.fav-view-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const tabTarget = btn.getAttribute('data-tab');
+            const tabBtn = document.querySelector(`.shop-tab[data-target="${tabTarget}"]`);
+            if (tabBtn) tabBtn.click();
+            setTimeout(() => {
+                document.getElementById('shop')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 50);
         });
     });
 
@@ -595,16 +900,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 ]
             },
             info: {
-                message: "Atendemos de Lunes a Sábado de 9:00 AM a 6:00 PM. Hacemos entregas a domicilio en toda la zona metropolitana.",
+                message: "Atendemos todos los días de Lunes a Domingo, de 7:00 AM a 10:00 PM. Hacemos entregas a domicilio en toda la zona metropolitana.",
                 options: [
                     { text: "Preguntas Frecuentes", link: "#faq" },
                     { text: "Volver al inicio", next: "start" }
                 ]
             },
             custom: {
-                message: "¡Sí! Hacemos pedidos especiales para eventos, bodas y regalos corporativos. Para estos casos, lo mejor es hablar directamente con Jackie.",
+                message: "¡Sí! Hacemos pedidos especiales para eventos, bodas y regalos corporativos. Escríbenos y Jackie se pondrá en contacto contigo.",
                 options: [
-                    { text: "📱 Hablar por WhatsApp", link: "https://wa.me/12123896151", external: true },
+                    { text: "📧 Enviar un email", link: "mailto:cookiesbyjackienyc@gmail.com", external: true },
                     { text: "Volver al inicio", next: "start" }
                 ]
             }
@@ -634,16 +939,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 ]
             },
             info: {
-                message: "We're here for you Monday to Saturday, 9 AM - 6 PM. We offer door-to-door indulgence across the metropolitan area.",
+                message: "We're open every day, Monday through Sunday, from 7:00 AM to 10:00 PM. We offer door-to-door delivery across the metropolitan area.",
                 options: [
                     { text: "View FAQ", link: "#faq" },
                     { text: "Back to start", next: "start" }
                 ]
             },
             custom: {
-                message: "Absolutely! We love crafting bespoke delights for weddings, corporate gifts, and special celebrations. Let's talk directly.",
+                message: "Absolutely! We love crafting bespoke delights for weddings, corporate gifts, and special celebrations. Send us an email and Jackie will get back to you.",
                 options: [
-                    { text: "📱 Chat on WhatsApp", link: "https://wa.me/12123896151", external: true },
+                    { text: "📧 Send an email", link: "mailto:cookiesbyjackienyc@gmail.com", external: true },
                     { text: "Back to start", next: "start" }
                 ]
             }
@@ -737,13 +1042,886 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- Lógica del Carrusel de Productos ---
+    document.querySelectorAll('.product-carousel').forEach(carousel => {
+        const images = carousel.querySelectorAll('img');
+        const dots = carousel.querySelectorAll('.dot');
+        // Detectar el índice inicial desde la clase 'active' ya puesta en el HTML
+        let startIndex = 0;
+        images.forEach((img, i) => { if (img.classList.contains('active')) startIndex = i; });
+        let currentIndex = startIndex;
+        let interval;
+
+        if (images.length <= 1) return;
+
+        function showSlide(index) {
+            images.forEach(img => img.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            currentIndex = index;
+            if (currentIndex >= images.length) currentIndex = 0;
+            if (currentIndex < 0) currentIndex = images.length - 1;
+            
+            images[currentIndex].classList.add('active');
+            if (dots[currentIndex]) dots[currentIndex].classList.add('active');
+        }
+
+        function nextSlide() { showSlide(currentIndex + 1); }
+        function prevSlide() { showSlide(currentIndex - 1); }
+
+        function startAutoSlide() {
+            clearInterval(interval);
+            interval = setInterval(nextSlide, 3500);
+        }
+
+        // Mostrar el slide inicial correcto inmediatamente
+        showSlide(startIndex);
+
+        // Iniciar slide automático
+        startAutoSlide();
+
+        // Click en puntos
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                showSlide(index);
+                startAutoSlide();
+            });
+        });
+
+        // Swipe en móvil
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        carousel.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+            clearInterval(interval);
+        }, {passive: true});
+
+        carousel.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+            startAutoSlide();
+        }, {passive: true});
+
+        function handleSwipe() {
+            const swipeDist = touchEndX - touchStartX;
+            if (swipeDist < -30) nextSlide(); // Swipe Izquierda
+            if (swipeDist > 30) prevSlide(); // Swipe Derecha
+        }
+    });
+
+    // --- Lógica del Checkout Modal ---
+    const checkoutBtn = document.querySelector('.checkout-btn');
+    const checkoutModalOverlay = document.getElementById('checkout-modal-overlay');
+    const checkoutModalClose = document.getElementById('checkout-modal-close');
+    const checkoutOrderSummary = document.getElementById('checkout-order-summary');
+    const checkoutFinalTotal = document.getElementById('checkout-final-total');
+    const stripeCheckoutBtn = document.getElementById('stripe-checkout-btn');
+
+    if (checkoutBtn) {
+        checkoutBtn.addEventListener('click', () => {
+            if (cart.length === 0) return; // No abrir si está vacío
+            
+            // Llenar resumen
+            let summaryHtml = '';
+            cart.forEach(item => {
+                summaryHtml += `
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                        <div>
+                            <strong>${item.quantity}x ${item.title}</strong>
+                            ${item.details ? `<br><span style="font-size:0.8rem; color:var(--text-secondary)">${item.details}</span>` : ''}
+                        </div>
+                        <div>${item.price}</div>
+                    </div>
+                `;
+            });
+            checkoutOrderSummary.innerHTML = summaryHtml;
+            checkoutFinalTotal.textContent = cartTotalElement.textContent;
+
+            // Cerrar carrito y abrir modal
+            toggleCart();
+            checkoutModalOverlay.classList.add('active');
+        });
+    }
+
+    if (checkoutModalClose) {
+        checkoutModalClose.addEventListener('click', () => {
+            checkoutModalOverlay.classList.remove('active');
+            toggleCart(); // Reabrir el carrito para que el usuario pueda modificarlo
+        });
+    }
+
+    if (stripeCheckoutBtn) {
+        stripeCheckoutBtn.addEventListener('click', () => {
+            // Validar formulario
+            const name = document.getElementById('checkout-name').value;
+            const email = document.getElementById('checkout-email').value;
+            const phone = document.getElementById('checkout-phone').value;
+            const date = document.getElementById('checkout-date').value;
+            const time = document.getElementById('checkout-time').value;
+
+            if(!name || !email || !phone || !date || !time) {
+                alert("Por favor completa todos los campos requeridos para la recogida.");
+                return;
+            }
+
+            // Preparar metadatos para Stripe (Fase 3)
+            const orderMetadata = {
+                customerName: name,
+                customerEmail: email,
+                customerPhone: phone,
+                pickupDate: date,
+                pickupTime: time,
+                notes: document.getElementById('checkout-notes').value,
+                orderItems: cart
+            };
+
+            console.log("Stripe Metadata Preparada:", orderMetadata);
+            alert("Redirigiendo a Stripe...\n\n(Fase 3: Aquí se conectará la pasarela de pago usando la metadata preparada)");
+        });
+    }
+
+    // --- Lógica del Selector de Galletas (Modal) ---
+    const allCookies = [
+        "Salted Caramel Chocolate Chip Cookie", "Chocolate Chip Cookie", "Red Velvet Cookie",
+        "Oreo Chocolate Chip", "Nutella Chocolate Chip", "Brookie Cookie",
+        "Biscoff Chocolate Chip Cookie", "Snickerdoodle", "Sugar cookie",
+        "Fruity Pebbles Sugar Cookie", "Oatmeal Raisin Cookie", "Gluten Free Chocolate Chip",
+        "M&M Chocolate Chip Cookie", "M&M Chocolate Chip Cookie Sandwich", "Oreo Red Velvet Cookie",
+        "Triple Chocolate Chip Cookie", "Peanut Butter and Jelly Cookie", "Pistachio White Chocolate Chip Cookie",
+        "Caramel Pistachio White Chocolate Chip Cookie", "Chocolate Chip Cookie Sandwich with Vanilla Buttercream",
+        "Snickerdoodle Cookie Sandwich with Vanilla Buttercream", "Sugar Cookie Sandwich with Vanilla Buttercream"
+    ];
+
+    const modalOverlay = document.getElementById('cookie-modal-overlay');
+    const modalClose = document.getElementById('cookie-modal-close');
+    const modalList = document.getElementById('cookie-modal-list');
+    const countText = document.getElementById('cookie-count-text');
+    const progressBar = document.getElementById('cookie-progress-bar');
+    const confirmBtn = document.getElementById('cookie-confirm-btn');
+    const modalTitle = document.getElementById('cookie-modal-title');
+
+    let currentMax = 0;
+    let currentSelectedTotal = 0;
+    let selectedCookiesMap = {}; // { "Nombre": cantidad }
+    let currentProductName = "";
+    let currentProductPrice = 0;
+
+    // Generar lista en el HTML
+    allCookies.forEach((cookie, index) => {
+        const itemHtml = `
+            <div class="cookie-item">
+                <div class="cookie-thumb">
+                    <img src="assets/Pick 6 Cookie Box/${cookie}.png" alt="${cookie}" loading="lazy">
+                </div>
+                <div class="cookie-name">${cookie}</div>
+                <div class="cookie-controls">
+                    <button class="cookie-btn minus-btn" data-id="${index}">-</button>
+                    <span class="cookie-count" id="count-${index}">0</span>
+                    <button class="cookie-btn plus-btn" data-id="${index}">+</button>
+                </div>
+            </div>
+        `;
+        modalList.insertAdjacentHTML('beforeend', itemHtml);
+    });
+
+    // Abrir Modal
+    document.querySelectorAll('.btn-open-modal').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            currentMax = parseInt(btn.dataset.max);
+            currentProductName = btn.dataset.product;
+            currentProductPrice = parseFloat(btn.dataset.price);
+            
+            modalTitle.textContent = translations[currentLang].modal_cookies_title.replace('{0}', currentMax);
+            resetModal();
+            modalOverlay.classList.add('active');
+        });
+    });
+
+    // Cerrar Modal
+    modalClose.addEventListener('click', () => modalOverlay.classList.remove('active'));
+    modalOverlay.addEventListener('click', (e) => {
+        if(e.target === modalOverlay) modalOverlay.classList.remove('active');
+    });
+
+    function resetModal() {
+        currentSelectedTotal = 0;
+        selectedCookiesMap = {};
+        document.querySelectorAll('.cookie-count').forEach(el => el.textContent = '0');
+        updateModalUI();
+    }
+
+    function updateModalUI() {
+        const t = translations[currentLang];
+        countText.textContent = t.modal_count.replace('{0}', currentSelectedTotal).replace('{1}', currentMax);
+        const progressPercentage = (currentSelectedTotal / currentMax) * 100;
+        progressBar.style.width = `${progressPercentage}%`;
+
+        // Activar/desactivar botones +
+        const disablePlus = currentSelectedTotal >= currentMax;
+        document.querySelectorAll('.plus-btn').forEach(btn => {
+            btn.disabled = disablePlus;
+        });
+
+        // Activar/desactivar botones -
+        document.querySelectorAll('.minus-btn').forEach(btn => {
+            const id = btn.dataset.id;
+            const count = parseInt(document.getElementById(`count-${id}`).textContent);
+            btn.disabled = count <= 0;
+        });
+
+        // Habilitar botón confirmar solo si se alcanzó el límite
+        confirmBtn.disabled = currentSelectedTotal !== currentMax;
+        if(currentSelectedTotal === currentMax) {
+            confirmBtn.textContent = t.modal_add_cart;
+            confirmBtn.style.backgroundColor = 'var(--color-primary)';
+            confirmBtn.style.removeProperty('color');
+        } else {
+            confirmBtn.textContent = t.modal_cookies_missing;
+            confirmBtn.style.backgroundColor = '#ccc';
+            confirmBtn.style.removeProperty('color');
+        }
+    }
+
+    // Botones + y -
+    document.querySelectorAll('.plus-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            if(currentSelectedTotal < currentMax) {
+                const id = btn.dataset.id;
+                const countSpan = document.getElementById(`count-${id}`);
+                const currentCount = parseInt(countSpan.textContent);
+                
+                countSpan.textContent = currentCount + 1;
+                currentSelectedTotal++;
+                
+                const cookieName = allCookies[id];
+                selectedCookiesMap[cookieName] = (selectedCookiesMap[cookieName] || 0) + 1;
+                
+                updateModalUI();
+            }
+        });
+    });
+
+    document.querySelectorAll('.minus-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const id = btn.dataset.id;
+            const countSpan = document.getElementById(`count-${id}`);
+            const currentCount = parseInt(countSpan.textContent);
+            
+            if(currentCount > 0) {
+                countSpan.textContent = currentCount - 1;
+                currentSelectedTotal--;
+                
+                const cookieName = allCookies[id];
+                if(selectedCookiesMap[cookieName]) {
+                    selectedCookiesMap[cookieName]--;
+                    if(selectedCookiesMap[cookieName] === 0) delete selectedCookiesMap[cookieName];
+                }
+                
+                updateModalUI();
+            }
+        });
+    });
+
+    // Confirmar y Agregar al Carrito Temporal
+    confirmBtn.addEventListener('click', () => {
+        if(currentSelectedTotal === currentMax) {
+            // Estructura para agregar al carrito
+            const orderDetails = Object.entries(selectedCookiesMap)
+                                    .map(([name, qty]) => `${qty}x ${name}`)
+                                    .join(", ");
+            
+            // Agregar al carrito
+            addToCart({
+                title: currentProductName,
+                price: `$${currentProductPrice.toFixed(2)}`,
+                image: 'assets/Pick 6 Cookie Box/Brookie Cookie.png',
+                details: orderDetails
+            });
+            
+            modalOverlay.classList.remove('active');
+        }
+    });
+
+    // --- Lógica del Selector de Pasteles (Modal) ---
+    const cakeModalOverlay = document.getElementById('cake-modal-overlay');
+    const cakeModalClose = document.getElementById('cake-modal-close');
+    const cakeModalTitle = document.getElementById('cake-modal-title');
+    const cakeOptionsContainer = document.getElementById('cake-options-container');
+    const cakeModalPrice = document.getElementById('cake-modal-price');
+    const cakeConfirmBtn = document.getElementById('cake-confirm-btn');
+
+    let currentCakeData = {
+        name: '',
+        type: '',
+        basePrice: 0,
+        currentPrice: 0
+    };
+
+    const cakeOptions = {
+        vintage: {
+            flavors: {
+                es: ["Chocolate", "Vainilla", "Red Velvet"],
+                en: ["Chocolate", "Vanilla", "Red Velvet"]
+            },
+            colors: {
+                es: ["Blanco", "Rosado", "Verde", "Amarillo", "Anaranjado", "Morado", "Rojo", "Coral", "Burgundy", "Aquamarine"],
+                en: ["White", "Pink", "Green", "Yellow", "Orange", "Purple", "Red", "Coral", "Burgundy", "Aquamarine"]
+            }
+        },
+        naked: {
+            sizes: {
+                es: [
+                    { label: '8" Pulgadas (10-12 porciones)', value: '49.95' },
+                    { label: '10" Pulgadas (15-18 porciones)', value: '59.95' }
+                ],
+                en: [
+                    { label: '8" (10-12 servings)', value: '49.95' },
+                    { label: '10" (15-18 servings)', value: '59.95' }
+                ]
+            },
+            flavors: ["Vanilla", "Chocolate", "Red Velvet", "Carrot"],
+            frostings: ["Vanilla Buttercream", "Chocolate Buttercream", "Cream Cheese Frosting"]
+        }
+    };
+
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest('.btn-open-cake-modal');
+        if (btn) {
+            const type = btn.dataset.type;
+            const name = btn.dataset.name;
+            const price = parseFloat(btn.dataset.price);
+
+            currentCakeData = { name, type, basePrice: price, currentPrice: price };
+            
+            cakeModalTitle.textContent = name;
+            cakeModalPrice.textContent = `$${price.toFixed(2)}`;
+            
+            renderCakeOptions(type);
+            cakeModalOverlay.classList.add('active');
+        }
+    });
+
+    const renderCakeOptions = (type) => {
+        const t = translations[currentLang];
+        const lang = currentLang;
+        let html = '';
+        if (type === 'vintage') {
+            html += `
+                <div class="cake-option-group">
+                    <label>${t.cake_label_flavor}</label>
+                    <select class="cake-select" id="cake-flavor">
+                        ${cakeOptions.vintage.flavors[lang].map(f => `<option value="${f}">${f}</option>`).join('')}
+                    </select>
+                </div>
+                <div class="cake-option-group">
+                    <label>${t.cake_label_color}</label>
+                    <select class="cake-select" id="cake-color">
+                        ${cakeOptions.vintage.colors[lang].map(c => `<option value="${c}">${c}</option>`).join('')}
+                    </select>
+                </div>
+            `;
+        } else if (type === 'naked') {
+            html += `
+                <div class="cake-option-group">
+                    <label>${t.cake_label_size}</label>
+                    <select class="cake-select" id="cake-size" onchange="window.updateNakedPrice(this)">
+                        ${cakeOptions.naked.sizes[lang].map(s => `<option value="${s.value}">${s.label}</option>`).join('')}
+                    </select>
+                </div>
+                <div class="cake-option-group">
+                    <label>${t.cake_label_flavor}</label>
+                    <select class="cake-select" id="cake-flavor">
+                        ${cakeOptions.naked.flavors.map(f => `<option value="${f}">${f}</option>`).join('')}
+                    </select>
+                </div>
+                <div class="cake-option-group">
+                    <label>${t.cake_label_frosting}</label>
+                    <select class="cake-select" id="cake-frosting">
+                        ${cakeOptions.naked.frostings.map(f => `<option value="${f}">${f}</option>`).join('')}
+                    </select>
+                </div>
+            `;
+        }
+        cakeOptionsContainer.innerHTML = html;
+    };
+
+    window.updateNakedPrice = (select) => {
+        const price = parseFloat(select.value);
+        currentCakeData.currentPrice = price;
+        cakeModalPrice.textContent = `$${price.toFixed(2)}`;
+    };
+
+    cakeConfirmBtn.addEventListener('click', () => {
+        const t = translations[currentLang];
+        let details = '';
+        if (currentCakeData.type === 'vintage') {
+            const flavor = document.getElementById('cake-flavor').value;
+            const color = document.getElementById('cake-color').value;
+            details = `${t.cake_detail_flavor}: ${flavor}, ${t.cake_detail_color}: ${color}`;
+        } else if (currentCakeData.type === 'naked') {
+            const sizeSelect = document.getElementById('cake-size');
+            const sizeLabel = sizeSelect.options[sizeSelect.selectedIndex].text.split(' (')[0];
+            const flavor = document.getElementById('cake-flavor').value;
+            const frosting = document.getElementById('cake-frosting').value;
+            details = `${t.cake_detail_size}: ${sizeLabel}, ${t.cake_detail_flavor}: ${flavor}, ${t.cake_detail_frosting}: ${frosting}`;
+        }
+
+        let imagePath = `assets/cake/${currentCakeData.name}.png`;
+        if (currentCakeData.name === "Vintage Heart Cakes") {
+            imagePath = "assets/cake/Vintage Heart Cakes/Vintage Heart Cakes Chocolate.png";
+        } else if (currentCakeData.name === "Vintage Round Cakes") {
+            imagePath = "assets/cake/Vintage Round Cakes/Vintage Round Cakes Chocolate.png";
+        } else if (currentCakeData.name === "Naked Cake") {
+            imagePath = "assets/cake/Naked Cake/NAKED CAKE 1.png";
+        }
+
+        addToCart({
+            title: currentCakeData.name,
+            price: `$${currentCakeData.currentPrice.toFixed(2)}`,
+            image: imagePath,
+            details: details
+        });
+
+        cakeModalOverlay.classList.remove('active');
+    });
+
+    cakeModalClose.addEventListener('click', () => {
+        cakeModalOverlay.classList.remove('active');
+    });
+
+    // --- Lógica del Selector de Cupcakes (Modal) ---
+    const allCupcakes = [
+        "Carrot Cupcake with Cream Cheese Icing",
+        "Chocolate cupcake with chocolate buttercream",
+        "Chocolate cupcake with vanilla buttercream",
+        "Red Velvet Cupcake with Cream Cheese Icing",
+        "Vanilla cupcake with chocolate buttercrem vanilla",
+        "Vanilla Cupcake with Vanilla Buttercream"
+    ];
+
+    const cupcakeModalOverlay = document.getElementById('cupcake-modal-overlay');
+    const cupcakeModalClose = document.getElementById('cupcake-modal-close');
+    const cupcakeModalList = document.getElementById('cupcake-modal-list');
+    const cupcakeCountText = document.getElementById('cupcake-count-text');
+    const cupcakeProgressBar = document.getElementById('cupcake-progress-bar');
+    const cupcakeConfirmBtn = document.getElementById('cupcake-confirm-btn');
+    const cupcakeModalTitle = document.getElementById('cupcake-modal-title');
+
+    let cupcakeMax = 0;
+    let cupcakeSelectedTotal = 0;
+    let selectedCupcakesMap = {};
+    let cupcakeProductName = "";
+    let cupcakeProductPrice = 0;
+
+    // Generar lista de cupcakes en el modal
+    allCupcakes.forEach((cupcake, index) => {
+        const itemHtml = `
+            <div class="cookie-item">
+                <div class="cookie-thumb">
+                    <img src="assets/cup cakes/${cupcake}.png" alt="${cupcake}" loading="lazy">
+                </div>
+                <div class="cookie-name">${cupcake}</div>
+                <div class="cookie-controls">
+                    <button class="cookie-btn cupcake-minus-btn" data-id="${index}">-</button>
+                    <span class="cookie-count" id="cupcake-count-${index}">0</span>
+                    <button class="cookie-btn cupcake-plus-btn" data-id="${index}">+</button>
+                </div>
+            </div>
+        `;
+        cupcakeModalList.insertAdjacentHTML('beforeend', itemHtml);
+    });
+
+    function resetCupcakeModal() {
+        cupcakeSelectedTotal = 0;
+        selectedCupcakesMap = {};
+        document.querySelectorAll('#cupcake-modal-list .cookie-count').forEach(el => el.textContent = '0');
+        updateCupcakeModalUI();
+    }
+
+    function updateCupcakeModalUI() {
+        const t = translations[currentLang];
+        cupcakeCountText.textContent = t.modal_count.replace('{0}', cupcakeSelectedTotal).replace('{1}', cupcakeMax);
+        const pct = (cupcakeSelectedTotal / cupcakeMax) * 100;
+        cupcakeProgressBar.style.width = `${pct}%`;
+
+        const disablePlus = cupcakeSelectedTotal >= cupcakeMax;
+        document.querySelectorAll('.cupcake-plus-btn').forEach(b => b.disabled = disablePlus);
+        document.querySelectorAll('.cupcake-minus-btn').forEach(b => {
+            const count = parseInt(document.getElementById(`cupcake-count-${b.dataset.id}`).textContent);
+            b.disabled = count <= 0;
+        });
+
+        cupcakeConfirmBtn.disabled = cupcakeSelectedTotal !== cupcakeMax;
+        if (cupcakeSelectedTotal === cupcakeMax) {
+            cupcakeConfirmBtn.textContent = t.modal_add_cart;
+            cupcakeConfirmBtn.style.backgroundColor = 'var(--color-primary)';
+            cupcakeConfirmBtn.style.removeProperty('color');
+        } else {
+            cupcakeConfirmBtn.textContent = t.modal_cupcakes_missing;
+            cupcakeConfirmBtn.style.backgroundColor = '#ccc';
+            cupcakeConfirmBtn.style.removeProperty('color');
+        }
+    }
+
+    // Abrir modal de cupcakes
+    document.querySelectorAll('.btn-open-cupcake-modal').forEach(btn => {
+        btn.addEventListener('click', () => {
+            cupcakeMax = parseInt(btn.dataset.max);
+            cupcakeProductName = btn.dataset.product;
+            cupcakeProductPrice = parseFloat(btn.dataset.price);
+            cupcakeModalTitle.textContent = translations[currentLang].modal_cupcakes_title.replace('{0}', cupcakeMax);
+            resetCupcakeModal();
+            cupcakeModalOverlay.classList.add('active');
+        });
+    });
+
+    // Cerrar modal de cupcakes
+    cupcakeModalClose.addEventListener('click', () => cupcakeModalOverlay.classList.remove('active'));
+    cupcakeModalOverlay.addEventListener('click', (e) => {
+        if (e.target === cupcakeModalOverlay) cupcakeModalOverlay.classList.remove('active');
+    });
+
+    // Botones + y -
+    document.querySelectorAll('.cupcake-plus-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            if (cupcakeSelectedTotal < cupcakeMax) {
+                const id = btn.dataset.id;
+                const span = document.getElementById(`cupcake-count-${id}`);
+                span.textContent = parseInt(span.textContent) + 1;
+                cupcakeSelectedTotal++;
+                selectedCupcakesMap[allCupcakes[id]] = (selectedCupcakesMap[allCupcakes[id]] || 0) + 1;
+                updateCupcakeModalUI();
+            }
+        });
+    });
+
+    document.querySelectorAll('.cupcake-minus-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const id = btn.dataset.id;
+            const span = document.getElementById(`cupcake-count-${id}`);
+            const current = parseInt(span.textContent);
+            if (current > 0) {
+                span.textContent = current - 1;
+                cupcakeSelectedTotal--;
+                selectedCupcakesMap[allCupcakes[id]]--;
+                if (selectedCupcakesMap[allCupcakes[id]] <= 0) delete selectedCupcakesMap[allCupcakes[id]];
+                updateCupcakeModalUI();
+            }
+        });
+    });
+
+    // Confirmar selección de cupcakes
+    cupcakeConfirmBtn.addEventListener('click', () => {
+        if (cupcakeSelectedTotal !== cupcakeMax) return;
+        const details = Object.entries(selectedCupcakesMap)
+            .filter(([, qty]) => qty > 0)
+            .map(([name, qty]) => `${qty}x ${name}`)
+            .join(', ');
+
+        addToCart({
+            title: cupcakeProductName,
+            price: `$${cupcakeProductPrice.toFixed(2)}`,
+            image: 'assets/cup cakes/Chocolate cupcake with chocolate buttercream.png',
+            details: details
+        });
+
+        cupcakeModalOverlay.classList.remove('active');
+    });
+
+    // ── Macaron Picker ────────────────────────────────────────────────────────
+    const allMacarons = {
+        es: ["Birthday", "Churro", "Crème Brûlée", "Pistacho", "Raspberry", "Tiramisú", "Vanilla"],
+        en: ["Birthday", "Churro", "Crème Brûlée", "Pistachio", "Raspberry", "Tiramisu", "Vanilla"]
+    };
+
+    const macaronImages = [
+        "assets/macarons/Birthday.png",
+        "assets/macarons/Churro.png",
+        "assets/macarons/Crème Brûlée.png",
+        "assets/macarons/Pistacho.png",
+        "assets/macarons/Raspberry.png",
+        "assets/macarons/Tiramisú.png",
+        "assets/macarons/Vanilla.png"
+    ];
+
+    const macaronModalOverlay = document.getElementById('macaron-modal-overlay');
+    const macaronModalClose   = document.getElementById('macaron-modal-close');
+    const macaronModalList    = document.getElementById('macaron-modal-list');
+    const macaronCountText    = document.getElementById('macaron-count-text');
+    const macaronProgressBar  = document.getElementById('macaron-progress-bar');
+    const macaronConfirmBtn   = document.getElementById('macaron-confirm-btn');
+    const macaronModalTitle   = document.getElementById('macaron-modal-title');
+
+    let macaronMax = 0;
+    let macaronSelectedTotal = 0;
+    let selectedMacaronMap = {};
+    let macaronProductName = "";
+    let macaronProductPrice = 0;
+
+    allMacarons.es.forEach((macaron, index) => {
+        macaronModalList.insertAdjacentHTML('beforeend', `
+            <div class="cookie-item">
+                <div class="cookie-thumb">
+                    <img src="${macaronImages[index]}" alt="${macaron}" loading="lazy">
+                </div>
+                <div class="cookie-name" data-i18n="macaron_${index}">${macaron}</div>
+                <div class="cookie-controls">
+                    <button class="cookie-btn macaron-minus-btn" data-id="${index}">-</button>
+                    <span class="cookie-count" id="macaron-count-${index}">0</span>
+                    <button class="cookie-btn macaron-plus-btn" data-id="${index}">+</button>
+                </div>
+            </div>
+        `);
+    });
+
+    function resetMacaronModal() {
+        macaronSelectedTotal = 0;
+        selectedMacaronMap = {};
+        document.querySelectorAll('#macaron-modal-list .cookie-count').forEach(el => el.textContent = '0');
+        updateMacaronModalUI();
+    }
+
+    function updateMacaronModalUI() {
+        const t = translations[currentLang];
+        macaronCountText.textContent = t.modal_count.replace('{0}', macaronSelectedTotal).replace('{1}', macaronMax);
+        macaronProgressBar.style.width = `${(macaronSelectedTotal / macaronMax) * 100}%`;
+        const disablePlus = macaronSelectedTotal >= macaronMax;
+        document.querySelectorAll('.macaron-plus-btn').forEach(b => b.disabled = disablePlus);
+        document.querySelectorAll('.macaron-minus-btn').forEach(b => {
+            b.disabled = parseInt(document.getElementById(`macaron-count-${b.dataset.id}`).textContent) <= 0;
+        });
+        macaronConfirmBtn.disabled = macaronSelectedTotal !== macaronMax;
+        if (macaronSelectedTotal === macaronMax) {
+            macaronConfirmBtn.textContent = t.modal_add_cart;
+            macaronConfirmBtn.style.backgroundColor = 'var(--color-primary)';
+            macaronConfirmBtn.style.removeProperty('color');
+        } else {
+            macaronConfirmBtn.textContent = t.modal_macarons_missing;
+            macaronConfirmBtn.style.backgroundColor = '#ccc';
+            macaronConfirmBtn.style.removeProperty('color');
+        }
+    }
+
+    document.querySelectorAll('.btn-open-macaron-modal').forEach(btn => {
+        btn.addEventListener('click', () => {
+            macaronMax = parseInt(btn.dataset.max);
+            macaronProductName = btn.dataset.product;
+            macaronProductPrice = parseFloat(btn.dataset.price);
+            macaronModalTitle.textContent = translations[currentLang].modal_macarons_title.replace('{0}', macaronMax);
+            resetMacaronModal();
+            macaronModalOverlay.classList.add('active');
+        });
+    });
+
+    macaronModalClose.addEventListener('click', () => macaronModalOverlay.classList.remove('active'));
+    macaronModalOverlay.addEventListener('click', (e) => {
+        if (e.target === macaronModalOverlay) macaronModalOverlay.classList.remove('active');
+    });
+
+    document.querySelectorAll('.macaron-plus-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            if (macaronSelectedTotal < macaronMax) {
+                const id = parseInt(btn.dataset.id);
+                const span = document.getElementById(`macaron-count-${id}`);
+                span.textContent = parseInt(span.textContent) + 1;
+                macaronSelectedTotal++;
+                const name = allMacarons[currentLang][id];
+                selectedMacaronMap[name] = (selectedMacaronMap[name] || 0) + 1;
+                updateMacaronModalUI();
+            }
+        });
+    });
+
+    document.querySelectorAll('.macaron-minus-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const id = parseInt(btn.dataset.id);
+            const span = document.getElementById(`macaron-count-${id}`);
+            const current = parseInt(span.textContent);
+            if (current > 0) {
+                span.textContent = current - 1;
+                macaronSelectedTotal--;
+                const name = allMacarons[currentLang][id];
+                selectedMacaronMap[name]--;
+                if (selectedMacaronMap[name] <= 0) delete selectedMacaronMap[name];
+                updateMacaronModalUI();
+            }
+        });
+    });
+
+    macaronConfirmBtn.addEventListener('click', () => {
+        if (macaronSelectedTotal !== macaronMax) return;
+        const details = Object.entries(selectedMacaronMap)
+            .filter(([, qty]) => qty > 0)
+            .map(([name, qty]) => `${qty}x ${name}`)
+            .join(', ');
+        addToCart({
+            title: macaronProductName,
+            price: `$${macaronProductPrice.toFixed(2)}`,
+            image: 'assets/macarons/Raspberry.png',
+            details: details
+        });
+        macaronModalOverlay.classList.remove('active');
+    });
+
+    // ── Mini Individual Cakes Picker ──────────────────────────────────────────
+    const allMiniCakes = [
+        "Cannoli Cheesecake",
+        "Caramel Cheesecake",
+        "Carrot Cake",
+        "Chocolate Cake",
+        "Chocolate Cheesecake",
+        "Chocolate Dipped Cheesecake",
+        "Classic Cheesecake",
+        "Confetti Cake",
+        "Confetti Cheesecake",
+        "Fruity Pebbles Cheesecake",
+        "Oreo Cheesecake",
+        "Red Velvet Cake",
+        "Red Velvet Cheesecake",
+        "Strawberry Cheesecake",
+        "Tiramisú",
+        "Tres Leches"
+    ];
+
+    const miniCakeImages = [
+        "assets/mini individual/Cannoli Cheesecake.png",
+        "assets/mini individual/Caramel cheesecake.png",
+        "assets/mini individual/Carrot Cake.png",
+        "assets/mini individual/Chocolate Cake.png",
+        "assets/mini individual/Chocolate Cheesecake.png",
+        "assets/mini individual/Chocolate Dipped Cheesecake.png",
+        "assets/mini individual/Classic Cheesecake.png",
+        "assets/mini individual/Confetti Cake.png",
+        "assets/mini individual/Confetti Cheesecake.png",
+        "assets/mini individual/Fruity Pebbles Cheesecake.png",
+        "assets/mini individual/Oreo Cheesecake.png",
+        "assets/mini individual/Red velvet Cake.png",
+        "assets/mini individual/Red Velvet Cheesecake.png",
+        "assets/mini individual/Strawberry cheesecake.png",
+        "assets/mini individual/Tiramisú.png",
+        "assets/mini individual/Tres leches.png"
+    ];
+
+    const miniModalOverlay   = document.getElementById('mini-modal-overlay');
+    const miniModalClose     = document.getElementById('mini-modal-close');
+    const miniModalList      = document.getElementById('mini-modal-list');
+    const miniCountText      = document.getElementById('mini-count-text');
+    const miniProgressBar    = document.getElementById('mini-progress-bar');
+    const miniConfirmBtn     = document.getElementById('mini-confirm-btn');
+    const miniModalTitle     = document.getElementById('mini-modal-title');
+
+    let miniMax = 0;
+    let miniSelectedTotal = 0;
+    let selectedMiniMap = {};
+    let miniProductName = "";
+    let miniProductPrice = 0;
+
+    allMiniCakes.forEach((cake, index) => {
+        miniModalList.insertAdjacentHTML('beforeend', `
+            <div class="cookie-item">
+                <div class="cookie-thumb">
+                    <img src="${miniCakeImages[index]}" alt="${cake}" loading="lazy">
+                </div>
+                <div class="cookie-name">${cake}</div>
+                <div class="cookie-controls">
+                    <button class="cookie-btn mini-minus-btn" data-id="${index}">-</button>
+                    <span class="cookie-count" id="mini-count-${index}">0</span>
+                    <button class="cookie-btn mini-plus-btn" data-id="${index}">+</button>
+                </div>
+            </div>
+        `);
+    });
+
+    function resetMiniModal() {
+        miniSelectedTotal = 0;
+        selectedMiniMap = {};
+        document.querySelectorAll('#mini-modal-list .cookie-count').forEach(el => el.textContent = '0');
+        updateMiniModalUI();
+    }
+
+    function updateMiniModalUI() {
+        const t = translations[currentLang];
+        miniCountText.textContent = t.modal_count.replace('{0}', miniSelectedTotal).replace('{1}', miniMax);
+        miniProgressBar.style.width = `${(miniSelectedTotal / miniMax) * 100}%`;
+        const disablePlus = miniSelectedTotal >= miniMax;
+        document.querySelectorAll('.mini-plus-btn').forEach(b => b.disabled = disablePlus);
+        document.querySelectorAll('.mini-minus-btn').forEach(b => {
+            b.disabled = parseInt(document.getElementById(`mini-count-${b.dataset.id}`).textContent) <= 0;
+        });
+        miniConfirmBtn.disabled = miniSelectedTotal !== miniMax;
+        if (miniSelectedTotal === miniMax) {
+            miniConfirmBtn.textContent = t.modal_add_cart;
+            miniConfirmBtn.style.backgroundColor = 'var(--color-primary)';
+            miniConfirmBtn.style.removeProperty('color');
+        } else {
+            miniConfirmBtn.textContent = t.modal_mini_missing;
+            miniConfirmBtn.style.backgroundColor = '#ccc';
+            miniConfirmBtn.style.removeProperty('color');
+        }
+    }
+
+    document.querySelectorAll('.btn-open-mini-modal').forEach(btn => {
+        btn.addEventListener('click', () => {
+            miniMax = parseInt(btn.dataset.max);
+            miniProductName = btn.dataset.product;
+            miniProductPrice = parseFloat(btn.dataset.price);
+            miniModalTitle.textContent = translations[currentLang].modal_mini_title.replace('{0}', miniMax);
+            resetMiniModal();
+            miniModalOverlay.classList.add('active');
+        });
+    });
+
+    miniModalClose.addEventListener('click', () => miniModalOverlay.classList.remove('active'));
+    miniModalOverlay.addEventListener('click', (e) => {
+        if (e.target === miniModalOverlay) miniModalOverlay.classList.remove('active');
+    });
+
+    document.querySelectorAll('.mini-plus-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            if (miniSelectedTotal < miniMax) {
+                const id = btn.dataset.id;
+                const span = document.getElementById(`mini-count-${id}`);
+                span.textContent = parseInt(span.textContent) + 1;
+                miniSelectedTotal++;
+                selectedMiniMap[allMiniCakes[id]] = (selectedMiniMap[allMiniCakes[id]] || 0) + 1;
+                updateMiniModalUI();
+            }
+        });
+    });
+
+    document.querySelectorAll('.mini-minus-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const id = btn.dataset.id;
+            const span = document.getElementById(`mini-count-${id}`);
+            const current = parseInt(span.textContent);
+            if (current > 0) {
+                span.textContent = current - 1;
+                miniSelectedTotal--;
+                selectedMiniMap[allMiniCakes[id]]--;
+                if (selectedMiniMap[allMiniCakes[id]] <= 0) delete selectedMiniMap[allMiniCakes[id]];
+                updateMiniModalUI();
+            }
+        });
+    });
+
+    miniConfirmBtn.addEventListener('click', () => {
+        if (miniSelectedTotal !== miniMax) return;
+        const details = Object.entries(selectedMiniMap)
+            .filter(([, qty]) => qty > 0)
+            .map(([name, qty]) => `${qty}x ${name}`)
+            .join(', ');
+        addToCart({
+            title: miniProductName,
+            price: `$${miniProductPrice.toFixed(2)}`,
+            image: 'assets/mini individual/Tiramisú.png',
+            details: details
+        });
+        miniModalOverlay.classList.remove('active');
+    });
+
     // Initialize Language
     changeLanguage(currentLang);
 });
-
-function loadMore(btn) {
-    const tabContent = btn.closest('.tab-content');
-    const grid = tabContent.querySelector('.tabbed-product-grid');
-    grid.classList.add('show-all');
-    btn.style.display = 'none';
-}

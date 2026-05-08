@@ -1,0 +1,9 @@
+# Claude Code internals
+.agents/
+.claude/
+
+# Dev tools (no van en producción)
+translate.py
+
+# Imágenes de trabajo / borradores sueltos
+assets/*_pixian_ai.png
