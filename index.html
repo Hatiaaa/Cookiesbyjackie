@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@400;600;800;900&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
     
     <!-- CSS -->
-    <link rel="stylesheet" href="style.css?v=4.5">
+    <link rel="stylesheet" href="style.css?v=4.6">
     
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -1243,7 +1243,10 @@
             
             <div class="footer-bottom" style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
                 <p style="opacity: 0.6; font-size: 0.9rem;" data-i18n="footer_copyright">&copy; 2024 Cookies by Jackie. Todos los derechos reservados.</p>
-                <p style="opacity: 0.6; font-size: 0.9rem;" data-i18n="footer_dev">Diseñado y desarrollado por <a href="#" style="color: var(--color-primary); font-weight: 600; text-decoration: none;">Estudio Xaga</a></p>
+                <a href="https://www.estudioxaga.com/" target="_blank" rel="noopener" class="footer-credit-link">
+                    <span class="footer-credit-label" data-i18n="footer_dev">Diseñado &amp; desarrollado por</span>
+                    <img src="assets/logo-del-desañador/logo-xaga-full.svg" alt="Estudio Xaga" class="footer-credit-logo">
+                </a>
             </div>
         </div>
     </footer>
@@ -1448,7 +1451,7 @@
         </div>
     </div>
 
-    <script src="script.js?v=5.3"></script>
+    <script src="script.js?v=5.4"></script>
     <script>
         // Scroll Animations
         const observer = new IntersectionObserver((entries) => {

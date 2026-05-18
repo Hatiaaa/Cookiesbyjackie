@@ -2667,6 +2667,38 @@ img {
 }
 
 /* Instagram Grid Fix */
+
+/* ── Footer credit — Estudio Xaga ─────────────────────────────── */
+.footer-credit-link {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.footer-credit-link:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+}
+
+.footer-credit-label {
+    font-size: 0.75rem;
+    font-family: var(--font-heading);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    opacity: 0.55;
+    color: var(--color-text);
+    white-space: nowrap;
+}
+
+.footer-credit-logo {
+    height: 32px;
+    width: auto;
+    border-radius: 8px;
+}
+
 /* ================================
    MOBILE MENU OVERLAY (standalone)
    ================================ */
@@ -3051,6 +3083,7 @@ img {
     .social-links { justify-content: center; }
     .payment-methods { justify-content: center; }
     .footer-bottom { flex-direction: column; align-items: center; gap: 0.5rem; }
+    .footer-credit-link { flex-direction: column; align-items: center; gap: 0.4rem; }
     
     .promo-content { padding: 3rem 1.5rem; }
     .subscribe-form { flex-direction: column; }

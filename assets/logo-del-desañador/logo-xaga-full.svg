@@ -1,0 +1,72 @@
+<svg
+  viewBox="0 0 228 56"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  role="img"
+  aria-label="Estudio Xaga — Socios Digitales"
+>
+  <defs>
+    <!-- Gradiente barra violet del icono X -->
+    <linearGradient id="icon_violet" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#7C4DFF" />
+      <stop offset="100%" stop-color="#4A148C" />
+    </linearGradient>
+
+    <!-- Gradiente barra pink del icono X -->
+    <linearGradient id="icon_pink" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#EC4899" />
+      <stop offset="100%" stop-color="#BE185D" />
+    </linearGradient>
+
+    <!-- Gradiente para el texto "XAGA" (pink → violet, izq → der) -->
+    <linearGradient id="text_gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#EC4899" />
+      <stop offset="100%" stop-color="#7C4DFF" />
+    </linearGradient>
+  </defs>
+
+  <!-- Fondo oscuro (color de marca #0b0e14) -->
+  <rect width="228" height="56" rx="10" fill="#0b0e14" />
+
+  <!-- ── Icono X ──────────────────────────────────────────
+       El viewBox del icono es 100×100.
+       Lo escalamos a 40×40 (scale 0.4) y lo movemos a (10, 8).
+  ─────────────────────────────────────────────────────── -->
+  <g transform="translate(10, 8) scale(0.4)">
+    <!-- Barra 1: violet — top-left → bottom-right -->
+    <line x1="25" y1="25" x2="75" y2="75"
+          stroke="url(#icon_violet)"
+          stroke-width="18"
+          stroke-linecap="round" />
+    <!-- Barra 2: pink — bottom-left → top-right -->
+    <line x1="25" y1="75" x2="75" y2="25"
+          stroke="url(#icon_pink)"
+          stroke-width="18"
+          stroke-linecap="round" />
+  </g>
+
+  <!-- ── Texto principal: "Estudio XAGA" ────────────────── -->
+  <text
+    x="60"
+    y="30"
+    font-family="'Outfit', 'Inter', system-ui, sans-serif"
+    font-size="18"
+    font-weight="700"
+    letter-spacing="-0.3"
+  >
+    <tspan fill="#ffffff">Estudio </tspan>
+    <tspan fill="url(#text_gradient)" font-weight="800">XAGA</tspan>
+  </text>
+
+  <!-- ── Subtítulo: "SOCIOS DIGITALES" ──────────────────── -->
+  <text
+    x="61"
+    y="44"
+    font-family="'Outfit', 'Inter', system-ui, sans-serif"
+    font-size="7.5"
+    font-weight="500"
+    fill="#9ca3af"
+    letter-spacing="2.2"
+  >SOCIOS DIGITALES</text>
+
+</svg>

@@ -1,0 +1,39 @@
+<svg
+  viewBox="0 0 100 100"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  role="img"
+  aria-label="Estudio Xaga logo"
+>
+  <defs>
+    <!-- Barra 1: violet → purple -->
+    <linearGradient id="pill_violet" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#7C4DFF" />
+      <stop offset="100%" stop-color="#4A148C" />
+    </linearGradient>
+
+    <!-- Barra 2: pink → pink-deep -->
+    <linearGradient id="pill_pink" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#EC4899" />
+      <stop offset="100%" stop-color="#BE185D" />
+    </linearGradient>
+  </defs>
+
+  <!-- Barra 1: violet — top-left → bottom-right -->
+  <line
+    x1="25" y1="25"
+    x2="75" y2="75"
+    stroke="url(#pill_violet)"
+    stroke-width="18"
+    stroke-linecap="round"
+  />
+
+  <!-- Barra 2: pink — bottom-left → top-right -->
+  <line
+    x1="25" y1="75"
+    x2="75" y2="25"
+    stroke="url(#pill_pink)"
+    stroke-width="18"
+    stroke-linecap="round"
+  />
+</svg>
