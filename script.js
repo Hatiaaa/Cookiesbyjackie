@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
             faq_desc: "Resolvemos tus dudas sobre nuestros productos, pedidos especiales y servicios para que tu experiencia sea perfecta.",
             faq_contact_label: "Contacto directo",
             faq_q1: "¿Realizan envíos a domicilio?",
-            faq_a1: "Por el momento no contamos con servicio de envío a domicilio, pero te invitamos a visitarnos en nuestra tienda para disfrutar de nuestros productos recién horneados.",
+            faq_a1: "¡Sí! Realizamos entregas a domicilio a través de <a href='https://www.ubereats.com/store/cookies-by-jackie/unP0-ZwaV229nPo_rFi9_A' target='_blank' rel='noopener' style='color:#06c167; font-weight:700;'>UberEats</a>. Haz tu pedido desde la app y recíbelo en la puerta de tu casa.",
             faq_q2: "¿Dónde están ubicados?",
             faq_a2: "Nos encontramos en el <strong>Underground Market de Columbus Circle</strong>, en el corazón de Nueva York. Un lugar perfecto para una pausa dulce.",
             footer_tagline: "Horneando recuerdos cada día con ingredientes premium y pasión artesanal en el corazón de NYC.",
@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
             faq_desc: "Satisfying your curiosity about our treats, bespoke orders, and services for a flawless experience.",
             faq_contact_label: "direct contact",
             faq_q1: "Do you offer delivery?",
-            faq_a1: "Currently, we don't offer home delivery, but we invite you to our bakery to experience the magic of cookies fresh from the oven.",
+            faq_a1: "Yes! We deliver through <a href='https://www.ubereats.com/store/cookies-by-jackie/unP0-ZwaV229nPo_rFi9_A' target='_blank' rel='noopener' style='color:#06c167; font-weight:700;'>UberEats</a>. Order from the app and enjoy our freshly baked treats delivered right to your door.",
             faq_q2: "Where can I find you?",
             faq_a2: "We are located at the <strong>Columbus Circle Underground Market</strong>, in the heart of NYC. The perfect sanctuary for a sweet escape.",
             faq_q3: "What are your opening hours?",
@@ -900,7 +900,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 ]
             },
             info: {
-                message: "Atendemos todos los días de Lunes a Domingo, de 7:00 AM a 10:00 PM. Hacemos entregas a domicilio en toda la zona metropolitana.",
+                message: "Atendemos todos los días de Lunes a Domingo, de 7:00 AM a 10:00 PM. Realizamos entregas a domicilio a través de <a href='https://www.ubereats.com/store/cookies-by-jackie/unP0-ZwaV229nPo_rFi9_A' target='_blank' rel='noopener' style='color:#06c167; font-weight:700;'>UberEats</a> 🟢",
                 options: [
                     { text: "Preguntas Frecuentes", link: "#faq" },
                     { text: "Volver al inicio", next: "start" }
@@ -939,7 +939,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 ]
             },
             info: {
-                message: "We're open every day, Monday through Sunday, from 7:00 AM to 10:00 PM. We offer door-to-door delivery across the metropolitan area.",
+                message: "We're open every day, Monday through Sunday, from 7:00 AM to 10:00 PM. We deliver through <a href='https://www.ubereats.com/store/cookies-by-jackie/unP0-ZwaV229nPo_rFi9_A' target='_blank' rel='noopener' style='color:#06c167; font-weight:700;'>UberEats</a> 🟢",
                 options: [
                     { text: "View FAQ", link: "#faq" },
                     { text: "Back to start", next: "start" }
