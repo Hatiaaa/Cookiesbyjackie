@@ -61,6 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
             privacy_link: "Política de Privacidad",
             refund_link: "Reembolsos y Cancelaciones",
             shipping_link: "Envíos y Entregas",
+            terms_link: "Términos del Servicio",
             checkout_title: "Resumen de Compra",
             checkout_subtitle: "Completa tus datos para proceder al pago",
             checkout_order_title: "tu pedido",
@@ -258,6 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
             privacy_link: "Privacy Policy",
             refund_link: "Refunds & Cancellations",
             shipping_link: "Shipping & Delivery",
+            terms_link: "Terms of Service",
             checkout_title: "Order Summary",
             checkout_subtitle: "Complete your details to proceed to payment",
             checkout_order_title: "your order",
@@ -2039,6 +2041,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         document.addEventListener('keydown', e => {
             if (e.key === 'Escape' && shippingOverlay.classList.contains('active')) closeShipping();
+        });
+    }
+
+    // ─── Terms of Service Modal ───────────────────────────────────────────────
+    const termsOverlay  = document.getElementById('terms-modal-overlay');
+    const termsCloseBtn = document.getElementById('terms-modal-close');
+    const openTermsBtn  = document.getElementById('open-terms-btn');
+
+    if (termsOverlay && openTermsBtn) {
+        const openTerms = () => {
+            termsOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            termsOverlay.scrollTop = 0;
+        };
+        const closeTerms = () => {
+            termsOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        };
+        openTermsBtn.addEventListener('click', openTerms);
+        termsCloseBtn.addEventListener('click', closeTerms);
+        termsOverlay.addEventListener('click', e => {
+            if (e.target === termsOverlay) closeTerms();
+        });
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && termsOverlay.classList.contains('active')) closeTerms();
         });
     }
 
