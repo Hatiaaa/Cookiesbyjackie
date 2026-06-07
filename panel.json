@@ -1,8 +1,9 @@
 {
+  "version": 1,
   "sections": [
 
     {
-      "key": "inicio",
+      "id": "inicio",
       "label": "Hero — Inicio",
       "icon": "layout",
       "fields": [
@@ -15,7 +16,7 @@
     },
 
     {
-      "key": "favoritos",
+      "id": "favoritos",
       "label": "Más Vendidos",
       "icon": "star",
       "fields": [
@@ -37,7 +38,7 @@
     },
 
     {
-      "key": "cookies",
+      "id": "cookies",
       "label": "Galletas (Cookies)",
       "icon": "package",
       "fields": [
@@ -64,7 +65,7 @@
     },
 
     {
-      "key": "cakes",
+      "id": "cakes",
       "label": "Pasteles (Cakes)",
       "icon": "package",
       "fields": [
@@ -101,7 +102,7 @@
     },
 
     {
-      "key": "cupcakes",
+      "id": "cupcakes",
       "label": "Cupcakes",
       "icon": "package",
       "fields": [
@@ -123,7 +124,7 @@
     },
 
     {
-      "key": "pastries",
+      "id": "pastries",
       "label": "Pastries",
       "icon": "package",
       "fields": [
@@ -160,7 +161,7 @@
     },
 
     {
-      "key": "macarons",
+      "id": "macarons",
       "label": "Macarons",
       "icon": "package",
       "fields": [
@@ -182,7 +183,7 @@
     },
 
     {
-      "key": "mini",
+      "id": "mini",
       "label": "Mini Individual Cakes",
       "icon": "package",
       "fields": [
@@ -204,7 +205,7 @@
     },
 
     {
-      "key": "pies",
+      "id": "pies",
       "label": "Pies / Tartas",
       "icon": "package",
       "fields": [
@@ -226,7 +227,7 @@
     },
 
     {
-      "key": "prepacks",
+      "id": "prepacks",
       "label": "Prepacks (Packs predeterminados)",
       "icon": "gift",
       "fields": [
@@ -263,46 +264,46 @@
     },
 
     {
-      "key": "packs-especiales",
+      "id": "packs-especiales",
       "label": "Packs Especiales (slider)",
       "icon": "trending-up",
       "fields": [
-        { "key": "packs-especiales.titulo", "label": "Título de la sección", "type": "text" },
+        { "key": "packsespeciales.titulo", "label": "Título de la sección", "type": "text" },
 
-        { "key": "packs-especiales.1.nombre",      "label": "Pack 1 — Nombre",      "type": "text" },
-        { "key": "packs-especiales.1.precio",      "label": "Pack 1 — Precio",      "type": "text" },
-        { "key": "packs-especiales.1.descripcion", "label": "Pack 1 — Descripción", "type": "textarea" },
-        { "key": "packs-especiales.1.imagen",      "label": "Pack 1 — Imagen",      "type": "image" },
+        { "key": "packsespeciales.1.nombre",      "label": "Pack 1 — Nombre",      "type": "text" },
+        { "key": "packsespeciales.1.precio",      "label": "Pack 1 — Precio",      "type": "text" },
+        { "key": "packsespeciales.1.descripcion", "label": "Pack 1 — Descripción", "type": "textarea" },
+        { "key": "packsespeciales.1.imagen",      "label": "Pack 1 — Imagen",      "type": "image" },
 
-        { "key": "packs-especiales.2.nombre",      "label": "Pack 2 — Nombre",      "type": "text" },
-        { "key": "packs-especiales.2.precio",      "label": "Pack 2 — Precio",      "type": "text" },
-        { "key": "packs-especiales.2.descripcion", "label": "Pack 2 — Descripción", "type": "textarea" },
-        { "key": "packs-especiales.2.imagen",      "label": "Pack 2 — Imagen",      "type": "image" },
+        { "key": "packsespeciales.2.nombre",      "label": "Pack 2 — Nombre",      "type": "text" },
+        { "key": "packsespeciales.2.precio",      "label": "Pack 2 — Precio",      "type": "text" },
+        { "key": "packsespeciales.2.descripcion", "label": "Pack 2 — Descripción", "type": "textarea" },
+        { "key": "packsespeciales.2.imagen",      "label": "Pack 2 — Imagen",      "type": "image" },
 
-        { "key": "packs-especiales.3.nombre",      "label": "Pack 3 — Nombre",      "type": "text" },
-        { "key": "packs-especiales.3.precio",      "label": "Pack 3 — Precio",      "type": "text" },
-        { "key": "packs-especiales.3.descripcion", "label": "Pack 3 — Descripción", "type": "textarea" },
-        { "key": "packs-especiales.3.imagen",      "label": "Pack 3 — Imagen",      "type": "image" },
+        { "key": "packsespeciales.3.nombre",      "label": "Pack 3 — Nombre",      "type": "text" },
+        { "key": "packsespeciales.3.precio",      "label": "Pack 3 — Precio",      "type": "text" },
+        { "key": "packsespeciales.3.descripcion", "label": "Pack 3 — Descripción", "type": "textarea" },
+        { "key": "packsespeciales.3.imagen",      "label": "Pack 3 — Imagen",      "type": "image" },
 
-        { "key": "packs-especiales.4.nombre",      "label": "Pack 4 — Nombre",      "type": "text" },
-        { "key": "packs-especiales.4.precio",      "label": "Pack 4 — Precio",      "type": "text" },
-        { "key": "packs-especiales.4.descripcion", "label": "Pack 4 — Descripción", "type": "textarea" },
-        { "key": "packs-especiales.4.imagen",      "label": "Pack 4 — Imagen",      "type": "image" },
+        { "key": "packsespeciales.4.nombre",      "label": "Pack 4 — Nombre",      "type": "text" },
+        { "key": "packsespeciales.4.precio",      "label": "Pack 4 — Precio",      "type": "text" },
+        { "key": "packsespeciales.4.descripcion", "label": "Pack 4 — Descripción", "type": "textarea" },
+        { "key": "packsespeciales.4.imagen",      "label": "Pack 4 — Imagen",      "type": "image" },
 
-        { "key": "packs-especiales.5.nombre",      "label": "Pack 5 — Nombre",      "type": "text" },
-        { "key": "packs-especiales.5.precio",      "label": "Pack 5 — Precio",      "type": "text" },
-        { "key": "packs-especiales.5.descripcion", "label": "Pack 5 — Descripción", "type": "textarea" },
-        { "key": "packs-especiales.5.imagen",      "label": "Pack 5 — Imagen",      "type": "image" },
+        { "key": "packsespeciales.5.nombre",      "label": "Pack 5 — Nombre",      "type": "text" },
+        { "key": "packsespeciales.5.precio",      "label": "Pack 5 — Precio",      "type": "text" },
+        { "key": "packsespeciales.5.descripcion", "label": "Pack 5 — Descripción", "type": "textarea" },
+        { "key": "packsespeciales.5.imagen",      "label": "Pack 5 — Imagen",      "type": "image" },
 
-        { "key": "packs-especiales.6.nombre",      "label": "Pack 6 — Nombre",      "type": "text" },
-        { "key": "packs-especiales.6.precio",      "label": "Pack 6 — Precio",      "type": "text" },
-        { "key": "packs-especiales.6.descripcion", "label": "Pack 6 — Descripción", "type": "textarea" },
-        { "key": "packs-especiales.6.imagen",      "label": "Pack 6 — Imagen",      "type": "image" }
+        { "key": "packsespeciales.6.nombre",      "label": "Pack 6 — Nombre",      "type": "text" },
+        { "key": "packsespeciales.6.precio",      "label": "Pack 6 — Precio",      "type": "text" },
+        { "key": "packsespeciales.6.descripcion", "label": "Pack 6 — Descripción", "type": "textarea" },
+        { "key": "packsespeciales.6.imagen",      "label": "Pack 6 — Imagen",      "type": "image" }
       ]
     },
 
     {
-      "key": "reviews",
+      "id": "reviews",
       "label": "Reseñas",
       "icon": "message-square",
       "fields": [
@@ -320,7 +321,7 @@
     },
 
     {
-      "key": "faqs",
+      "id": "faqs",
       "label": "Preguntas Frecuentes",
       "icon": "help-circle",
       "fields": [
@@ -342,7 +343,7 @@
     },
 
     {
-      "key": "contacto",
+      "id": "contacto",
       "label": "Contacto y Ubicación",
       "icon": "map-pin",
       "fields": [
@@ -353,7 +354,7 @@
         { "key": "contacto.whatsapp",   "label": "WhatsApp (número)",       "type": "phone" },
         { "key": "contacto.instagram",  "label": "Instagram (URL completo)","type": "url" },
         { "key": "contacto.tiktok",     "label": "TikTok (URL completo)",   "type": "url" },
-        { "key": "contacto.foto_jackie","label": "Foto de Jackie",          "type": "image" }
+        { "key": "contacto.fotojackie","label": "Foto de Jackie",          "type": "image" }
       ]
     }
 
