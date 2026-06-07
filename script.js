@@ -58,6 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
             footer_subscribe: "suscribirse",
             footer_copyright: "&copy; 2024 Cookies by Jackie. Todos los derechos reservados.",
             footer_dev: "Diseñado &amp; desarrollado por",
+            privacy_link: "Política de Privacidad",
             checkout_title: "Resumen de Compra",
             checkout_subtitle: "Completa tus datos para proceder al pago",
             checkout_order_title: "tu pedido",
@@ -252,6 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
             footer_subscribe: "subscribe",
             footer_copyright: "&copy; 2024 Cookies by Jackie. All rights reserved.",
             footer_dev: "Designed &amp; developed by",
+            privacy_link: "Privacy Policy",
             checkout_title: "Order Summary",
             checkout_subtitle: "Complete your details to proceed to payment",
             checkout_order_title: "your order",
@@ -424,6 +426,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         document.querySelectorAll('[onclick*="loadMore"]').forEach(btn => {
             btn.textContent = translations[lang].load_more;
+        });
+
+        // Cambiar idioma del contenido de la Política de Privacidad
+        document.querySelectorAll('.policy-lang').forEach(div => {
+            div.style.display = div.dataset.policyLang === lang ? 'block' : 'none';
         });
 
         // Refrescar Chat si está abierto
@@ -1955,6 +1962,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         miniModalOverlay.classList.remove('active');
     });
+
+    // ─── Privacy Policy Modal ─────────────────────────────────────────────────
+    const privacyOverlay  = document.getElementById('privacy-modal-overlay');
+    const privacyCloseBtn = document.getElementById('privacy-modal-close');
+    const openPrivacyBtn  = document.getElementById('open-privacy-btn');
+
+    if (privacyOverlay && openPrivacyBtn) {
+        const openPrivacy = () => {
+            privacyOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            privacyOverlay.scrollTop = 0;
+        };
+        const closePrivacy = () => {
+            privacyOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        };
+        openPrivacyBtn.addEventListener('click', openPrivacy);
+        privacyCloseBtn.addEventListener('click', closePrivacy);
+        privacyOverlay.addEventListener('click', e => {
+            if (e.target === privacyOverlay) closePrivacy();
+        });
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && privacyOverlay.classList.contains('active')) closePrivacy();
+        });
+    }
 
     // Initialize Language
     changeLanguage(currentLang);

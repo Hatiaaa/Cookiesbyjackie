@@ -3154,5 +3154,148 @@ img {
         font-size: 1rem;
         margin-bottom: 1.5rem;
     }
-}  
- 
+}
+
+/* ============================================================
+   POLÍTICA DE PRIVACIDAD — MODAL
+   ============================================================ */
+.policy-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(40, 28, 15, 0.7);
+    z-index: 100000;
+    overflow-y: auto;
+    padding: 2rem 1rem;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+.policy-modal-overlay.active {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+.policy-modal {
+    background: var(--color-bg);
+    border-radius: var(--radius-card);
+    max-width: 760px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+    margin: auto;
+    animation: policySlideIn 0.3s ease;
+}
+@keyframes policySlideIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+.policy-modal-header {
+    position: sticky;
+    top: 0;
+    background: var(--color-bg);
+    padding: 1.4rem 2rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: var(--radius-card) var(--radius-card) 0 0;
+    z-index: 1;
+}
+.policy-modal-header h2 {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 0;
+}
+.policy-modal-close {
+    background: none;
+    border: none;
+    font-size: 1.7rem;
+    cursor: pointer;
+    color: var(--color-text);
+    line-height: 1;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+    padding: 0 0.2rem;
+    flex-shrink: 0;
+}
+.policy-modal-close:hover { opacity: 1; }
+.policy-modal-body {
+    padding: 2rem 2.5rem 3rem;
+}
+.policy-modal-body .policy-updated {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    opacity: 0.45;
+    margin-bottom: 2rem;
+}
+.policy-modal-body h3 {
+    font-family: var(--font-heading);
+    font-size: 0.82rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-primary);
+    margin: 2rem 0 0.5rem;
+}
+.policy-modal-body p {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    line-height: 1.8;
+    opacity: 0.82;
+    margin-bottom: 0.6rem;
+}
+.policy-modal-body ul {
+    padding-left: 1.4rem;
+    margin-bottom: 0.8rem;
+}
+.policy-modal-body li {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    line-height: 1.75;
+    opacity: 0.82;
+    margin-bottom: 0.25rem;
+}
+.policy-modal-body strong { font-weight: 700; }
+.policy-modal-body a { color: var(--color-primary); text-decoration: underline; }
+.policy-modal-body a:hover { opacity: 0.75; }
+.policy-stripe-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(99, 91, 255, 0.07);
+    border: 1px solid rgba(99, 91, 255, 0.18);
+    border-radius: 8px;
+    padding: 0.55rem 1rem;
+    margin: 0.4rem 0 1rem;
+    font-size: 0.82rem;
+    font-family: var(--font-body);
+    color: #635bff;
+    font-weight: 600;
+}
+.policy-modal-body hr {
+    border: none;
+    border-top: 1px solid rgba(0,0,0,0.07);
+    margin: 2rem 0;
+}
+.footer-policy-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    opacity: 0.55;
+    color: var(--color-text);
+    padding: 0;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: opacity 0.2s;
+    line-height: 1;
+}
+.footer-policy-btn:hover { opacity: 1; }
+@media (max-width: 600px) {
+    .policy-modal-body { padding: 1.5rem 1.2rem 2.5rem; }
+    .policy-modal-header { padding: 1.2rem 1.2rem; }
+}
