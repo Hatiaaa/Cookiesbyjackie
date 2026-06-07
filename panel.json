@@ -1,362 +1,1358 @@
 {
   "version": 1,
   "sections": [
-
     {
       "id": "inicio",
       "label": "Hero — Inicio",
       "icon": "layout",
       "fields": [
-        { "key": "inicio.badge",       "label": "Badge (ej. Repostería de Autor)", "type": "text" },
-        { "key": "inicio.titulo",      "label": "Título principal",                "type": "text" },
-        { "key": "inicio.descripcion", "label": "Descripción del hero",            "type": "textarea" },
-        { "key": "inicio.imagen",      "label": "Imagen de fondo del hero",        "type": "image" },
-        { "key": "inicio.logo",        "label": "Logo del negocio",                "type": "image" }
+        {
+          "key": "inicio.badge",
+          "label": "Badge (ej. Repostería de Autor)",
+          "type": "text"
+        },
+        {
+          "key": "inicio.titulo",
+          "label": "Título principal",
+          "type": "text"
+        },
+        {
+          "key": "inicio.descripcion",
+          "label": "Descripción del hero",
+          "type": "textarea"
+        },
+        {
+          "key": "inicio.imagen",
+          "label": "Imagen de fondo del hero",
+          "type": "image"
+        },
+        {
+          "key": "inicio.logo",
+          "label": "Logo del negocio",
+          "type": "image"
+        }
       ]
     },
-
     {
       "id": "favoritos",
       "label": "Más Vendidos",
       "icon": "star",
       "fields": [
-        { "key": "favoritos.titulo",    "label": "Título de la sección",     "type": "text" },
-        { "key": "favoritos.subtitulo", "label": "Subtítulo de la sección",  "type": "textarea" },
-
-        { "key": "favoritos.1.nombre",  "label": "Card 1 — Nombre",          "type": "text" },
-        { "key": "favoritos.1.imagen",  "label": "Card 1 — Imagen",          "type": "image" },
-
-        { "key": "favoritos.2.nombre",  "label": "Card 2 — Nombre",          "type": "text" },
-        { "key": "favoritos.2.imagen",  "label": "Card 2 — Imagen",          "type": "image" },
-
-        { "key": "favoritos.3.nombre",  "label": "Card 3 — Nombre",          "type": "text" },
-        { "key": "favoritos.3.imagen",  "label": "Card 3 — Imagen",          "type": "image" },
-
-        { "key": "favoritos.4.nombre",  "label": "Card 4 — Nombre",          "type": "text" },
-        { "key": "favoritos.4.imagen",  "label": "Card 4 — Imagen",          "type": "image" }
+        {
+          "key": "favoritos.titulo",
+          "label": "Título de la sección",
+          "type": "text"
+        },
+        {
+          "key": "favoritos.subtitulo",
+          "label": "Subtítulo de la sección",
+          "type": "textarea"
+        },
+        {
+          "key": "favoritos.1.nombre",
+          "label": "Card 1 — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "favoritos.1.imagen",
+          "label": "Card 1 — Imagen",
+          "type": "image"
+        },
+        {
+          "key": "favoritos.2.nombre",
+          "label": "Card 2 — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "favoritos.2.imagen",
+          "label": "Card 2 — Imagen",
+          "type": "image"
+        },
+        {
+          "key": "favoritos.3.nombre",
+          "label": "Card 3 — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "favoritos.3.imagen",
+          "label": "Card 3 — Imagen",
+          "type": "image"
+        },
+        {
+          "key": "favoritos.4.nombre",
+          "label": "Card 4 — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "favoritos.4.imagen",
+          "label": "Card 4 — Imagen",
+          "type": "image"
+        }
       ]
     },
-
     {
       "id": "cookies",
       "label": "Galletas (Cookies)",
       "icon": "package",
       "fields": [
-        { "key": "cookies.1.nombre",      "label": "Specialty Cookie Box — Nombre",      "type": "text" },
-        { "key": "cookies.1.descripcion", "label": "Specialty Cookie Box — Descripción", "type": "textarea" },
-        { "key": "cookies.1.precio",      "label": "Specialty Cookie Box — Precio",      "type": "text" },
-        { "key": "cookies.1.imagen",      "label": "Specialty Cookie Box — Imagen",      "type": "image" },
-
-        { "key": "cookies.2.nombre",      "label": "Pick 6 Cookie Box — Nombre",         "type": "text" },
-        { "key": "cookies.2.descripcion", "label": "Pick 6 Cookie Box — Descripción",    "type": "textarea" },
-        { "key": "cookies.2.precio",      "label": "Pick 6 Cookie Box — Precio",         "type": "text" },
-        { "key": "cookies.2.imagen",      "label": "Pick 6 Cookie Box — Imagen",         "type": "image" },
-
-        { "key": "cookies.3.nombre",      "label": "Pick 12 Cookie Box — Nombre",        "type": "text" },
-        { "key": "cookies.3.descripcion", "label": "Pick 12 Cookie Box — Descripción",   "type": "textarea" },
-        { "key": "cookies.3.precio",      "label": "Pick 12 Cookie Box — Precio",        "type": "text" },
-        { "key": "cookies.3.imagen",      "label": "Pick 12 Cookie Box — Imagen",        "type": "image" },
-
-        { "key": "cookies.4.nombre",      "label": "Mini Cookies Catering — Nombre",     "type": "text" },
-        { "key": "cookies.4.descripcion", "label": "Mini Cookies Catering — Descripción","type": "textarea" },
-        { "key": "cookies.4.precio",      "label": "Mini Cookies Catering — Precio",     "type": "text" },
-        { "key": "cookies.4.imagen",      "label": "Mini Cookies Catering — Imagen",     "type": "image" }
+        {
+          "key": "cookies.1.nombre",
+          "label": "Specialty Cookie Box — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "cookies.1.descripcion",
+          "label": "Specialty Cookie Box — Descripción",
+          "type": "textarea"
+        },
+        {
+          "key": "cookies.1.precio",
+          "label": "Specialty Cookie Box — Precio",
+          "type": "text"
+        },
+        {
+          "key": "cookies.1.imagen",
+          "label": "Specialty Cookie Box — Imagen",
+          "type": "image"
+        },
+        {
+          "key": "cookies.1.imagen2",
+          "label": "Specialty Cookie Box — Foto 2",
+          "type": "image"
+        },
+        {
+          "key": "cookies.1.imagen3",
+          "label": "Specialty Cookie Box — Foto 3",
+          "type": "image"
+        },
+        {
+          "key": "cookies.1.imagen4",
+          "label": "Specialty Cookie Box — Foto 4",
+          "type": "image"
+        },
+        {
+          "key": "cookies.2.nombre",
+          "label": "Pick 6 Cookie Box — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "cookies.2.descripcion",
+          "label": "Pick 6 Cookie Box — Descripción",
+          "type": "textarea"
+        },
+        {
+          "key": "cookies.2.precio",
+          "label": "Pick 6 Cookie Box — Precio",
+          "type": "text"
+        },
+        {
+          "key": "cookies.2.imagen",
+          "label": "Pick 6 Cookie Box — Imagen",
+          "type": "image"
+        },
+        {
+          "key": "cookies.2.imagen2",
+          "label": "Pick 6 Cookie Box — Foto 2",
+          "type": "image"
+        },
+        {
+          "key": "cookies.2.imagen3",
+          "label": "Pick 6 Cookie Box — Foto 3",
+          "type": "image"
+        },
+        {
+          "key": "cookies.2.imagen4",
+          "label": "Pick 6 Cookie Box — Foto 4",
+          "type": "image"
+        },
+        {
+          "key": "cookies.3.nombre",
+          "label": "Pick 12 Cookie Box — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "cookies.3.descripcion",
+          "label": "Pick 12 Cookie Box — Descripción",
+          "type": "textarea"
+        },
+        {
+          "key": "cookies.3.precio",
+          "label": "Pick 12 Cookie Box — Precio",
+          "type": "text"
+        },
+        {
+          "key": "cookies.3.imagen",
+          "label": "Pick 12 Cookie Box — Imagen",
+          "type": "image"
+        },
+        {
+          "key": "cookies.3.imagen2",
+          "label": "Pick 12 Cookie Box — Foto 2",
+          "type": "image"
+        },
+        {
+          "key": "cookies.3.imagen3",
+          "label": "Pick 12 Cookie Box — Foto 3",
+          "type": "image"
+        },
+        {
+          "key": "cookies.3.imagen4",
+          "label": "Pick 12 Cookie Box — Foto 4",
+          "type": "image"
+        },
+        {
+          "key": "cookies.4.nombre",
+          "label": "Mini Cookies Catering — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "cookies.4.descripcion",
+          "label": "Mini Cookies Catering — Descripción",
+          "type": "textarea"
+        },
+        {
+          "key": "cookies.4.precio",
+          "label": "Mini Cookies Catering — Precio",
+          "type": "text"
+        },
+        {
+          "key": "cookies.4.imagen",
+          "label": "Mini Cookies Catering — Imagen",
+          "type": "image"
+        },
+        {
+          "key": "cookies.4.imagen2",
+          "label": "Mini Cookies Catering — Foto 2",
+          "type": "image"
+        },
+        {
+          "key": "cookies.4.imagen3",
+          "label": "Mini Cookies Catering — Foto 3",
+          "type": "image"
+        },
+        {
+          "key": "cookies.4.imagen4",
+          "label": "Mini Cookies Catering — Foto 4",
+          "type": "image"
+        }
       ]
     },
-
     {
       "id": "cakes",
       "label": "Pasteles (Cakes)",
       "icon": "package",
       "fields": [
-        { "key": "cakes.1.nombre",      "label": "Vintage Heart Cakes — Nombre",         "type": "text" },
-        { "key": "cakes.1.descripcion", "label": "Vintage Heart Cakes — Descripción",    "type": "textarea" },
-        { "key": "cakes.1.precio",      "label": "Vintage Heart Cakes — Precio",         "type": "text" },
-        { "key": "cakes.1.imagen",      "label": "Vintage Heart Cakes — Imagen",         "type": "image" },
-
-        { "key": "cakes.2.nombre",      "label": "Vintage Round Cakes — Nombre",         "type": "text" },
-        { "key": "cakes.2.descripcion", "label": "Vintage Round Cakes — Descripción",    "type": "textarea" },
-        { "key": "cakes.2.precio",      "label": "Vintage Round Cakes — Precio",         "type": "text" },
-        { "key": "cakes.2.imagen",      "label": "Vintage Round Cakes — Imagen",         "type": "image" },
-
-        { "key": "cakes.3.nombre",      "label": "Naked Cake — Nombre",                  "type": "text" },
-        { "key": "cakes.3.descripcion", "label": "Naked Cake — Descripción",             "type": "textarea" },
-        { "key": "cakes.3.precio",      "label": "Naked Cake — Precio",                  "type": "text" },
-        { "key": "cakes.3.imagen",      "label": "Naked Cake — Imagen",                  "type": "image" },
-
-        { "key": "cakes.4.nombre",      "label": "Cookie Cake 10\" — Nombre",            "type": "text" },
-        { "key": "cakes.4.descripcion", "label": "Cookie Cake 10\" — Descripción",       "type": "textarea" },
-        { "key": "cakes.4.precio",      "label": "Cookie Cake 10\" — Precio",            "type": "text" },
-        { "key": "cakes.4.imagen",      "label": "Cookie Cake 10\" — Imagen",            "type": "image" },
-
-        { "key": "cakes.5.nombre",      "label": "Chocolate Fudge Brownie Cake — Nombre","type": "text" },
-        { "key": "cakes.5.descripcion", "label": "Chocolate Fudge Brownie Cake — Desc.", "type": "textarea" },
-        { "key": "cakes.5.precio",      "label": "Chocolate Fudge Brownie Cake — Precio","type": "text" },
-        { "key": "cakes.5.imagen",      "label": "Chocolate Fudge Brownie Cake — Imagen","type": "image" },
-
-        { "key": "cakes.6.nombre",      "label": "Double-Layered Cookie Cake — Nombre",  "type": "text" },
-        { "key": "cakes.6.descripcion", "label": "Double-Layered Cookie Cake — Desc.",   "type": "textarea" },
-        { "key": "cakes.6.precio",      "label": "Double-Layered Cookie Cake — Precio",  "type": "text" },
-        { "key": "cakes.6.imagen",      "label": "Double-Layered Cookie Cake — Imagen",  "type": "image" }
+        {
+          "key": "cakes.1.nombre",
+          "label": "Vintage Heart Cakes — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "cakes.1.descripcion",
+          "label": "Vintage Heart Cakes — Descripción",
+          "type": "textarea"
+        },
+        {
+          "key": "cakes.1.precio",
+          "label": "Vintage Heart Cakes — Precio",
+          "type": "text"
+        },
+        {
+          "key": "cakes.1.imagen",
+          "label": "Vintage Heart Cakes — Imagen",
+          "type": "image"
+        },
+        {
+          "key": "cakes.1.imagen2",
+          "label": "Vintage Heart Cakes — Foto 2",
+          "type": "image"
+        },
+        {
+          "key": "cakes.1.imagen3",
+          "label": "Vintage Heart Cakes — Foto 3",
+          "type": "image"
+        },
+        {
+          "key": "cakes.2.nombre",
+          "label": "Vintage Round Cakes — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "cakes.2.descripcion",
+          "label": "Vintage Round Cakes — Descripción",
+          "type": "textarea"
+        },
+        {
+          "key": "cakes.2.precio",
+          "label": "Vintage Round Cakes — Precio",
+          "type": "text"
+        },
+        {
+          "key": "cakes.2.imagen",
+          "label": "Vintage Round Cakes — Imagen",
+          "type": "image"
+        },
+        {
+          "key": "cakes.2.imagen2",
+          "label": "Vintage Round Cakes — Foto 2",
+          "type": "image"
+        },
+        {
+          "key": "cakes.2.imagen3",
+          "label": "Vintage Round Cakes — Foto 3",
+          "type": "image"
+        },
+        {
+          "key": "cakes.3.nombre",
+          "label": "Naked Cake — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "cakes.3.descripcion",
+          "label": "Naked Cake — Descripción",
+          "type": "textarea"
+        },
+        {
+          "key": "cakes.3.precio",
+          "label": "Naked Cake — Precio",
+          "type": "text"
+        },
+        {
+          "key": "cakes.3.imagen",
+          "label": "Naked Cake — Imagen",
+          "type": "image"
+        },
+        {
+          "key": "cakes.3.imagen2",
+          "label": "Naked Cake — Foto 2",
+          "type": "image"
+        },
+        {
+          "key": "cakes.3.imagen3",
+          "label": "Naked Cake — Foto 3",
+          "type": "image"
+        },
+        {
+          "key": "cakes.4.nombre",
+          "label": "Cookie Cake 10\" — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "cakes.4.descripcion",
+          "label": "Cookie Cake 10\" — Descripción",
+          "type": "textarea"
+        },
+        {
+          "key": "cakes.4.precio",
+          "label": "Cookie Cake 10\" — Precio",
+          "type": "text"
+        },
+        {
+          "key": "cakes.4.imagen",
+          "label": "Cookie Cake 10\" — Imagen",
+          "type": "image"
+        },
+        {
+          "key": "cakes.5.nombre",
+          "label": "Chocolate Fudge Brownie Cake — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "cakes.5.descripcion",
+          "label": "Chocolate Fudge Brownie Cake — Desc.",
+          "type": "textarea"
+        },
+        {
+          "key": "cakes.5.precio",
+          "label": "Chocolate Fudge Brownie Cake — Precio",
+          "type": "text"
+        },
+        {
+          "key": "cakes.5.imagen",
+          "label": "Chocolate Fudge Brownie Cake — Imagen",
+          "type": "image"
+        },
+        {
+          "key": "cakes.6.nombre",
+          "label": "Double-Layered Cookie Cake — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "cakes.6.descripcion",
+          "label": "Double-Layered Cookie Cake — Desc.",
+          "type": "textarea"
+        },
+        {
+          "key": "cakes.6.precio",
+          "label": "Double-Layered Cookie Cake — Precio",
+          "type": "text"
+        },
+        {
+          "key": "cakes.6.imagen",
+          "label": "Double-Layered Cookie Cake — Imagen",
+          "type": "image"
+        }
       ]
     },
-
     {
       "id": "cupcakes",
       "label": "Cupcakes",
       "icon": "package",
       "fields": [
-        { "key": "cupcakes.1.nombre",      "label": "Cupcakes 6 pk — Nombre",      "type": "text" },
-        { "key": "cupcakes.1.descripcion", "label": "Cupcakes 6 pk — Descripción", "type": "textarea" },
-        { "key": "cupcakes.1.precio",      "label": "Cupcakes 6 pk — Precio",      "type": "text" },
-        { "key": "cupcakes.1.imagen",      "label": "Cupcakes 6 pk — Imagen",      "type": "image" },
-
-        { "key": "cupcakes.2.nombre",      "label": "Cupcakes 12 pk — Nombre",     "type": "text" },
-        { "key": "cupcakes.2.descripcion", "label": "Cupcakes 12 pk — Descripción","type": "textarea" },
-        { "key": "cupcakes.2.precio",      "label": "Cupcakes 12 pk — Precio",     "type": "text" },
-        { "key": "cupcakes.2.imagen",      "label": "Cupcakes 12 pk — Imagen",     "type": "image" },
-
-        { "key": "cupcakes.3.nombre",      "label": "Cupcakes 24 pk — Nombre",     "type": "text" },
-        { "key": "cupcakes.3.descripcion", "label": "Cupcakes 24 pk — Descripción","type": "textarea" },
-        { "key": "cupcakes.3.precio",      "label": "Cupcakes 24 pk — Precio",     "type": "text" },
-        { "key": "cupcakes.3.imagen",      "label": "Cupcakes 24 pk — Imagen",     "type": "image" }
+        {
+          "key": "cupcakes.1.nombre",
+          "label": "Cupcakes 6 pk — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "cupcakes.1.descripcion",
+          "label": "Cupcakes 6 pk — Descripción",
+          "type": "textarea"
+        },
+        {
+          "key": "cupcakes.1.precio",
+          "label": "Cupcakes 6 pk — Precio",
+          "type": "text"
+        },
+        {
+          "key": "cupcakes.1.imagen",
+          "label": "Cupcakes 6 pk — Imagen",
+          "type": "image"
+        },
+        {
+          "key": "cupcakes.1.imagen2",
+          "label": "Cupcakes 6 pk — Foto 2",
+          "type": "image"
+        },
+        {
+          "key": "cupcakes.1.imagen3",
+          "label": "Cupcakes 6 pk — Foto 3",
+          "type": "image"
+        },
+        {
+          "key": "cupcakes.2.nombre",
+          "label": "Cupcakes 12 pk — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "cupcakes.2.descripcion",
+          "label": "Cupcakes 12 pk — Descripción",
+          "type": "textarea"
+        },
+        {
+          "key": "cupcakes.2.precio",
+          "label": "Cupcakes 12 pk — Precio",
+          "type": "text"
+        },
+        {
+          "key": "cupcakes.2.imagen",
+          "label": "Cupcakes 12 pk — Imagen",
+          "type": "image"
+        },
+        {
+          "key": "cupcakes.2.imagen2",
+          "label": "Cupcakes 12 pk — Foto 2",
+          "type": "image"
+        },
+        {
+          "key": "cupcakes.2.imagen3",
+          "label": "Cupcakes 12 pk — Foto 3",
+          "type": "image"
+        },
+        {
+          "key": "cupcakes.3.nombre",
+          "label": "Cupcakes 24 pk — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "cupcakes.3.descripcion",
+          "label": "Cupcakes 24 pk — Descripción",
+          "type": "textarea"
+        },
+        {
+          "key": "cupcakes.3.precio",
+          "label": "Cupcakes 24 pk — Precio",
+          "type": "text"
+        },
+        {
+          "key": "cupcakes.3.imagen",
+          "label": "Cupcakes 24 pk — Imagen",
+          "type": "image"
+        },
+        {
+          "key": "cupcakes.3.imagen2",
+          "label": "Cupcakes 24 pk — Foto 2",
+          "type": "image"
+        },
+        {
+          "key": "cupcakes.3.imagen3",
+          "label": "Cupcakes 24 pk — Foto 3",
+          "type": "image"
+        },
+        {
+          "key": "cupcakes.3.imagen4",
+          "label": "Cupcakes 24 pk — Foto 4",
+          "type": "image"
+        },
+        {
+          "key": "cupcakes.3.imagen5",
+          "label": "Cupcakes 24 pk — Foto 5",
+          "type": "image"
+        },
+        {
+          "key": "cupcakes.3.imagen6",
+          "label": "Cupcakes 24 pk — Foto 6",
+          "type": "image"
+        }
       ]
     },
-
     {
       "id": "pastries",
       "label": "Pastries",
       "icon": "package",
       "fields": [
-        { "key": "pastries.1.nombre",      "label": "Cinnamon Rolls 6 pk — Nombre",      "type": "text" },
-        { "key": "pastries.1.descripcion", "label": "Cinnamon Rolls 6 pk — Descripción", "type": "textarea" },
-        { "key": "pastries.1.precio",      "label": "Cinnamon Rolls 6 pk — Precio",      "type": "text" },
-        { "key": "pastries.1.imagen",      "label": "Cinnamon Rolls 6 pk — Imagen",      "type": "image" },
-
-        { "key": "pastries.2.nombre",      "label": "Banana Bread Loaf — Nombre",        "type": "text" },
-        { "key": "pastries.2.descripcion", "label": "Banana Bread Loaf — Descripción",   "type": "textarea" },
-        { "key": "pastries.2.precio",      "label": "Banana Bread Loaf — Precio",        "type": "text" },
-        { "key": "pastries.2.imagen",      "label": "Banana Bread Loaf — Imagen",        "type": "image" },
-
-        { "key": "pastries.3.nombre",      "label": "Blueberry Scone 8 pk — Nombre",     "type": "text" },
-        { "key": "pastries.3.descripcion", "label": "Blueberry Scone 8 pk — Descripción","type": "textarea" },
-        { "key": "pastries.3.precio",      "label": "Blueberry Scone 8 pk — Precio",     "type": "text" },
-        { "key": "pastries.3.imagen",      "label": "Blueberry Scone 8 pk — Imagen",     "type": "image" },
-
-        { "key": "pastries.4.nombre",      "label": "Chocolate Fudge Brownies 6 pk — Nombre",      "type": "text" },
-        { "key": "pastries.4.descripcion", "label": "Chocolate Fudge Brownies 6 pk — Descripción", "type": "textarea" },
-        { "key": "pastries.4.precio",      "label": "Chocolate Fudge Brownies 6 pk — Precio",      "type": "text" },
-        { "key": "pastries.4.imagen",      "label": "Chocolate Fudge Brownies 6 pk — Imagen",      "type": "image" },
-
-        { "key": "pastries.5.nombre",      "label": "Donuts 6 pk — Nombre",              "type": "text" },
-        { "key": "pastries.5.descripcion", "label": "Donuts 6 pk — Descripción",         "type": "textarea" },
-        { "key": "pastries.5.precio",      "label": "Donuts 6 pk — Precio",              "type": "text" },
-        { "key": "pastries.5.imagen",      "label": "Donuts 6 pk — Imagen",              "type": "image" },
-
-        { "key": "pastries.6.nombre",      "label": "Buttermilk Biscuit 6 pk — Nombre",  "type": "text" },
-        { "key": "pastries.6.descripcion", "label": "Buttermilk Biscuit 6 pk — Descripción","type": "textarea" },
-        { "key": "pastries.6.precio",      "label": "Buttermilk Biscuit 6 pk — Precio",  "type": "text" },
-        { "key": "pastries.6.imagen",      "label": "Buttermilk Biscuit 6 pk — Imagen",  "type": "image" }
+        {
+          "key": "pastries.1.nombre",
+          "label": "Cinnamon Rolls 6 pk — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "pastries.1.descripcion",
+          "label": "Cinnamon Rolls 6 pk — Descripción",
+          "type": "textarea"
+        },
+        {
+          "key": "pastries.1.precio",
+          "label": "Cinnamon Rolls 6 pk — Precio",
+          "type": "text"
+        },
+        {
+          "key": "pastries.1.imagen",
+          "label": "Cinnamon Rolls 6 pk — Imagen",
+          "type": "image"
+        },
+        {
+          "key": "pastries.2.nombre",
+          "label": "Banana Bread Loaf — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "pastries.2.descripcion",
+          "label": "Banana Bread Loaf — Descripción",
+          "type": "textarea"
+        },
+        {
+          "key": "pastries.2.precio",
+          "label": "Banana Bread Loaf — Precio",
+          "type": "text"
+        },
+        {
+          "key": "pastries.2.imagen",
+          "label": "Banana Bread Loaf — Imagen",
+          "type": "image"
+        },
+        {
+          "key": "pastries.3.nombre",
+          "label": "Blueberry Scone 8 pk — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "pastries.3.descripcion",
+          "label": "Blueberry Scone 8 pk — Descripción",
+          "type": "textarea"
+        },
+        {
+          "key": "pastries.3.precio",
+          "label": "Blueberry Scone 8 pk — Precio",
+          "type": "text"
+        },
+        {
+          "key": "pastries.3.imagen",
+          "label": "Blueberry Scone 8 pk — Imagen",
+          "type": "image"
+        },
+        {
+          "key": "pastries.4.nombre",
+          "label": "Chocolate Fudge Brownies 6 pk — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "pastries.4.descripcion",
+          "label": "Chocolate Fudge Brownies 6 pk — Descripción",
+          "type": "textarea"
+        },
+        {
+          "key": "pastries.4.precio",
+          "label": "Chocolate Fudge Brownies 6 pk — Precio",
+          "type": "text"
+        },
+        {
+          "key": "pastries.4.imagen",
+          "label": "Chocolate Fudge Brownies 6 pk — Imagen",
+          "type": "image"
+        },
+        {
+          "key": "pastries.5.nombre",
+          "label": "Donuts 6 pk — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "pastries.5.descripcion",
+          "label": "Donuts 6 pk — Descripción",
+          "type": "textarea"
+        },
+        {
+          "key": "pastries.5.precio",
+          "label": "Donuts 6 pk — Precio",
+          "type": "text"
+        },
+        {
+          "key": "pastries.5.imagen",
+          "label": "Donuts 6 pk — Imagen",
+          "type": "image"
+        },
+        {
+          "key": "pastries.5.imagen2",
+          "label": "Donuts 6 pk — Foto 2",
+          "type": "image"
+        },
+        {
+          "key": "pastries.5.imagen3",
+          "label": "Donuts 6 pk — Foto 3",
+          "type": "image"
+        },
+        {
+          "key": "pastries.5.imagen4",
+          "label": "Donuts 6 pk — Foto 4",
+          "type": "image"
+        },
+        {
+          "key": "pastries.5.imagen5",
+          "label": "Donuts 6 pk — Foto 5",
+          "type": "image"
+        },
+        {
+          "key": "pastries.5.imagen6",
+          "label": "Donuts 6 pk — Foto 6",
+          "type": "image"
+        },
+        {
+          "key": "pastries.6.nombre",
+          "label": "Buttermilk Biscuit 6 pk — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "pastries.6.descripcion",
+          "label": "Buttermilk Biscuit 6 pk — Descripción",
+          "type": "textarea"
+        },
+        {
+          "key": "pastries.6.precio",
+          "label": "Buttermilk Biscuit 6 pk — Precio",
+          "type": "text"
+        },
+        {
+          "key": "pastries.6.imagen",
+          "label": "Buttermilk Biscuit 6 pk — Imagen",
+          "type": "image"
+        }
       ]
     },
-
     {
       "id": "macarons",
       "label": "Macarons",
       "icon": "package",
       "fields": [
-        { "key": "macarons.1.nombre",      "label": "France Macarons 6 pk — Nombre",      "type": "text" },
-        { "key": "macarons.1.descripcion", "label": "France Macarons 6 pk — Descripción", "type": "textarea" },
-        { "key": "macarons.1.precio",      "label": "France Macarons 6 pk — Precio",      "type": "text" },
-        { "key": "macarons.1.imagen",      "label": "France Macarons 6 pk — Imagen",      "type": "image" },
-
-        { "key": "macarons.2.nombre",      "label": "France Macarons 12 pk — Nombre",     "type": "text" },
-        { "key": "macarons.2.descripcion", "label": "France Macarons 12 pk — Descripción","type": "textarea" },
-        { "key": "macarons.2.precio",      "label": "France Macarons 12 pk — Precio",     "type": "text" },
-        { "key": "macarons.2.imagen",      "label": "France Macarons 12 pk — Imagen",     "type": "image" },
-
-        { "key": "macarons.3.nombre",      "label": "France Macarons 24 pk — Nombre",     "type": "text" },
-        { "key": "macarons.3.descripcion", "label": "France Macarons 24 pk — Descripción","type": "textarea" },
-        { "key": "macarons.3.precio",      "label": "France Macarons 24 pk — Precio",     "type": "text" },
-        { "key": "macarons.3.imagen",      "label": "France Macarons 24 pk — Imagen",     "type": "image" }
+        {
+          "key": "macarons.1.nombre",
+          "label": "France Macarons 6 pk — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "macarons.1.descripcion",
+          "label": "France Macarons 6 pk — Descripción",
+          "type": "textarea"
+        },
+        {
+          "key": "macarons.1.precio",
+          "label": "France Macarons 6 pk — Precio",
+          "type": "text"
+        },
+        {
+          "key": "macarons.1.imagen",
+          "label": "France Macarons 6 pk — Imagen",
+          "type": "image"
+        },
+        {
+          "key": "macarons.1.imagen2",
+          "label": "France Macarons 6 pk — Foto 2",
+          "type": "image"
+        },
+        {
+          "key": "macarons.1.imagen3",
+          "label": "France Macarons 6 pk — Foto 3",
+          "type": "image"
+        },
+        {
+          "key": "macarons.1.imagen4",
+          "label": "France Macarons 6 pk — Foto 4",
+          "type": "image"
+        },
+        {
+          "key": "macarons.2.nombre",
+          "label": "France Macarons 12 pk — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "macarons.2.descripcion",
+          "label": "France Macarons 12 pk — Descripción",
+          "type": "textarea"
+        },
+        {
+          "key": "macarons.2.precio",
+          "label": "France Macarons 12 pk — Precio",
+          "type": "text"
+        },
+        {
+          "key": "macarons.2.imagen",
+          "label": "France Macarons 12 pk — Imagen",
+          "type": "image"
+        },
+        {
+          "key": "macarons.2.imagen2",
+          "label": "France Macarons 12 pk — Foto 2",
+          "type": "image"
+        },
+        {
+          "key": "macarons.2.imagen3",
+          "label": "France Macarons 12 pk — Foto 3",
+          "type": "image"
+        },
+        {
+          "key": "macarons.2.imagen4",
+          "label": "France Macarons 12 pk — Foto 4",
+          "type": "image"
+        },
+        {
+          "key": "macarons.3.nombre",
+          "label": "France Macarons 24 pk — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "macarons.3.descripcion",
+          "label": "France Macarons 24 pk — Descripción",
+          "type": "textarea"
+        },
+        {
+          "key": "macarons.3.precio",
+          "label": "France Macarons 24 pk — Precio",
+          "type": "text"
+        },
+        {
+          "key": "macarons.3.imagen",
+          "label": "France Macarons 24 pk — Imagen",
+          "type": "image"
+        },
+        {
+          "key": "macarons.3.imagen2",
+          "label": "France Macarons 24 pk — Foto 2",
+          "type": "image"
+        },
+        {
+          "key": "macarons.3.imagen3",
+          "label": "France Macarons 24 pk — Foto 3",
+          "type": "image"
+        },
+        {
+          "key": "macarons.3.imagen4",
+          "label": "France Macarons 24 pk — Foto 4",
+          "type": "image"
+        }
       ]
     },
-
     {
       "id": "mini",
       "label": "Mini Individual Cakes",
       "icon": "package",
       "fields": [
-        { "key": "mini.1.nombre",      "label": "Mini Cakes 6 pk — Nombre",      "type": "text" },
-        { "key": "mini.1.descripcion", "label": "Mini Cakes 6 pk — Descripción", "type": "textarea" },
-        { "key": "mini.1.precio",      "label": "Mini Cakes 6 pk — Precio",      "type": "text" },
-        { "key": "mini.1.imagen",      "label": "Mini Cakes 6 pk — Imagen",      "type": "image" },
-
-        { "key": "mini.2.nombre",      "label": "Mini Cakes 12 pk — Nombre",     "type": "text" },
-        { "key": "mini.2.descripcion", "label": "Mini Cakes 12 pk — Descripción","type": "textarea" },
-        { "key": "mini.2.precio",      "label": "Mini Cakes 12 pk — Precio",     "type": "text" },
-        { "key": "mini.2.imagen",      "label": "Mini Cakes 12 pk — Imagen",     "type": "image" },
-
-        { "key": "mini.3.nombre",      "label": "Mini Cakes 24 pk — Nombre",     "type": "text" },
-        { "key": "mini.3.descripcion", "label": "Mini Cakes 24 pk — Descripción","type": "textarea" },
-        { "key": "mini.3.precio",      "label": "Mini Cakes 24 pk — Precio",     "type": "text" },
-        { "key": "mini.3.imagen",      "label": "Mini Cakes 24 pk — Imagen",     "type": "image" }
+        {
+          "key": "mini.1.nombre",
+          "label": "Mini Cakes 6 pk — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "mini.1.descripcion",
+          "label": "Mini Cakes 6 pk — Descripción",
+          "type": "textarea"
+        },
+        {
+          "key": "mini.1.precio",
+          "label": "Mini Cakes 6 pk — Precio",
+          "type": "text"
+        },
+        {
+          "key": "mini.1.imagen",
+          "label": "Mini Cakes 6 pk — Imagen",
+          "type": "image"
+        },
+        {
+          "key": "mini.1.imagen2",
+          "label": "Mini Cakes 6 pk — Foto 2",
+          "type": "image"
+        },
+        {
+          "key": "mini.1.imagen3",
+          "label": "Mini Cakes 6 pk — Foto 3",
+          "type": "image"
+        },
+        {
+          "key": "mini.1.imagen4",
+          "label": "Mini Cakes 6 pk — Foto 4",
+          "type": "image"
+        },
+        {
+          "key": "mini.2.nombre",
+          "label": "Mini Cakes 12 pk — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "mini.2.descripcion",
+          "label": "Mini Cakes 12 pk — Descripción",
+          "type": "textarea"
+        },
+        {
+          "key": "mini.2.precio",
+          "label": "Mini Cakes 12 pk — Precio",
+          "type": "text"
+        },
+        {
+          "key": "mini.2.imagen",
+          "label": "Mini Cakes 12 pk — Imagen",
+          "type": "image"
+        },
+        {
+          "key": "mini.2.imagen2",
+          "label": "Mini Cakes 12 pk — Foto 2",
+          "type": "image"
+        },
+        {
+          "key": "mini.2.imagen3",
+          "label": "Mini Cakes 12 pk — Foto 3",
+          "type": "image"
+        },
+        {
+          "key": "mini.2.imagen4",
+          "label": "Mini Cakes 12 pk — Foto 4",
+          "type": "image"
+        },
+        {
+          "key": "mini.3.nombre",
+          "label": "Mini Cakes 24 pk — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "mini.3.descripcion",
+          "label": "Mini Cakes 24 pk — Descripción",
+          "type": "textarea"
+        },
+        {
+          "key": "mini.3.precio",
+          "label": "Mini Cakes 24 pk — Precio",
+          "type": "text"
+        },
+        {
+          "key": "mini.3.imagen",
+          "label": "Mini Cakes 24 pk — Imagen",
+          "type": "image"
+        },
+        {
+          "key": "mini.3.imagen2",
+          "label": "Mini Cakes 24 pk — Foto 2",
+          "type": "image"
+        },
+        {
+          "key": "mini.3.imagen3",
+          "label": "Mini Cakes 24 pk — Foto 3",
+          "type": "image"
+        },
+        {
+          "key": "mini.3.imagen4",
+          "label": "Mini Cakes 24 pk — Foto 4",
+          "type": "image"
+        }
       ]
     },
-
     {
       "id": "pies",
       "label": "Pies / Tartas",
       "icon": "package",
       "fields": [
-        { "key": "pies.1.nombre",      "label": "Apple Caramel Crumb Pie — Nombre",      "type": "text" },
-        { "key": "pies.1.descripcion", "label": "Apple Caramel Crumb Pie — Descripción", "type": "textarea" },
-        { "key": "pies.1.precio",      "label": "Apple Caramel Crumb Pie — Precio",      "type": "text" },
-        { "key": "pies.1.imagen",      "label": "Apple Caramel Crumb Pie — Imagen",      "type": "image" },
-
-        { "key": "pies.2.nombre",      "label": "Pecan Pie — Nombre",                    "type": "text" },
-        { "key": "pies.2.descripcion", "label": "Pecan Pie — Descripción",               "type": "textarea" },
-        { "key": "pies.2.precio",      "label": "Pecan Pie — Precio",                    "type": "text" },
-        { "key": "pies.2.imagen",      "label": "Pecan Pie — Imagen",                    "type": "image" },
-
-        { "key": "pies.3.nombre",      "label": "Peach Crumb Pie — Nombre",              "type": "text" },
-        { "key": "pies.3.descripcion", "label": "Peach Crumb Pie — Descripción",         "type": "textarea" },
-        { "key": "pies.3.precio",      "label": "Peach Crumb Pie — Precio",              "type": "text" },
-        { "key": "pies.3.imagen",      "label": "Peach Crumb Pie — Imagen",              "type": "image" }
+        {
+          "key": "pies.1.nombre",
+          "label": "Apple Caramel Crumb Pie — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "pies.1.descripcion",
+          "label": "Apple Caramel Crumb Pie — Descripción",
+          "type": "textarea"
+        },
+        {
+          "key": "pies.1.precio",
+          "label": "Apple Caramel Crumb Pie — Precio",
+          "type": "text"
+        },
+        {
+          "key": "pies.1.imagen",
+          "label": "Apple Caramel Crumb Pie — Imagen",
+          "type": "image"
+        },
+        {
+          "key": "pies.2.nombre",
+          "label": "Pecan Pie — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "pies.2.descripcion",
+          "label": "Pecan Pie — Descripción",
+          "type": "textarea"
+        },
+        {
+          "key": "pies.2.precio",
+          "label": "Pecan Pie — Precio",
+          "type": "text"
+        },
+        {
+          "key": "pies.2.imagen",
+          "label": "Pecan Pie — Imagen",
+          "type": "image"
+        },
+        {
+          "key": "pies.3.nombre",
+          "label": "Peach Crumb Pie — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "pies.3.descripcion",
+          "label": "Peach Crumb Pie — Descripción",
+          "type": "textarea"
+        },
+        {
+          "key": "pies.3.precio",
+          "label": "Peach Crumb Pie — Precio",
+          "type": "text"
+        },
+        {
+          "key": "pies.3.imagen",
+          "label": "Peach Crumb Pie — Imagen",
+          "type": "image"
+        }
       ]
     },
-
     {
       "id": "prepacks",
       "label": "Prepacks (Packs predeterminados)",
       "icon": "gift",
       "fields": [
-        { "key": "prepacks.1.nombre",      "label": "Macarons 6 pk — Nombre",             "type": "text" },
-        { "key": "prepacks.1.descripcion", "label": "Macarons 6 pk — Descripción",        "type": "textarea" },
-        { "key": "prepacks.1.precio",      "label": "Macarons 6 pk — Precio",             "type": "text" },
-        { "key": "prepacks.1.imagen",      "label": "Macarons 6 pk — Imagen",             "type": "image" },
-
-        { "key": "prepacks.2.nombre",      "label": "Mini Cupcake Pack 12pc — Nombre",    "type": "text" },
-        { "key": "prepacks.2.descripcion", "label": "Mini Cupcake Pack 12pc — Descripción","type": "textarea" },
-        { "key": "prepacks.2.precio",      "label": "Mini Cupcake Pack 12pc — Precio",    "type": "text" },
-        { "key": "prepacks.2.imagen",      "label": "Mini Cupcake Pack 12pc — Imagen",    "type": "image" },
-
-        { "key": "prepacks.3.nombre",      "label": "Cookies Specialty 6 pk — Nombre",   "type": "text" },
-        { "key": "prepacks.3.descripcion", "label": "Cookies Specialty 6 pk — Descripción","type": "textarea" },
-        { "key": "prepacks.3.precio",      "label": "Cookies Specialty 6 pk — Precio",   "type": "text" },
-        { "key": "prepacks.3.imagen",      "label": "Cookies Specialty 6 pk — Imagen",   "type": "image" },
-
-        { "key": "prepacks.4.nombre",      "label": "Macarons 12 pk — Nombre",            "type": "text" },
-        { "key": "prepacks.4.descripcion", "label": "Macarons 12 pk — Descripción",       "type": "textarea" },
-        { "key": "prepacks.4.precio",      "label": "Macarons 12 pk — Precio",            "type": "text" },
-        { "key": "prepacks.4.imagen",      "label": "Macarons 12 pk — Imagen",            "type": "image" },
-
-        { "key": "prepacks.5.nombre",      "label": "Cookies Specialty 12 pk — Nombre",  "type": "text" },
-        { "key": "prepacks.5.descripcion", "label": "Cookies Specialty 12 pk — Descripción","type": "textarea" },
-        { "key": "prepacks.5.precio",      "label": "Cookies Specialty 12 pk — Precio",  "type": "text" },
-        { "key": "prepacks.5.imagen",      "label": "Cookies Specialty 12 pk — Imagen",  "type": "image" },
-
-        { "key": "prepacks.6.nombre",      "label": "Cupcakes Specialty 12 pk — Nombre", "type": "text" },
-        { "key": "prepacks.6.descripcion", "label": "Cupcakes Specialty 12 pk — Descripción","type": "textarea" },
-        { "key": "prepacks.6.precio",      "label": "Cupcakes Specialty 12 pk — Precio", "type": "text" },
-        { "key": "prepacks.6.imagen",      "label": "Cupcakes Specialty 12 pk — Imagen", "type": "image" }
+        {
+          "key": "prepacks.1.nombre",
+          "label": "Macarons 6 pk — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "prepacks.1.descripcion",
+          "label": "Macarons 6 pk — Descripción",
+          "type": "textarea"
+        },
+        {
+          "key": "prepacks.1.precio",
+          "label": "Macarons 6 pk — Precio",
+          "type": "text"
+        },
+        {
+          "key": "prepacks.1.imagen",
+          "label": "Macarons 6 pk — Imagen",
+          "type": "image"
+        },
+        {
+          "key": "prepacks.2.nombre",
+          "label": "Mini Cupcake Pack 12pc — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "prepacks.2.descripcion",
+          "label": "Mini Cupcake Pack 12pc — Descripción",
+          "type": "textarea"
+        },
+        {
+          "key": "prepacks.2.precio",
+          "label": "Mini Cupcake Pack 12pc — Precio",
+          "type": "text"
+        },
+        {
+          "key": "prepacks.2.imagen",
+          "label": "Mini Cupcake Pack 12pc — Imagen",
+          "type": "image"
+        },
+        {
+          "key": "prepacks.3.nombre",
+          "label": "Cookies Specialty 6 pk — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "prepacks.3.descripcion",
+          "label": "Cookies Specialty 6 pk — Descripción",
+          "type": "textarea"
+        },
+        {
+          "key": "prepacks.3.precio",
+          "label": "Cookies Specialty 6 pk — Precio",
+          "type": "text"
+        },
+        {
+          "key": "prepacks.3.imagen",
+          "label": "Cookies Specialty 6 pk — Imagen",
+          "type": "image"
+        },
+        {
+          "key": "prepacks.4.nombre",
+          "label": "Macarons 12 pk — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "prepacks.4.descripcion",
+          "label": "Macarons 12 pk — Descripción",
+          "type": "textarea"
+        },
+        {
+          "key": "prepacks.4.precio",
+          "label": "Macarons 12 pk — Precio",
+          "type": "text"
+        },
+        {
+          "key": "prepacks.4.imagen",
+          "label": "Macarons 12 pk — Imagen",
+          "type": "image"
+        },
+        {
+          "key": "prepacks.5.nombre",
+          "label": "Cookies Specialty 12 pk — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "prepacks.5.descripcion",
+          "label": "Cookies Specialty 12 pk — Descripción",
+          "type": "textarea"
+        },
+        {
+          "key": "prepacks.5.precio",
+          "label": "Cookies Specialty 12 pk — Precio",
+          "type": "text"
+        },
+        {
+          "key": "prepacks.5.imagen",
+          "label": "Cookies Specialty 12 pk — Imagen",
+          "type": "image"
+        },
+        {
+          "key": "prepacks.6.nombre",
+          "label": "Cupcakes Specialty 12 pk — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "prepacks.6.descripcion",
+          "label": "Cupcakes Specialty 12 pk — Descripción",
+          "type": "textarea"
+        },
+        {
+          "key": "prepacks.6.precio",
+          "label": "Cupcakes Specialty 12 pk — Precio",
+          "type": "text"
+        },
+        {
+          "key": "prepacks.6.imagen",
+          "label": "Cupcakes Specialty 12 pk — Imagen",
+          "type": "image"
+        }
       ]
     },
-
     {
       "id": "packs-especiales",
       "label": "Packs Especiales (slider)",
       "icon": "trending-up",
       "fields": [
-        { "key": "packsespeciales.titulo", "label": "Título de la sección", "type": "text" },
-
-        { "key": "packsespeciales.1.nombre",      "label": "Pack 1 — Nombre",      "type": "text" },
-        { "key": "packsespeciales.1.precio",      "label": "Pack 1 — Precio",      "type": "text" },
-        { "key": "packsespeciales.1.descripcion", "label": "Pack 1 — Descripción", "type": "textarea" },
-        { "key": "packsespeciales.1.imagen",      "label": "Pack 1 — Imagen",      "type": "image" },
-
-        { "key": "packsespeciales.2.nombre",      "label": "Pack 2 — Nombre",      "type": "text" },
-        { "key": "packsespeciales.2.precio",      "label": "Pack 2 — Precio",      "type": "text" },
-        { "key": "packsespeciales.2.descripcion", "label": "Pack 2 — Descripción", "type": "textarea" },
-        { "key": "packsespeciales.2.imagen",      "label": "Pack 2 — Imagen",      "type": "image" },
-
-        { "key": "packsespeciales.3.nombre",      "label": "Pack 3 — Nombre",      "type": "text" },
-        { "key": "packsespeciales.3.precio",      "label": "Pack 3 — Precio",      "type": "text" },
-        { "key": "packsespeciales.3.descripcion", "label": "Pack 3 — Descripción", "type": "textarea" },
-        { "key": "packsespeciales.3.imagen",      "label": "Pack 3 — Imagen",      "type": "image" },
-
-        { "key": "packsespeciales.4.nombre",      "label": "Pack 4 — Nombre",      "type": "text" },
-        { "key": "packsespeciales.4.precio",      "label": "Pack 4 — Precio",      "type": "text" },
-        { "key": "packsespeciales.4.descripcion", "label": "Pack 4 — Descripción", "type": "textarea" },
-        { "key": "packsespeciales.4.imagen",      "label": "Pack 4 — Imagen",      "type": "image" },
-
-        { "key": "packsespeciales.5.nombre",      "label": "Pack 5 — Nombre",      "type": "text" },
-        { "key": "packsespeciales.5.precio",      "label": "Pack 5 — Precio",      "type": "text" },
-        { "key": "packsespeciales.5.descripcion", "label": "Pack 5 — Descripción", "type": "textarea" },
-        { "key": "packsespeciales.5.imagen",      "label": "Pack 5 — Imagen",      "type": "image" },
-
-        { "key": "packsespeciales.6.nombre",      "label": "Pack 6 — Nombre",      "type": "text" },
-        { "key": "packsespeciales.6.precio",      "label": "Pack 6 — Precio",      "type": "text" },
-        { "key": "packsespeciales.6.descripcion", "label": "Pack 6 — Descripción", "type": "textarea" },
-        { "key": "packsespeciales.6.imagen",      "label": "Pack 6 — Imagen",      "type": "image" }
+        {
+          "key": "packsespeciales.titulo",
+          "label": "Título de la sección",
+          "type": "text"
+        },
+        {
+          "key": "packsespeciales.1.nombre",
+          "label": "Pack 1 — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "packsespeciales.1.precio",
+          "label": "Pack 1 — Precio",
+          "type": "text"
+        },
+        {
+          "key": "packsespeciales.1.descripcion",
+          "label": "Pack 1 — Descripción",
+          "type": "textarea"
+        },
+        {
+          "key": "packsespeciales.1.imagen",
+          "label": "Pack 1 — Imagen",
+          "type": "image"
+        },
+        {
+          "key": "packsespeciales.2.nombre",
+          "label": "Pack 2 — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "packsespeciales.2.precio",
+          "label": "Pack 2 — Precio",
+          "type": "text"
+        },
+        {
+          "key": "packsespeciales.2.descripcion",
+          "label": "Pack 2 — Descripción",
+          "type": "textarea"
+        },
+        {
+          "key": "packsespeciales.2.imagen",
+          "label": "Pack 2 — Imagen",
+          "type": "image"
+        },
+        {
+          "key": "packsespeciales.3.nombre",
+          "label": "Pack 3 — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "packsespeciales.3.precio",
+          "label": "Pack 3 — Precio",
+          "type": "text"
+        },
+        {
+          "key": "packsespeciales.3.descripcion",
+          "label": "Pack 3 — Descripción",
+          "type": "textarea"
+        },
+        {
+          "key": "packsespeciales.3.imagen",
+          "label": "Pack 3 — Imagen",
+          "type": "image"
+        },
+        {
+          "key": "packsespeciales.4.nombre",
+          "label": "Pack 4 — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "packsespeciales.4.precio",
+          "label": "Pack 4 — Precio",
+          "type": "text"
+        },
+        {
+          "key": "packsespeciales.4.descripcion",
+          "label": "Pack 4 — Descripción",
+          "type": "textarea"
+        },
+        {
+          "key": "packsespeciales.4.imagen",
+          "label": "Pack 4 — Imagen",
+          "type": "image"
+        },
+        {
+          "key": "packsespeciales.5.nombre",
+          "label": "Pack 5 — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "packsespeciales.5.precio",
+          "label": "Pack 5 — Precio",
+          "type": "text"
+        },
+        {
+          "key": "packsespeciales.5.descripcion",
+          "label": "Pack 5 — Descripción",
+          "type": "textarea"
+        },
+        {
+          "key": "packsespeciales.5.imagen",
+          "label": "Pack 5 — Imagen",
+          "type": "image"
+        },
+        {
+          "key": "packsespeciales.6.nombre",
+          "label": "Pack 6 — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "packsespeciales.6.precio",
+          "label": "Pack 6 — Precio",
+          "type": "text"
+        },
+        {
+          "key": "packsespeciales.6.descripcion",
+          "label": "Pack 6 — Descripción",
+          "type": "textarea"
+        },
+        {
+          "key": "packsespeciales.6.imagen",
+          "label": "Pack 6 — Imagen",
+          "type": "image"
+        }
       ]
     },
-
     {
       "id": "reviews",
       "label": "Reseñas",
       "icon": "message-square",
       "fields": [
-        { "key": "reviews.titulo",    "label": "Título de la sección",   "type": "text" },
-
-        { "key": "reviews.1.texto",   "label": "Reseña 1 — Texto",       "type": "textarea" },
-        { "key": "reviews.1.autor",   "label": "Reseña 1 — Autor",       "type": "text" },
-
-        { "key": "reviews.2.texto",   "label": "Reseña 2 — Texto",       "type": "textarea" },
-        { "key": "reviews.2.autor",   "label": "Reseña 2 — Autor",       "type": "text" },
-
-        { "key": "reviews.3.texto",   "label": "Reseña 3 — Texto",       "type": "textarea" },
-        { "key": "reviews.3.autor",   "label": "Reseña 3 — Autor",       "type": "text" }
+        {
+          "key": "reviews.titulo",
+          "label": "Título de la sección",
+          "type": "text"
+        },
+        {
+          "key": "reviews.1.texto",
+          "label": "Reseña 1 — Texto",
+          "type": "textarea"
+        },
+        {
+          "key": "reviews.1.autor",
+          "label": "Reseña 1 — Autor",
+          "type": "text"
+        },
+        {
+          "key": "reviews.2.texto",
+          "label": "Reseña 2 — Texto",
+          "type": "textarea"
+        },
+        {
+          "key": "reviews.2.autor",
+          "label": "Reseña 2 — Autor",
+          "type": "text"
+        },
+        {
+          "key": "reviews.3.texto",
+          "label": "Reseña 3 — Texto",
+          "type": "textarea"
+        },
+        {
+          "key": "reviews.3.autor",
+          "label": "Reseña 3 — Autor",
+          "type": "text"
+        }
       ]
     },
-
     {
       "id": "faqs",
       "label": "Preguntas Frecuentes",
       "icon": "help-circle",
       "fields": [
-        { "key": "faqs.1.pregunta",   "label": "FAQ 1 — Pregunta", "type": "text" },
-        { "key": "faqs.1.respuesta",  "label": "FAQ 1 — Respuesta","type": "textarea" },
-
-        { "key": "faqs.2.pregunta",   "label": "FAQ 2 — Pregunta", "type": "text" },
-        { "key": "faqs.2.respuesta",  "label": "FAQ 2 — Respuesta","type": "textarea" },
-
-        { "key": "faqs.3.pregunta",   "label": "FAQ 3 — Pregunta", "type": "text" },
-        { "key": "faqs.3.respuesta",  "label": "FAQ 3 — Respuesta","type": "textarea" },
-
-        { "key": "faqs.4.pregunta",   "label": "FAQ 4 — Pregunta", "type": "text" },
-        { "key": "faqs.4.respuesta",  "label": "FAQ 4 — Respuesta","type": "textarea" },
-
-        { "key": "faqs.5.pregunta",   "label": "FAQ 5 — Pregunta", "type": "text" },
-        { "key": "faqs.5.respuesta",  "label": "FAQ 5 — Respuesta","type": "textarea" }
+        {
+          "key": "faqs.1.pregunta",
+          "label": "FAQ 1 — Pregunta",
+          "type": "text"
+        },
+        {
+          "key": "faqs.1.respuesta",
+          "label": "FAQ 1 — Respuesta",
+          "type": "textarea"
+        },
+        {
+          "key": "faqs.2.pregunta",
+          "label": "FAQ 2 — Pregunta",
+          "type": "text"
+        },
+        {
+          "key": "faqs.2.respuesta",
+          "label": "FAQ 2 — Respuesta",
+          "type": "textarea"
+        },
+        {
+          "key": "faqs.3.pregunta",
+          "label": "FAQ 3 — Pregunta",
+          "type": "text"
+        },
+        {
+          "key": "faqs.3.respuesta",
+          "label": "FAQ 3 — Respuesta",
+          "type": "textarea"
+        },
+        {
+          "key": "faqs.4.pregunta",
+          "label": "FAQ 4 — Pregunta",
+          "type": "text"
+        },
+        {
+          "key": "faqs.4.respuesta",
+          "label": "FAQ 4 — Respuesta",
+          "type": "textarea"
+        },
+        {
+          "key": "faqs.5.pregunta",
+          "label": "FAQ 5 — Pregunta",
+          "type": "text"
+        },
+        {
+          "key": "faqs.5.respuesta",
+          "label": "FAQ 5 — Respuesta",
+          "type": "textarea"
+        }
       ]
     },
-
     {
       "id": "contacto",
       "label": "Contacto y Ubicación",
       "icon": "map-pin",
       "fields": [
-        { "key": "contacto.telefono",   "label": "Teléfono",                "type": "phone" },
-        { "key": "contacto.email",      "label": "Email",                   "type": "email" },
-        { "key": "contacto.direccion",  "label": "Dirección",               "type": "text" },
-        { "key": "contacto.horario",    "label": "Horario de atención",     "type": "text" },
-        { "key": "contacto.whatsapp",   "label": "WhatsApp (número)",       "type": "phone" },
-        { "key": "contacto.instagram",  "label": "Instagram (URL completo)","type": "url" },
-        { "key": "contacto.tiktok",     "label": "TikTok (URL completo)",   "type": "url" },
-        { "key": "contacto.fotojackie","label": "Foto de Jackie",          "type": "image" }
+        {
+          "key": "contacto.telefono",
+          "label": "Teléfono",
+          "type": "phone"
+        },
+        {
+          "key": "contacto.email",
+          "label": "Email",
+          "type": "email"
+        },
+        {
+          "key": "contacto.direccion",
+          "label": "Dirección",
+          "type": "text"
+        },
+        {
+          "key": "contacto.horario",
+          "label": "Horario de atención",
+          "type": "text"
+        },
+        {
+          "key": "contacto.whatsapp",
+          "label": "WhatsApp (número)",
+          "type": "phone"
+        },
+        {
+          "key": "contacto.instagram",
+          "label": "Instagram (URL completo)",
+          "type": "url"
+        },
+        {
+          "key": "contacto.tiktok",
+          "label": "TikTok (URL completo)",
+          "type": "url"
+        },
+        {
+          "key": "contacto.fotojackie",
+          "label": "Foto de Jackie",
+          "type": "image"
+        }
       ]
     }
-
   ]
 }
