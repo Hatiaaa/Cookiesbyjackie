@@ -59,6 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
             footer_copyright: "&copy; 2024 Cookies by Jackie. Todos los derechos reservados.",
             footer_dev: "Diseñado &amp; desarrollado por",
             privacy_link: "Política de Privacidad",
+            refund_link: "Reembolsos y Cancelaciones",
             checkout_title: "Resumen de Compra",
             checkout_subtitle: "Completa tus datos para proceder al pago",
             checkout_order_title: "tu pedido",
@@ -254,6 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
             footer_copyright: "&copy; 2024 Cookies by Jackie. All rights reserved.",
             footer_dev: "Designed &amp; developed by",
             privacy_link: "Privacy Policy",
+            refund_link: "Refunds & Cancellations",
             checkout_title: "Order Summary",
             checkout_subtitle: "Complete your details to proceed to payment",
             checkout_order_title: "your order",
@@ -1985,6 +1987,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         document.addEventListener('keydown', e => {
             if (e.key === 'Escape' && privacyOverlay.classList.contains('active')) closePrivacy();
+        });
+    }
+
+    // ─── Refund Policy Modal ──────────────────────────────────────────────────
+    const refundOverlay  = document.getElementById('refund-modal-overlay');
+    const refundCloseBtn = document.getElementById('refund-modal-close');
+    const openRefundBtn  = document.getElementById('open-refund-btn');
+
+    if (refundOverlay && openRefundBtn) {
+        const openRefund = () => {
+            refundOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            refundOverlay.scrollTop = 0;
+        };
+        const closeRefund = () => {
+            refundOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        };
+        openRefundBtn.addEventListener('click', openRefund);
+        refundCloseBtn.addEventListener('click', closeRefund);
+        refundOverlay.addEventListener('click', e => {
+            if (e.target === refundOverlay) closeRefund();
+        });
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && refundOverlay.classList.contains('active')) closeRefund();
         });
     }
 

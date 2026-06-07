@@ -1249,7 +1249,11 @@
             <div class="footer-bottom" style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
                 <div style="display:flex; flex-direction:column; gap:0.45rem;">
                     <p style="opacity: 0.6; font-size: 0.9rem; margin:0;" data-i18n="footer_copyright">&copy; 2024 Cookies by Jackie. Todos los derechos reservados.</p>
-                    <button class="footer-policy-btn" id="open-privacy-btn" data-i18n="privacy_link">Política de Privacidad</button>
+                    <div style="display:flex; gap:1.2rem; flex-wrap:wrap; align-items:center;">
+                        <button class="footer-policy-btn" id="open-privacy-btn" data-i18n="privacy_link">Política de Privacidad</button>
+                        <span style="opacity:0.25; font-size:0.75rem;">|</span>
+                        <button class="footer-policy-btn" id="open-refund-btn" data-i18n="refund_link">Reembolsos y Cancelaciones</button>
+                    </div>
                 </div>
                 <a href="https://www.estudioxaga.com/" target="_blank" rel="noopener" class="footer-credit-link">
                     <span class="footer-credit-label" data-i18n="footer_dev">Diseñado &amp; desarrollado por</span>
@@ -1655,6 +1659,209 @@
             </div><!-- /policy-modal-body -->
         </div><!-- /policy-modal -->
     </div><!-- /policy-modal-overlay -->
+
+    <!-- ===== MODAL: REEMBOLSOS, DEVOLUCIONES Y CANCELACIONES ===== -->
+    <div class="policy-modal-overlay" id="refund-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="refund-modal-title">
+        <div class="policy-modal">
+
+            <div class="policy-modal-header">
+                <h2 id="refund-modal-title">Refunds &amp; Cancellations / Reembolsos y Cancelaciones</h2>
+                <button class="policy-modal-close" id="refund-modal-close" aria-label="Close">&times;</button>
+            </div>
+
+            <div class="policy-modal-body">
+
+                <!-- ── ENGLISH VERSION ─────────────────────────────── -->
+                <div class="policy-lang" data-policy-lang="en">
+                    <p class="policy-updated">Last updated: June 2025 &nbsp;·&nbsp; <em>Values marked with ★ are subject to confirmation by the business.</em></p>
+
+                    <h3>1. Scope</h3>
+                    <p>This policy applies to all purchases made directly through our website processed via Stripe. Orders placed through <strong>Uber Eats</strong> are subject exclusively to <a href="https://www.ubereats.com/legal" target="_blank" rel="noopener">UberEats' refund policy</a> and must be resolved through their platform.</p>
+
+                    <h3>2. Perishable Goods &amp; Food Safety</h3>
+                    <p>All of our products are freshly baked, handcrafted perishable goods. Due to food safety regulations, <strong>we do not accept physical returns of food products</strong> once they have left our premises. This applies regardless of the reason for the return request.</p>
+                    <p>However, your satisfaction is our priority. If there is a verifiable issue with your order, we will make it right through the remedies described below.</p>
+
+                    <h3>3. Eligibility for Refund or Replacement</h3>
+                    <p>You may be entitled to a full or partial refund, or a replacement order, in the following circumstances:</p>
+                    <ul>
+                        <li>You received the wrong items.</li>
+                        <li>Your order arrived significantly damaged (not due to improper storage after delivery).</li>
+                        <li>There is a verifiable food quality issue (foreign objects, spoilage before the expected shelf life).</li>
+                    </ul>
+                    <p><strong>To submit a claim, you must:</strong></p>
+                    <ul>
+                        <li>Contact us at <a href="mailto:info@cookiesbyjackie.com">info@cookiesbyjackie.com</a> within <strong>★ 24 hours</strong> of receiving your order.</li>
+                        <li>Provide your order number and at least one clear photograph of the issue.</li>
+                    </ul>
+                    <p>Claims submitted after the 24-hour window, or without photographic evidence, may not be eligible for a refund.</p>
+
+                    <h3>4. Refund Process &amp; Timelines</h3>
+                    <p>Once your claim is approved, we will offer one of the following remedies at our discretion:</p>
+                    <ul>
+                        <li><strong>Full refund</strong> to your original payment method.</li>
+                        <li><strong>Partial refund</strong> for partially affected orders.</li>
+                        <li><strong>Store credit</strong> for a future order (valid for ★ 90 days).</li>
+                        <li><strong>Replacement order</strong> at no additional charge.</li>
+                    </ul>
+                    <p>Approved refunds are processed within <strong>★ 5–7 business days</strong>. Depending on your bank or card issuer, the credit may take an additional 3–5 business days to appear on your statement. Refunds are always issued to the original payment method used at checkout.</p>
+
+                    <h3>5. Order Cancellations</h3>
+                    <p><strong>Standard orders</strong> (cookies, pastries, cupcakes, macarons, pies):</p>
+                    <ul>
+                        <li>Cancellations made at least <strong>★ 24 hours before</strong> the scheduled pickup or delivery time are eligible for a full refund.</li>
+                        <li>Same-day cancellations (less than 24 hours before fulfillment) are <strong>not eligible for a refund</strong>, as products are baked fresh to order.</li>
+                    </ul>
+                    <p><strong>Custom and specialty orders</strong> (custom cakes, large event orders, catering):</p>
+                    <ul>
+                        <li>Cancellations made <strong>★ 72 hours or more before</strong> the scheduled date: full refund.</li>
+                        <li>Cancellations made between <strong>★ 24–72 hours</strong> before: ★ 50% refund.</li>
+                        <li>Cancellations made <strong>less than 24 hours</strong> before: no refund, as ingredients and labor have already been committed.</li>
+                    </ul>
+
+                    <h3>6. Subscription Cancellations</h3>
+                    <p>If Cookies by Jackie offers recurring subscription products (e.g., weekly cookie boxes, Cookie Club membership), the following terms apply:</p>
+                    <ul>
+                        <li>Subscriptions may be cancelled at any time through your account or by emailing <a href="mailto:info@cookiesbyjackie.com">info@cookiesbyjackie.com</a>.</li>
+                        <li>To avoid being charged for the next billing cycle, cancellation must be submitted at least <strong>★ 48 hours before</strong> your next scheduled billing date.</li>
+                        <li>Cancellations made after the billing date has passed will take effect at the end of the current billing period. <strong>No prorated refunds</strong> are issued for the current active period.</li>
+                        <li>All subscription cancellations will be confirmed via email.</li>
+                    </ul>
+
+                    <h3>7. Return Shipping &amp; Logistics</h3>
+                    <p>Because we sell perishable food items, <strong>no physical return shipments are accepted or required</strong>. Do not ship products back to us.</p>
+                    <p>For any non-food merchandise (gift packaging, branded items), returns are accepted within <strong>★ 14 days</strong> of receipt, provided the item is unused and in its original packaging. In such cases:</p>
+                    <ul>
+                        <li>If the return is due to our error (wrong or defective item): we cover return shipping costs.</li>
+                        <li>If the return is due to a change of mind: the customer is responsible for return shipping costs.</li>
+                    </ul>
+
+                    <h3>8. Non-Refundable Items</h3>
+                    <p>The following are not eligible for refunds under any circumstances:</p>
+                    <ul>
+                        <li>Delivery fees and service charges.</li>
+                        <li>Custom orders where production has already begun.</li>
+                        <li>Gift cards and store credits.</li>
+                        <li>Orders placed through third-party platforms (Uber Eats).</li>
+                        <li>Products showing signs of mishandling, improper storage, or consumption after delivery.</li>
+                    </ul>
+
+                    <h3>9. Chargebacks &amp; Payment Disputes</h3>
+                    <p>We strongly encourage you to contact us directly before initiating a chargeback with your bank or card issuer. Most issues can be resolved quickly at <a href="mailto:info@cookiesbyjackie.com">info@cookiesbyjackie.com</a>.</p>
+                    <p><strong>Our dispute process:</strong></p>
+                    <ul>
+                        <li>We will respond to all customer dispute inquiries within <strong>★ 7 business days</strong>.</li>
+                        <li>If a chargeback is filed with your card network (Visa, Mastercard, Amex, etc.) without prior contact, we reserve the right to contest the dispute and submit all available evidence, including order confirmation, delivery records, and communication logs, in accordance with applicable card network rules.</li>
+                        <li>Under standard card network rules, disputes may be raised within <strong>120 days</strong> of the transaction date (timeframes vary by network).</li>
+                        <li>Chargebacks filed for orders that were delivered as described and meet our quality standards, without prior complaint, may be treated as fraud and reported accordingly.</li>
+                    </ul>
+                    <p>To protect both parties, we recommend keeping all order confirmations and communication records.</p>
+
+                    <h3>10. Contact Us</h3>
+                    <p><strong>Cookies by Jackie</strong><br>
+                    Columbus Circle Underground Market<br>
+                    New York, NY 10019<br>
+                    <a href="mailto:info@cookiesbyjackie.com">info@cookiesbyjackie.com</a><br>
+                    <a href="tel:+12123896151">+1 212-389-6151</a></p>
+                </div>
+
+                <!-- ── VERSIÓN EN ESPAÑOL ───────────────────────────── -->
+                <div class="policy-lang" data-policy-lang="es" style="display:none;">
+                    <p class="policy-updated">Última actualización: junio 2025 &nbsp;·&nbsp; <em>Los valores marcados con ★ están sujetos a confirmación por parte del negocio.</em></p>
+
+                    <h3>1. Ámbito de Aplicación</h3>
+                    <p>Esta política aplica a todas las compras realizadas directamente a través de nuestro sitio web procesadas mediante Stripe. Los pedidos realizados a través de <strong>Uber Eats</strong> están sujetos exclusivamente a la <a href="https://www.ubereats.com/legal" target="_blank" rel="noopener">política de reembolsos de UberEats</a> y deben resolverse a través de dicha plataforma.</p>
+
+                    <h3>2. Productos Perecederos y Seguridad Alimentaria</h3>
+                    <p>Todos nuestros productos son recién horneados, artesanales y perecederos. Por razones de seguridad alimentaria, <strong>no aceptamos devoluciones físicas de productos alimenticios</strong> una vez que han salido de nuestras instalaciones, independientemente del motivo de la solicitud.</p>
+                    <p>Sin embargo, su satisfacción es nuestra prioridad. Si existe un problema verificable con su pedido, lo resolveremos a través de los mecanismos descritos a continuación.</p>
+
+                    <h3>3. Condiciones para Reembolso o Reposición</h3>
+                    <p>Usted puede tener derecho a un reembolso total o parcial, o a un pedido de reposición, en los siguientes casos:</p>
+                    <ul>
+                        <li>Recibió artículos incorrectos.</li>
+                        <li>Su pedido llegó significativamente dañado (no como consecuencia de un almacenamiento inadecuado tras la entrega).</li>
+                        <li>Existe un problema de calidad alimentaria verificable (cuerpos extraños, deterioro antes de la vida útil esperada).</li>
+                    </ul>
+                    <p><strong>Para presentar una reclamación, debe:</strong></p>
+                    <ul>
+                        <li>Contactarnos en <a href="mailto:info@cookiesbyjackie.com">info@cookiesbyjackie.com</a> dentro de las <strong>★ 24 horas</strong> siguientes a la recepción del pedido.</li>
+                        <li>Proporcionar su número de pedido y al menos una fotografía clara del problema.</li>
+                    </ul>
+                    <p>Las reclamaciones presentadas fuera del plazo de 24 horas o sin evidencia fotográfica pueden no ser elegibles para reembolso.</p>
+
+                    <h3>4. Proceso de Reembolso y Plazos</h3>
+                    <p>Una vez aprobada su reclamación, ofreceremos una de las siguientes soluciones a nuestra discreción:</p>
+                    <ul>
+                        <li><strong>Reembolso total</strong> al método de pago original.</li>
+                        <li><strong>Reembolso parcial</strong> para pedidos parcialmente afectados.</li>
+                        <li><strong>Crédito en tienda</strong> para un pedido futuro (válido por ★ 90 días).</li>
+                        <li><strong>Pedido de reposición</strong> sin coste adicional.</li>
+                    </ul>
+                    <p>Los reembolsos aprobados se procesan en un plazo de <strong>★ 5–7 días hábiles</strong>. Dependiendo de su banco o entidad emisora, el crédito puede tardar entre 3 y 5 días hábiles adicionales en aparecer en su extracto. Los reembolsos siempre se emiten al método de pago original utilizado en el momento de la compra.</p>
+
+                    <h3>5. Cancelación de Pedidos</h3>
+                    <p><strong>Pedidos estándar</strong> (galletas, pasteles, cupcakes, macarons, tartas):</p>
+                    <ul>
+                        <li>Las cancelaciones realizadas al menos <strong>★ 24 horas antes</strong> de la hora de recogida o entrega programada son elegibles para un reembolso completo.</li>
+                        <li>Las cancelaciones el mismo día (menos de 24 horas antes) <strong>no son elegibles para reembolso</strong>, ya que los productos se hornean frescos bajo pedido.</li>
+                    </ul>
+                    <p><strong>Pedidos personalizados y especiales</strong> (pasteles personalizados, grandes pedidos para eventos, catering):</p>
+                    <ul>
+                        <li>Cancelaciones realizadas <strong>★ 72 horas o más antes</strong> de la fecha programada: reembolso completo.</li>
+                        <li>Cancelaciones realizadas entre <strong>★ 24 y 72 horas</strong> antes: ★ reembolso del 50%.</li>
+                        <li>Cancelaciones realizadas <strong>menos de 24 horas</strong> antes: sin reembolso, ya que los ingredientes y la mano de obra ya han sido comprometidos.</li>
+                    </ul>
+
+                    <h3>6. Rescisión de Suscripciones</h3>
+                    <p>Si Cookies by Jackie ofrece productos de suscripción recurrente (p. ej., cajas de galletas semanales, membresía Cookie Club), se aplican los siguientes términos:</p>
+                    <ul>
+                        <li>Las suscripciones pueden cancelarse en cualquier momento a través de su cuenta o enviando un correo a <a href="mailto:info@cookiesbyjackie.com">info@cookiesbyjackie.com</a>.</li>
+                        <li>Para evitar el cargo del siguiente ciclo de facturación, la cancelación debe realizarse al menos <strong>★ 48 horas antes</strong> de su próxima fecha de facturación.</li>
+                        <li>Las cancelaciones realizadas después de la fecha de facturación surtirán efecto al final del período de facturación vigente. <strong>No se realizan reembolsos prorrateados</strong> por el período activo en curso.</li>
+                        <li>Todas las cancelaciones de suscripción serán confirmadas por correo electrónico.</li>
+                    </ul>
+
+                    <h3>7. Logística de Devolución y Gastos de Envío Inverso</h3>
+                    <p>Dado que vendemos productos alimenticios perecederos, <strong>no se aceptan ni se exigen devoluciones físicas de envío</strong>. No nos envíe productos de vuelta.</p>
+                    <p>Para cualquier mercancía no alimentaria (packaging de regalo, artículos de marca), se aceptan devoluciones dentro de los <strong>★ 14 días</strong> siguientes a la recepción, siempre que el artículo esté sin usar y en su embalaje original. En tal caso:</p>
+                    <ul>
+                        <li>Si la devolución se debe a un error nuestro (artículo incorrecto o defectuoso): nosotros asumimos los gastos de envío inverso.</li>
+                        <li>Si la devolución se debe a un cambio de opinión: el cliente es responsable de los gastos de envío de devolución.</li>
+                    </ul>
+
+                    <h3>8. Artículos No Reembolsables</h3>
+                    <p>Los siguientes conceptos no son elegibles para reembolso bajo ninguna circunstancia:</p>
+                    <ul>
+                        <li>Gastos de envío y cargos por servicio.</li>
+                        <li>Pedidos personalizados cuya producción ya ha comenzado.</li>
+                        <li>Tarjetas de regalo y créditos en tienda.</li>
+                        <li>Pedidos realizados a través de plataformas de terceros (Uber Eats).</li>
+                        <li>Productos que muestren señales de manipulación indebida, almacenamiento incorrecto o consumo parcial tras la entrega.</li>
+                    </ul>
+
+                    <h3>9. Contracargos y Disputas de Pago</h3>
+                    <p>Le recomendamos encarecidamente que se ponga en contacto con nosotros directamente antes de iniciar un contracargo (chargeback) con su banco o entidad emisora de la tarjeta. La mayoría de los problemas pueden resolverse rápidamente en <a href="mailto:info@cookiesbyjackie.com">info@cookiesbyjackie.com</a>.</p>
+                    <p><strong>Nuestro proceso de disputas:</strong></p>
+                    <ul>
+                        <li>Responderemos a todas las consultas de disputa de clientes en un plazo de <strong>★ 7 días hábiles</strong>.</li>
+                        <li>Si se presenta un contracargo ante su red de tarjetas (Visa, Mastercard, Amex, etc.) sin contacto previo, nos reservamos el derecho de impugnar la disputa y presentar toda la evidencia disponible, incluyendo confirmación del pedido, registros de entrega y comunicaciones, conforme a las normas aplicables de las redes de tarjetas.</li>
+                        <li>Según las normas estándar de las redes de tarjetas, las disputas pueden plantearse dentro de los <strong>120 días</strong> posteriores a la fecha de la transacción (los plazos varían según la red).</li>
+                        <li>Los contracargos presentados por pedidos entregados tal como se describieron y que cumplan nuestros estándares de calidad, sin queja previa, podrán ser tratados como fraude y reportados en consecuencia.</li>
+                    </ul>
+                    <p>Para proteger a ambas partes, recomendamos conservar todas las confirmaciones de pedido y registros de comunicación.</p>
+
+                    <h3>10. Contáctenos</h3>
+                    <p><strong>Cookies by Jackie</strong><br>
+                    Columbus Circle Underground Market<br>
+                    New York, NY 10019<br>
+                    <a href="mailto:info@cookiesbyjackie.com">info@cookiesbyjackie.com</a><br>
+                    <a href="tel:+12123896151">+1 212-389-6151</a></p>
+                </div>
+
+            </div><!-- /policy-modal-body -->
+        </div><!-- /policy-modal -->
+    </div><!-- /refund-modal-overlay -->
 
     <script src="script.js?v=5.6"></script>
     <script>
