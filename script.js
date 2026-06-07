@@ -62,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
             refund_link: "Reembolsos y Cancelaciones",
             shipping_link: "Envíos y Entregas",
             terms_link: "Términos del Servicio",
+            contact_link: "Contacto",
             checkout_title: "Resumen de Compra",
             checkout_subtitle: "Completa tus datos para proceder al pago",
             checkout_order_title: "tu pedido",
@@ -260,6 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
             refund_link: "Refunds & Cancellations",
             shipping_link: "Shipping & Delivery",
             terms_link: "Terms of Service",
+            contact_link: "Contact",
             checkout_title: "Order Summary",
             checkout_subtitle: "Complete your details to proceed to payment",
             checkout_order_title: "your order",
@@ -2066,6 +2068,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         document.addEventListener('keydown', e => {
             if (e.key === 'Escape' && termsOverlay.classList.contains('active')) closeTerms();
+        });
+    }
+
+    // ─── Contact Modal ────────────────────────────────────────────────────────
+    const contactOverlay  = document.getElementById('contact-modal-overlay');
+    const contactCloseBtn = document.getElementById('contact-modal-close');
+    const openContactBtn  = document.getElementById('open-contact-btn');
+
+    if (contactOverlay && openContactBtn) {
+        const openContact = () => {
+            contactOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            contactOverlay.scrollTop = 0;
+        };
+        const closeContact = () => {
+            contactOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        };
+        openContactBtn.addEventListener('click', openContact);
+        contactCloseBtn.addEventListener('click', closeContact);
+        contactOverlay.addEventListener('click', e => {
+            if (e.target === contactOverlay) closeContact();
+        });
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && contactOverlay.classList.contains('active')) closeContact();
         });
     }
 
