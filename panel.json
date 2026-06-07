@@ -112,7 +112,7 @@
         },
         {
           "key": "cookies.1.imagen",
-          "label": "Specialty Cookie Box — Imagen",
+          "label": "Specialty Cookie Box — Foto 1",
           "type": "image"
         },
         {
@@ -147,7 +147,7 @@
         },
         {
           "key": "cookies.2.imagen",
-          "label": "Pick 6 Cookie Box — Imagen",
+          "label": "Pick 6 Cookie Box — Foto 1",
           "type": "image"
         },
         {
@@ -182,7 +182,7 @@
         },
         {
           "key": "cookies.3.imagen",
-          "label": "Pick 12 Cookie Box — Imagen",
+          "label": "Pick 12 Cookie Box — Foto 1",
           "type": "image"
         },
         {
@@ -217,7 +217,7 @@
         },
         {
           "key": "cookies.4.imagen",
-          "label": "Mini Cookies Catering — Imagen",
+          "label": "Mini Cookies Catering — Foto 1",
           "type": "image"
         },
         {
@@ -259,7 +259,7 @@
         },
         {
           "key": "cakes.1.imagen",
-          "label": "Vintage Heart Cakes — Imagen",
+          "label": "Vintage Heart Cakes — Foto 1",
           "type": "image"
         },
         {
@@ -289,7 +289,7 @@
         },
         {
           "key": "cakes.2.imagen",
-          "label": "Vintage Round Cakes — Imagen",
+          "label": "Vintage Round Cakes — Foto 1",
           "type": "image"
         },
         {
@@ -319,7 +319,7 @@
         },
         {
           "key": "cakes.3.imagen",
-          "label": "Naked Cake — Imagen",
+          "label": "Naked Cake — Foto 1",
           "type": "image"
         },
         {
@@ -416,7 +416,7 @@
         },
         {
           "key": "cupcakes.1.imagen",
-          "label": "Cupcakes 6 pk — Imagen",
+          "label": "Cupcakes 6 pk — Foto 1",
           "type": "image"
         },
         {
@@ -446,7 +446,7 @@
         },
         {
           "key": "cupcakes.2.imagen",
-          "label": "Cupcakes 12 pk — Imagen",
+          "label": "Cupcakes 12 pk — Foto 1",
           "type": "image"
         },
         {
@@ -476,7 +476,7 @@
         },
         {
           "key": "cupcakes.3.imagen",
-          "label": "Cupcakes 24 pk — Imagen",
+          "label": "Cupcakes 24 pk — Foto 1",
           "type": "image"
         },
         {
@@ -608,7 +608,7 @@
         },
         {
           "key": "pastries.5.imagen",
-          "label": "Donuts 6 pk — Imagen",
+          "label": "Donuts 6 pk — Foto 1",
           "type": "image"
         },
         {
@@ -680,7 +680,7 @@
         },
         {
           "key": "macarons.1.imagen",
-          "label": "France Macarons 6 pk — Imagen",
+          "label": "France Macarons 6 pk — Foto 1",
           "type": "image"
         },
         {
@@ -715,7 +715,7 @@
         },
         {
           "key": "macarons.2.imagen",
-          "label": "France Macarons 12 pk — Imagen",
+          "label": "France Macarons 12 pk — Foto 1",
           "type": "image"
         },
         {
@@ -750,7 +750,7 @@
         },
         {
           "key": "macarons.3.imagen",
-          "label": "France Macarons 24 pk — Imagen",
+          "label": "France Macarons 24 pk — Foto 1",
           "type": "image"
         },
         {
@@ -792,7 +792,7 @@
         },
         {
           "key": "mini.1.imagen",
-          "label": "Mini Cakes 6 pk — Imagen",
+          "label": "Mini Cakes 6 pk — Foto 1",
           "type": "image"
         },
         {
@@ -827,7 +827,7 @@
         },
         {
           "key": "mini.2.imagen",
-          "label": "Mini Cakes 12 pk — Imagen",
+          "label": "Mini Cakes 12 pk — Foto 1",
           "type": "image"
         },
         {
@@ -862,7 +862,7 @@
         },
         {
           "key": "mini.3.imagen",
-          "label": "Mini Cakes 24 pk — Imagen",
+          "label": "Mini Cakes 24 pk — Foto 1",
           "type": "image"
         },
         {
