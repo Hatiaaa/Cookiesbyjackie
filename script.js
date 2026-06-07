@@ -448,6 +448,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Refrescar UI del carrito si está abierto
         updateCartUI();
+
+        // Notificar al panel para que re-aplique sus valores sobre el i18n
+        document.dispatchEvent(new CustomEvent('panel:langchange', { detail: { lang: lang } }));
     }
 
     document.querySelectorAll('.lang-btn').forEach(btn => {
