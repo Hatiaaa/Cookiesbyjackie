@@ -15,7 +15,7 @@
   'use strict'
 
   var PANEL_URL = 'https://panel.estudioxaga.com'
-  var API_KEY   = 'REEMPLAZAR_CON_API_KEY_DEL_CLIENTE'
+  var API_KEY   = 'sk_5lMFjzLJZhY19RbDaco4Y8QllTUf7wDnTM_-_aB1r_Y'
   var HEADERS   = { 'X-API-Key': API_KEY }
 
   // Caché de contenido — se rellena en loadData() y se reutiliza en reapply()
