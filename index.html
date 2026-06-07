@@ -12,11 +12,16 @@
     <!-- Elegant Serif for Logo (Playfair), Modern Sans-Serif for everything else (Montserrat & Outfit) -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@400;600;800;900&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
     
+    <!-- Preload del hero (mejora LCP) -->
+    <link rel="preload" as="image" href="assets/Hero/fondo-hero.webp" media="(min-width: 993px)" fetchpriority="high">
+    <link rel="preload" as="image" href="assets/Hero/fondo-hero-mobile.webp" media="(max-width: 992px)" fetchpriority="high">
+
     <!-- CSS -->
-    <link rel="stylesheet" href="style.css?v=4.8">
-    
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css?v=4.9">
+
+    <!-- FontAwesome (carga diferida para no bloquear el render) -->
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 </head>
 <body>
     <!-- Header -->
@@ -31,7 +36,7 @@
                     <span class="logo-main">COOKIES</span>
                     <span class="logo-sub">by Jackie</span>
                 </div>
-                <img src="assets/logo.png" alt="Cookies by Jackie" class="logo-img">
+                <img src="assets/logo.webp" alt="Cookies by Jackie" class="logo-img" width="449" height="556">
             </a>
 
             <nav class="nav-links">
@@ -153,7 +158,7 @@
 
                     <div class="fav-card fade-up" style="--card-bg:#F5D5D8;--strip-bg:#C4788A;">
                         <div class="fav-card-img">
-                            <img src="assets/Best seller/Red Velvet Cupcake with Cream Cheese Icing_pixian_ai.png" alt="Red Velvet Cupcake">
+                            <img loading="lazy" decoding="async" src="assets/Best seller/Red Velvet Cupcake with Cream Cheese Icing_pixian_ai.png" alt="Red Velvet Cupcake">
                             <div class="fav-strip" data-i18n="fav1_strip">red velvet · cream cheese · vainilla</div>
                         </div>
                         <div class="fav-card-body">
@@ -171,7 +176,7 @@
 
                     <div class="fav-card fade-up" style="--card-bg:#EDD9B0;--strip-bg:#B8916A;transition-delay:0.1s;">
                         <div class="fav-card-img">
-                            <img src="assets/Best seller/Salted Caramel Chocolate Chip Cookie_pixian_ai.png" alt="Salted Caramel Cookie">
+                            <img loading="lazy" decoding="async" src="assets/Best seller/Salted Caramel Chocolate Chip Cookie_pixian_ai.png" alt="Salted Caramel Cookie">
                             <div class="fav-strip" data-i18n="fav2_strip">chocolate chip · caramelo · sal marina</div>
                         </div>
                         <div class="fav-card-body">
@@ -189,7 +194,7 @@
 
                     <div class="fav-card fade-up" style="--card-bg:#FFE0E8;--strip-bg:#D97090;transition-delay:0.2s;">
                         <div class="fav-card-img">
-                            <img src="assets/Best seller/Strawberry cheesecake_pixian_ai.png" alt="Strawberry Cheesecake">
+                            <img loading="lazy" decoding="async" src="assets/Best seller/Strawberry cheesecake_pixian_ai.png" alt="Strawberry Cheesecake">
                             <div class="fav-strip" data-i18n="fav3_strip">fresa · cheesecake · crema</div>
                         </div>
                         <div class="fav-card-body">
@@ -207,7 +212,7 @@
 
                     <div class="fav-card fade-up" style="--card-bg:#E8D5C0;--strip-bg:#A07048;transition-delay:0.3s;">
                         <div class="fav-card-img">
-                            <img src="assets/Best seller/Vintage Heart Cakes Chocolate_pixian_ai.png" alt="Vintage Heart Cake">
+                            <img loading="lazy" decoding="async" src="assets/Best seller/Vintage Heart Cakes Chocolate_pixian_ai.png" alt="Vintage Heart Cake">
                             <div class="fav-strip" data-i18n="fav4_strip">chocolate · mantequilla · vainilla</div>
                         </div>
                         <div class="fav-card-body">
@@ -248,10 +253,10 @@
                         <!-- Cajas / Packs -->
                         <div class="tab-product-card fade-up">
                             <div class="tab-img-wrapper product-carousel">
-                                <img src="assets/Pick 6 Cookie Box/Chocolate Chip Cookie.png" alt="Chocolate Chip Cookie" class="active">
-                                <img src="assets/Pick 6 Cookie Box/Salted Caramel Chocolate Chip Cookie.png" alt="Salted Caramel">
-                                <img src="assets/Pick 6 Cookie Box/Brookie Cookie.png" alt="Brookie Cookie">
-                                <img src="assets/Pick 6 Cookie Box/Snickerdoodle.png" alt="Snickerdoodle">
+                                <img loading="lazy" decoding="async" src="assets/Pick 6 Cookie Box/Chocolate Chip Cookie.png" alt="Chocolate Chip Cookie" class="active">
+                                <img loading="lazy" decoding="async" src="assets/Pick 6 Cookie Box/Salted Caramel Chocolate Chip Cookie.png" alt="Salted Caramel">
+                                <img loading="lazy" decoding="async" src="assets/Pick 6 Cookie Box/Brookie Cookie.png" alt="Brookie Cookie">
+                                <img loading="lazy" decoding="async" src="assets/Pick 6 Cookie Box/Snickerdoodle.png" alt="Snickerdoodle">
                                 <div class="carousel-dots">
                                     <span class="dot active" data-index="0"></span>
                                     <span class="dot" data-index="1"></span>
@@ -269,10 +274,10 @@
 
                         <div class="tab-product-card fade-up">
                             <div class="tab-img-wrapper product-carousel" id="carousel-pick6">
-                                <img src="assets/Pick 6 Cookie Box/Red Velvet Cookie.png" alt="Red Velvet Cookie" class="active">
-                                <img src="assets/Pick 6 Cookie Box/Oreo Chocolate Chip.png" alt="Oreo Chocolate Chip">
-                                <img src="assets/Pick 6 Cookie Box/Nutella Chocolate Chip.png" alt="Nutella Chocolate Chip">
-                                <img src="assets/Pick 6 Cookie Box/Biscoff Chocolate Chip Cookie.png" alt="Biscoff Chocolate Chip">
+                                <img loading="lazy" decoding="async" src="assets/Pick 6 Cookie Box/Red Velvet Cookie.png" alt="Red Velvet Cookie" class="active">
+                                <img loading="lazy" decoding="async" src="assets/Pick 6 Cookie Box/Oreo Chocolate Chip.png" alt="Oreo Chocolate Chip">
+                                <img loading="lazy" decoding="async" src="assets/Pick 6 Cookie Box/Nutella Chocolate Chip.png" alt="Nutella Chocolate Chip">
+                                <img loading="lazy" decoding="async" src="assets/Pick 6 Cookie Box/Biscoff Chocolate Chip Cookie.png" alt="Biscoff Chocolate Chip">
                                 <div class="carousel-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
                             </div>
                             <div class="tab-product-info">
@@ -285,10 +290,10 @@
 
                         <div class="tab-product-card fade-up">
                             <div class="tab-img-wrapper product-carousel" id="carousel-pick12">
-                                <img src="assets/Pick 6 Cookie Box/Nutella Chocolate Chip.png" alt="Nutella Chocolate Chip" class="active">
-                                <img src="assets/Pick 6 Cookie Box/Biscoff Chocolate Chip Cookie.png" alt="Biscoff Chocolate Chip Cookie">
-                                <img src="assets/Pick 6 Cookie Box/Salted Caramel Chocolate Chip Cookie.png" alt="Salted Caramel Chocolate Chip Cookie">
-                                <img src="assets/Pick 6 Cookie Box/Brookie Cookie.png" alt="Brookie Cookie">
+                                <img loading="lazy" decoding="async" src="assets/Pick 6 Cookie Box/Nutella Chocolate Chip.png" alt="Nutella Chocolate Chip" class="active">
+                                <img loading="lazy" decoding="async" src="assets/Pick 6 Cookie Box/Biscoff Chocolate Chip Cookie.png" alt="Biscoff Chocolate Chip Cookie">
+                                <img loading="lazy" decoding="async" src="assets/Pick 6 Cookie Box/Salted Caramel Chocolate Chip Cookie.png" alt="Salted Caramel Chocolate Chip Cookie">
+                                <img loading="lazy" decoding="async" src="assets/Pick 6 Cookie Box/Brookie Cookie.png" alt="Brookie Cookie">
                                 <div class="carousel-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
                             </div>
                             <div class="tab-product-info">
@@ -301,10 +306,10 @@
 
                         <div class="tab-product-card fade-up">
                             <div class="tab-img-wrapper product-carousel" id="carousel-mini-catering">
-                                <img src="assets/Pick 6 Cookie Box/M&M Chocolate Chip Cookie.png" alt="M&M Cookie" class="active">
-                                <img src="assets/Pick 6 Cookie Box/Triple Chocolate Chip Cookie.png" alt="Triple Chocolate Chip">
-                                <img src="assets/Pick 6 Cookie Box/Peanut Butter and Jelly Cookie.png" alt="Peanut Butter Jelly">
-                                <img src="assets/Pick 6 Cookie Box/Oatmeal Raisin Cookie.png" alt="Oatmeal Raisin">
+                                <img loading="lazy" decoding="async" src="assets/Pick 6 Cookie Box/M&M Chocolate Chip Cookie.png" alt="M&M Cookie" class="active">
+                                <img loading="lazy" decoding="async" src="assets/Pick 6 Cookie Box/Triple Chocolate Chip Cookie.png" alt="Triple Chocolate Chip">
+                                <img loading="lazy" decoding="async" src="assets/Pick 6 Cookie Box/Peanut Butter and Jelly Cookie.png" alt="Peanut Butter Jelly">
+                                <img loading="lazy" decoding="async" src="assets/Pick 6 Cookie Box/Oatmeal Raisin Cookie.png" alt="Oatmeal Raisin">
                                 <div class="carousel-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
                             </div>
                             <div class="tab-product-info">
@@ -324,9 +329,9 @@
                         <!-- 1. Vintage Heart Cakes -->
                         <div class="tab-product-card fade-up">
                             <div class="tab-img-wrapper product-carousel" id="carousel-vintage-heart">
-                                <img src="assets/cake/Vintage Heart Cakes/Vintage Heart Cakes Chocolate.png" alt="Vintage Heart Cake Chocolate" class="active">
-                                <img src="assets/cake/Vintage Heart Cakes/Vintage Heart Cakes Red velvet.png" alt="Vintage Heart Cake Red Velvet">
-                                <img src="assets/cake/Vintage Heart Cakes/Vintage Heart Cakes Vanilla.png" alt="Vintage Heart Cake Vanilla">
+                                <img loading="lazy" decoding="async" src="assets/cake/Vintage Heart Cakes/Vintage Heart Cakes Chocolate.png" alt="Vintage Heart Cake Chocolate" class="active">
+                                <img loading="lazy" decoding="async" src="assets/cake/Vintage Heart Cakes/Vintage Heart Cakes Red velvet.png" alt="Vintage Heart Cake Red Velvet">
+                                <img loading="lazy" decoding="async" src="assets/cake/Vintage Heart Cakes/Vintage Heart Cakes Vanilla.png" alt="Vintage Heart Cake Vanilla">
                                 <div class="carousel-dots">
                                     <span class="dot active"></span>
                                     <span class="dot"></span>
@@ -344,9 +349,9 @@
                         <!-- 2. Vintage Round Cakes -->
                         <div class="tab-product-card fade-up">
                             <div class="tab-img-wrapper product-carousel" id="carousel-vintage-round">
-                                <img src="assets/cake/Vintage Round Cakes/Vintage Round Cakes Chocolate.png" alt="Vintage Round Cake Chocolate" class="active">
-                                <img src="assets/cake/Vintage Round Cakes/Vintage Round Cakes Red velvet.png" alt="Vintage Round Cake Red Velvet">
-                                <img src="assets/cake/Vintage Round Cakes/Vintage Round Cakes Vanilla.png" alt="Vintage Round Cake Vanilla">
+                                <img loading="lazy" decoding="async" src="assets/cake/Vintage Round Cakes/Vintage Round Cakes Chocolate.png" alt="Vintage Round Cake Chocolate" class="active">
+                                <img loading="lazy" decoding="async" src="assets/cake/Vintage Round Cakes/Vintage Round Cakes Red velvet.png" alt="Vintage Round Cake Red Velvet">
+                                <img loading="lazy" decoding="async" src="assets/cake/Vintage Round Cakes/Vintage Round Cakes Vanilla.png" alt="Vintage Round Cake Vanilla">
                                 <div class="carousel-dots">
                                     <span class="dot active"></span>
                                     <span class="dot"></span>
@@ -364,9 +369,9 @@
                         <!-- 3. Naked Cake -->
                         <div class="tab-product-card fade-up">
                             <div class="tab-img-wrapper product-carousel" id="carousel-naked-cake">
-                                <img src="assets/cake/Naked Cake/NAKED CAKE 1.png" alt="Naked Cake 1" class="active">
-                                <img src="assets/cake/Naked Cake/NAKED CAKE 2.png" alt="Naked Cake 2">
-                                <img src="assets/cake/Naked Cake/NAKED CAKE 3.png" alt="Naked Cake 3">
+                                <img loading="lazy" decoding="async" src="assets/cake/Naked Cake/NAKED CAKE 1.png" alt="Naked Cake 1" class="active">
+                                <img loading="lazy" decoding="async" src="assets/cake/Naked Cake/NAKED CAKE 2.png" alt="Naked Cake 2">
+                                <img loading="lazy" decoding="async" src="assets/cake/Naked Cake/NAKED CAKE 3.png" alt="Naked Cake 3">
                                 <div class="carousel-dots">
                                     <span class="dot active"></span>
                                     <span class="dot"></span>
@@ -384,7 +389,7 @@
                         <!-- 4. 10" Chocolate Chip Cookie Cake -->
                         <div class="tab-product-card fade-up">
                             <div class="tab-img-wrapper">
-                                <img src="assets/cake/10 Chocolate Chip Cookie Cake.png" alt="10 Chocolate Chip Cookie Cake" onerror="this.src='assets/logo.png'">
+                                <img loading="lazy" decoding="async" src="assets/cake/10 Chocolate Chip Cookie Cake.png" alt="10 Chocolate Chip Cookie Cake" onerror="this.src='assets/logo.png'">
                             </div>
                             <div class="tab-product-info">
                                 <h3>10" Chocolate Chip Cookie Cake</h3>
@@ -397,7 +402,7 @@
                         <!-- 5. Chocolate Fudge Brownie Cake -->
                         <div class="tab-product-card fade-up">
                             <div class="tab-img-wrapper">
-                                <img src="assets/cake/Chocolate Fudge Brownie Cake.png" alt="Chocolate Fudge Brownie Cake" onerror="this.src='assets/logo.png'">
+                                <img loading="lazy" decoding="async" src="assets/cake/Chocolate Fudge Brownie Cake.png" alt="Chocolate Fudge Brownie Cake" onerror="this.src='assets/logo.png'">
                             </div>
                             <div class="tab-product-info">
                                 <h3>Chocolate Fudge Brownie Cake</h3>
@@ -410,7 +415,7 @@
                         <!-- 6. Double-Layered 10" Chocolate Chip Cookie Cake -->
                         <div class="tab-product-card fade-up">
                             <div class="tab-img-wrapper">
-                                <img src="assets/cake/Double-Layered 10 Chocolate Chip Cookie Cake.png" alt="Double-Layered Cookie Cake" onerror="this.src='assets/logo.png'">
+                                <img loading="lazy" decoding="async" src="assets/cake/Double-Layered 10 Chocolate Chip Cookie Cake.png" alt="Double-Layered Cookie Cake" onerror="this.src='assets/logo.png'">
                             </div>
                             <div class="tab-product-info">
                                 <h3>Double-Layered 10" Cookie Cake</h3>
@@ -429,9 +434,9 @@
                         <!-- Cupcakes 6 pk -->
                         <div class="tab-product-card fade-up">
                             <div class="tab-img-wrapper product-carousel" id="carousel-cupcakes-6pk">
-                                <img src="assets/cup cakes/Vanilla Cupcake with Vanilla Buttercream.png" alt="Vanilla Cupcake" class="active">
-                                <img src="assets/cup cakes/Chocolate cupcake with chocolate buttercream.png" alt="Chocolate Cupcake">
-                                <img src="assets/cup cakes/Red Velvet Cupcake with Cream Cheese Icing.png" alt="Red Velvet Cupcake">
+                                <img loading="lazy" decoding="async" src="assets/cup cakes/Vanilla Cupcake with Vanilla Buttercream.png" alt="Vanilla Cupcake" class="active">
+                                <img loading="lazy" decoding="async" src="assets/cup cakes/Chocolate cupcake with chocolate buttercream.png" alt="Chocolate Cupcake">
+                                <img loading="lazy" decoding="async" src="assets/cup cakes/Red Velvet Cupcake with Cream Cheese Icing.png" alt="Red Velvet Cupcake">
                                 <div class="carousel-dots">
                                     <span class="dot active"></span>
                                     <span class="dot"></span>
@@ -449,9 +454,9 @@
                         <!-- Cupcakes 12 pk -->
                         <div class="tab-product-card fade-up">
                             <div class="tab-img-wrapper product-carousel" id="carousel-cupcakes-12pk">
-                                <img src="assets/cup cakes/Chocolate cupcake with vanilla buttercream.png" alt="Chocolate Vanilla Cupcake" class="active">
-                                <img src="assets/cup cakes/Carrot Cupcake with Cream Cheese Icing.png" alt="Carrot Cupcake">
-                                <img src="assets/cup cakes/Vanilla cupcake with chocolate buttercrem vanilla.png" alt="Vanilla Chocolate Cupcake">
+                                <img loading="lazy" decoding="async" src="assets/cup cakes/Chocolate cupcake with vanilla buttercream.png" alt="Chocolate Vanilla Cupcake" class="active">
+                                <img loading="lazy" decoding="async" src="assets/cup cakes/Carrot Cupcake with Cream Cheese Icing.png" alt="Carrot Cupcake">
+                                <img loading="lazy" decoding="async" src="assets/cup cakes/Vanilla cupcake with chocolate buttercrem vanilla.png" alt="Vanilla Chocolate Cupcake">
                                 <div class="carousel-dots">
                                     <span class="dot active"></span>
                                     <span class="dot"></span>
@@ -469,12 +474,12 @@
                         <!-- Cupcakes 24 pk -->
                         <div class="tab-product-card fade-up">
                             <div class="tab-img-wrapper product-carousel" id="carousel-cupcakes-24pk">
-                                <img src="assets/cup cakes/Vanilla Cupcake with Vanilla Buttercream.png" alt="Vanilla Cupcake" class="active">
-                                <img src="assets/cup cakes/Chocolate cupcake with chocolate buttercream.png" alt="Chocolate Cupcake">
-                                <img src="assets/cup cakes/Red Velvet Cupcake with Cream Cheese Icing.png" alt="Red Velvet Cupcake">
-                                <img src="assets/cup cakes/Chocolate cupcake with vanilla buttercream.png" alt="Chocolate Vanilla Cupcake">
-                                <img src="assets/cup cakes/Carrot Cupcake with Cream Cheese Icing.png" alt="Carrot Cupcake">
-                                <img src="assets/cup cakes/Vanilla cupcake with chocolate buttercrem vanilla.png" alt="Vanilla Chocolate Cupcake">
+                                <img loading="lazy" decoding="async" src="assets/cup cakes/Vanilla Cupcake with Vanilla Buttercream.png" alt="Vanilla Cupcake" class="active">
+                                <img loading="lazy" decoding="async" src="assets/cup cakes/Chocolate cupcake with chocolate buttercream.png" alt="Chocolate Cupcake">
+                                <img loading="lazy" decoding="async" src="assets/cup cakes/Red Velvet Cupcake with Cream Cheese Icing.png" alt="Red Velvet Cupcake">
+                                <img loading="lazy" decoding="async" src="assets/cup cakes/Chocolate cupcake with vanilla buttercream.png" alt="Chocolate Vanilla Cupcake">
+                                <img loading="lazy" decoding="async" src="assets/cup cakes/Carrot Cupcake with Cream Cheese Icing.png" alt="Carrot Cupcake">
+                                <img loading="lazy" decoding="async" src="assets/cup cakes/Vanilla cupcake with chocolate buttercrem vanilla.png" alt="Vanilla Chocolate Cupcake">
                                 <div class="carousel-dots">
                                     <span class="dot active"></span>
                                     <span class="dot"></span>
@@ -500,7 +505,7 @@
                         <!-- 1. Cinnamon Rolls 6 pk -->
                         <div class="tab-product-card fade-up">
                             <div class="tab-img-wrapper">
-                                <img src="assets/pastries/Cinnamon Rolls.png" alt="Cinnamon Rolls 6 pk">
+                                <img loading="lazy" decoding="async" src="assets/pastries/Cinnamon Rolls.png" alt="Cinnamon Rolls 6 pk">
                             </div>
                             <div class="tab-product-info">
                                 <h3 data-i18n="past_roll_name">Cinnamon Rolls 6 pk</h3>
@@ -513,7 +518,7 @@
                         <!-- 2. Banana Bread loaf -->
                         <div class="tab-product-card fade-up">
                             <div class="tab-img-wrapper">
-                                <img src="assets/pastries/Banana Bread Slice.png" alt="Banana Bread loaf">
+                                <img loading="lazy" decoding="async" src="assets/pastries/Banana Bread Slice.png" alt="Banana Bread loaf">
                             </div>
                             <div class="tab-product-info">
                                 <h3 data-i18n="past_banana_name">Banana Bread loaf</h3>
@@ -526,7 +531,7 @@
                         <!-- 3. Blueberry Scone 8 pk -->
                         <div class="tab-product-card fade-up">
                             <div class="tab-img-wrapper">
-                                <img src="assets/pastries/Blueberry Scone.png" alt="Blueberry Scone 8 pk">
+                                <img loading="lazy" decoding="async" src="assets/pastries/Blueberry Scone.png" alt="Blueberry Scone 8 pk">
                             </div>
                             <div class="tab-product-info">
                                 <h3 data-i18n="past_scone_name">Blueberry Scone 8 pk</h3>
@@ -539,7 +544,7 @@
                         <!-- 4. Chocolate Fudge Brownies 6 pk -->
                         <div class="tab-product-card fade-up">
                             <div class="tab-img-wrapper">
-                                <img src="assets/pastries/Chocolate Fudge Brownies.png" alt="Chocolate Fudge Brownies 6 pk">
+                                <img loading="lazy" decoding="async" src="assets/pastries/Chocolate Fudge Brownies.png" alt="Chocolate Fudge Brownies 6 pk">
                             </div>
                             <div class="tab-product-info">
                                 <h3 data-i18n="past_brownie_name">Chocolate Fudge Brownies 6 pk</h3>
@@ -552,12 +557,12 @@
                         <!-- 5. Donuts 6 pk -->
                         <div class="tab-product-card fade-up">
                             <div class="tab-img-wrapper product-carousel" id="carousel-donuts">
-                                <img src="assets/pastries/Glazed Donut.png" alt="Glazed Donut" class="active">
-                                <img src="assets/pastries/Cinnamon Sugar Donut.png" alt="Cinnamon Sugar Donut">
-                                <img src="assets/pastries/Fruity Pebbles Donut Topped.png" alt="Fruity Pebbles Donut">
-                                <img src="assets/pastries/Oreo Topped Donut.png" alt="Oreo Topped Donut">
-                                <img src="assets/pastries/Strawberry Sprinkle Donut.png" alt="Strawberry Sprinkle Donut">
-                                <img src="assets/pastries/Chocolate Sprinkle Donut.png" alt="Chocolate Sprinkle Donut">
+                                <img loading="lazy" decoding="async" src="assets/pastries/Glazed Donut.png" alt="Glazed Donut" class="active">
+                                <img loading="lazy" decoding="async" src="assets/pastries/Cinnamon Sugar Donut.png" alt="Cinnamon Sugar Donut">
+                                <img loading="lazy" decoding="async" src="assets/pastries/Fruity Pebbles Donut Topped.png" alt="Fruity Pebbles Donut">
+                                <img loading="lazy" decoding="async" src="assets/pastries/Oreo Topped Donut.png" alt="Oreo Topped Donut">
+                                <img loading="lazy" decoding="async" src="assets/pastries/Strawberry Sprinkle Donut.png" alt="Strawberry Sprinkle Donut">
+                                <img loading="lazy" decoding="async" src="assets/pastries/Chocolate Sprinkle Donut.png" alt="Chocolate Sprinkle Donut">
                                 <div class="carousel-dots">
                                     <span class="dot active"></span>
                                     <span class="dot"></span>
@@ -578,7 +583,7 @@
                         <!-- 6. Buttermilk Biscuit 6 pk -->
                         <div class="tab-product-card fade-up">
                             <div class="tab-img-wrapper">
-                                <img src="assets/pastries/Buttermilk Biscuit.png" alt="Buttermilk Biscuit 6 pk">
+                                <img loading="lazy" decoding="async" src="assets/pastries/Buttermilk Biscuit.png" alt="Buttermilk Biscuit 6 pk">
                             </div>
                             <div class="tab-product-info">
                                 <h3 data-i18n="past_biscuit_name">Buttermilk Biscuit 6 pk</h3>
@@ -596,10 +601,10 @@
                         <!-- France Macarons 6 pk -->
                         <div class="tab-product-card fade-up">
                             <div class="tab-img-wrapper product-carousel" id="carousel-mac-6">
-                                <img src="assets/macarons/Raspberry.png" alt="Raspberry Macaron" class="active">
-                                <img src="assets/macarons/Pistacho.png" alt="Pistacho Macaron">
-                                <img src="assets/macarons/Birthday.png" alt="Birthday Macaron">
-                                <img src="assets/macarons/Vanilla.png" alt="Vanilla Macaron">
+                                <img loading="lazy" decoding="async" src="assets/macarons/Raspberry.png" alt="Raspberry Macaron" class="active">
+                                <img loading="lazy" decoding="async" src="assets/macarons/Pistacho.png" alt="Pistacho Macaron">
+                                <img loading="lazy" decoding="async" src="assets/macarons/Birthday.png" alt="Birthday Macaron">
+                                <img loading="lazy" decoding="async" src="assets/macarons/Vanilla.png" alt="Vanilla Macaron">
                                 <div class="carousel-dots">
                                     <span class="dot active" data-index="0"></span>
                                     <span class="dot" data-index="1"></span>
@@ -618,10 +623,10 @@
                         <!-- France Macarons 12 pk -->
                         <div class="tab-product-card fade-up">
                             <div class="tab-img-wrapper product-carousel" id="carousel-mac-12">
-                                <img src="assets/macarons/Tiramisú.png" alt="Tiramisú Macaron" class="active">
-                                <img src="assets/macarons/Churro.png" alt="Churro Macaron">
-                                <img src="assets/macarons/Crème Brûlée.png" alt="Crème Brûlée Macaron">
-                                <img src="assets/macarons/Raspberry.png" alt="Raspberry Macaron">
+                                <img loading="lazy" decoding="async" src="assets/macarons/Tiramisú.png" alt="Tiramisú Macaron" class="active">
+                                <img loading="lazy" decoding="async" src="assets/macarons/Churro.png" alt="Churro Macaron">
+                                <img loading="lazy" decoding="async" src="assets/macarons/Crème Brûlée.png" alt="Crème Brûlée Macaron">
+                                <img loading="lazy" decoding="async" src="assets/macarons/Raspberry.png" alt="Raspberry Macaron">
                                 <div class="carousel-dots">
                                     <span class="dot active" data-index="0"></span>
                                     <span class="dot" data-index="1"></span>
@@ -640,10 +645,10 @@
                         <!-- France Macarons 24 pk -->
                         <div class="tab-product-card fade-up">
                             <div class="tab-img-wrapper product-carousel" id="carousel-mac-24">
-                                <img src="assets/macarons/Pistacho.png" alt="Pistacho Macaron" class="active">
-                                <img src="assets/macarons/Birthday.png" alt="Birthday Macaron">
-                                <img src="assets/macarons/Tiramisú.png" alt="Tiramisú Macaron">
-                                <img src="assets/macarons/Churro.png" alt="Churro Macaron">
+                                <img loading="lazy" decoding="async" src="assets/macarons/Pistacho.png" alt="Pistacho Macaron" class="active">
+                                <img loading="lazy" decoding="async" src="assets/macarons/Birthday.png" alt="Birthday Macaron">
+                                <img loading="lazy" decoding="async" src="assets/macarons/Tiramisú.png" alt="Tiramisú Macaron">
+                                <img loading="lazy" decoding="async" src="assets/macarons/Churro.png" alt="Churro Macaron">
                                 <div class="carousel-dots">
                                     <span class="dot active" data-index="0"></span>
                                     <span class="dot" data-index="1"></span>
@@ -668,10 +673,10 @@
                         <!-- Mini Individual Cakes 6 pk -->
                         <div class="tab-product-card fade-up">
                             <div class="tab-img-wrapper product-carousel" id="carousel-mini-6">
-                                <img src="assets/mini individual/Tiramisú.png" alt="Tiramisú" class="active">
-                                <img src="assets/mini individual/Red Velvet Cheesecake.png" alt="Red Velvet Cheesecake">
-                                <img src="assets/mini individual/Tres leches.png" alt="Tres Leches">
-                                <img src="assets/mini individual/Chocolate Cheesecake.png" alt="Chocolate Cheesecake">
+                                <img loading="lazy" decoding="async" src="assets/mini individual/Tiramisú.png" alt="Tiramisú" class="active">
+                                <img loading="lazy" decoding="async" src="assets/mini individual/Red Velvet Cheesecake.png" alt="Red Velvet Cheesecake">
+                                <img loading="lazy" decoding="async" src="assets/mini individual/Tres leches.png" alt="Tres Leches">
+                                <img loading="lazy" decoding="async" src="assets/mini individual/Chocolate Cheesecake.png" alt="Chocolate Cheesecake">
                                 <div class="carousel-dots">
                                     <span class="dot active" data-index="0"></span>
                                     <span class="dot" data-index="1"></span>
@@ -690,10 +695,10 @@
                         <!-- Mini Individual Cakes 12 pk -->
                         <div class="tab-product-card fade-up">
                             <div class="tab-img-wrapper product-carousel" id="carousel-mini-12">
-                                <img src="assets/mini individual/Oreo Cheesecake.png" alt="Oreo Cheesecake" class="active">
-                                <img src="assets/mini individual/Caramel cheesecake.png" alt="Caramel Cheesecake">
-                                <img src="assets/mini individual/Confetti Cake.png" alt="Confetti Cake">
-                                <img src="assets/mini individual/Carrot Cake.png" alt="Carrot Cake">
+                                <img loading="lazy" decoding="async" src="assets/mini individual/Oreo Cheesecake.png" alt="Oreo Cheesecake" class="active">
+                                <img loading="lazy" decoding="async" src="assets/mini individual/Caramel cheesecake.png" alt="Caramel Cheesecake">
+                                <img loading="lazy" decoding="async" src="assets/mini individual/Confetti Cake.png" alt="Confetti Cake">
+                                <img loading="lazy" decoding="async" src="assets/mini individual/Carrot Cake.png" alt="Carrot Cake">
                                 <div class="carousel-dots">
                                     <span class="dot active" data-index="0"></span>
                                     <span class="dot" data-index="1"></span>
@@ -712,10 +717,10 @@
                         <!-- Mini Individual Cakes 24 pk -->
                         <div class="tab-product-card fade-up">
                             <div class="tab-img-wrapper product-carousel" id="carousel-mini-24">
-                                <img src="assets/mini individual/Fruity Pebbles Cheesecake.png" alt="Fruity Pebbles Cheesecake" class="active">
-                                <img src="assets/mini individual/Chocolate Cake.png" alt="Chocolate Cake">
-                                <img src="assets/mini individual/Cannoli Cheesecake.png" alt="Cannoli Cheesecake">
-                                <img src="assets/mini individual/Strawberry cheesecake.png" alt="Strawberry Cheesecake">
+                                <img loading="lazy" decoding="async" src="assets/mini individual/Fruity Pebbles Cheesecake.png" alt="Fruity Pebbles Cheesecake" class="active">
+                                <img loading="lazy" decoding="async" src="assets/mini individual/Chocolate Cake.png" alt="Chocolate Cake">
+                                <img loading="lazy" decoding="async" src="assets/mini individual/Cannoli Cheesecake.png" alt="Cannoli Cheesecake">
+                                <img loading="lazy" decoding="async" src="assets/mini individual/Strawberry cheesecake.png" alt="Strawberry Cheesecake">
                                 <div class="carousel-dots">
                                     <span class="dot active" data-index="0"></span>
                                     <span class="dot" data-index="1"></span>
@@ -739,7 +744,7 @@
 
                         <div class="tab-product-card fade-up">
                             <div class="tab-img-wrapper">
-                                <img src="assets/pies/9 ¨ Apple Caramel crumb.png" alt="Apple Caramel Crumb Pie">
+                                <img loading="lazy" decoding="async" src="assets/pies/9 ¨ Apple Caramel crumb.png" alt="Apple Caramel Crumb Pie">
                             </div>
                             <div class="tab-product-info">
                                 <h3>9" Apple Caramel Crumb Pie</h3>
@@ -751,7 +756,7 @@
 
                         <div class="tab-product-card fade-up">
                             <div class="tab-img-wrapper">
-                                <img src="assets/pies/9 ¨ Pecan Pie.png" alt="Pecan Pie">
+                                <img loading="lazy" decoding="async" src="assets/pies/9 ¨ Pecan Pie.png" alt="Pecan Pie">
                             </div>
                             <div class="tab-product-info">
                                 <h3>9" Pecan Pie</h3>
@@ -763,7 +768,7 @@
 
                         <div class="tab-product-card fade-up">
                             <div class="tab-img-wrapper">
-                                <img src="assets/pies/9 ¨ Peach Crumb Pie.png" alt="Peach Crumb Pie">
+                                <img loading="lazy" decoding="async" src="assets/pies/9 ¨ Peach Crumb Pie.png" alt="Peach Crumb Pie">
                             </div>
                             <div class="tab-product-info">
                                 <h3>9" Peach Crumb Pie</h3>
@@ -781,7 +786,7 @@
 
                         <div class="tab-product-card fade-up">
                             <div class="tab-img-wrapper">
-                                <img src="assets/prepacks/Macarons 6pk.png" alt="Macarons 6pk">
+                                <img loading="lazy" decoding="async" src="assets/prepacks/Macarons 6pk.png" alt="Macarons 6pk">
                             </div>
                             <div class="tab-product-info">
                                 <h3>Macarons 6 pk</h3>
@@ -793,7 +798,7 @@
 
                         <div class="tab-product-card fade-up">
                             <div class="tab-img-wrapper">
-                                <img src="assets/prepacks/Cupcakes Specialty 12 pk.png" alt="Mini Cupcake Pack 12pc">
+                                <img loading="lazy" decoding="async" src="assets/prepacks/Cupcakes Specialty 12 pk.png" alt="Mini Cupcake Pack 12pc">
                             </div>
                             <div class="tab-product-info">
                                 <h3>Mini Cupcake Pack 12pc</h3>
@@ -805,7 +810,7 @@
 
                         <div class="tab-product-card fade-up">
                             <div class="tab-img-wrapper">
-                                <img src="assets/prepacks/Cookies Specialty 6 pk.png" alt="Cookies Specialty 6 pk">
+                                <img loading="lazy" decoding="async" src="assets/prepacks/Cookies Specialty 6 pk.png" alt="Cookies Specialty 6 pk">
                             </div>
                             <div class="tab-product-info">
                                 <h3>Cookies Specialty 6 pk</h3>
@@ -817,7 +822,7 @@
 
                         <div class="tab-product-card fade-up">
                             <div class="tab-img-wrapper">
-                                <img src="assets/prepacks/Macarons 12pk.png" alt="Macarons 12pk">
+                                <img loading="lazy" decoding="async" src="assets/prepacks/Macarons 12pk.png" alt="Macarons 12pk">
                             </div>
                             <div class="tab-product-info">
                                 <h3>Macarons 12 pk</h3>
@@ -829,7 +834,7 @@
 
                         <div class="tab-product-card fade-up">
                             <div class="tab-img-wrapper">
-                                <img src="assets/prepacks/Cookies Specialty 12 pk.png" alt="Cookies Specialty 12 pk">
+                                <img loading="lazy" decoding="async" src="assets/prepacks/Cookies Specialty 12 pk.png" alt="Cookies Specialty 12 pk">
                             </div>
                             <div class="tab-product-info">
                                 <h3>Cookies Specialty 12 pk</h3>
@@ -841,7 +846,7 @@
 
                         <div class="tab-product-card fade-up">
                             <div class="tab-img-wrapper">
-                                <img src="assets/prepacks/Cupcakes Specialty 12 pk.png" alt="Cupcakes Specialty 12 pk">
+                                <img loading="lazy" decoding="async" src="assets/prepacks/Cupcakes Specialty 12 pk.png" alt="Cupcakes Specialty 12 pk">
                             </div>
                             <div class="tab-product-info">
                                 <h3>Cupcakes Specialty 12 pk</h3>
@@ -872,7 +877,7 @@
 
                         <div class="trending-item">
                             <div class="trend-img-box">
-                                <img src="assets/prepacks/Macarons 6pk.png" alt="Macarons 6pk">
+                                <img loading="lazy" decoding="async" src="assets/prepacks/Macarons 6pk.png" alt="Macarons 6pk">
                             </div>
                             <div class="trend-content">
                                 <span class="trend-category">Cookies by Jackie</span>
@@ -886,7 +891,7 @@
 
                         <div class="trending-item">
                             <div class="trend-img-box">
-                                <img src="assets/prepacks/Cupcakes Specialty 12 pk.png" alt="Mini Cupcake Pack 12pc">
+                                <img loading="lazy" decoding="async" src="assets/prepacks/Cupcakes Specialty 12 pk.png" alt="Mini Cupcake Pack 12pc">
                             </div>
                             <div class="trend-content">
                                 <span class="trend-category">Cookies by Jackie</span>
@@ -900,7 +905,7 @@
 
                         <div class="trending-item">
                             <div class="trend-img-box">
-                                <img src="assets/prepacks/Cookies Specialty 6 pk.png" alt="Cookies Specialty 6 pk">
+                                <img loading="lazy" decoding="async" src="assets/prepacks/Cookies Specialty 6 pk.png" alt="Cookies Specialty 6 pk">
                             </div>
                             <div class="trend-content">
                                 <span class="trend-category">Cookies by Jackie</span>
@@ -914,7 +919,7 @@
 
                         <div class="trending-item">
                             <div class="trend-img-box">
-                                <img src="assets/prepacks/Macarons 12pk.png" alt="Macarons 12pk">
+                                <img loading="lazy" decoding="async" src="assets/prepacks/Macarons 12pk.png" alt="Macarons 12pk">
                             </div>
                             <div class="trend-content">
                                 <span class="trend-category">Cookies by Jackie</span>
@@ -928,7 +933,7 @@
 
                         <div class="trending-item">
                             <div class="trend-img-box">
-                                <img src="assets/prepacks/Cookies Specialty 12 pk.png" alt="Cookies Specialty 12 pk">
+                                <img loading="lazy" decoding="async" src="assets/prepacks/Cookies Specialty 12 pk.png" alt="Cookies Specialty 12 pk">
                             </div>
                             <div class="trend-content">
                                 <span class="trend-category">Cookies by Jackie</span>
@@ -942,7 +947,7 @@
 
                         <div class="trending-item">
                             <div class="trend-img-box">
-                                <img src="assets/prepacks/Cupcakes Specialty 12 pk.png" alt="Cupcakes Specialty 12 pk">
+                                <img loading="lazy" decoding="async" src="assets/prepacks/Cupcakes Specialty 12 pk.png" alt="Cupcakes Specialty 12 pk">
                             </div>
                             <div class="trend-content">
                                 <span class="trend-category">Cookies by Jackie</span>
@@ -1036,7 +1041,7 @@
         <section id="about" class="story-section section-spacing">
             <div class="container story-container">
                 <div class="story-image">
-                    <img src="assets/jackie.png" alt="Jackie with her cakes and macarons">
+                    <img loading="lazy" decoding="async" src="assets/jackie.webp" alt="Jackie with her cakes and macarons">
                 </div>
                 <div class="story-content">
                     <h2 class="story-title" data-i18n="story_title">COOKIES BY JACKIE</h2>
@@ -1154,7 +1159,7 @@
         <div class="chat-window" id="chat-window">
             <div class="chat-header">
                 <div class="chat-header-info">
-                    <img src="assets/jackie.png" alt="Jackie" class="chat-avatar">
+                    <img loading="lazy" decoding="async" src="assets/jackie.webp" alt="Jackie" class="chat-avatar">
                     <div class="chat-header-info">
                         <h4 class="chat-name" data-i18n="chat_name">Jackie's Helper</h4>
                         <span class="chat-status" data-i18n="chat_status">En línea ahora</span>
@@ -1185,7 +1190,7 @@
                 <!-- Columna 1: Logo y Acerca de -->
                 <div class="footer-brand" style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
                     <a href="#" style="flex-shrink: 0;">
-                        <img src="assets/logo.png" alt="Cookies by Jackie Logo" style="height: auto; width: 150px; max-width: 100%; object-fit: contain;">
+                        <img loading="lazy" decoding="async" src="assets/logo.png" alt="Cookies by Jackie Logo" style="height: auto; width: 150px; max-width: 100%; object-fit: contain;">
                     </a>
                     <div style="flex: 1; min-width: 200px;">
                         <p class="footer-tagline" style="margin-bottom: 1.5rem;" data-i18n="footer_tagline">Horneando recuerdos cada día con ingredientes premium y pasión artesanal en el corazón de NYC.</p>
@@ -1245,7 +1250,7 @@
                 <p style="opacity: 0.6; font-size: 0.9rem;" data-i18n="footer_copyright">&copy; 2024 Cookies by Jackie. Todos los derechos reservados.</p>
                 <a href="https://www.estudioxaga.com/" target="_blank" rel="noopener" class="footer-credit-link">
                     <span class="footer-credit-label" data-i18n="footer_dev">Diseñado &amp; desarrollado por</span>
-                    <img src="assets/logo-del-desañador/logo-xaga-full.svg" alt="Estudio Xaga" class="footer-credit-logo">
+                    <img loading="lazy" decoding="async" src="assets/logo-del-desañador/logo-xaga-full.svg" alt="Estudio Xaga" class="footer-credit-logo">
                 </a>
             </div>
         </div>

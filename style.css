@@ -631,7 +631,7 @@ img {
     position: relative;
     overflow: hidden;
     background-color: var(--color-bg);
-    background-image: url('assets/Hero/fondo%20hero.png');
+    background-image: url('assets/Hero/fondo-hero.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -3055,6 +3055,7 @@ img {
         overflow: hidden;
         width: 100%;
         background-position: center center;
+        background-image: url('assets/Hero/fondo-hero-mobile.webp');
     }
     /* En móvil: overlay uniforme en lugar del gradiente lateral */
     .single-hero::before {
