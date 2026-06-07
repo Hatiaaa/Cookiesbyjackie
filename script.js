@@ -60,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
             footer_dev: "Diseñado &amp; desarrollado por",
             privacy_link: "Política de Privacidad",
             refund_link: "Reembolsos y Cancelaciones",
+            shipping_link: "Envíos y Entregas",
             checkout_title: "Resumen de Compra",
             checkout_subtitle: "Completa tus datos para proceder al pago",
             checkout_order_title: "tu pedido",
@@ -256,6 +257,7 @@ document.addEventListener('DOMContentLoaded', () => {
             footer_dev: "Designed &amp; developed by",
             privacy_link: "Privacy Policy",
             refund_link: "Refunds & Cancellations",
+            shipping_link: "Shipping & Delivery",
             checkout_title: "Order Summary",
             checkout_subtitle: "Complete your details to proceed to payment",
             checkout_order_title: "your order",
@@ -2012,6 +2014,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         document.addEventListener('keydown', e => {
             if (e.key === 'Escape' && refundOverlay.classList.contains('active')) closeRefund();
+        });
+    }
+
+    // ─── Shipping & Delivery Policy Modal ────────────────────────────────────
+    const shippingOverlay  = document.getElementById('shipping-modal-overlay');
+    const shippingCloseBtn = document.getElementById('shipping-modal-close');
+    const openShippingBtn  = document.getElementById('open-shipping-btn');
+
+    if (shippingOverlay && openShippingBtn) {
+        const openShipping = () => {
+            shippingOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            shippingOverlay.scrollTop = 0;
+        };
+        const closeShipping = () => {
+            shippingOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        };
+        openShippingBtn.addEventListener('click', openShipping);
+        shippingCloseBtn.addEventListener('click', closeShipping);
+        shippingOverlay.addEventListener('click', e => {
+            if (e.target === shippingOverlay) closeShipping();
+        });
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && shippingOverlay.classList.contains('active')) closeShipping();
         });
     }
 
