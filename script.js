@@ -1817,13 +1817,13 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const macaronImages = [
-        "assets/macarons/Birthday.png",
-        "assets/macarons/Churro.png",
-        "assets/macarons/Crème Brûlée.png",
-        "assets/macarons/Pistacho.png",
-        "assets/macarons/Raspberry.png",
-        "assets/macarons/Tiramisú.png",
-        "assets/macarons/Vanilla.png"
+        "assets/v2/flavors/macarons/Birthday.webp",
+        "assets/v2/flavors/macarons/Churro.webp",
+        "assets/v2/flavors/macarons/Crème Brûlée.webp",
+        "assets/v2/flavors/macarons/Pistacho.webp",
+        "assets/v2/flavors/macarons/Raspberry.webp",
+        "assets/v2/flavors/macarons/Tiramisú.webp",
+        "assets/v2/flavors/macarons/Vanilla.webp"
     ];
 
     const macaronModalOverlay = document.getElementById('macaron-modal-overlay');
