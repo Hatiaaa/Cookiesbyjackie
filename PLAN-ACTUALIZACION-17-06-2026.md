@@ -203,12 +203,19 @@ Extender el `cake-modal` y `cakeOptions`:
 
 ---
 
-## FASE 11 — Cierre
-- [ ] Verificación visual completa en preview (desktop + móvil).
-- [ ] Revisar consola sin errores, carruseles funcionando, carrito con precios correctos.
-- [ ] Subir `?v=` final de assets modificados.
-- [ ] Commit + push final.
-- [ ] `mem_session_summary`.
+## FASE 11 — Cierre ✅ COMPLETADA (17/06/2026, commit e51c6fd)
+- [x] Verificación visual completa en preview (desktop + móvil sin overflow horizontal).
+- [x] Consola sin errores, carruseles funcionando (dots↔imagen sincronizados), modales OK (vintage/naked/message + cupcake/macaron/mini/cookie selectors).
+- [x] 180 imágenes de producto en 8 pestañas, 0 rotas. 23 sabores cookies + 16 mini, 0 rotas.
+- [x] `?v=` final: script.js v5.16, style.css v5.0.
+- [x] Fix consistencia: Términos del Servicio alineados (quitado Buttermilk, Pecan→Bourbon Pecan).
+- [x] Commit + push final (e51c6fd).
+- [x] `mem_session_summary`.
+
+---
+
+## ✅ PROYECTO COMPLETADO — TODAS LAS FASES (1-11)
+Actualización completa de catálogo con fotos oficiales del cliente finalizada el 17/06/2026.
 
 ---
 
