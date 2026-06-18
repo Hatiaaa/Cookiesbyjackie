@@ -436,6 +436,26 @@
           "key": "cakes.6.imagen",
           "label": "Double-Layered Cookie Cake — Imagen",
           "type": "image"
+        },
+        {
+          "key": "cakes.7.nombre",
+          "label": "Card 7 — Nombre",
+          "type": "text"
+        },
+        {
+          "key": "cakes.7.descripcion",
+          "label": "Card 7 — Descripción",
+          "type": "textarea"
+        },
+        {
+          "key": "cakes.7.precio",
+          "label": "Card 7 — Precio",
+          "type": "text"
+        },
+        {
+          "key": "cakes.7.imagen",
+          "label": "Card 7 — Imagen",
+          "type": "image"
         }
       ]
     },

@@ -161,19 +161,31 @@ document.addEventListener('DOMContentLoaded', () => {
             cake_label_color: "Color del Diseño",
             cake_label_size: "Tamaño",
             cake_label_frosting: "Cobertura (Frosting)",
+            cake_label_message: "Mensaje en el Pastel (máx. 25 caracteres)",
+            cake_label_message_color: "Color del Mensaje",
+            cake_label_cherries: "Cerezas (Extra)",
+            cake_label_bows: "Moños (Extra)",
+            cake_msg_placeholder: "Ej. Happy Birthday",
+            cake_opt_no_extra: "Sin extra",
             cake_detail_flavor: "Sabor",
             cake_detail_color: "Color",
             cake_detail_size: "Tamaño",
             cake_detail_frosting: "Cobertura",
+            cake_detail_message: "Mensaje",
+            cake_detail_message_color: "Color del mensaje",
+            cake_detail_cherries: "Cerezas",
+            cake_detail_bows: "Moños",
             cook1_desc: "Un delicioso surtido de cuatro galletas recién horneadas: Chocolate Chip, Salted Caramel Chocolate Chip, Brookie y Snickerdoodle.",
             cook2_desc: "Arma tu propia caja de 6 galletas recién horneadas con nuestra deliciosa selección de sabores:",
             cook3_desc: "Arma tu propia caja de 12 galletas recién horneadas con tus sabores favoritos:",
             cook4_desc: "Una caja de 25 galletas recién horneadas: Chocolate Chip, Oreo Chocolate Chip, M&amp;M Chocolate Chip, Snickerdoodle y Sugar Cookies.",
-            cake1_desc: "Personaliza sabor y color. Pedido mínimo 3 días antes.",
-            cake3_desc: "Elige tamaño 8\" (10-12p) o 10\" (15-18p), sabor y cobertura.",
-            cake4_desc: "Galleta gigante clásica con chispas de chocolate.",
-            cake5_desc: "Rinde 12 porciones de brownie fudge irresistible.",
-            cake6_desc: "Doble capa de galleta gigante para los más golosos.",
+            cake1_desc: "Personaliza el sabor y el color. Añade un toque extra a tu pedido y hazlo aún más especial. Este postre rinde hasta 15 personas. Realiza tu pedido con al menos 3 días de anticipación:",
+            cake2_desc: "Personaliza el sabor y el color. Añade un toque extra a tu pedido y hazlo aún más especial. Este postre rinde hasta 6 personas. Realiza tu pedido con al menos 3 días de anticipación:",
+            cake3_desc: "Elige tu tamaño: 8\" (rinde 10–12) o 10\" (rinde 15–18), luego selecciona sabor y cobertura. Realiza tu pedido con al menos 3 días de anticipación:",
+            cake4_desc: "Galleta gigante clásica cargada de chispas de chocolate. Este postre rinde hasta 8-10 personas. Realiza tu pedido con al menos 3 días de anticipación:",
+            cake5_desc: "Rinde 12 irresistibles brownies de chocolate fudge. Realiza tu pedido con al menos 3 días de anticipación:",
+            cake5b_desc: "Rinde 24 irresistibles brownies de chocolate fudge. Realiza tu pedido con al menos 3 días de anticipación:",
+            cake6_desc: "Galleta gigante de doble capa hecha para los más golosos. Este postre rinde hasta 20 personas. Realiza tu pedido con al menos 3 días de anticipación:",
             cup_desc: "Elige cualquier sabor de nuestra lista de cupcakes.",
             mac6_desc: "6 unidades de tu elección de nuestra selección de France Macarons.",
             mac12_desc: "12 unidades de tu elección de nuestra selección de France Macarons.",
@@ -354,19 +366,31 @@ document.addEventListener('DOMContentLoaded', () => {
             cake_label_color: "Design Color",
             cake_label_size: "Size",
             cake_label_frosting: "Frosting",
+            cake_label_message: "Cake Message (max. 25 characters)",
+            cake_label_message_color: "Message Color",
+            cake_label_cherries: "Cherries (Extra)",
+            cake_label_bows: "Bows (Extra)",
+            cake_msg_placeholder: "e.g. Happy Birthday",
+            cake_opt_no_extra: "No extra",
             cake_detail_flavor: "Flavor",
             cake_detail_color: "Color",
             cake_detail_size: "Size",
             cake_detail_frosting: "Frosting",
+            cake_detail_message: "Message",
+            cake_detail_message_color: "Message color",
+            cake_detail_cherries: "Cherries",
+            cake_detail_bows: "Bows",
             cook1_desc: "A delicious assortment of four freshly baked cookies: Chocolate Chip, Salted Caramel Chocolate Chip, Brookie, and Snickerdoodle.",
             cook2_desc: "Create your own box of 6 freshly baked cookies from our delicious selection of flavors:",
             cook3_desc: "Create your own box of 12 freshly baked cookies with your favorite flavors:",
             cook4_desc: "A box of 25 freshly baked cookies featuring Chocolate Chip, Oreo Chocolate Chip, M&amp;M Chocolate Chip, Snickerdoodle, and Sugar Cookies.",
-            cake1_desc: "Customize flavor and color. Order at least 3 days in advance.",
-            cake3_desc: "Choose size 8\" (10–12 servings) or 10\" (15–18 servings), flavor and frosting.",
-            cake4_desc: "Classic giant cookie loaded with chocolate chips.",
-            cake5_desc: "Yields 12 irresistible chocolate fudge brownie servings.",
-            cake6_desc: "Double-layer giant cookie for the most devoted sweet tooth.",
+            cake1_desc: "Customize your flavor and color. Add an extra touch to your order and make it even more special. This dessert serves up to 15 people. Please place your order at least 3 days in advance:",
+            cake2_desc: "Customize your flavor and color. Add an extra touch to your order and make it even more special. This dessert serves up to 6 people. Please place your order at least 3 days in advance:",
+            cake3_desc: "Choose your size: 8\" (serves 10–12) or 10\" (serves 15–18), then select your flavor and frosting. Please place your order at least 3 days in advance:",
+            cake4_desc: "Classic giant cookie packed with rich chocolate chips. This dessert serves up to 8-10 people. Please place your order at least 3 days in advance:",
+            cake5_desc: "Serves 12 irresistible chocolate fudge brownies. Please place your order at least 3 days in advance:",
+            cake5b_desc: "Serves 24 irresistible chocolate fudge brownies. Please place your order at least 3 days in advance:",
+            cake6_desc: "Double-layer giant cookie made for the ultimate sweet tooth. This dessert serves up to 20 people. Please place your order at least 3 days in advance:",
             cup_desc: "Choose any flavor from our cupcake list.",
             mac6_desc: "6 units of your choice from our France Macaron selection.",
             mac12_desc: "12 units of your choice from our France Macaron selection.",
@@ -1412,15 +1436,31 @@ document.addEventListener('DOMContentLoaded', () => {
         currentPrice: 0
     };
 
+    // Color del mensaje (compartido vintage + cookie/brownie cakes)
+    const messageColors = {
+        es: ["Blanco", "Rojo", "Rosa Azulado"],
+        en: ["White", "Red", "Blue Pink"]
+    };
+
     const cakeOptions = {
         vintage: {
             flavors: {
                 es: ["Chocolate", "Vainilla", "Red Velvet"],
                 en: ["Chocolate", "Vanilla", "Red Velvet"]
             },
+            // Piping Color (10 opciones)
             colors: {
                 es: ["Blanco", "Rosado", "Verde", "Amarillo", "Anaranjado", "Morado", "Rojo", "Coral", "Burgundy", "Aquamarine"],
                 en: ["White", "Pink", "Green", "Yellow", "Orange", "Purple", "Red", "Coral", "Burgundy", "Aquamarine"]
+            },
+            // Extras opcionales — arrancan en "Sin extra" $0 (cumplimiento Stripe)
+            cherries: {
+                es: [{ label: "Sin extra", extra: 0 }, { label: "Cerezas (+$8.00)", extra: 8 }],
+                en: [{ label: "No extra", extra: 0 }, { label: "Cherries (+$8.00)", extra: 8 }]
+            },
+            bows: {
+                es: [{ label: "Sin extra", extra: 0 }, { label: "Moños Rosados (+$8.00)", extra: 8 }, { label: "Moños Blancos (+$8.00)", extra: 8 }, { label: "Moños Rojos (+$8.00)", extra: 8 }],
+                en: [{ label: "No extra", extra: 0 }, { label: "Pink Bows (+$8.00)", extra: 8 }, { label: "White Bows (+$8.00)", extra: 8 }, { label: "Red Bows (+$8.00)", extra: 8 }]
             }
         },
         naked: {
@@ -1435,8 +1475,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 ]
             },
             flavors: ["Vanilla", "Chocolate", "Red Velvet", "Carrot"],
-            frostings: ["Vanilla Buttercream", "Chocolate Buttercream", "Cream Cheese Frosting"]
+            // Cream Cheese Frosting suma +$5
+            frostings: {
+                es: [{ label: "Buttercream de Vainilla", extra: 0 }, { label: "Buttercream de Chocolate", extra: 0 }, { label: "Cream Cheese Frosting (+$5.00)", extra: 5 }],
+                en: [{ label: "Vanilla Buttercream", extra: 0 }, { label: "Chocolate Buttercream", extra: 0 }, { label: "Cream Cheese Frosting (+$5.00)", extra: 5 }]
+            }
         }
+        // type 'message' (cookie/brownie cakes) no necesita datos extra: solo Cake Message + Message Color
+    };
+
+    // Rutas de imagen v2 para el carrito (por nombre de producto)
+    const cakeImagePaths = {
+        "Vintage Heart Cakes": "assets/v2/cakes/vintage-heart-cakes/1.webp",
+        "Vintage Round Cakes": "assets/v2/cakes/vintage-round-cakes/1.webp",
+        "Naked Cake": "assets/v2/cakes/naked-cake/1.webp",
+        '10" Chocolate Chip Cookie Cake': "assets/v2/cakes/cookie-cake-10/1.webp",
+        "Chocolate Fudge Brownie Cake 12 pc": "assets/v2/cakes/brownie-cake-12/1.webp",
+        "Chocolate Fudge Brownie Cake 24 pc": "assets/v2/cakes/brownie-cake-24/1.webp",
+        'Double-Layered 10" Cookie Cake': "assets/v2/cakes/double-layered-cookie-cake/1.webp"
     };
 
     document.addEventListener('click', (e) => {
@@ -1447,14 +1503,29 @@ document.addEventListener('DOMContentLoaded', () => {
             const price = parseFloat(btn.dataset.price);
 
             currentCakeData = { name, type, basePrice: price, currentPrice: price };
-            
+
             cakeModalTitle.textContent = name;
             cakeModalPrice.textContent = `$${price.toFixed(2)}`;
-            
+
             renderCakeOptions(type);
+            recalcCakePrice();
             cakeModalOverlay.classList.add('active');
         }
     });
+
+    // Reutilizable: bloque Cake Message + Message Color
+    const messageBlock = (t, lang) => `
+        <div class="cake-option-group">
+            <label>${t.cake_label_message}</label>
+            <input type="text" class="cake-select" id="cake-message" maxlength="25" placeholder="${t.cake_msg_placeholder}">
+        </div>
+        <div class="cake-option-group">
+            <label>${t.cake_label_message_color}</label>
+            <select class="cake-select" id="cake-message-color">
+                ${messageColors[lang].map(c => `<option value="${c}">${c}</option>`).join('')}
+            </select>
+        </div>
+    `;
 
     const renderCakeOptions = (type) => {
         const t = translations[currentLang];
@@ -1474,12 +1545,25 @@ document.addEventListener('DOMContentLoaded', () => {
                         ${cakeOptions.vintage.colors[lang].map(c => `<option value="${c}">${c}</option>`).join('')}
                     </select>
                 </div>
+                ${messageBlock(t, lang)}
+                <div class="cake-option-group">
+                    <label>${t.cake_label_cherries}</label>
+                    <select class="cake-select" id="cake-cherries" data-extra-select>
+                        ${cakeOptions.vintage.cherries[lang].map((o, i) => `<option value="${o.label}" data-extra="${o.extra}">${o.label}</option>`).join('')}
+                    </select>
+                </div>
+                <div class="cake-option-group">
+                    <label>${t.cake_label_bows}</label>
+                    <select class="cake-select" id="cake-bows" data-extra-select>
+                        ${cakeOptions.vintage.bows[lang].map((o, i) => `<option value="${o.label}" data-extra="${o.extra}">${o.label}</option>`).join('')}
+                    </select>
+                </div>
             `;
         } else if (type === 'naked') {
             html += `
                 <div class="cake-option-group">
                     <label>${t.cake_label_size}</label>
-                    <select class="cake-select" id="cake-size" onchange="window.updateNakedPrice(this)">
+                    <select class="cake-select" id="cake-size">
                         ${cakeOptions.naked.sizes[lang].map(s => `<option value="${s.value}">${s.label}</option>`).join('')}
                     </select>
                 </div>
@@ -1491,50 +1575,76 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <div class="cake-option-group">
                     <label>${t.cake_label_frosting}</label>
-                    <select class="cake-select" id="cake-frosting">
-                        ${cakeOptions.naked.frostings.map(f => `<option value="${f}">${f}</option>`).join('')}
+                    <select class="cake-select" id="cake-frosting" data-extra-select>
+                        ${cakeOptions.naked.frostings[lang].map(o => `<option value="${o.label}" data-extra="${o.extra}">${o.label}</option>`).join('')}
                     </select>
                 </div>
             `;
+        } else if (type === 'message') {
+            html += messageBlock(t, lang);
         }
         cakeOptionsContainer.innerHTML = html;
+        // Recalcular precio ante cualquier cambio
+        cakeOptionsContainer.querySelectorAll('select, input').forEach(el => {
+            el.addEventListener('change', recalcCakePrice);
+        });
     };
 
-    window.updateNakedPrice = (select) => {
-        const price = parseFloat(select.value);
-        currentCakeData.currentPrice = price;
-        cakeModalPrice.textContent = `$${price.toFixed(2)}`;
-    };
+    function recalcCakePrice() {
+        let total;
+        if (currentCakeData.type === 'naked') {
+            const sizeSel = document.getElementById('cake-size');
+            total = sizeSel ? parseFloat(sizeSel.value) : currentCakeData.basePrice;
+        } else {
+            total = currentCakeData.basePrice;
+        }
+        cakeOptionsContainer.querySelectorAll('select[data-extra-select]').forEach(sel => {
+            const opt = sel.selectedOptions[0];
+            if (opt && opt.dataset.extra) total += parseFloat(opt.dataset.extra);
+        });
+        currentCakeData.currentPrice = total;
+        cakeModalPrice.textContent = `$${total.toFixed(2)}`;
+    }
 
     cakeConfirmBtn.addEventListener('click', () => {
         const t = translations[currentLang];
-        let details = '';
+        const parts = [];
+        const valOf = id => { const el = document.getElementById(id); return el ? el.value : ''; };
+        const labelOf = id => { const el = document.getElementById(id); return el && el.selectedOptions[0] ? el.selectedOptions[0].textContent : ''; };
+
         if (currentCakeData.type === 'vintage') {
-            const flavor = document.getElementById('cake-flavor').value;
-            const color = document.getElementById('cake-color').value;
-            details = `${t.cake_detail_flavor}: ${flavor}, ${t.cake_detail_color}: ${color}`;
+            parts.push(`${t.cake_detail_flavor}: ${valOf('cake-flavor')}`);
+            parts.push(`${t.cake_detail_color}: ${valOf('cake-color')}`);
+            const msg = valOf('cake-message').trim();
+            if (msg) {
+                parts.push(`${t.cake_detail_message}: "${msg}"`);
+                parts.push(`${t.cake_detail_message_color}: ${valOf('cake-message-color')}`);
+            }
+            const cherries = document.getElementById('cake-cherries');
+            if (cherries && cherries.selectedOptions[0].dataset.extra > 0) parts.push(`${t.cake_detail_cherries}: ${labelOf('cake-cherries')}`);
+            const bows = document.getElementById('cake-bows');
+            if (bows && bows.selectedOptions[0].dataset.extra > 0) parts.push(`${t.cake_detail_bows}: ${labelOf('cake-bows')}`);
         } else if (currentCakeData.type === 'naked') {
             const sizeSelect = document.getElementById('cake-size');
             const sizeLabel = sizeSelect.options[sizeSelect.selectedIndex].text.split(' (')[0];
-            const flavor = document.getElementById('cake-flavor').value;
-            const frosting = document.getElementById('cake-frosting').value;
-            details = `${t.cake_detail_size}: ${sizeLabel}, ${t.cake_detail_flavor}: ${flavor}, ${t.cake_detail_frosting}: ${frosting}`;
+            parts.push(`${t.cake_detail_size}: ${sizeLabel}`);
+            parts.push(`${t.cake_detail_flavor}: ${valOf('cake-flavor')}`);
+            parts.push(`${t.cake_detail_frosting}: ${labelOf('cake-frosting')}`);
+        } else if (currentCakeData.type === 'message') {
+            const msg = valOf('cake-message').trim();
+            if (msg) {
+                parts.push(`${t.cake_detail_message}: "${msg}"`);
+                parts.push(`${t.cake_detail_message_color}: ${valOf('cake-message-color')}`);
+            }
         }
 
-        let imagePath = `assets/cake/${currentCakeData.name}.png`;
-        if (currentCakeData.name === "Vintage Heart Cakes") {
-            imagePath = "assets/cake/Vintage Heart Cakes/Vintage Heart Cakes Chocolate.png";
-        } else if (currentCakeData.name === "Vintage Round Cakes") {
-            imagePath = "assets/cake/Vintage Round Cakes/Vintage Round Cakes Chocolate.png";
-        } else if (currentCakeData.name === "Naked Cake") {
-            imagePath = "assets/cake/Naked Cake/NAKED CAKE 1.png";
-        }
+        const imagePath = cakeImagePaths[currentCakeData.name] || `assets/v2/cakes/${currentCakeData.name}.webp`;
 
         addToCart({
             title: currentCakeData.name,
             price: `$${currentCakeData.currentPrice.toFixed(2)}`,
             image: imagePath,
-            details: details
+            details: parts.join(', ')
         });
 
         cakeModalOverlay.classList.remove('active');
