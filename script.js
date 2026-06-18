@@ -80,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
             checkout_notes_ph: "Alguna nota para nosotros...",
             checkout_total_label: "Total a Pagar:",
             checkout_btn: "Proceder al Pago Seguro",
+            checkout_alert_required: "Por favor completa todos los campos requeridos (nombre, email, teléfono, fecha y hora de recogida).",
             chat_name: "jackie's helper",
             chat_status: "en línea ahora",
             add_to_cart: "añadir al carrito",
@@ -297,6 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
             checkout_notes_ph: "Any notes for us...",
             checkout_total_label: "Total to Pay:",
             checkout_btn: "Proceed to Secure Payment",
+            checkout_alert_required: "Please fill in all required fields (name, email, phone, and pickup date and time).",
             chat_name: "jackie's helper",
             chat_status: "online now",
             add_to_cart: "add to cart",
@@ -1251,7 +1253,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const time = document.getElementById('checkout-time').value;
 
             if(!name || !email || !phone || !date || !time) {
-                alert("Por favor completa todos los campos requeridos para la recogida.");
+                alert(translations[currentLang].checkout_alert_required);
                 return;
             }
 
@@ -1267,7 +1269,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             console.log("Stripe Metadata Preparada:", orderMetadata);
-            alert("Redirigiendo a Stripe...\n\n(Fase 3: Aquí se conectará la pasarela de pago usando la metadata preparada)");
+            alert("Redirecting to Stripe...\n\n(Payment gateway integration pending)");
         });
     }
 
