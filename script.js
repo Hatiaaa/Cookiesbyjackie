@@ -1278,9 +1278,10 @@ document.addEventListener('DOMContentLoaded', () => {
         "Biscoff Chocolate Chip Cookie", "Snickerdoodle", "Sugar cookie",
         "Fruity Pebbles Sugar Cookie", "Oatmeal Raisin Cookie", "Gluten Free Chocolate Chip",
         "M&M Chocolate Chip Cookie", "M&M Chocolate Chip Cookie Sandwich", "Oreo Red Velvet Cookie",
-        "Triple Chocolate Chip Cookie", "Peanut Butter and Jelly Cookie", "Pistachio White Chocolate Chip Cookie",
+        "Triple Chocolate Chip Cookie", "Peanut Butter and Jelly Cookie", "Pistachio Cream White Chocolate Chip Cookie",
         "Caramel Pistachio White Chocolate Chip Cookie", "Chocolate Chip Cookie Sandwich with Vanilla Buttercream",
-        "Snickerdoodle Cookie Sandwich with Vanilla Buttercream", "Sugar Cookie Sandwich with Vanilla Buttercream"
+        "Snickerdoodle Cookie Sandwich with Vanilla Buttercream", "Sugar Cookie Sandwich with Vanilla Buttercream",
+        "Rainbow Sprinkle Sugar Cookie"
     ];
 
     const modalOverlay = document.getElementById('cookie-modal-overlay');
@@ -1302,7 +1303,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const itemHtml = `
             <div class="cookie-item">
                 <div class="cookie-thumb">
-                    <img src="assets/Pick 6 Cookie Box/${cookie}.png" alt="${cookie}" loading="lazy">
+                    <img src="assets/v2/flavors/cookies/${cookie}.webp" alt="${cookie}" loading="lazy">
                 </div>
                 <div class="cookie-name">${cookie}</div>
                 <div class="cookie-controls">
@@ -1963,22 +1964,22 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     const miniCakeImages = [
-        "assets/mini individual/Cannoli Cheesecake.png",
-        "assets/mini individual/Caramel cheesecake.png",
-        "assets/mini individual/Carrot Cake.png",
-        "assets/mini individual/Chocolate Cake.png",
-        "assets/mini individual/Chocolate Cheesecake.png",
-        "assets/mini individual/Chocolate Dipped Cheesecake.png",
-        "assets/mini individual/Classic Cheesecake.png",
-        "assets/mini individual/Confetti Cake.png",
-        "assets/mini individual/Confetti Cheesecake.png",
-        "assets/mini individual/Fruity Pebbles Cheesecake.png",
-        "assets/mini individual/Oreo Cheesecake.png",
-        "assets/mini individual/Red velvet Cake.png",
-        "assets/mini individual/Red Velvet Cheesecake.png",
-        "assets/mini individual/Strawberry cheesecake.png",
-        "assets/mini individual/Tiramisú.png",
-        "assets/mini individual/Tres leches.png"
+        "assets/v2/flavors/mini/Cannoli Cheesecake.webp",
+        "assets/v2/flavors/mini/Caramel cheesecake.webp",
+        "assets/v2/flavors/mini/Carrot Cake.webp",
+        "assets/v2/flavors/mini/Chocolate Cake.webp",
+        "assets/v2/flavors/mini/Chocolate Cheesecake.webp",
+        "assets/v2/flavors/mini/Chocolate Dipped Cheesecake.webp",
+        "assets/v2/flavors/mini/Classic Cheesecake.webp",
+        "assets/v2/flavors/mini/Confetti Cake.webp",
+        "assets/v2/flavors/mini/Confetti Cheesecake.webp",
+        "assets/v2/flavors/mini/Fruity Pebbles Cheesecake.webp",
+        "assets/v2/flavors/mini/Oreo Cheesecake.webp",
+        "assets/v2/flavors/mini/Red velvet Cake.webp",
+        "assets/v2/flavors/mini/Red Velvet Cheesecake.webp",
+        "assets/v2/flavors/mini/Strawberry cheesecake.webp",
+        "assets/v2/flavors/mini/Tiramisú.webp",
+        "assets/v2/flavors/mini/Tres leches.webp"
     ];
 
     const miniModalOverlay   = document.getElementById('mini-modal-overlay');
