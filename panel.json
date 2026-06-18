@@ -131,6 +131,11 @@
           "type": "image"
         },
         {
+          "key": "cookies.1.imagen5",
+          "label": "Card 1 — Imagen 5 (carrusel)",
+          "type": "image"
+        },
+        {
           "key": "cookies.2.nombre",
           "label": "Pick 6 Cookie Box — Nombre",
           "type": "text"
@@ -163,6 +168,21 @@
         {
           "key": "cookies.2.imagen4",
           "label": "Pick 6 Cookie Box — Foto 4",
+          "type": "image"
+        },
+        {
+          "key": "cookies.2.imagen5",
+          "label": "Card 2 — Imagen 5 (carrusel)",
+          "type": "image"
+        },
+        {
+          "key": "cookies.2.imagen6",
+          "label": "Card 2 — Imagen 6 (carrusel)",
+          "type": "image"
+        },
+        {
+          "key": "cookies.2.imagen7",
+          "label": "Card 2 — Imagen 7 (carrusel)",
           "type": "image"
         },
         {
@@ -201,6 +221,21 @@
           "type": "image"
         },
         {
+          "key": "cookies.3.imagen5",
+          "label": "Card 3 — Imagen 5 (carrusel)",
+          "type": "image"
+        },
+        {
+          "key": "cookies.3.imagen6",
+          "label": "Card 3 — Imagen 6 (carrusel)",
+          "type": "image"
+        },
+        {
+          "key": "cookies.3.imagen7",
+          "label": "Card 3 — Imagen 7 (carrusel)",
+          "type": "image"
+        },
+        {
           "key": "cookies.4.nombre",
           "label": "Mini Cookies Catering — Nombre",
           "type": "text"
@@ -233,6 +268,16 @@
         {
           "key": "cookies.4.imagen4",
           "label": "Mini Cookies Catering — Foto 4",
+          "type": "image"
+        },
+        {
+          "key": "cookies.4.imagen5",
+          "label": "Card 4 — Imagen 5 (carrusel)",
+          "type": "image"
+        },
+        {
+          "key": "cookies.4.imagen6",
+          "label": "Card 4 — Imagen 6 (carrusel)",
           "type": "image"
         }
       ]
