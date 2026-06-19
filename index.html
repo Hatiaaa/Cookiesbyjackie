@@ -89,9 +89,12 @@
             text-transform: none !important;
         }
 
-        /* Botón Stripe — mantener fondo morado en hover */
-        #stripe-checkout-btn:hover {
+        /* Botón Stripe — neutralizar el ::before blanco y mantener fondo morado en hover */
+        #stripe-checkout-btn::before {
             background-color: #4f46e5 !important;
+        }
+        #stripe-checkout-btn:hover {
+            background-color: #635bff !important;
             color: white !important;
         }
 
