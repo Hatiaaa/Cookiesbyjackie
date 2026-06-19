@@ -37,16 +37,18 @@
             text-transform: uppercase !important;
         }
 
-        /* #6 — Pestañas del catálogo más grandes y de color rojo */
+        /* #6 — Pestañas del catálogo más grandes, todas en rojo (activa brillante, resto opaco) */
         .shop-tab {
             font-size: 1.1rem !important;
             font-weight: 600 !important;
+            color: #D12529 !important;
         }
         @media (max-width: 768px) {
             .shop-tab { font-size: 1rem !important; }
         }
         .shop-tab.active {
             color: #D12529 !important;
+            opacity: 1 !important;
         }
         .shop-tab::after {
             background: #D12529 !important;
