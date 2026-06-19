@@ -10,14 +10,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Elegant Serif for Logo (Playfair), Modern Sans-Serif for everything else (Montserrat & Outfit) -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@400;600;800;900&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@400;600;800;900&family=Outfit:wght@300;400;600&family=Pacifico&display=swap" rel="stylesheet">
     
     <!-- Preload del hero (mejora LCP) -->
     <link rel="preload" as="image" href="assets/Hero/fondo-hero.webp" media="(min-width: 993px)" fetchpriority="high">
     <link rel="preload" as="image" href="assets/Hero/fondo-hero-mobile.webp" media="(max-width: 992px)" fetchpriority="high">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="style.css?v=5.1">
+    <link rel="stylesheet" href="style.css?v=5.2">
 
     <!-- FontAwesome (carga diferida para no bloquear el render) -->
     <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
@@ -131,15 +131,10 @@
     <main>
         <!-- Single Asymmetric Hero -->
         <section class="single-hero" data-panel-image="inicio.imagen">
-            <div class="hero-content fade-up">
-                <h2 class="hero-label" data-i18n="hero_label" data-panel-content="inicio.badge">Repostería de Autor</h2>
-                <h1 class="hero-title" data-i18n="hero_title" data-panel-content="inicio.titulo">Hecho Fresco<br>Cada Día con Amor</h1>
-                <p class="hero-description" data-i18n="hero_desc" data-panel-content="inicio.descripcion">Cada día horneamos postres frescos y artesanales con los ingredientes de mayor calidad, sabores irresistibles y un toque especial de amor. Descubre la alegría de disfrutar delicias auténticas creadas para cautivar tus sentidos.</p>
-                <div class="hero-actions">
-                    <a href="#shop" class="btn btn-primary" data-i18n="hero_btn">Ver Menú</a>
-                </div>
+            <div class="hero-content hero-content--logo fade-up">
+                <img src="assets/logo.webp" alt="Cookies by Jackie" class="hero-logo-demo" width="449" height="556">
             </div>
-            
+
         </section>
 
         <!-- Favorites Section - Rediseño Asimétrico Compacto -->
@@ -1261,7 +1256,7 @@
                                     <span class="rating-stars">
                                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
                                     </span>
-                                    <span class="rating-score">4.9</span>
+                                    <span class="rating-score">5.0</span>
                                 </div>
                                 <p class="testimonial-quote" data-i18n="rev1_quote" data-panel-content="reviews.1.texto">"Empaque moderno y limpio, sabores increíbles y pasteleros que se preocupan por la técnica. Finalmente encontré mi regalo ideal para clientes mientras satisfago mi propio antojo de dulce."</p>
                                 <p class="testimonial-author" data-i18n="rev1_author" data-panel-content="reviews.1.autor">— Sarah M.</p>
@@ -1283,7 +1278,7 @@
                                     <span class="rating-stars">
                                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
                                     </span>
-                                    <span class="rating-score">4.9</span>
+                                    <span class="rating-score">5.0</span>
                                 </div>
                                 <p class="testimonial-quote" data-i18n="rev3_quote" data-panel-content="reviews.3.texto">"Finalmente una pastelería que no escatima en ingredientes. Se puede saborear la mantequilla europea en cada bocado. Estoy absolutamente obsesionada."</p>
                                 <p class="testimonial-author" data-i18n="rev3_author" data-panel-content="reviews.3.autor">— Emma L.</p>
@@ -1615,10 +1610,6 @@
                             <label style="display: block; font-size: 0.85rem; margin-bottom: 5px; font-weight: 500;" data-i18n="checkout_time_label">Hora</label>
                             <input type="time" id="checkout-time" class="checkout-input" required>
                         </div>
-                    </div>
-                    <div class="form-group" style="margin-bottom: 1rem;">
-                        <label style="display: block; font-size: 0.85rem; margin-bottom: 5px; font-weight: 500;" data-i18n="checkout_notes_label">Instrucciones Especiales (Opcional)</label>
-                        <textarea id="checkout-notes" class="checkout-input" rows="2" placeholder="Alguna nota para nosotros..." data-i18n="checkout_notes_ph"></textarea>
                     </div>
                 </div>
             </div>
@@ -2790,7 +2781,7 @@
         </div><!-- /policy-modal -->
     </div><!-- /contact-modal-overlay -->
 
-    <script src="script.js?v=5.18"></script>
+    <script src="script.js?v=5.19"></script>
     <script src="panel.js"></script>
     <script>
         // Scroll Animations
