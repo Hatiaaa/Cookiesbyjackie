@@ -293,21 +293,21 @@ img {
 }
 
 .logo-main {
-    font-family: 'Pacifico', cursive;
-    font-weight: 400;
-    font-size: 1.4rem;
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 1.6rem;
     color: var(--color-text);
-    text-transform: none;
-    letter-spacing: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .logo-sub {
-    font-family: 'Pacifico', cursive;
-    font-style: normal;
+    font-family: var(--font-logo);
+    font-style: italic;
     font-weight: 400;
-    font-size: 0.85rem;
+    font-size: 1rem;
     color: var(--color-primary);
-    text-transform: none;
+    text-transform: lowercase;
     margin-top: 2px;
 }
 
@@ -633,7 +633,7 @@ img {
     background-color: var(--color-bg);
     background-image: url('assets/Hero/fondo-hero.webp');
     background-size: cover;
-    background-position: center 65%;
+    background-position: center;
     background-repeat: no-repeat;
     margin-top: -100px;
     padding: clamp(100px, 8rem, 160px) 8% 0 8%;
@@ -661,17 +661,13 @@ img {
     padding-left: 4%;
 }
 
-/* Demo: logo in hero (#12) */
-.hero-content--logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-width: 420px;
-}
-.hero-logo-demo {
-    width: 340px;
-    height: auto;
-    filter: drop-shadow(0 8px 32px rgba(0,0,0,0.25));
+.hero-label {
+    font-size: 1.2rem;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    font-family: var(--font-secondary);
 }
 
 .hero-title {
@@ -989,7 +985,6 @@ img {
     line-height: 1.2;
     margin: 0;
     letter-spacing: -0.01em;
-    text-transform: uppercase;
 }
 
 /* Botón "Ver más ↗" */
@@ -1248,8 +1243,8 @@ img {
 .shop-tab {
     background: none;
     border: none;
-    font-size: 1.1rem;
-    font-weight: 600;
+    font-size: 0.9rem;
+    font-weight: 500;
     color: #333;
     opacity: 0.35;
     cursor: pointer;
@@ -1268,7 +1263,7 @@ img {
 
 .shop-tab.active {
     opacity: 1;
-    color: var(--color-primary);
+    color: #000;
 }
 
 .shop-tab::after {
@@ -1305,7 +1300,7 @@ img {
     .shop-tab {
         flex-shrink: 0;
         white-space: nowrap;
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
 }
 

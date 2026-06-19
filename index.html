@@ -19,6 +19,84 @@
     <!-- CSS -->
     <link rel="stylesheet" href="style.css?v=5.2">
 
+    <!-- DEMO CAMBIOS CLIENTE 17-06-2026 — inline para evitar cache de Vercel -->
+    <style>
+        /* #2 — Hero: mostrar más la parte inferior (quitar cocina de arriba) */
+        .single-hero {
+            background-position: center 65% !important;
+        }
+
+        /* #4 — "nuestros más vendidos" en MAYÚSCULAS */
+        .favorites-title {
+            text-transform: uppercase !important;
+        }
+
+        /* #5 — Nombres de productos en bestsellers en MAYÚSCULAS */
+        .fav-card-name {
+            text-transform: uppercase !important;
+        }
+
+        /* #6 — Pestañas del catálogo más grandes y de color rojo */
+        .shop-tab {
+            font-size: 1.1rem !important;
+            font-weight: 600 !important;
+        }
+        @media (max-width: 768px) {
+            .shop-tab { font-size: 1rem !important; }
+        }
+        .shop-tab.active {
+            color: #D12529 !important;
+        }
+        .shop-tab::after {
+            background: #D12529 !important;
+        }
+
+        /* #7 — "nuestros packs especiales" en MAYÚSCULAS */
+        .trending-title {
+            text-transform: uppercase !important;
+        }
+
+        /* #9 — "únete al cookie club." en MAYÚSCULAS */
+        .newsletter-title {
+            text-transform: uppercase !important;
+        }
+
+        /* #10 — "galletas de jackie", "encuéntranos.", "preguntas frecuentes" en MAYÚSCULAS */
+        .story-title,
+        .faq-main-title,
+        .faq-sub-heading {
+            text-transform: uppercase !important;
+        }
+
+        /* #11 — "Cookies by Jackie" en el header con fuente estilo logo (Pacifico) */
+        .logo-main {
+            font-family: 'Pacifico', cursive !important;
+            font-weight: 400 !important;
+            font-size: 1.3rem !important;
+            text-transform: none !important;
+            letter-spacing: 0 !important;
+        }
+        .logo-sub {
+            font-family: 'Pacifico', cursive !important;
+            font-style: normal !important;
+            font-weight: 400 !important;
+            text-transform: none !important;
+        }
+
+        /* #12 — Logo grande en el hero */
+        .hero-content--logo {
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            max-width: 420px;
+        }
+        .hero-logo-demo {
+            width: 320px;
+            height: auto;
+            filter: drop-shadow(0 8px 32px rgba(0,0,0,0.3));
+        }
+    </style>
+
     <!-- FontAwesome (carga diferida para no bloquear el render) -->
     <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
@@ -1267,7 +1345,7 @@
                                     <span class="rating-stars">
                                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
                                     </span>
-                                    <span class="rating-score">4.8</span>
+                                    <span class="rating-score">5.0</span>
                                 </div>
                                 <p class="testimonial-quote" data-i18n="rev2_quote" data-panel-content="reviews.2.texto">"Las envié como regalo corporativo y mis clientes quedaron fascinados. La presentación es tan premium como el sabor. Recomiendo mucho la Red Velvet."</p>
                                 <p class="testimonial-author" data-i18n="rev2_author" data-panel-content="reviews.2.autor">— Michael T.</p>
