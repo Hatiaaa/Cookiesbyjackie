@@ -1305,7 +1305,7 @@ img {
     .shop-tab {
         flex-shrink: 0;
         white-space: nowrap;
-        font-size: 0.8rem;
+        font-size: 1rem;
     }
 }
 
