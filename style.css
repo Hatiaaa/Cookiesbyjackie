@@ -293,21 +293,21 @@ img {
 }
 
 .logo-main {
-    font-family: var(--font-heading);
-    font-weight: 900;
-    font-size: 1.6rem;
+    font-family: 'Pacifico', cursive;
+    font-weight: 400;
+    font-size: 1.3rem;
     color: var(--color-text);
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    text-transform: none;
+    letter-spacing: 0;
 }
 
 .logo-sub {
-    font-family: var(--font-logo);
-    font-style: italic;
+    font-family: 'Pacifico', cursive;
+    font-style: normal;
     font-weight: 400;
     font-size: 1rem;
     color: var(--color-primary);
-    text-transform: lowercase;
+    text-transform: none;
     margin-top: 2px;
 }
 
@@ -544,7 +544,7 @@ img {
     font-family: var(--font-heading);
     font-weight: 600;
     font-size: 0.95rem;
-    text-transform: lowercase;
+    text-transform: uppercase;
     letter-spacing: 0.02em;
     cursor: pointer;
     transition: color 0.4s ease, border-color 0.4s ease, transform 0.4s ease;
@@ -631,7 +631,7 @@ img {
     position: relative;
     overflow: hidden;
     background-color: var(--color-bg);
-    background-image: url('assets/Hero/fondo-hero.webp');
+    background-image: url('assets/Hero/fondo-hero-demo.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -659,6 +659,20 @@ img {
     max-width: 620px;
     z-index: 2;
     padding-left: 4%;
+}
+
+/* Logo grande en el hero (reemplaza al texto) */
+.hero-content--logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 420px;
+}
+
+.hero-logo-demo {
+    width: 320px;
+    height: auto;
+    filter: drop-shadow(0 8px 32px rgba(0, 0, 0, 0.3));
 }
 
 .hero-label {
@@ -863,7 +877,7 @@ img {
     font-weight: 300;
     font-size: clamp(2.2rem, 4vw, 3.2rem);
     line-height: 1.1;
-    text-transform: lowercase;
+    text-transform: uppercase;
     letter-spacing: -0.03em;
     margin-bottom: 0.8rem;
 }
@@ -985,6 +999,7 @@ img {
     line-height: 1.2;
     margin: 0;
     letter-spacing: -0.01em;
+    text-transform: uppercase;
 }
 
 /* Botón "Ver más ↗" */
@@ -1243,9 +1258,9 @@ img {
 .shop-tab {
     background: none;
     border: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: #333;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #D12529;
     opacity: 0.35;
     cursor: pointer;
     padding: 0.5rem 0;
@@ -1263,7 +1278,7 @@ img {
 
 .shop-tab.active {
     opacity: 1;
-    color: #000;
+    color: #D12529;
 }
 
 .shop-tab::after {
@@ -1273,7 +1288,7 @@ img {
     left: 0;
     width: 0;
     height: 1px;
-    background: #666;
+    background: #D12529;
     transition: width 0.3s ease;
 }
 
@@ -1300,7 +1315,7 @@ img {
     .shop-tab {
         flex-shrink: 0;
         white-space: nowrap;
-        font-size: 0.8rem;
+        font-size: 1rem;
     }
 }
 
@@ -1674,6 +1689,7 @@ img {
 .story-title {
     font-size: clamp(2.5rem, 5vw, 4rem);
     margin-bottom: 1.5rem;
+    text-transform: uppercase;
 }
 
 .story-text {
@@ -1931,7 +1947,7 @@ img {
     font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 400;
     margin-bottom: 1.5rem;
-    text-transform: lowercase;
+    text-transform: uppercase;
 }
 
 .newsletter-desc {
@@ -2251,7 +2267,7 @@ img {
     font-family: var(--font-heading);
     font-weight: 300;
     font-size: clamp(2rem, 4vw, 3rem);
-    text-transform: lowercase;
+    text-transform: uppercase;
     margin: 0;
     line-height: 1.2;
 }
@@ -2496,7 +2512,7 @@ img {
     font-size: clamp(2.5rem, 5vw, 4rem);
     line-height: 1.1;
     margin-bottom: 2rem;
-    text-transform: lowercase; /* Todo en minúsculas */
+    text-transform: uppercase;
     letter-spacing: -0.03em;
     color: var(--color-text);
 }
@@ -2536,6 +2552,7 @@ img {
     font-weight: 600;
     color: var(--color-text);
     margin: 0;
+    text-transform: uppercase;
 }
 
 .faq-circle-icon {
@@ -2643,7 +2660,7 @@ img {
     font-family: var(--font-heading);
     font-weight: 300;
     font-size: clamp(1.6rem, 3vw, 2.2rem);
-    text-transform: lowercase;
+    text-transform: uppercase;
     letter-spacing: -0.02em;
     color: var(--color-text);
     opacity: 0.55;
@@ -3055,7 +3072,7 @@ img {
         overflow: hidden;
         width: 100%;
         background-position: center center;
-        background-image: url('assets/Hero/fondo-hero-mobile.webp');
+        background-image: url('assets/Hero/fondo-hero-mobile-demo.webp');
     }
     /* En móvil: overlay uniforme en lugar del gradiente lateral */
     .single-hero::before {
@@ -3298,4 +3315,41 @@ img {
 @media (max-width: 600px) {
     .policy-modal-body { padding: 1.5rem 1.2rem 2.5rem; }
     .policy-modal-header { padding: 1.2rem 1.2rem; }
+}
+
+/* ============================================================
+   Ajustes finales aprobados por el cliente (17-06-2026)
+   Botones secundarios en MAYÚSCULAS, títulos del footer y
+   corrección del hover del botón de pago Stripe.
+   ============================================================ */
+
+/* Botones que no usan la clase base .btn */
+.tab-add-btn,
+.fav-view-btn,
+.btn-submit,
+.cookie-confirm-btn,
+.footer-policy-btn,
+.trend-nav-btn,
+.add-to-cart-btn,
+.checkout-btn,
+.newsletter-form button,
+button[data-btn-key],
+button[data-i18n] {
+    text-transform: uppercase;
+}
+
+/* Títulos de sección del footer (Contact Us, Let's Connect, Payment Methods) */
+footer h4,
+.footer-col h4 {
+    text-transform: uppercase;
+}
+
+/* Botón de pago Stripe: el ::before de .btn-primary se expandía en blanco
+   al hacer hover. Lo dejamos morado para conservar el color de la marca Stripe. */
+#stripe-checkout-btn::before {
+    background-color: #4f46e5;
+}
+#stripe-checkout-btn:hover {
+    background-color: #635bff;
+    color: white;
 }
