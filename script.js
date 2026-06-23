@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
             faq_q3: "¿Cuál es su horario de atención?",
             faq_a3: "Atendemos todos los días de la semana, de Lunes a Domingo, de 7:00 AM a 10:00 PM.",
             faq_q4: "¿Ofrecen servicios de catering?",
-            faq_a4: "¡Sí! Preparamos pedidos especiales para eventos corporativos, fiestas y celebraciones. Escríbenos a <a href='mailto:cookiesbyjackienyc@gmail.com'>cookiesbyjackienyc@gmail.com</a> para coordinar los detalles.",
+            faq_a4: "¡Sí! Preparamos pedidos especiales para eventos corporativos, fiestas y celebraciones. Escríbenos a <a href='mailto:customerservice@cookiesbyjackie.com'>customerservice@cookiesbyjackie.com</a> para coordinar los detalles.",
             faq_q5: "¿Sus productos son frescos?",
             faq_a5: "Absolutamente. Horneamos fresco cada mañana utilizando mantequilla europea e ingredientes de la más alta calidad para garantizar el mejor sabor.",
             past_roll_name: "Cinnamon Rolls 6 pk",
@@ -160,8 +160,11 @@ document.addEventListener('DOMContentLoaded', () => {
             cake_label_color: "Color del Diseño",
             cake_label_size: "Tamaño",
             cake_label_frosting: "Cobertura (Frosting)",
-            cake_label_message: "Mensaje en el Pastel (máx. 25 caracteres)",
+            cake_label_message: "Mensaje en el Pastel (máx. 30 caracteres)",
             cake_label_message_color: "Color del Mensaje",
+            cake_label_want_message: "¿Quieres un mensaje?",
+            cake_want_message_no: "No",
+            cake_want_message_yes: "Con mensaje",
             cake_label_cherries: "Cerezas (Extra)",
             cake_label_bows: "Moños (Extra)",
             cake_msg_placeholder: "Ej. Happy Birthday",
@@ -262,7 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
             faq_q3: "What are your opening hours?",
             faq_a3: "We are open every day, Monday through Sunday, from 7:00 AM to 10:00 PM.",
             faq_q4: "Do you offer catering services?",
-            faq_a4: "Yes! We craft bespoke orders for corporate events, parties, and celebrations. Reach us at <a href='mailto:cookiesbyjackienyc@gmail.com'>cookiesbyjackienyc@gmail.com</a> to arrange the details.",
+            faq_a4: "Yes! We craft bespoke orders for corporate events, parties, and celebrations. Reach us at <a href='mailto:customerservice@cookiesbyjackie.com'>customerservice@cookiesbyjackie.com</a> to arrange the details.",
             faq_q5: "Are your products baked fresh?",
             faq_a5: "Absolutely. We bake fresh every single morning using European butter and the finest ingredients to ensure a world-class flavor.",
             footer_tagline: "Baking memories every day with premium ingredients and artisanal passion in the heart of NYC.",
@@ -372,8 +375,11 @@ document.addEventListener('DOMContentLoaded', () => {
             cake_label_color: "Design Color",
             cake_label_size: "Size",
             cake_label_frosting: "Frosting",
-            cake_label_message: "Cake Message (max. 25 characters)",
+            cake_label_message: "Cake Message (max. 30 characters)",
             cake_label_message_color: "Message Color",
+            cake_label_want_message: "Add a message?",
+            cake_want_message_no: "No",
+            cake_want_message_yes: "With a message",
             cake_label_cherries: "Cherries (Extra)",
             cake_label_bows: "Bows (Extra)",
             cake_msg_placeholder: "e.g. Happy Birthday",
@@ -999,7 +1005,7 @@ document.addEventListener('DOMContentLoaded', () => {
             custom: {
                 message: "¡Sí! Hacemos pedidos especiales para eventos, bodas y regalos corporativos. Escríbenos y Jackie se pondrá en contacto contigo.",
                 options: [
-                    { text: "📧 Enviar un email", link: "mailto:cookiesbyjackienyc@gmail.com", external: true },
+                    { text: "📧 Enviar un email", link: "mailto:customerservice@cookiesbyjackie.com", external: true },
                     { text: "Volver al inicio", next: "start" }
                 ]
             }
@@ -1038,7 +1044,7 @@ document.addEventListener('DOMContentLoaded', () => {
             custom: {
                 message: "Absolutely! We love crafting bespoke delights for weddings, corporate gifts, and special celebrations. Send us an email and Jackie will get back to you.",
                 options: [
-                    { text: "📧 Send an email", link: "mailto:cookiesbyjackienyc@gmail.com", external: true },
+                    { text: "📧 Send an email", link: "mailto:customerservice@cookiesbyjackie.com", external: true },
                     { text: "Back to start", next: "start" }
                 ]
             }
@@ -1279,10 +1285,9 @@ document.addEventListener('DOMContentLoaded', () => {
         "Oreo Chocolate Chip", "Nutella Chocolate Chip", "Brookie Cookie",
         "Biscoff Chocolate Chip Cookie", "Snickerdoodle", "Sugar cookie",
         "Fruity Pebbles Sugar Cookie", "Oatmeal Raisin Cookie", "Gluten Free Chocolate Chip",
-        "M&M Chocolate Chip Cookie", "M&M Chocolate Chip Cookie Sandwich", "Oreo Red Velvet Cookie",
+        "M&M Chocolate Chip Cookie", "Oreo Red Velvet Cookie",
         "Triple Chocolate Chip Cookie", "Peanut Butter and Jelly Cookie", "Pistachio Cream White Chocolate Chip Cookie",
-        "Caramel Pistachio White Chocolate Chip Cookie", "Chocolate Chip Cookie Sandwich with Vanilla Buttercream",
-        "Snickerdoodle Cookie Sandwich with Vanilla Buttercream", "Sugar Cookie Sandwich with Vanilla Buttercream",
+        "Caramel Pistachio White Chocolate Chip Cookie",
         "Rainbow Sprinkle Sugar Cookie"
     ];
 
@@ -1470,12 +1475,12 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             // Extras opcionales — arrancan en "Sin extra" $0 (cumplimiento Stripe)
             cherries: {
-                es: [{ label: "Sin extra", extra: 0 }, { label: "Cerezas (+$8.00)", extra: 8 }],
-                en: [{ label: "No extra", extra: 0 }, { label: "Cherries (+$8.00)", extra: 8 }]
+                es: [{ label: "No", extra: 0 }, { label: "Cerezas (+$8.00)", extra: 8 }],
+                en: [{ label: "No", extra: 0 }, { label: "Cherries (+$8.00)", extra: 8 }]
             },
             bows: {
-                es: [{ label: "Sin extra", extra: 0 }, { label: "Moños Rosados (+$8.00)", extra: 8 }, { label: "Moños Blancos (+$8.00)", extra: 8 }, { label: "Moños Rojos (+$8.00)", extra: 8 }],
-                en: [{ label: "No extra", extra: 0 }, { label: "Pink Bows (+$8.00)", extra: 8 }, { label: "White Bows (+$8.00)", extra: 8 }, { label: "Red Bows (+$8.00)", extra: 8 }]
+                es: [{ label: "No", extra: 0 }, { label: "Moños Rosados (+$8.00)", extra: 8 }, { label: "Moños Blancos (+$8.00)", extra: 8 }, { label: "Moños Rojos (+$8.00)", extra: 8 }],
+                en: [{ label: "No", extra: 0 }, { label: "Pink Bows (+$8.00)", extra: 8 }, { label: "White Bows (+$8.00)", extra: 8 }, { label: "Red Bows (+$8.00)", extra: 8 }]
             }
         },
         naked: {
@@ -1503,7 +1508,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cakeImagePaths = {
         "Vintage Heart Cakes": "assets/v2/cakes/vintage-heart-cakes/1.webp",
         "Vintage Round Cakes": "assets/v2/cakes/vintage-round-cakes/1.webp",
-        "Naked Cake": "assets/v2/cakes/naked-cake/1.webp",
+        "Naked Cake": "assets/v2/cakes/naked-cake/2.webp",
         '10" Chocolate Chip Cookie Cake': "assets/v2/cakes/cookie-cake-10/1.webp",
         "Chocolate Fudge Brownie Cake 12 pc": "assets/v2/cakes/brownie-cake-12/1.webp",
         "Chocolate Fudge Brownie Cake 24 pc": "assets/v2/cakes/brownie-cake-24/1.webp",
@@ -1530,17 +1535,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Reutilizable: bloque Cake Message + Message Color
+    // Reutilizable: bloque Cake Message + Message Color (mensaje opcional)
     const messageBlock = (t, lang) => `
         <div class="cake-option-group">
-            <label>${t.cake_label_message}</label>
-            <input type="text" class="cake-select" id="cake-message" maxlength="25" placeholder="${t.cake_msg_placeholder}">
-        </div>
-        <div class="cake-option-group">
-            <label>${t.cake_label_message_color}</label>
-            <select class="cake-select" id="cake-message-color">
-                ${messageColors[lang].map(c => `<option value="${c}">${c}</option>`).join('')}
+            <label>${t.cake_label_want_message}</label>
+            <select class="cake-select" id="cake-want-message">
+                <option value="no">${t.cake_want_message_no}</option>
+                <option value="yes">${t.cake_want_message_yes}</option>
             </select>
+        </div>
+        <div id="cake-message-fields" style="display: none;">
+            <div class="cake-option-group">
+                <label>${t.cake_label_message}</label>
+                <input type="text" class="cake-select" id="cake-message" maxlength="30" placeholder="${t.cake_msg_placeholder}">
+            </div>
+            <div class="cake-option-group">
+                <label>${t.cake_label_message_color}</label>
+                <select class="cake-select" id="cake-message-color">
+                    ${messageColors[lang].map(c => `<option value="${c}">${c}</option>`).join('')}
+                </select>
+            </div>
         </div>
     `;
 
@@ -1605,6 +1619,20 @@ document.addEventListener('DOMContentLoaded', () => {
         cakeOptionsContainer.querySelectorAll('select, input').forEach(el => {
             el.addEventListener('change', recalcCakePrice);
         });
+        // Mostrar/ocultar campos de mensaje según el selector "¿Quieres un mensaje?"
+        const wantMsg = cakeOptionsContainer.querySelector('#cake-want-message');
+        const msgFields = cakeOptionsContainer.querySelector('#cake-message-fields');
+        if (wantMsg && msgFields) {
+            wantMsg.addEventListener('change', () => {
+                if (wantMsg.value === 'yes') {
+                    msgFields.style.display = '';
+                } else {
+                    msgFields.style.display = 'none';
+                    const msgInput = msgFields.querySelector('#cake-message');
+                    if (msgInput) msgInput.value = '';
+                }
+            });
+        }
     };
 
     function recalcCakePrice() {
