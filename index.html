@@ -13,11 +13,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@400;600;800;900&family=Outfit:wght@300;400;600&family=Pacifico&family=Abril+Fatface&family=Cookie&display=swap" rel="stylesheet">
     
     <!-- Preload del hero (mejora LCP) -->
-    <link rel="preload" as="image" href="assets/Hero/fondo-hero-demo.webp" media="(min-width: 993px)" fetchpriority="high">
-    <link rel="preload" as="image" href="assets/Hero/fondo-hero-mobile-demo.webp" media="(max-width: 992px)" fetchpriority="high">
+    <link rel="preload" as="image" href="assets/Hero/hero-1-desktop.webp" media="(min-width: 993px)" fetchpriority="high">
+    <link rel="preload" as="image" href="assets/Hero/hero-1-mobile.webp" media="(max-width: 992px)" fetchpriority="high">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="style.css?v=5.13">
+    <link rel="stylesheet" href="style.css?v=5.16">
 
     <!-- FontAwesome (carga diferida para no bloquear el render) -->
     <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
@@ -162,7 +162,11 @@
 
     <main>
         <!-- Single Asymmetric Hero -->
-        <section class="single-hero" data-panel-image="inicio.imagen"></section>
+        <section class="single-hero" data-panel-image="inicio.imagen">
+            <div class="hero-slide hero-slide-1 active"></div>
+            <div class="hero-slide hero-slide-2"></div>
+            <div class="hero-slide hero-slide-3"></div>
+        </section>
 
         <!-- Favorites Section - Rediseño Asimétrico Compacto -->
         <section class="favorites-section section-spacing">
@@ -333,8 +337,10 @@
                                 <img loading="lazy" decoding="async" src="assets/v2/cakes/vintage-heart-cakes/1.webp" alt="Vintage Heart Cake 1" class="active" data-panel-image="cakes.1.imagen">
                                 <img loading="lazy" decoding="async" src="assets/v2/cakes/vintage-heart-cakes/2.webp" alt="Vintage Heart Cake 2" data-panel-image="cakes.1.imagen2">
                                 <img loading="lazy" decoding="async" src="assets/v2/cakes/vintage-heart-cakes/3.webp" alt="Vintage Heart Cake 3" data-panel-image="cakes.1.imagen3">
+                                <img loading="lazy" decoding="async" src="assets/v2/cakes/vintage-heart-cakes/4.webp" alt="Vintage Heart Cake 4" data-panel-image="cakes.1.imagen4">
                                 <div class="carousel-dots">
                                     <span class="dot active"></span>
+                                    <span class="dot"></span>
                                     <span class="dot"></span>
                                     <span class="dot"></span>
                                 </div>
@@ -352,8 +358,12 @@
                             <div class="tab-img-wrapper product-carousel" id="carousel-vintage-round">
                                 <img loading="lazy" decoding="async" src="assets/v2/cakes/vintage-round-cakes/1.webp" alt="Vintage Round Cake 1" class="active" data-panel-image="cakes.2.imagen">
                                 <img loading="lazy" decoding="async" src="assets/v2/cakes/vintage-round-cakes/3.webp" alt="Vintage Round Cake 3" data-panel-image="cakes.2.imagen2">
+                                <img loading="lazy" decoding="async" src="assets/v2/cakes/vintage-round-cakes/4.webp" alt="Vintage Round Cake 4" data-panel-image="cakes.2.imagen3">
+                                <img loading="lazy" decoding="async" src="assets/v2/cakes/vintage-round-cakes/5.webp" alt="Vintage Round Cake 5" data-panel-image="cakes.2.imagen4">
                                 <div class="carousel-dots">
                                     <span class="dot active"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
                                     <span class="dot"></span>
                                 </div>
                             </div>
@@ -1555,7 +1565,7 @@
     </div><!-- /policy-modal-overlay -->
 
 
-    <script src="script.js?v=5.26"></script>
+    <script src="script.js?v=5.27"></script>
     <script src="panel.js"></script>
     <script>
         // Scroll Animations

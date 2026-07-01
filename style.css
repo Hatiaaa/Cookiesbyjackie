@@ -706,28 +706,29 @@ img {
     position: relative;
     overflow: hidden;
     background-color: var(--color-bg);
-    background-image: url('assets/Hero/fondo-hero-demo.webp');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin-top: -100px;
+    margin-top: 0;
     padding: clamp(100px, 8rem, 160px) 8% 0 8%;
 }
 
-/* Overlay gradiente: opaco en la izquierda (texto), transparente a la derecha (foto) */
-.single-hero::before {
-    content: '';
+/* Carrusel del hero: 3 imágenes en loop con crossfade suave, sin degradado */
+.hero-slide {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        to right,
-        rgba(253, 246, 236, 0.88) 0%,
-        rgba(253, 246, 236, 0.70) 25%,
-        rgba(253, 246, 236, 0.10) 50%,
-        rgba(253, 246, 236, 0.0) 70%
-    );
-    z-index: 1;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1.6s ease-in-out;
+    z-index: 0;
 }
+
+.hero-slide.active {
+    opacity: 1;
+}
+
+.hero-slide-1 { background-image: url('assets/Hero/hero-1-desktop.webp'); background-position: center 15%; }
+.hero-slide-2 { background-image: url('assets/Hero/hero-2-desktop.webp'); }
+.hero-slide-3 { background-image: url('assets/Hero/hero-3-desktop.webp'); }
 
 .hero-content {
     flex: 0 0 auto;
@@ -3162,16 +3163,14 @@ img {
         min-height: 70vh;
         padding-top: 180px;
         padding-bottom: 3rem;
-        margin-top: -80px;
+        margin-top: 0;
         overflow: hidden;
         width: 100%;
-        background-position: center center;
-        background-image: url('assets/Hero/fondo-hero-mobile-demo.webp');
     }
-    /* En móvil: overlay uniforme en lugar del gradiente lateral */
-    .single-hero::before {
-        background: rgba(253, 246, 236, 0.62);
-    }
+    .hero-slide { background-position: center center; }
+    .hero-slide-1 { background-image: url('assets/Hero/hero-1-mobile.webp'); background-position: center 15%; }
+    .hero-slide-2 { background-image: url('assets/Hero/hero-2-mobile.webp'); }
+    .hero-slide-3 { background-image: url('assets/Hero/hero-3-mobile.webp'); }
     .hero-content { flex: none; padding-left: 0; text-align: center; margin-bottom: 3rem; width: 100%; }
     .hero-description { margin-left: auto; margin-right: auto; max-width: 90%; }
     .hero-actions { justify-content: center; }
