@@ -10,20 +10,49 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Elegant Serif for Logo (Playfair), Modern Sans-Serif for everything else (Montserrat & Outfit) -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@400;600;800;900&family=Outfit:wght@300;400;600&family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@400;600;800;900&family=Outfit:wght@300;400;600&family=Pacifico&family=Abril+Fatface&family=Cookie&display=swap" rel="stylesheet">
     
     <!-- Preload del hero (mejora LCP) -->
     <link rel="preload" as="image" href="assets/Hero/fondo-hero-demo.webp" media="(min-width: 993px)" fetchpriority="high">
     <link rel="preload" as="image" href="assets/Hero/fondo-hero-mobile-demo.webp" media="(max-width: 992px)" fetchpriority="high">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="style.css?v=5.3">
+    <link rel="stylesheet" href="style.css?v=5.13">
 
     <!-- FontAwesome (carga diferida para no bloquear el render) -->
     <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 </head>
 <body>
+    <!-- Top Bar (Zaro-inspired header, visible by default, hides on scroll) -->
+    <div class="top-bar" id="top-bar">
+        <div class="container top-bar-inner">
+            <div class="top-bar-brand-block">
+                <img src="assets/logo.webp" alt="Cookies by Jackie" class="top-bar-logo-img" width="449" height="556">
+            </div>
+
+            <nav class="top-bar-nav">
+                <a href="#shop" class="nav-link nav-link-pickup" data-i18n="nav_shop">tienda</a>
+
+                <div class="nav-dropdown-wrapper">
+                    <span class="nav-link nav-dropdown-trigger" data-i18n="nav_delivery">
+                        delivery <i class="fas fa-chevron-down nav-dropdown-arrow"></i>
+                    </span>
+                    <div class="nav-dropdown-menu">
+                        <a href="https://www.ubereats.com/store/cookies-by-jackie/unP0-ZwaV229nPo_rFi9_A?diningMode=DELIVERY&effect=&marketing_vistor_id=10e86284-e7ec-481f-8d7e-b7aa1717cf97&pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMlNhbWFuZXMlMjAyJTIyJTJDJTIycmVmZXJlbmNlJTIyJTNBJTIyQ2hJSkk0QV82YlFTTFpBUlVWSDhrWU1aRUIwJTIyJTJDJTIycmVmZXJlbmNlVHlwZSUyMiUzQSUyMmdvb2dsZV9wbGFjZXMlMjIlMkMlMjJsYXRpdHVkZSUyMiUzQS0yLjExMjQzODk5OTk5OTk5OTclMkMlMjJsb25naXR1ZGUlMjIlM0EtNzkuOTAzMTc3NTk5OTk5OTklN0Q%3D&ps=1&storeOfdSearchQuery=Snickerdoodle"
+                           target="_blank" class="nav-dropdown-item">
+                            <i class="fab fa-uber nav-dropdown-icon"></i> Uber Eats
+                        </a>
+                    </div>
+                </div>
+
+                <a href="#shop" class="nav-link nav-link-bundle" data-tab="prepacks-tab" data-i18n="nav_bundle">bundle gifts</a>
+
+                <a href="#faq" class="nav-link" data-i18n="nav_contact">contacto</a>
+            </nav>
+        </div>
+    </div>
+
     <!-- Header -->
     <header class="header" id="header">
         <div class="container nav-container">
@@ -40,7 +69,7 @@
             </a>
 
             <nav class="nav-links">
-                <a href="#shop" class="nav-link" data-i18n="nav_shop">tienda</a>
+                <a href="#shop" class="nav-link nav-link-pickup" data-i18n="nav_shop">tienda</a>
 
                 <!-- Delivery dropdown -->
                 <div class="nav-dropdown-wrapper">
@@ -54,6 +83,8 @@
                         </a>
                     </div>
                 </div>
+
+                <a href="#shop" class="nav-link nav-link-bundle" data-tab="prepacks-tab" data-i18n="nav_bundle">bundle gifts</a>
 
                 <a href="#faq" class="nav-link" data-i18n="nav_contact">contacto</a>
             </nav>
@@ -100,14 +131,15 @@
         
         <!-- Brand Identity inside menu -->
         <div style="position:absolute; top:1.5rem; left:2rem; text-align:left; line-height:1;">
-            <div style="font-family:var(--font-logo); font-weight:900; font-size:1.3rem; letter-spacing:1px; color:var(--color-text); text-transform:uppercase;">COOKIES</div>
-            <div style="font-family:var(--font-logo); font-style:italic; font-size:0.8rem; color:var(--color-primary); margin-top:2px;">by Jackie</div>
+            <div style="font-family:'Abril Fatface', serif; font-size:1.3rem; letter-spacing:1px; color:var(--color-text); text-transform:uppercase;">COOKIES</div>
+            <div style="font-family:'Cookie', cursive; font-size:1.1rem; color:var(--color-primary); margin-top:2px;">by Jackie</div>
         </div>
 
         <!-- Navigation Links (Montserrat) -->
         <nav style="display:flex; flex-direction:column; align-items:center; gap:0.5rem; width:100%; margin-top:1rem;">
             <a href="#shop" class="mobile-nav-link" data-i18n="nav_shop" style="display:block; width:80%; text-align:center; padding:1.2rem; font-family:var(--font-heading); font-size:1.1rem; font-weight:600; color:var(--color-text); text-decoration:none; text-transform:lowercase; letter-spacing:0.05em; border-bottom:1px solid rgba(0,0,0,0.03);">tienda</a>
             <a href="https://www.ubereats.com/store/cookies-by-jackie/unP0-ZwaV229nPo_rFi9_A?diningMode=DELIVERY&effect=&marketing_vistor_id=10e86284-e7ec-481f-8d7e-b7aa1717cf97&pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMlNhbWFuZXMlMjAyJTIyJTJDJTIycmVmZXJlbmNlJTIyJTNBJTIyQ2hJSkk4QV82YlFTTFpBUlVWSDhrWU1aRUIwJTIyJTJDJTIycmVmZXJlbmNlVHlwZSUyMiUzQSUyMmdvb2dsZV9wbGFjZXMlMjIlMkMlMjJsYXRpdHVkZSUyMiUzQS0yLjExMjQzODk5OTk5OTk5OTclMkMlMjJsb25naXR1ZGUlMjIlM0EtNzkuOTAzMTc3NTk5OTk5OTklN0Q%3D&ps=1&storeOfdSearchQuery=Snickerdoodle" target="_blank" class="mobile-nav-link" data-i18n="nav_delivery" style="display:flex; align-items:center; justify-content:center; gap:0.5rem; width:80%; text-align:center; padding:1.2rem; font-family:var(--font-heading); font-size:1.1rem; font-weight:600; color:var(--color-text); text-decoration:none; text-transform:lowercase; letter-spacing:0.05em; border-bottom:1px solid rgba(0,0,0,0.03);">delivery <i class="fas fa-external-link-alt" style="font-size:0.7rem; opacity:0.5;"></i></a>
+            <a href="#shop" class="mobile-nav-link nav-link-bundle" data-tab="prepacks-tab" data-i18n="nav_bundle" style="display:block; width:80%; text-align:center; padding:1.2rem; font-family:var(--font-heading); font-size:1.1rem; font-weight:600; color:var(--color-text); text-decoration:none; text-transform:lowercase; letter-spacing:0.05em; border-bottom:1px solid rgba(0,0,0,0.03);">bundle gifts</a>
             <a href="#faq" class="mobile-nav-link" data-i18n="nav_contact" style="display:block; width:80%; text-align:center; padding:1.2rem; font-family:var(--font-heading); font-size:1.1rem; font-weight:600; color:var(--color-text); text-decoration:none; text-transform:lowercase; letter-spacing:0.05em;">contacto</a>
         </nav>
 
@@ -130,12 +162,7 @@
 
     <main>
         <!-- Single Asymmetric Hero -->
-        <section class="single-hero" data-panel-image="inicio.imagen">
-            <div class="hero-content hero-content--logo fade-up">
-                <img src="assets/logo.webp" alt="Cookies by Jackie" class="hero-logo-demo" width="449" height="556">
-            </div>
-
-        </section>
+        <section class="single-hero" data-panel-image="inicio.imagen"></section>
 
         <!-- Favorites Section - Rediseño Asimétrico Compacto -->
         <section class="favorites-section section-spacing">
@@ -189,13 +216,13 @@
 
                     <div class="fav-card fade-up" style="--card-bg:#FFE0E8;--strip-bg:#D97090;transition-delay:0.2s;">
                         <div class="fav-card-img">
-                            <img loading="lazy" decoding="async" src="assets/Best seller/Strawberry cheesecake_pixian_ai.png" alt="Strawberry Cheesecake" data-panel-image="favoritos.3.imagen">
+                            <img loading="lazy" decoding="async" src="assets/Best seller/Strawberry Cheesecake.webp" alt="Strawberry Cheesecake" data-panel-image="favoritos.3.imagen">
                             <div class="fav-strip" data-i18n="fav3_strip">fresa · cheesecake · crema</div>
                         </div>
                         <div class="fav-card-body">
                             <div class="fav-card-row">
                                 <h3 class="fav-card-name" data-panel-content="favoritos.3.nombre">Strawberry Cheesecake</h3>
-                                <button class="fav-view-btn" data-tab="pastries-tab" data-i18n="fav_view_btn">Ver más ↗</button>
+                                <button class="fav-view-btn" data-tab="mini-tab" data-i18n="fav_view_btn">Ver más ↗</button>
                             </div>
                             <div class="fav-pills">
                                 <span class="fav-pill" data-i18n="fav3_pill1">fresa</span>
@@ -800,6 +827,9 @@
                         </div>
 
                     </div>
+                    <div class="load-more-container">
+                        <button class="btn-load-more" data-i18n="btn_load_more">ver más</button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -808,7 +838,7 @@
         <section id="packs-section" class="trending-section section-spacing">
             <div class="container">
                 <div class="trending-header">
-                    <h2 class="trending-title" data-i18n="trending_title" data-panel-content="packsespeciales.titulo">nuestros packs especiales</h2>
+                    <h2 class="trending-title" data-i18n="trending_title" data-panel-content="packsespeciales.titulo">bundle gifts</h2>
                     <div class="trending-nav">
                         <button class="trend-nav-btn" id="trend-prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
                         <button class="trend-nav-btn" id="trend-next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
@@ -902,6 +932,76 @@
                             </div>
                         </div>
 
+                        <div class="trending-item">
+                            <div class="trend-img-box">
+                                <img loading="lazy" decoding="async" src="assets/v2/prepacks/bundle-1/1.webp" alt="The Big Celebration Bash Bundle #1" data-panel-image="packsespeciales.7.imagen">
+                            </div>
+                            <div class="trend-content">
+                                <span class="trend-category">Cookies by Jackie</span>
+                                <h3 class="trend-name" data-panel-content="packsespeciales.7.nombre">The Big Celebration Bash Bundle #1</h3>
+                                <p class="trend-price" data-panel-content="packsespeciales.7.precio">$69.95</p>
+                                <div class="trend-divider"></div>
+                                <p class="trend-desc" data-i18n="prepack7_desc" data-panel-content="packsespeciales.7.descripcion"></p>
+                                <button class="btn btn-primary add-to-cart-btn">añadir al carrito</button>
+                            </div>
+                        </div>
+
+                        <div class="trending-item">
+                            <div class="trend-img-box">
+                                <img loading="lazy" decoding="async" src="assets/v2/prepacks/bundle-2/1.webp" alt="The Big Celebration Bash Bundle #2" data-panel-image="packsespeciales.8.imagen">
+                            </div>
+                            <div class="trend-content">
+                                <span class="trend-category">Cookies by Jackie</span>
+                                <h3 class="trend-name" data-panel-content="packsespeciales.8.nombre">The Big Celebration Bash Bundle #2</h3>
+                                <p class="trend-price" data-panel-content="packsespeciales.8.precio">$179.95</p>
+                                <div class="trend-divider"></div>
+                                <p class="trend-desc" data-i18n="prepack8_desc" data-panel-content="packsespeciales.8.descripcion"></p>
+                                <button class="btn btn-primary tab-add-btn btn-open-cake-modal" data-type="message" data-name="The Big Celebration Bash Bundle #2" data-price="179.95" data-btn-key="btn_customize"><i class="fas fa-plus"></i> Personalizar</button>
+                            </div>
+                        </div>
+
+                        <div class="trending-item">
+                            <div class="trend-img-box">
+                                <img loading="lazy" decoding="async" src="assets/v2/prepacks/bundle-3/1.webp" alt="The Big Celebration Bash Bundle #3" data-panel-image="packsespeciales.9.imagen">
+                            </div>
+                            <div class="trend-content">
+                                <span class="trend-category">Cookies by Jackie</span>
+                                <h3 class="trend-name" data-panel-content="packsespeciales.9.nombre">The Big Celebration Bash Bundle #3</h3>
+                                <p class="trend-price" data-panel-content="packsespeciales.9.precio">$109.95</p>
+                                <div class="trend-divider"></div>
+                                <p class="trend-desc" data-i18n="prepack9_desc" data-panel-content="packsespeciales.9.descripcion"></p>
+                                <button class="btn btn-primary tab-add-btn btn-open-cake-modal" data-type="message" data-name="The Big Celebration Bash Bundle #3" data-price="109.95" data-btn-key="btn_customize"><i class="fas fa-plus"></i> Personalizar</button>
+                            </div>
+                        </div>
+
+                        <div class="trending-item">
+                            <div class="trend-img-box">
+                                <img loading="lazy" decoding="async" src="assets/v2/prepacks/cookies-brownies-bundle/1.webp" alt="Cookies and Brownies Bundles" data-panel-image="packsespeciales.10.imagen">
+                            </div>
+                            <div class="trend-content">
+                                <span class="trend-category">Cookies by Jackie</span>
+                                <h3 class="trend-name" data-panel-content="packsespeciales.10.nombre">Cookies and Brownies Bundles</h3>
+                                <p class="trend-price" data-panel-content="packsespeciales.10.precio">$42.95</p>
+                                <div class="trend-divider"></div>
+                                <p class="trend-desc" data-i18n="prepack10_desc" data-panel-content="packsespeciales.10.descripcion"></p>
+                                <button class="btn btn-primary add-to-cart-btn">añadir al carrito</button>
+                            </div>
+                        </div>
+
+                        <div class="trending-item">
+                            <div class="trend-img-box">
+                                <img loading="lazy" decoding="async" src="assets/v2/prepacks/cookie-lovers-bundle/1.webp" alt="Cookie Lovers Bundles" data-panel-image="packsespeciales.11.imagen">
+                            </div>
+                            <div class="trend-content">
+                                <span class="trend-category">Cookies by Jackie</span>
+                                <h3 class="trend-name" data-panel-content="packsespeciales.11.nombre">Cookie Lovers Bundles</h3>
+                                <p class="trend-price" data-panel-content="packsespeciales.11.precio">$64.95</p>
+                                <div class="trend-divider"></div>
+                                <p class="trend-desc" data-i18n="prepack11_desc" data-panel-content="packsespeciales.11.descripcion"></p>
+                                <button class="btn btn-primary add-to-cart-btn">añadir al carrito</button>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -923,7 +1023,7 @@
                             <div class="testimonial-slide">
                                 <div class="testimonial-rating">
                                     <span class="rating-stars">
-                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                                     </span>
                                     <span class="rating-score">5.0</span>
                                 </div>
@@ -934,7 +1034,7 @@
                             <div class="testimonial-slide">
                                 <div class="testimonial-rating">
                                     <span class="rating-stars">
-                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                                     </span>
                                     <span class="rating-score">5.0</span>
                                 </div>
@@ -945,7 +1045,7 @@
                             <div class="testimonial-slide">
                                 <div class="testimonial-rating">
                                     <span class="rating-stars">
-                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                                     </span>
                                     <span class="rating-score">5.0</span>
                                 </div>
@@ -994,7 +1094,7 @@
                         <p class="story-text" data-i18n="story_p3">Ya sea un antojo de media tarde, un regalo detallista o una celebración especial, Cookies by Jackie está hecha para aportar algo dulce y memorable a cada historia de Nueva York.</p>
                     </div>
                     <p class="story-text mobile-only" data-i18n="story_mobile">Desde 2024, Cookies by Jackie es el destino dulce imprescindible en Nueva York. Ofrecemos una experiencia única que combina tradición casera con la más alta calidad, perfecta para regalar o darte un momento de pausa en medio del ritmo de la ciudad.</p>
-                    <p class="story-text" style="font-weight: bold; margin-top: 1.5rem;" data-i18n="story_cta">📍  Visítanos en el Underground Market de Columbus Circle y descubre por qué todo el mundo habla de nosotros.</p>
+                    <p class="story-text" style="font-weight: bold; margin-top: 1.5rem;" data-i18n="story_cta">📍  Visítanos en el Underground Turnstyle Market de Columbus Circle y descubre por qué todo el mundo habla de nosotros.</p>
                     <p class="story-text" style="font-family: var(--font-logo); font-size: 1.4rem; color: var(--color-primary); font-style: italic; margin-top: 1rem;" data-i18n="story_slogan">Cookies by Jackie: el sabor que Nueva York merece.</p>
                 </div>
             </div>
@@ -1014,7 +1114,7 @@
                             <i class="fas fa-map-marker-alt"></i>
                             <div>
                                 <span class="visit-info-label" data-i18n="visit_loc_title">Ubicación</span>
-                                <p>Underground Market, Columbus Circle<br>New York, NY 10019</p>
+                                <p>Columbus Circle, Underground Turnstyle Market<br>1000 S 8th Ave New York, NY 10019</p>
                             </div>
                         </div>
                         <div class="visit-info-card">
@@ -1057,7 +1157,7 @@
                             <span class="faq-circle-icon"><i class="fas fa-chevron-down"></i></span>
                         </div>
                         <div class="faq-answer">
-                            <p data-i18n="faq_a2" data-panel-content="faqs.2.respuesta">Nos encontramos en el <strong>Underground Market de Columbus Circle</strong>, en el corazón de Nueva York.</p>
+                            <p data-i18n="faq_a2" data-panel-content="faqs.2.respuesta">Nos encontramos en el <strong>Underground Turnstyle Market de Columbus Circle</strong>, en el corazón de Nueva York.</p>
                         </div>
                     </div>
 
@@ -1154,7 +1254,7 @@
                     <ul class="footer-list" style="list-style: none; padding: 0;">
                         <li style="margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 10px;">
                             <i class="fas fa-map-marker-alt" style="color: var(--color-primary); margin-top: 4px;"></i>
-                            <a href="https://maps.app.goo.gl/rpAatw13APUZtMqb6" target="_blank" rel="noopener" style="opacity: 0.8; line-height: 1.4; color: inherit; text-decoration: none; transition: opacity 0.2s;">1000 S 8th Ave<br>New York, NY 10019</a>
+                            <a href="https://maps.app.goo.gl/rpAatw13APUZtMqb6" target="_blank" rel="noopener" style="opacity: 0.8; line-height: 1.4; color: inherit; text-decoration: none; transition: opacity 0.2s;">Columbus Circle, Underground Turnstyle Market<br>1000 S 8th Ave New York, NY 10019</a>
                         </li>
                         <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 10px;">
                             <i class="fas fa-phone" style="color: var(--color-primary);"></i>
@@ -1194,14 +1294,6 @@
                     <p style="opacity: 0.6; font-size: 0.9rem; margin:0;" data-i18n="footer_copyright">&copy; 2024 Cookies by Jackie. Todos los derechos reservados.</p>
                     <div style="display:flex; gap:1.2rem; flex-wrap:wrap; align-items:center;">
                         <button class="footer-policy-btn" id="open-privacy-btn" data-i18n="privacy_link">Política de Privacidad</button>
-                        <span style="opacity:0.25; font-size:0.75rem;">|</span>
-                        <button class="footer-policy-btn" id="open-refund-btn" data-i18n="refund_link">Reembolsos y Cancelaciones</button>
-                        <span style="opacity:0.25; font-size:0.75rem;">|</span>
-                        <button class="footer-policy-btn" id="open-shipping-btn" data-i18n="shipping_link">Envíos y Entregas</button>
-                        <span style="opacity:0.25; font-size:0.75rem;">|</span>
-                        <button class="footer-policy-btn" id="open-terms-btn" data-i18n="terms_link">Términos del Servicio</button>
-                        <span style="opacity:0.25; font-size:0.75rem;">|</span>
-                        <button class="footer-policy-btn" id="open-contact-btn" data-i18n="contact_link">Contacto</button>
                     </div>
                 </div>
                 <a href="https://www.estudioxaga.com/" target="_blank" rel="noopener" class="footer-credit-link">
@@ -1409,6 +1501,7 @@
     </div>
 
     <!-- ===== MODAL: POLÍTICA DE PRIVACIDAD ===== -->
+    <!-- ===== MODAL: POLÍTICA DE PRIVACIDAD ===== -->
     <div class="policy-modal-overlay" id="privacy-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="privacy-modal-title">
         <div class="policy-modal">
 
@@ -1421,1036 +1514,48 @@
 
                 <!-- ── ENGLISH VERSION ─────────────────────────────── -->
                 <div class="policy-lang" data-policy-lang="en">
-                    <p class="policy-updated">Last updated: June 2025</p>
+                    <p>This is the Web site of Cookies by Jackie. <a href="https://cookiesbyjackie.vercel.app" target="_blank" rel="noopener">https://cookiesbyjackie.vercel.app</a></p>
 
-                    <h3>1. Who We Are</h3>
-                    <p><strong>Cookies by Jackie</strong> ("we," "us," or "our") is an artisan bakery operating from Columbus Circle Underground Market, New York, NY 10019. You can reach us at <a href="mailto:customerservice@cookiesbyjackie.com">customerservice@cookiesbyjackie.com</a> or <a href="tel:+12123896151">+1 212-389-6151</a>.</p>
+                    <p>Our postal address is:<br>
+                    Columbus Circle, Underground Turnstyle Market<br>
+                    1000 S 8th Ave<br>
+                    New York, NY 10019</p>
 
-                    <h3>2. Information We Collect</h3>
-                    <ul>
-                        <li><strong>Identity &amp; contact data:</strong> name, email address, phone number, billing and shipping address.</li>
-                        <li><strong>Payment data:</strong> credit/debit card details collected and processed securely by Stripe, Inc. We never store full card numbers on our servers.</li>
-                        <li><strong>Transaction data:</strong> purchase history and order details.</li>
-                        <li><strong>Technical data:</strong> IP address, browser type, device information, and cookies.</li>
-                        <li><strong>Usage data:</strong> how you interact with our website (pages visited, clicks).</li>
-                    </ul>
+                    <p>We can be reached via e-mail at <a href="mailto:customerservice@cookiesbyjackie.com">customerservice@cookiesbyjackie.com</a>.<br>
+                    You can also reach us by telephone at <a href="tel:+12123896151">+1 212-389-6151</a>.</p>
 
-                    <h3>3. How We Use Your Information</h3>
-                    <ul>
-                        <li>To process and fulfill your orders.</li>
-                        <li>To prevent fraud and verify payment authenticity.</li>
-                        <li>To communicate with you about your orders and customer service.</li>
-                        <li>To send promotional communications (only with your explicit consent).</li>
-                        <li>To comply with applicable legal and regulatory obligations.</li>
-                    </ul>
+                    <p>We hope you enjoy your visit to cookiesbyjackie.vercel.app. In order to better serve your interests in our work and improve the experience at cookiesbyjackie.vercel.app, we may collect certain important information about our visitors.</p>
 
-                    <h3>4. Payment Processing &amp; Stripe</h3>
-                    <p>We use <strong>Stripe, Inc.</strong> as our payment processor. When you make a purchase, your payment card information is collected directly by Stripe through <strong>Stripe.js</strong>, a JavaScript library that runs in your browser and transmits your card data directly and securely to Stripe's servers — this sensitive data never passes through or is stored on our servers.</p>
-                    <div class="policy-stripe-badge"><i class="fab fa-stripe"></i> Powered by Stripe — PCI DSS Level 1 Certified</div>
-                    <p>Stripe may collect and use your financial and personal data — including device fingerprint, IP address, and transaction history — to:</p>
-                    <ul>
-                        <li>Process your payment securely and in accordance with applicable payment network rules.</li>
-                        <li>Detect, investigate, and prevent fraudulent transactions on behalf of merchants and financial institutions.</li>
-                        <li>Comply with financial regulations and anti-money-laundering (AML) requirements.</li>
-                    </ul>
-                    <p>Stripe's use of your personal data is governed by <a href="https://stripe.com/privacy" target="_blank" rel="noopener">Stripe's Privacy Policy</a>. By completing a purchase, you consent to the transfer of your payment information to Stripe for the purposes described above, including the transfer of sensitive personal data to a third-party payment processor for fraud prevention purposes as required under applicable payment network rules.</p>
+                    <p>When you visit our Website our server automatically recognizes your Internet Protocol address (IP address). We collect IP address information in aggregate form. This information is used for internal review and analysis only. In addition, like many other Websites, our site may use "cookies," or our unique electronic fingerprint placed temporarily in your Internet browser, to keep track of your stay at our Website. The cookie allows our server to remember you and the information you have requested or provided to us while visiting our site. This helps us to enhance your overall cookiesbyjackie.vercel.app experience. The cookie is harmless and does not gather information from your computer or profile your system. It simply allows us to distinguish each individual among the many people who browse our site and the cookie expires a specific period of time after your visit.</p>
 
-                    <h3>5. Third-Party Services</h3>
-                    <ul>
-                        <li><strong>Uber Eats:</strong> orders placed through UberEats are governed by <a href="https://www.ubereats.com/legal/privacy-policy" target="_blank" rel="noopener">UberEats' Privacy Policy</a>.</li>
-                        <li><strong>Google Fonts:</strong> used to render website fonts; Google may collect technical data (IP address) per its <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>.</li>
-                        <li><strong>Cloudflare (FontAwesome CDN):</strong> used to serve icons; Cloudflare may collect technical data per its <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Privacy Policy</a>.</li>
-                    </ul>
-
-                    <h3>6. Data Security</h3>
-                    <p>We implement appropriate technical and organizational measures to protect your personal data against unauthorized access, alteration, disclosure, or destruction. All data is transmitted over encrypted HTTPS (TLS) connections. Our payment processor, Stripe, holds PCI DSS Level 1 certification — the highest standard in payment security.</p>
-
-                    <h3>7. Data Retention</h3>
-                    <p>We retain your personal data only for as long as necessary to fulfill the purposes described in this policy, comply with our legal obligations (typically 7 years for financial and tax records), and resolve any disputes.</p>
-
-                    <h3>8. Your Rights Under GDPR (EU / EEA Residents)</h3>
-                    <p>If you are located in the European Union or European Economic Area, you have the following rights under the General Data Protection Regulation (GDPR):</p>
-                    <ul>
-                        <li><strong>Right of access:</strong> request a copy of your personal data.</li>
-                        <li><strong>Right to rectification:</strong> request correction of inaccurate or incomplete data.</li>
-                        <li><strong>Right to erasure ("right to be forgotten"):</strong> request deletion of your personal data.</li>
-                        <li><strong>Right to restriction of processing:</strong> request that we limit how we use your data.</li>
-                        <li><strong>Right to data portability:</strong> receive your data in a structured, machine-readable format.</li>
-                        <li><strong>Right to object:</strong> object to processing based on legitimate interests or for direct marketing.</li>
-                        <li><strong>Right to withdraw consent:</strong> withdraw consent at any time where processing is based on consent, without affecting the lawfulness of prior processing.</li>
-                    </ul>
-                    <p>The legal bases for our data processing are: <em>contract performance</em> (order fulfillment), <em>legitimate interests</em> (fraud prevention and security), <em>legal obligation</em> (financial and tax regulations), and <em>consent</em> (marketing communications). To exercise any of these rights, contact us at <a href="mailto:customerservice@cookiesbyjackie.com">customerservice@cookiesbyjackie.com</a>.</p>
-
-                    <h3>9. California Privacy Rights (CCPA)</h3>
-                    <p>If you are a California resident, you have the following rights under the California Consumer Privacy Act (CCPA):</p>
-                    <ul>
-                        <li><strong>Right to know:</strong> request disclosure of the categories and specific pieces of personal information we have collected, used, or shared.</li>
-                        <li><strong>Right to delete:</strong> request deletion of personal information we have collected about you.</li>
-                        <li><strong>Right to opt-out of sale:</strong> we do not sell your personal information to third parties.</li>
-                        <li><strong>Right to non-discrimination:</strong> we will not discriminate against you for exercising any of your privacy rights.</li>
-                    </ul>
-                    <p>To submit a CCPA request, contact us at <a href="mailto:customerservice@cookiesbyjackie.com">customerservice@cookiesbyjackie.com</a>. We will respond within 45 calendar days.</p>
-
-                    <h3>10. Cookies</h3>
-                    <p>We use strictly necessary cookies required for the website to function (e.g., shopping cart session state). We do not use advertising or behavioral tracking cookies. Stripe may use cookies and similar technologies on payment pages to prevent fraud and improve payment security, consistent with its own cookie policy.</p>
-
-                    <h3>11. Children's Privacy</h3>
-                    <p>Our website is not directed at children under the age of 13. We do not knowingly collect personal data from children. If you believe we have inadvertently collected information from a minor, please contact us immediately.</p>
-
-                    <h3>12. Changes to This Policy</h3>
-                    <p>We may update this Privacy Policy from time to time. The "Last updated" date at the top of this document reflects the most recent revision. Continued use of our website following any changes constitutes your acceptance of the updated policy.</p>
-
-                    <hr>
-
-                    <h3>13. Contact Us</h3>
-                    <p><strong>Cookies by Jackie</strong><br>
-                    Columbus Circle Underground Market<br>
-                    New York, NY 10019<br>
-                    <a href="mailto:customerservice@cookiesbyjackie.com">customerservice@cookiesbyjackie.com</a><br>
-                    <a href="tel:+12123896151">+1 212-389-6151</a></p>
+                    <p>If you supply us with your email address, your postal address or telephone number online you may receive periodic mailings, emails or telephone calls from us with information that may be of interest to you regarding new products, services or upcoming items of special interest. If you do not wish to receive emails from us, please let us know in an email to <a href="mailto:customerservice@cookiesbyjackie.com">customerservice@cookiesbyjackie.com</a>. If you do not wish to receive postal mailings or telephone calls from us, please let us know by mailing a letter containing your exact name and address to Cookies by Jackie, Columbus Circle, Underground Turnstyle Market, 1000 S 8th Ave, New York, NY 10019. We will promptly remove your addresses and telephone numbers from our lists.</p>
                 </div>
 
-                <!-- ── VERSIÓN EN ESPAÑOL ───────────────────────────── -->
+                <!-- ── VERSIÓN EN ESPAÑOL ─────────────────────────────── -->
                 <div class="policy-lang" data-policy-lang="es" style="display:none;">
-                    <p class="policy-updated">Última actualización: junio 2025</p>
+                    <p>Este es el sitio web de Cookies by Jackie. <a href="https://cookiesbyjackie.vercel.app" target="_blank" rel="noopener">https://cookiesbyjackie.vercel.app</a></p>
 
-                    <h3>1. Quiénes Somos</h3>
-                    <p><strong>Cookies by Jackie</strong> ("nosotros", "nuestro") es una pastelería artesanal ubicada en Columbus Circle Underground Market, New York, NY 10019. Puede contactarnos en <a href="mailto:customerservice@cookiesbyjackie.com">customerservice@cookiesbyjackie.com</a> o <a href="tel:+12123896151">+1 212-389-6151</a>.</p>
+                    <p>Nuestra dirección postal es:<br>
+                    Columbus Circle, Underground Turnstyle Market<br>
+                    1000 S 8th Ave<br>
+                    New York, NY 10019</p>
 
-                    <h3>2. Información que Recopilamos</h3>
-                    <ul>
-                        <li><strong>Datos de identidad y contacto:</strong> nombre, correo electrónico, número de teléfono, dirección de facturación y envío.</li>
-                        <li><strong>Datos de pago:</strong> los datos de tarjetas de crédito/débito son recopilados y procesados de forma segura por Stripe, Inc. Nunca almacenamos números de tarjeta completos en nuestros servidores.</li>
-                        <li><strong>Datos de transacción:</strong> historial de compras y detalles de pedidos.</li>
-                        <li><strong>Datos técnicos:</strong> dirección IP, tipo de navegador, información del dispositivo y cookies.</li>
-                        <li><strong>Datos de uso:</strong> cómo interactúa con nuestro sitio web (páginas visitadas, clics).</li>
-                    </ul>
+                    <p>Puede contactarnos por correo electrónico en <a href="mailto:customerservice@cookiesbyjackie.com">customerservice@cookiesbyjackie.com</a>.<br>
+                    También puede comunicarse con nosotros por teléfono al <a href="tel:+12123896151">+1 212-389-6151</a>.</p>
 
-                    <h3>3. Cómo Utilizamos su Información</h3>
-                    <ul>
-                        <li>Para procesar y completar sus pedidos.</li>
-                        <li>Para prevenir el fraude y verificar la autenticidad del pago.</li>
-                        <li>Para comunicarnos con usted sobre sus pedidos y servicio al cliente.</li>
-                        <li>Para enviar comunicaciones promocionales (únicamente con su consentimiento explícito).</li>
-                        <li>Para cumplir con las obligaciones legales y reglamentarias aplicables.</li>
-                    </ul>
+                    <p>Esperamos que disfrute su visita a cookiesbyjackie.vercel.app. Para atender mejor sus intereses en nuestro trabajo y mejorar la experiencia en cookiesbyjackie.vercel.app, es posible que recopilemos cierta información importante sobre nuestros visitantes.</p>
 
-                    <h3>4. Procesamiento de Pagos y Stripe</h3>
-                    <p>Utilizamos <strong>Stripe, Inc.</strong> como procesador de pagos. Cuando realiza una compra, la información de su tarjeta de pago es recopilada directamente por Stripe a través de <strong>Stripe.js</strong>, una biblioteca JavaScript que se ejecuta en su navegador y transmite los datos de su tarjeta de forma segura y directa a los servidores de Stripe — estos datos nunca pasan por nuestros servidores ni son almacenados en ellos.</p>
-                    <div class="policy-stripe-badge"><i class="fab fa-stripe"></i> Con tecnología Stripe — Certificado PCI DSS Nivel 1</div>
-                    <p>Stripe puede recopilar y utilizar sus datos financieros y personales — incluyendo huella del dispositivo, dirección IP e historial de transacciones — para:</p>
-                    <ul>
-                        <li>Procesar su pago de forma segura y conforme a las normas aplicables de las redes de pago.</li>
-                        <li>Detectar, investigar y prevenir transacciones fraudulentas en nombre de comerciantes e instituciones financieras.</li>
-                        <li>Cumplir con las regulaciones financieras y los requisitos contra el lavado de dinero (AML).</li>
-                    </ul>
-                    <p>El uso de sus datos personales por parte de Stripe se rige por la <a href="https://stripe.com/privacy" target="_blank" rel="noopener">Política de Privacidad de Stripe</a>. Al completar una compra, usted consiente la transferencia de su información de pago a Stripe para los fines descritos, incluyendo la transferencia de datos personales sensibles a un procesador de pagos tercero para la prevención del fraude, conforme a las normas aplicables de las redes de pago.</p>
+                    <p>Cuando visita nuestro sitio web, nuestro servidor reconoce automáticamente su dirección de Protocolo de Internet (dirección IP). Recopilamos la información de direcciones IP de forma agregada. Esta información se utiliza únicamente para revisión y análisis interno. Además, como muchos otros sitios web, nuestro sitio puede utilizar "cookies", o nuestra huella electrónica única colocada temporalmente en su navegador de Internet, para llevar un registro de su estadía en nuestro sitio web. La cookie permite que nuestro servidor lo recuerde a usted y la información que ha solicitado o proporcionado mientras visita nuestro sitio. Esto nos ayuda a mejorar su experiencia general en cookiesbyjackie.vercel.app. La cookie es inofensiva y no recopila información de su computadora ni perfila su sistema. Simplemente nos permite distinguir a cada individuo entre las muchas personas que navegan por nuestro sitio, y la cookie expira un período de tiempo específico después de su visita.</p>
 
-                    <h3>5. Servicios de Terceros</h3>
-                    <ul>
-                        <li><strong>Uber Eats:</strong> los pedidos realizados a través de UberEats se rigen por la <a href="https://www.ubereats.com/legal/privacy-policy" target="_blank" rel="noopener">Política de Privacidad de UberEats</a>.</li>
-                        <li><strong>Google Fonts:</strong> utilizado para renderizar las fuentes del sitio web; Google puede recopilar datos técnicos (dirección IP) según su <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Política de Privacidad</a>.</li>
-                        <li><strong>Cloudflare (CDN de FontAwesome):</strong> utilizado para servir iconos; Cloudflare puede recopilar datos técnicos según su <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Política de Privacidad</a>.</li>
-                    </ul>
-
-                    <h3>6. Seguridad de los Datos</h3>
-                    <p>Implementamos medidas técnicas y organizativas apropiadas para proteger sus datos personales contra el acceso no autorizado, la alteración, la divulgación o la destrucción. Todos los datos se transmiten mediante conexiones HTTPS cifradas (TLS). Nuestro procesador de pagos, Stripe, cuenta con certificación PCI DSS Nivel 1, el estándar más alto en seguridad de pagos.</p>
-
-                    <h3>7. Retención de Datos</h3>
-                    <p>Conservamos sus datos personales únicamente durante el tiempo necesario para cumplir los fines descritos en esta política, satisfacer nuestras obligaciones legales (generalmente 7 años para registros financieros y fiscales) y resolver cualquier disputa.</p>
-
-                    <h3>8. Sus Derechos bajo el RGPD (Residentes de la UE / EEE)</h3>
-                    <p>Si se encuentra en la Unión Europea o el Espacio Económico Europeo, tiene los siguientes derechos bajo el Reglamento General de Protección de Datos (RGPD):</p>
-                    <ul>
-                        <li><strong>Derecho de acceso:</strong> solicitar una copia de sus datos personales.</li>
-                        <li><strong>Derecho de rectificación:</strong> solicitar la corrección de datos inexactos o incompletos.</li>
-                        <li><strong>Derecho de supresión ("derecho al olvido"):</strong> solicitar la eliminación de sus datos personales.</li>
-                        <li><strong>Derecho a la limitación del tratamiento:</strong> solicitar que limitemos el uso de sus datos.</li>
-                        <li><strong>Derecho a la portabilidad de los datos:</strong> recibir sus datos en un formato estructurado y legible por máquina.</li>
-                        <li><strong>Derecho de oposición:</strong> oponerse al tratamiento basado en intereses legítimos o con fines de marketing directo.</li>
-                        <li><strong>Derecho a retirar el consentimiento:</strong> revocar el consentimiento en cualquier momento cuando el tratamiento se base en él, sin afectar a la licitud del tratamiento previo.</li>
-                    </ul>
-                    <p>Las bases legales para nuestro tratamiento de datos son: <em>ejecución de un contrato</em> (cumplimiento de pedidos), <em>intereses legítimos</em> (prevención de fraude y seguridad), <em>obligación legal</em> (regulaciones financieras y fiscales), y <em>consentimiento</em> (comunicaciones de marketing). Para ejercer cualquiera de estos derechos, contáctenos en <a href="mailto:customerservice@cookiesbyjackie.com">customerservice@cookiesbyjackie.com</a>.</p>
-
-                    <h3>9. Derechos de Privacidad en California (CCPA)</h3>
-                    <p>Si es residente de California, tiene los siguientes derechos bajo la Ley de Privacidad del Consumidor de California (CCPA):</p>
-                    <ul>
-                        <li><strong>Derecho a saber:</strong> solicitar la divulgación de las categorías e información personal específica que hemos recopilado, utilizado o compartido.</li>
-                        <li><strong>Derecho a eliminar:</strong> solicitar la supresión de la información personal que hemos recopilado sobre usted.</li>
-                        <li><strong>Derecho de exclusión de la venta:</strong> no vendemos su información personal a terceros.</li>
-                        <li><strong>Derecho a la no discriminación:</strong> no le discriminaremos por ejercer ninguno de sus derechos de privacidad.</li>
-                    </ul>
-                    <p>Para enviar una solicitud CCPA, contáctenos en <a href="mailto:customerservice@cookiesbyjackie.com">customerservice@cookiesbyjackie.com</a>. Responderemos en un plazo de 45 días naturales.</p>
-
-                    <h3>10. Cookies</h3>
-                    <p>Utilizamos únicamente cookies estrictamente necesarias para el funcionamiento del sitio web (por ejemplo, el estado de la sesión del carrito de la compra). No empleamos cookies de publicidad ni de seguimiento conductual. Stripe puede utilizar cookies y tecnologías similares en las páginas de pago para prevenir el fraude y mejorar la seguridad del mismo, conforme a su propia política de cookies.</p>
-
-                    <h3>11. Privacidad de los Menores</h3>
-                    <p>Nuestro sitio web no está dirigido a menores de 13 años. No recopilamos conscientemente datos personales de niños. Si considera que hemos recopilado información de un menor de forma inadvertida, le rogamos que se ponga en contacto con nosotros de inmediato.</p>
-
-                    <h3>12. Cambios en Esta Política</h3>
-                    <p>Podemos actualizar esta Política de Privacidad periódicamente. La fecha de "Última actualización" en la parte superior de este documento refleja la revisión más reciente. El uso continuado de nuestro sitio web tras cualquier cambio implica su aceptación de la política actualizada.</p>
-
-                    <hr>
-
-                    <h3>13. Contáctenos</h3>
-                    <p><strong>Cookies by Jackie</strong><br>
-                    Columbus Circle Underground Market<br>
-                    New York, NY 10019<br>
-                    <a href="mailto:customerservice@cookiesbyjackie.com">customerservice@cookiesbyjackie.com</a><br>
-                    <a href="tel:+12123896151">+1 212-389-6151</a></p>
+                    <p>Si nos proporciona su dirección de correo electrónico, su dirección postal o su número de teléfono en línea, es posible que reciba correos, emails o llamadas telefónicas periódicas de nuestra parte con información que pueda ser de su interés respecto a nuevos productos, servicios o próximos artículos de interés especial. Si no desea recibir correos electrónicos de nuestra parte, háganoslo saber por correo electrónico a <a href="mailto:customerservice@cookiesbyjackie.com">customerservice@cookiesbyjackie.com</a>. Si no desea recibir correspondencia postal ni llamadas telefónicas de nuestra parte, háganoslo saber enviando una carta con su nombre y dirección exactos a Cookies by Jackie, Columbus Circle, Underground Turnstyle Market, 1000 S 8th Ave, New York, NY 10019. Eliminaremos con prontitud sus direcciones y números de teléfono de nuestras listas.</p>
                 </div>
 
             </div><!-- /policy-modal-body -->
         </div><!-- /policy-modal -->
     </div><!-- /policy-modal-overlay -->
 
-    <!-- ===== MODAL: REEMBOLSOS, DEVOLUCIONES Y CANCELACIONES ===== -->
-    <div class="policy-modal-overlay" id="refund-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="refund-modal-title">
-        <div class="policy-modal">
 
-            <div class="policy-modal-header">
-                <h2 id="refund-modal-title">Refunds &amp; Cancellations / Reembolsos y Cancelaciones</h2>
-                <button class="policy-modal-close" id="refund-modal-close" aria-label="Close">&times;</button>
-            </div>
-
-            <div class="policy-modal-body">
-
-                <!-- ── ENGLISH VERSION ─────────────────────────────── -->
-                <div class="policy-lang" data-policy-lang="en">
-                    <p class="policy-updated">Last updated: June 2025 &nbsp;·&nbsp; <em>Values marked with ★ are subject to confirmation by the business.</em></p>
-
-                    <h3>1. Scope</h3>
-                    <p>This policy applies to all purchases made directly through our website processed via Stripe. Orders placed through <strong>Uber Eats</strong> are subject exclusively to <a href="https://www.ubereats.com/legal" target="_blank" rel="noopener">UberEats' refund policy</a> and must be resolved through their platform.</p>
-
-                    <h3>2. Perishable Goods &amp; Food Safety</h3>
-                    <p>All of our products are freshly baked, handcrafted perishable goods. Due to food safety regulations, <strong>we do not accept physical returns of food products</strong> once they have left our premises. This applies regardless of the reason for the return request.</p>
-                    <p>However, your satisfaction is our priority. If there is a verifiable issue with your order, we will make it right through the remedies described below.</p>
-
-                    <h3>3. Eligibility for Refund or Replacement</h3>
-                    <p>You may be entitled to a full or partial refund, or a replacement order, in the following circumstances:</p>
-                    <ul>
-                        <li>You received the wrong items.</li>
-                        <li>Your order arrived significantly damaged (not due to improper storage after delivery).</li>
-                        <li>There is a verifiable food quality issue (foreign objects, spoilage before the expected shelf life).</li>
-                    </ul>
-                    <p><strong>To submit a claim, you must:</strong></p>
-                    <ul>
-                        <li>Contact us at <a href="mailto:customerservice@cookiesbyjackie.com">customerservice@cookiesbyjackie.com</a> within <strong>★ 24 hours</strong> of receiving your order.</li>
-                        <li>Provide your order number and at least one clear photograph of the issue.</li>
-                    </ul>
-                    <p>Claims submitted after the 24-hour window, or without photographic evidence, may not be eligible for a refund.</p>
-
-                    <h3>4. Refund Process &amp; Timelines</h3>
-                    <p>Once your claim is approved, we will offer one of the following remedies at our discretion:</p>
-                    <ul>
-                        <li><strong>Full refund</strong> to your original payment method.</li>
-                        <li><strong>Partial refund</strong> for partially affected orders.</li>
-                        <li><strong>Store credit</strong> for a future order (valid for ★ 90 days).</li>
-                        <li><strong>Replacement order</strong> at no additional charge.</li>
-                    </ul>
-                    <p>Approved refunds are processed within <strong>★ 5–7 business days</strong>. Depending on your bank or card issuer, the credit may take an additional 3–5 business days to appear on your statement. Refunds are always issued to the original payment method used at checkout.</p>
-
-                    <h3>5. Order Cancellations</h3>
-                    <p><strong>Standard orders</strong> (cookies, pastries, cupcakes, macarons, pies):</p>
-                    <ul>
-                        <li>Cancellations made at least <strong>★ 24 hours before</strong> the scheduled pickup or delivery time are eligible for a full refund.</li>
-                        <li>Same-day cancellations (less than 24 hours before fulfillment) are <strong>not eligible for a refund</strong>, as products are baked fresh to order.</li>
-                    </ul>
-                    <p><strong>Custom and specialty orders</strong> (custom cakes, large event orders, catering):</p>
-                    <ul>
-                        <li>Cancellations made <strong>★ 72 hours or more before</strong> the scheduled date: full refund.</li>
-                        <li>Cancellations made between <strong>★ 24–72 hours</strong> before: ★ 50% refund.</li>
-                        <li>Cancellations made <strong>less than 24 hours</strong> before: no refund, as ingredients and labor have already been committed.</li>
-                    </ul>
-
-                    <h3>6. Subscription Cancellations</h3>
-                    <p>If Cookies by Jackie offers recurring subscription products (e.g., weekly cookie boxes, Cookie Club membership), the following terms apply:</p>
-                    <ul>
-                        <li>Subscriptions may be cancelled at any time through your account or by emailing <a href="mailto:customerservice@cookiesbyjackie.com">customerservice@cookiesbyjackie.com</a>.</li>
-                        <li>To avoid being charged for the next billing cycle, cancellation must be submitted at least <strong>★ 48 hours before</strong> your next scheduled billing date.</li>
-                        <li>Cancellations made after the billing date has passed will take effect at the end of the current billing period. <strong>No prorated refunds</strong> are issued for the current active period.</li>
-                        <li>All subscription cancellations will be confirmed via email.</li>
-                    </ul>
-
-                    <h3>7. Return Shipping &amp; Logistics</h3>
-                    <p>Because we sell perishable food items, <strong>no physical return shipments are accepted or required</strong>. Do not ship products back to us.</p>
-                    <p>For any non-food merchandise (gift packaging, branded items), returns are accepted within <strong>★ 14 days</strong> of receipt, provided the item is unused and in its original packaging. In such cases:</p>
-                    <ul>
-                        <li>If the return is due to our error (wrong or defective item): we cover return shipping costs.</li>
-                        <li>If the return is due to a change of mind: the customer is responsible for return shipping costs.</li>
-                    </ul>
-
-                    <h3>8. Non-Refundable Items</h3>
-                    <p>The following are not eligible for refunds under any circumstances:</p>
-                    <ul>
-                        <li>Delivery fees and service charges.</li>
-                        <li>Custom orders where production has already begun.</li>
-                        <li>Gift cards and store credits.</li>
-                        <li>Orders placed through third-party platforms (Uber Eats).</li>
-                        <li>Products showing signs of mishandling, improper storage, or consumption after delivery.</li>
-                    </ul>
-
-                    <h3>9. Chargebacks &amp; Payment Disputes</h3>
-                    <p>We strongly encourage you to contact us directly before initiating a chargeback with your bank or card issuer. Most issues can be resolved quickly at <a href="mailto:customerservice@cookiesbyjackie.com">customerservice@cookiesbyjackie.com</a>.</p>
-                    <p><strong>Our dispute process:</strong></p>
-                    <ul>
-                        <li>We will respond to all customer dispute inquiries within <strong>★ 7 business days</strong>.</li>
-                        <li>If a chargeback is filed with your card network (Visa, Mastercard, Amex, etc.) without prior contact, we reserve the right to contest the dispute and submit all available evidence, including order confirmation, delivery records, and communication logs, in accordance with applicable card network rules.</li>
-                        <li>Under standard card network rules, disputes may be raised within <strong>120 days</strong> of the transaction date (timeframes vary by network).</li>
-                        <li>Chargebacks filed for orders that were delivered as described and meet our quality standards, without prior complaint, may be treated as fraud and reported accordingly.</li>
-                    </ul>
-                    <p>To protect both parties, we recommend keeping all order confirmations and communication records.</p>
-
-                    <h3>10. Contact Us</h3>
-                    <p><strong>Cookies by Jackie</strong><br>
-                    Columbus Circle Underground Market<br>
-                    New York, NY 10019<br>
-                    <a href="mailto:customerservice@cookiesbyjackie.com">customerservice@cookiesbyjackie.com</a><br>
-                    <a href="tel:+12123896151">+1 212-389-6151</a></p>
-                </div>
-
-                <!-- ── VERSIÓN EN ESPAÑOL ───────────────────────────── -->
-                <div class="policy-lang" data-policy-lang="es" style="display:none;">
-                    <p class="policy-updated">Última actualización: junio 2025 &nbsp;·&nbsp; <em>Los valores marcados con ★ están sujetos a confirmación por parte del negocio.</em></p>
-
-                    <h3>1. Ámbito de Aplicación</h3>
-                    <p>Esta política aplica a todas las compras realizadas directamente a través de nuestro sitio web procesadas mediante Stripe. Los pedidos realizados a través de <strong>Uber Eats</strong> están sujetos exclusivamente a la <a href="https://www.ubereats.com/legal" target="_blank" rel="noopener">política de reembolsos de UberEats</a> y deben resolverse a través de dicha plataforma.</p>
-
-                    <h3>2. Productos Perecederos y Seguridad Alimentaria</h3>
-                    <p>Todos nuestros productos son recién horneados, artesanales y perecederos. Por razones de seguridad alimentaria, <strong>no aceptamos devoluciones físicas de productos alimenticios</strong> una vez que han salido de nuestras instalaciones, independientemente del motivo de la solicitud.</p>
-                    <p>Sin embargo, su satisfacción es nuestra prioridad. Si existe un problema verificable con su pedido, lo resolveremos a través de los mecanismos descritos a continuación.</p>
-
-                    <h3>3. Condiciones para Reembolso o Reposición</h3>
-                    <p>Usted puede tener derecho a un reembolso total o parcial, o a un pedido de reposición, en los siguientes casos:</p>
-                    <ul>
-                        <li>Recibió artículos incorrectos.</li>
-                        <li>Su pedido llegó significativamente dañado (no como consecuencia de un almacenamiento inadecuado tras la entrega).</li>
-                        <li>Existe un problema de calidad alimentaria verificable (cuerpos extraños, deterioro antes de la vida útil esperada).</li>
-                    </ul>
-                    <p><strong>Para presentar una reclamación, debe:</strong></p>
-                    <ul>
-                        <li>Contactarnos en <a href="mailto:customerservice@cookiesbyjackie.com">customerservice@cookiesbyjackie.com</a> dentro de las <strong>★ 24 horas</strong> siguientes a la recepción del pedido.</li>
-                        <li>Proporcionar su número de pedido y al menos una fotografía clara del problema.</li>
-                    </ul>
-                    <p>Las reclamaciones presentadas fuera del plazo de 24 horas o sin evidencia fotográfica pueden no ser elegibles para reembolso.</p>
-
-                    <h3>4. Proceso de Reembolso y Plazos</h3>
-                    <p>Una vez aprobada su reclamación, ofreceremos una de las siguientes soluciones a nuestra discreción:</p>
-                    <ul>
-                        <li><strong>Reembolso total</strong> al método de pago original.</li>
-                        <li><strong>Reembolso parcial</strong> para pedidos parcialmente afectados.</li>
-                        <li><strong>Crédito en tienda</strong> para un pedido futuro (válido por ★ 90 días).</li>
-                        <li><strong>Pedido de reposición</strong> sin coste adicional.</li>
-                    </ul>
-                    <p>Los reembolsos aprobados se procesan en un plazo de <strong>★ 5–7 días hábiles</strong>. Dependiendo de su banco o entidad emisora, el crédito puede tardar entre 3 y 5 días hábiles adicionales en aparecer en su extracto. Los reembolsos siempre se emiten al método de pago original utilizado en el momento de la compra.</p>
-
-                    <h3>5. Cancelación de Pedidos</h3>
-                    <p><strong>Pedidos estándar</strong> (galletas, pasteles, cupcakes, macarons, tartas):</p>
-                    <ul>
-                        <li>Las cancelaciones realizadas al menos <strong>★ 24 horas antes</strong> de la hora de recogida o entrega programada son elegibles para un reembolso completo.</li>
-                        <li>Las cancelaciones el mismo día (menos de 24 horas antes) <strong>no son elegibles para reembolso</strong>, ya que los productos se hornean frescos bajo pedido.</li>
-                    </ul>
-                    <p><strong>Pedidos personalizados y especiales</strong> (pasteles personalizados, grandes pedidos para eventos, catering):</p>
-                    <ul>
-                        <li>Cancelaciones realizadas <strong>★ 72 horas o más antes</strong> de la fecha programada: reembolso completo.</li>
-                        <li>Cancelaciones realizadas entre <strong>★ 24 y 72 horas</strong> antes: ★ reembolso del 50%.</li>
-                        <li>Cancelaciones realizadas <strong>menos de 24 horas</strong> antes: sin reembolso, ya que los ingredientes y la mano de obra ya han sido comprometidos.</li>
-                    </ul>
-
-                    <h3>6. Rescisión de Suscripciones</h3>
-                    <p>Si Cookies by Jackie ofrece productos de suscripción recurrente (p. ej., cajas de galletas semanales, membresía Cookie Club), se aplican los siguientes términos:</p>
-                    <ul>
-                        <li>Las suscripciones pueden cancelarse en cualquier momento a través de su cuenta o enviando un correo a <a href="mailto:customerservice@cookiesbyjackie.com">customerservice@cookiesbyjackie.com</a>.</li>
-                        <li>Para evitar el cargo del siguiente ciclo de facturación, la cancelación debe realizarse al menos <strong>★ 48 horas antes</strong> de su próxima fecha de facturación.</li>
-                        <li>Las cancelaciones realizadas después de la fecha de facturación surtirán efecto al final del período de facturación vigente. <strong>No se realizan reembolsos prorrateados</strong> por el período activo en curso.</li>
-                        <li>Todas las cancelaciones de suscripción serán confirmadas por correo electrónico.</li>
-                    </ul>
-
-                    <h3>7. Logística de Devolución y Gastos de Envío Inverso</h3>
-                    <p>Dado que vendemos productos alimenticios perecederos, <strong>no se aceptan ni se exigen devoluciones físicas de envío</strong>. No nos envíe productos de vuelta.</p>
-                    <p>Para cualquier mercancía no alimentaria (packaging de regalo, artículos de marca), se aceptan devoluciones dentro de los <strong>★ 14 días</strong> siguientes a la recepción, siempre que el artículo esté sin usar y en su embalaje original. En tal caso:</p>
-                    <ul>
-                        <li>Si la devolución se debe a un error nuestro (artículo incorrecto o defectuoso): nosotros asumimos los gastos de envío inverso.</li>
-                        <li>Si la devolución se debe a un cambio de opinión: el cliente es responsable de los gastos de envío de devolución.</li>
-                    </ul>
-
-                    <h3>8. Artículos No Reembolsables</h3>
-                    <p>Los siguientes conceptos no son elegibles para reembolso bajo ninguna circunstancia:</p>
-                    <ul>
-                        <li>Gastos de envío y cargos por servicio.</li>
-                        <li>Pedidos personalizados cuya producción ya ha comenzado.</li>
-                        <li>Tarjetas de regalo y créditos en tienda.</li>
-                        <li>Pedidos realizados a través de plataformas de terceros (Uber Eats).</li>
-                        <li>Productos que muestren señales de manipulación indebida, almacenamiento incorrecto o consumo parcial tras la entrega.</li>
-                    </ul>
-
-                    <h3>9. Contracargos y Disputas de Pago</h3>
-                    <p>Le recomendamos encarecidamente que se ponga en contacto con nosotros directamente antes de iniciar un contracargo (chargeback) con su banco o entidad emisora de la tarjeta. La mayoría de los problemas pueden resolverse rápidamente en <a href="mailto:customerservice@cookiesbyjackie.com">customerservice@cookiesbyjackie.com</a>.</p>
-                    <p><strong>Nuestro proceso de disputas:</strong></p>
-                    <ul>
-                        <li>Responderemos a todas las consultas de disputa de clientes en un plazo de <strong>★ 7 días hábiles</strong>.</li>
-                        <li>Si se presenta un contracargo ante su red de tarjetas (Visa, Mastercard, Amex, etc.) sin contacto previo, nos reservamos el derecho de impugnar la disputa y presentar toda la evidencia disponible, incluyendo confirmación del pedido, registros de entrega y comunicaciones, conforme a las normas aplicables de las redes de tarjetas.</li>
-                        <li>Según las normas estándar de las redes de tarjetas, las disputas pueden plantearse dentro de los <strong>120 días</strong> posteriores a la fecha de la transacción (los plazos varían según la red).</li>
-                        <li>Los contracargos presentados por pedidos entregados tal como se describieron y que cumplan nuestros estándares de calidad, sin queja previa, podrán ser tratados como fraude y reportados en consecuencia.</li>
-                    </ul>
-                    <p>Para proteger a ambas partes, recomendamos conservar todas las confirmaciones de pedido y registros de comunicación.</p>
-
-                    <h3>10. Contáctenos</h3>
-                    <p><strong>Cookies by Jackie</strong><br>
-                    Columbus Circle Underground Market<br>
-                    New York, NY 10019<br>
-                    <a href="mailto:customerservice@cookiesbyjackie.com">customerservice@cookiesbyjackie.com</a><br>
-                    <a href="tel:+12123896151">+1 212-389-6151</a></p>
-                </div>
-
-            </div><!-- /policy-modal-body -->
-        </div><!-- /policy-modal -->
-    </div><!-- /refund-modal-overlay -->
-
-    <!-- ===== MODAL: ENVÍOS Y ENTREGAS ===== -->
-    <div class="policy-modal-overlay" id="shipping-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="shipping-modal-title">
-        <div class="policy-modal">
-
-            <div class="policy-modal-header">
-                <h2 id="shipping-modal-title">Shipping &amp; Delivery / Envíos y Entregas</h2>
-                <button class="policy-modal-close" id="shipping-modal-close" aria-label="Close">&times;</button>
-            </div>
-
-            <div class="policy-modal-body">
-
-                <!-- ── ENGLISH VERSION ─────────────────────────────── -->
-                <div class="policy-lang" data-policy-lang="en">
-                    <p class="policy-updated">Last updated: June 2025 &nbsp;·&nbsp; <em>Values marked with ★ are subject to confirmation by the business.</em></p>
-
-                    <h3>1. Delivery Methods Overview</h3>
-                    <p>Cookies by Jackie offers the following fulfillment options:</p>
-                    <ul>
-                        <li><strong>In-store pickup</strong> — Columbus Circle Underground Market, New York, NY 10019.</li>
-                        <li><strong>Local NYC delivery</strong> — via <a href="https://www.ubereats.com/store/cookies-by-jackie/unP0-ZwaV229nPo_rFi9_A" target="_blank" rel="noopener">Uber Eats</a> or direct courier.</li>
-                        <li><strong>★ Nationwide shipping</strong> — available to the contiguous 48 U.S. states.</li>
-                    </ul>
-                    <p>Orders placed through <strong>Uber Eats</strong> are fulfilled and delivered exclusively through their platform and are subject to their delivery terms. The remainder of this policy applies only to orders placed directly through our website and processed via Stripe.</p>
-
-                    <h3>2. In-Store Pickup</h3>
-                    <ul>
-                        <li><strong>Location:</strong> Columbus Circle Underground Market, New York, NY 10019.</li>
-                        <li><strong>Store hours:</strong> Monday–Sunday, 7:00 AM – 10:00 PM.</li>
-                        <li><strong>★ Same-day pickup:</strong> available for orders placed by <strong>12:00 PM noon</strong>. Orders placed after noon will be ready the following business day.</li>
-                        <li>Upon placing your order, you will receive an <strong>email confirmation</strong> with your pickup details and estimated ready time. Please bring this confirmation (digital or printed) when collecting your order.</li>
-                        <li>Uncollected orders will be held for <strong>★ 24 hours</strong>. After this window, perishable items cannot be guaranteed and no refund will be issued.</li>
-                    </ul>
-
-                    <h3>3. Local NYC Delivery</h3>
-                    <p><strong>Via Uber Eats (recommended for immediate delivery):</strong></p>
-                    <ul>
-                        <li>Coverage area, delivery fees, and estimated times are determined by Uber Eats at checkout.</li>
-                        <li>Typically delivers within <strong>★ 30–60 minutes</strong> within the standard coverage area.</li>
-                        <li>Delivery fees and promotions are managed entirely by Uber Eats.</li>
-                    </ul>
-                    <p><strong>★ Via direct website order (courier):</strong></p>
-                    <ul>
-                        <li>Coverage: <strong>★ Manhattan and select areas of Brooklyn and Queens</strong> within approximately ★ 10 miles of Columbus Circle.</li>
-                        <li>Estimated delivery: <strong>★ same day</strong> (orders placed by 12:00 PM) or <strong>★ next business day</strong>.</li>
-                        <li>Delivery fee: <strong>★ $5.99</strong>, waived on orders over <strong>★ $45</strong>.</li>
-                        <li>A delivery confirmation notification will be sent once your order is on its way and upon delivery.</li>
-                    </ul>
-
-                    <h3>4. ★ Nationwide Shipping</h3>
-                    <p>We ship to all <strong>★ 48 contiguous U.S. states</strong>. Shipping to Alaska, Hawaii, and U.S. territories is currently unavailable due to transit time restrictions for perishable goods.</p>
-                    <ul>
-                        <li><strong>Carrier:</strong> ★ USPS Priority Mail, UPS, or FedEx — determined at fulfillment based on destination and best available rate.</li>
-                        <li><strong>Estimated transit time:</strong> ★ 2–5 business days after dispatch.</li>
-                        <li><strong>Dispatch days:</strong> ★ Monday through Wednesday only, to avoid shipments sitting in transit over weekends and to protect product freshness.</li>
-                        <li><strong>Packaging:</strong> all shipped orders use insulated packaging with ice packs or dry ice as appropriate to maintain food safety during transit.</li>
-                        <li><strong>Shipping rates:</strong> calculated at checkout based on order weight, destination, and selected carrier.</li>
-                        <li><strong>★ Free shipping</strong> on orders over <strong>★ $65</strong>.</li>
-                    </ul>
-                    <p>We are not responsible for delays caused by the carrier, weather conditions, or incorrect addresses provided by the customer. However, we will assist in filing a carrier claim on your behalf if applicable.</p>
-
-                    <h3>5. Delivery Timeframes Summary</h3>
-                    <table style="width:100%; border-collapse:collapse; font-size:0.88rem; margin-bottom:0.8rem;">
-                        <thead>
-                            <tr style="background:rgba(0,0,0,0.04); text-align:left;">
-                                <th style="padding:0.5rem 0.7rem; font-family:var(--font-heading); font-size:0.75rem; letter-spacing:0.05em; text-transform:uppercase;">Method</th>
-                                <th style="padding:0.5rem 0.7rem; font-family:var(--font-heading); font-size:0.75rem; letter-spacing:0.05em; text-transform:uppercase;">Coverage</th>
-                                <th style="padding:0.5rem 0.7rem; font-family:var(--font-heading); font-size:0.75rem; letter-spacing:0.05em; text-transform:uppercase;">Timeframe ★</th>
-                                <th style="padding:0.5rem 0.7rem; font-family:var(--font-heading); font-size:0.75rem; letter-spacing:0.05em; text-transform:uppercase;">Fee ★</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr style="border-top:1px solid rgba(0,0,0,0.06);">
-                                <td style="padding:0.5rem 0.7rem;">In-store pickup</td>
-                                <td style="padding:0.5rem 0.7rem;">Columbus Circle</td>
-                                <td style="padding:0.5rem 0.7rem;">Same day (by noon)</td>
-                                <td style="padding:0.5rem 0.7rem;">Free</td>
-                            </tr>
-                            <tr style="border-top:1px solid rgba(0,0,0,0.06); background:rgba(0,0,0,0.02);">
-                                <td style="padding:0.5rem 0.7rem;">Uber Eats</td>
-                                <td style="padding:0.5rem 0.7rem;">NYC metro</td>
-                                <td style="padding:0.5rem 0.7rem;">30–60 min</td>
-                                <td style="padding:0.5rem 0.7rem;">Set by Uber Eats</td>
-                            </tr>
-                            <tr style="border-top:1px solid rgba(0,0,0,0.06);">
-                                <td style="padding:0.5rem 0.7rem;">Local courier</td>
-                                <td style="padding:0.5rem 0.7rem;">Manhattan + select areas</td>
-                                <td style="padding:0.5rem 0.7rem;">Same / next day</td>
-                                <td style="padding:0.5rem 0.7rem;">$5.99 (free over $45)</td>
-                            </tr>
-                            <tr style="border-top:1px solid rgba(0,0,0,0.06); background:rgba(0,0,0,0.02);">
-                                <td style="padding:0.5rem 0.7rem;">Nationwide shipping</td>
-                                <td style="padding:0.5rem 0.7rem;">48 contiguous states</td>
-                                <td style="padding:0.5rem 0.7rem;">2–5 business days</td>
-                                <td style="padding:0.5rem 0.7rem;">Calculated at checkout (free over $65)</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <h3>6. Order Tracking &amp; Confirmation</h3>
-                    <p>For every order placed through our website, you will receive:</p>
-                    <ul>
-                        <li><strong>Order confirmation email</strong> immediately after purchase — includes order number, itemized summary, amount charged, and estimated fulfillment date.</li>
-                        <li><strong>Dispatch notification</strong> once your order has been handed to the carrier or courier, including a <strong>tracking number</strong> and carrier link.</li>
-                        <li><strong>Delivery confirmation</strong> notification upon successful delivery.</li>
-                    </ul>
-                    <p>Please ensure the email address provided at checkout is accurate. We are not responsible for non-delivery of notifications caused by incorrect email addresses, spam filters, or inbox issues.</p>
-
-                    <h3>7. Address Accuracy &amp; Delivery Failures</h3>
-                    <p>The customer is solely responsible for providing a complete and accurate delivery address at checkout.</p>
-                    <ul>
-                        <li>If a shipment is returned to us due to an <strong>incorrect or incomplete address</strong>, we will contact you to arrange re-delivery. Re-shipping costs are the customer's responsibility.</li>
-                        <li>If a delivery attempt fails because <strong>no one was available</strong> to receive the order, the carrier will follow their standard re-delivery procedure. For perishable items, we strongly recommend ensuring someone is available to receive the delivery.</li>
-                        <li>We are not responsible for orders lost or damaged after successful delivery confirmation (e.g., stolen from doorstep).</li>
-                    </ul>
-
-                    <h3>8. Perishable Items &amp; Temperature Conditions</h3>
-                    <p>All of our products are made with fresh, natural ingredients. To maintain quality:</p>
-                    <ul>
-                        <li>Refrigerate items upon receipt if not consuming immediately.</li>
-                        <li>Cookies and pastries are best consumed within <strong>★ 3–5 days</strong> of delivery.</li>
-                        <li>Cakes, cheesecakes, and refrigerated items should be consumed within <strong>★ 2–3 days</strong>.</li>
-                    </ul>
-                    <p>We are not responsible for quality degradation resulting from delayed receipt, improper storage after delivery, or exposure to extreme temperatures outside of our packaging window.</p>
-
-                    <h3>9. "Item Not Received" (INR) Claims &amp; Chargeback Protection</h3>
-                    <p>To protect all parties, we maintain complete documentation for every order. In the event of an "item not received" dispute:</p>
-                    <ul>
-                        <li><strong>Contact us first:</strong> before filing a dispute with your bank or card network, please email us at <a href="mailto:customerservice@cookiesbyjackie.com">customerservice@cookiesbyjackie.com</a> within <strong>★ 7 days</strong> of the expected delivery date. Most INR cases can be resolved quickly.</li>
-                        <li><strong>Evidence we retain</strong> for every order: order confirmation with timestamp, payment receipt, shipping label and carrier tracking number, carrier delivery scan/confirmation, and any available delivery photo or GPS confirmation.</li>
-                        <li><strong>★ Signature requirement:</strong> orders over <strong>★ $75</strong> may require a signature upon delivery at our discretion, providing additional proof of receipt.</li>
-                        <li>If carrier tracking confirms <strong>successful delivery</strong> to the provided address, and the customer files an INR chargeback without prior contact, we reserve the right to contest the dispute with the above documentation in accordance with applicable card network rules (Visa, Mastercard, Amex).</li>
-                        <li>For genuine carrier loss or non-delivery confirmed by the carrier, we will issue a full replacement or refund without requiring a chargeback.</li>
-                    </ul>
-
-                    <h3>10. Contact Us</h3>
-                    <p><strong>Cookies by Jackie</strong><br>
-                    Columbus Circle Underground Market<br>
-                    New York, NY 10019<br>
-                    <a href="mailto:customerservice@cookiesbyjackie.com">customerservice@cookiesbyjackie.com</a><br>
-                    <a href="tel:+12123896151">+1 212-389-6151</a></p>
-                </div>
-
-                <!-- ── VERSIÓN EN ESPAÑOL ───────────────────────────── -->
-                <div class="policy-lang" data-policy-lang="es" style="display:none;">
-                    <p class="policy-updated">Última actualización: junio 2025 &nbsp;·&nbsp; <em>Los valores marcados con ★ están sujetos a confirmación por parte del negocio.</em></p>
-
-                    <h3>1. Métodos de Entrega Disponibles</h3>
-                    <p>Cookies by Jackie ofrece las siguientes modalidades de entrega:</p>
-                    <ul>
-                        <li><strong>Recogida en tienda</strong> — Columbus Circle Underground Market, New York, NY 10019.</li>
-                        <li><strong>Entrega local en NYC</strong> — a través de <a href="https://www.ubereats.com/store/cookies-by-jackie/unP0-ZwaV229nPo_rFi9_A" target="_blank" rel="noopener">Uber Eats</a> o mensajero directo.</li>
-                        <li><strong>★ Envío nacional</strong> — disponible para los 48 estados contiguos de EE. UU.</li>
-                    </ul>
-                    <p>Los pedidos realizados a través de <strong>Uber Eats</strong> son gestionados y entregados exclusivamente a través de su plataforma y están sujetos a sus propios términos de entrega. El resto de esta política aplica únicamente a pedidos realizados directamente en nuestro sitio web procesados mediante Stripe.</p>
-
-                    <h3>2. Recogida en Tienda</h3>
-                    <ul>
-                        <li><strong>Ubicación:</strong> Columbus Circle Underground Market, New York, NY 10019.</li>
-                        <li><strong>Horario:</strong> lunes a domingo, 7:00 AM – 10:00 PM.</li>
-                        <li><strong>★ Recogida el mismo día:</strong> disponible para pedidos realizados antes de las <strong>12:00 PM</strong>. Los pedidos realizados después del mediodía estarán listos al siguiente día hábil.</li>
-                        <li>Tras realizar su pedido, recibirá un <strong>correo de confirmación</strong> con los detalles de recogida y la hora estimada de preparación. Le rogamos que presente esta confirmación (digital o impresa) al recoger su pedido.</li>
-                        <li>Los pedidos no recogidos se conservarán durante <strong>★ 24 horas</strong>. Transcurrido este plazo, no podemos garantizar la calidad de los productos perecederos y no se emitirá reembolso.</li>
-                    </ul>
-
-                    <h3>3. Entrega Local en NYC</h3>
-                    <p><strong>A través de Uber Eats (recomendado para entrega inmediata):</strong></p>
-                    <ul>
-                        <li>La cobertura, las tarifas y los tiempos estimados son gestionados por Uber Eats en el momento del pedido.</li>
-                        <li>Entrega habitual en <strong>★ 30–60 minutos</strong> dentro del área de cobertura estándar.</li>
-                    </ul>
-                    <p><strong>★ A través de pedido directo en el sitio web (mensajero):</strong></p>
-                    <ul>
-                        <li>Cobertura: <strong>★ Manhattan y zonas seleccionadas de Brooklyn y Queens</strong> en un radio aproximado de ★ 10 millas desde Columbus Circle.</li>
-                        <li>Entrega estimada: <strong>★ mismo día</strong> (pedidos antes de las 12:00 PM) o <strong>★ siguiente día hábil</strong>.</li>
-                        <li>Tarifa de entrega: <strong>★ $5.99</strong>, gratis en pedidos superiores a <strong>★ $45</strong>.</li>
-                        <li>Recibirá una notificación de entrega en camino y otra de entrega completada.</li>
-                    </ul>
-
-                    <h3>4. ★ Envío Nacional</h3>
-                    <p>Realizamos envíos a los <strong>★ 48 estados contiguos de EE. UU.</strong> Los envíos a Alaska, Hawái y territorios de EE. UU. no están disponibles actualmente por restricciones de tiempo de tránsito para productos perecederos.</p>
-                    <ul>
-                        <li><strong>Operador de transporte:</strong> ★ USPS Priority Mail, UPS o FedEx — determinado en el momento del envío según el destino y la mejor tarifa disponible.</li>
-                        <li><strong>Tiempo estimado de tránsito:</strong> ★ 2–5 días hábiles desde el despacho.</li>
-                        <li><strong>Días de envío:</strong> ★ exclusivamente de lunes a miércoles, para evitar que los pedidos queden en tránsito durante el fin de semana y proteger la frescura del producto.</li>
-                        <li><strong>Embalaje:</strong> todos los pedidos enviados utilizan embalaje isotérmico con acumuladores de frío o hielo seco según corresponda para mantener la seguridad alimentaria durante el transporte.</li>
-                        <li><strong>Tarifas de envío:</strong> calculadas en el momento del pago según el peso del pedido, el destino y el operador seleccionado.</li>
-                        <li><strong>★ Envío gratuito</strong> en pedidos superiores a <strong>★ $65</strong>.</li>
-                    </ul>
-                    <p>No nos hacemos responsables de retrasos ocasionados por el transportista, condiciones meteorológicas o direcciones incorrectas facilitadas por el cliente. Sin embargo, le asistiremos en la presentación de una reclamación ante el transportista cuando corresponda.</p>
-
-                    <h3>5. Resumen de Plazos de Entrega</h3>
-                    <table style="width:100%; border-collapse:collapse; font-size:0.88rem; margin-bottom:0.8rem;">
-                        <thead>
-                            <tr style="background:rgba(0,0,0,0.04); text-align:left;">
-                                <th style="padding:0.5rem 0.7rem; font-family:var(--font-heading); font-size:0.75rem; letter-spacing:0.05em; text-transform:uppercase;">Método</th>
-                                <th style="padding:0.5rem 0.7rem; font-family:var(--font-heading); font-size:0.75rem; letter-spacing:0.05em; text-transform:uppercase;">Cobertura</th>
-                                <th style="padding:0.5rem 0.7rem; font-family:var(--font-heading); font-size:0.75rem; letter-spacing:0.05em; text-transform:uppercase;">Plazo ★</th>
-                                <th style="padding:0.5rem 0.7rem; font-family:var(--font-heading); font-size:0.75rem; letter-spacing:0.05em; text-transform:uppercase;">Tarifa ★</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr style="border-top:1px solid rgba(0,0,0,0.06);">
-                                <td style="padding:0.5rem 0.7rem;">Recogida en tienda</td>
-                                <td style="padding:0.5rem 0.7rem;">Columbus Circle</td>
-                                <td style="padding:0.5rem 0.7rem;">Mismo día (antes de mediodía)</td>
-                                <td style="padding:0.5rem 0.7rem;">Gratis</td>
-                            </tr>
-                            <tr style="border-top:1px solid rgba(0,0,0,0.06); background:rgba(0,0,0,0.02);">
-                                <td style="padding:0.5rem 0.7rem;">Uber Eats</td>
-                                <td style="padding:0.5rem 0.7rem;">Área metropolitana NYC</td>
-                                <td style="padding:0.5rem 0.7rem;">30–60 min</td>
-                                <td style="padding:0.5rem 0.7rem;">Gestionado por Uber Eats</td>
-                            </tr>
-                            <tr style="border-top:1px solid rgba(0,0,0,0.06);">
-                                <td style="padding:0.5rem 0.7rem;">Mensajero local</td>
-                                <td style="padding:0.5rem 0.7rem;">Manhattan + áreas seleccionadas</td>
-                                <td style="padding:0.5rem 0.7rem;">Mismo día / día siguiente</td>
-                                <td style="padding:0.5rem 0.7rem;">$5.99 (gratis sobre $45)</td>
-                            </tr>
-                            <tr style="border-top:1px solid rgba(0,0,0,0.06); background:rgba(0,0,0,0.02);">
-                                <td style="padding:0.5rem 0.7rem;">Envío nacional</td>
-                                <td style="padding:0.5rem 0.7rem;">48 estados contiguos</td>
-                                <td style="padding:0.5rem 0.7rem;">2–5 días hábiles</td>
-                                <td style="padding:0.5rem 0.7rem;">Calculado al pagar (gratis sobre $65)</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <h3>6. Seguimiento y Confirmación del Pedido</h3>
-                    <p>Por cada pedido realizado en nuestro sitio web, recibirá:</p>
-                    <ul>
-                        <li><strong>Correo de confirmación del pedido</strong> inmediatamente tras la compra — incluye número de pedido, resumen detallado, importe cobrado y fecha estimada de preparación.</li>
-                        <li><strong>Notificación de despacho</strong> cuando su pedido haya sido entregado al transportista o mensajero, con <strong>número de seguimiento</strong> y enlace al operador.</li>
-                        <li><strong>Confirmación de entrega</strong> una vez completada la entrega.</li>
-                    </ul>
-                    <p>Asegúrese de que el correo electrónico proporcionado en el pago sea correcto. No somos responsables de la no recepción de notificaciones por dirección de correo incorrecta, filtros de spam o problemas del buzón.</p>
-
-                    <h3>7. Exactitud de la Dirección y Entregas Fallidas</h3>
-                    <p>El cliente es el único responsable de proporcionar una dirección de entrega completa y correcta en el momento del pago.</p>
-                    <ul>
-                        <li>Si un envío nos es devuelto por una <strong>dirección incorrecta o incompleta</strong>, le contactaremos para gestionar el reenvío. Los costes de reenvío corren a cargo del cliente.</li>
-                        <li>Si un intento de entrega falla porque <strong>no había nadie disponible</strong> para recibir el pedido, el transportista seguirá su procedimiento estándar de reentrega. Para productos perecederos, recomendamos encarecidamente asegurarse de que alguien pueda recibir el pedido.</li>
-                        <li>No nos responsabilizamos de pedidos perdidos o dañados tras la confirmación de entrega exitosa (p. ej., robados en la puerta).</li>
-                    </ul>
-
-                    <h3>8. Productos Perecederos y Condiciones de Temperatura</h3>
-                    <p>Todos nuestros productos están elaborados con ingredientes frescos y naturales. Para mantener la calidad:</p>
-                    <ul>
-                        <li>Refrigere los productos al recibirlos si no los va a consumir de inmediato.</li>
-                        <li>Las galletas y pasteles tienen su mejor calidad en los <strong>★ 3–5 días</strong> siguientes a la entrega.</li>
-                        <li>Los pasteles, cheesecakes y productos refrigerados deben consumirse en un plazo de <strong>★ 2–3 días</strong>.</li>
-                    </ul>
-                    <p>No nos responsabilizamos del deterioro de la calidad por recepción tardía, almacenamiento inadecuado tras la entrega o exposición a temperaturas extremas fuera de nuestra ventana de embalaje.</p>
-
-                    <h3>9. Reclamaciones por "Artículo No Recibido" y Protección ante Contracargos</h3>
-                    <p>Para proteger a ambas partes, mantenemos documentación completa de cada pedido. Ante una disputa por "artículo no recibido":</p>
-                    <ul>
-                        <li><strong>Contáctenos primero:</strong> antes de presentar una disputa ante su banco o red de tarjetas, escríbanos a <a href="mailto:customerservice@cookiesbyjackie.com">customerservice@cookiesbyjackie.com</a> dentro de los <strong>★ 7 días</strong> siguientes a la fecha de entrega prevista. La mayoría de los casos se resuelven rápidamente.</li>
-                        <li><strong>Documentación que conservamos</strong> por cada pedido: confirmación del pedido con marca de tiempo, recibo de pago, etiqueta de envío y número de seguimiento, escaneo/confirmación de entrega del transportista, y cualquier fotografía o confirmación GPS de entrega disponible.</li>
-                        <li><strong>★ Firma en la entrega:</strong> los pedidos superiores a <strong>★ $75</strong> pueden requerir firma en la entrega a nuestra discreción, proporcionando prueba adicional de recepción.</li>
-                        <li>Si el seguimiento del transportista confirma la <strong>entrega exitosa</strong> en la dirección proporcionada y el cliente presenta un contracargo por "artículo no recibido" sin contacto previo, nos reservamos el derecho a impugnar la disputa con la documentación anterior conforme a las normas aplicables de las redes de tarjetas (Visa, Mastercard, Amex).</li>
-                        <li>En caso de pérdida o no entrega genuina confirmada por el transportista, emitiremos un reembolso completo o un pedido de reposición sin necesidad de contracargo.</li>
-                    </ul>
-
-                    <h3>10. Contáctenos</h3>
-                    <p><strong>Cookies by Jackie</strong><br>
-                    Columbus Circle Underground Market<br>
-                    New York, NY 10019<br>
-                    <a href="mailto:customerservice@cookiesbyjackie.com">customerservice@cookiesbyjackie.com</a><br>
-                    <a href="tel:+12123896151">+1 212-389-6151</a></p>
-                </div>
-
-            </div><!-- /policy-modal-body -->
-        </div><!-- /policy-modal -->
-    </div><!-- /shipping-modal-overlay -->
-
-    <!-- ===== MODAL: TÉRMINOS DEL SERVICIO ===== -->
-    <div class="policy-modal-overlay" id="terms-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="terms-modal-title">
-        <div class="policy-modal">
-
-            <div class="policy-modal-header">
-                <h2 id="terms-modal-title">Terms of Service / Términos del Servicio</h2>
-                <button class="policy-modal-close" id="terms-modal-close" aria-label="Close">&times;</button>
-            </div>
-
-            <div class="policy-modal-body">
-
-                <!-- ── ENGLISH VERSION ─────────────────────────────── -->
-                <div class="policy-lang" data-policy-lang="en">
-                    <p class="policy-updated">Last updated: June 2025 &nbsp;·&nbsp; <em>Values marked with ★ are subject to confirmation by the business.</em></p>
-
-                    <h3>1. Acceptance of Terms</h3>
-                    <p>By accessing our website or placing an order, you agree to be bound by these Terms of Service ("Terms"). If you do not agree with any part of these Terms, please do not use our website or services. These Terms apply to all visitors, customers, and users of the site.</p>
-
-                    <h3>2. Products &amp; Services — Complete Description</h3>
-                    <p>Cookies by Jackie is an artisan bakery offering freshly baked goods made daily with premium ingredients. Our product catalog includes the following categories:</p>
-                    <ul>
-                        <li><strong>Cookies:</strong> individual handcrafted cookies and curated Pick-6 boxes with rotating seasonal and signature flavors (e.g., Chocolate Chip, Red Velvet, Snickerdoodle, Salted Caramel, Oreo, Pistachio, Nutella, Brookie, and more).</li>
-                        <li><strong>Cupcakes:</strong> individual and boxed cupcakes in classic and specialty flavors including Vanilla, Chocolate, Red Velvet, and Carrot, with a choice of buttercream or cream cheese icing.</li>
-                        <li><strong>Macarons:</strong> French-style macarons in assorted flavors including Vanilla, Raspberry, Pistachio, Churro, Tiramisú, Birthday, and Crème Brûlée.</li>
-                        <li><strong>Mini Individual Desserts:</strong> single-serving cakes and cheesecakes including Classic Cheesecake, Red Velvet, Chocolate, Confetti, Carrot, Strawberry, Oreo, Tres Leches, Tiramisú, Fruity Pebbles, Cannoli, Caramel, Chocolate Dipped, and Chocolate Fudge varieties.</li>
-                        <li><strong>Pastries:</strong> artisan pastry items including Cinnamon Rolls, Glazed and specialty Donuts, Brownies, Blueberry Scones, and Banana Bread.</li>
-                        <li><strong>Cakes:</strong> full-size specialty cakes including Chocolate Chip Cookie Cake (10"), Double-Layered Cookie Cake, Chocolate Fudge Brownie Cake, and customizable Naked Cakes available in multiple sizes.</li>
-                        <li><strong>Pies:</strong> seasonal whole pies including Apple Caramel Crumb, Peach Crumb, and Bourbon Pecan Pie (9").</li>
-                        <li><strong>Specialty Packs &amp; Prepacks:</strong> curated assortment boxes including Specialty Cookie 6-pack and 12-pack, Specialty Cupcake 12-pack, Macaron 6-pack and 12-pack, and Mini Cupcake 12-piece packs.</li>
-                    </ul>
-                    <p>All products are made fresh to order with natural ingredients. Product availability may vary by season or day. Images shown are representative; slight visual variations may occur due to the handcrafted nature of our products. We reserve the right to modify our product catalog at any time without prior notice.</p>
-
-                    <h3>3. Pricing &amp; Billing Currency</h3>
-                    <p>All prices displayed on our website are in <strong>United States Dollars (USD)</strong>. Charges are processed exclusively in USD at the time of checkout via Stripe, Inc.</p>
-                    <ul>
-                        <li>Prices are subject to change at any time without prior notice. The price displayed at the time of your order confirmation is the price you will be charged.</li>
-                        <li>★ Applicable sales tax will be calculated and displayed at checkout based on your delivery address and applicable New York State and local tax rates.</li>
-                        <li>Delivery fees (if applicable) are shown separately and included in the total before payment confirmation.</li>
-                        <li><strong>No hidden fees:</strong> the total amount shown on the checkout confirmation screen — including product price, applicable taxes, and delivery fees — is the exact amount that will be charged to your payment method. There are no additional charges after order confirmation.</li>
-                    </ul>
-
-                    <h3>4. Order Process &amp; Confirmation</h3>
-                    <p>An order is not confirmed until you receive a written order confirmation email from us. Receipt of payment does not constitute acceptance of an order; we reserve the right to cancel any order due to product unavailability, pricing errors, or suspected fraudulent activity, in which case a full refund will be issued immediately.</p>
-
-                    <h3>5. Promotions, Discount Codes &amp; Offers</h3>
-                    <p>From time to time, we may offer promotional discounts, coupon codes, or limited-time offers. The following terms apply to all promotions:</p>
-                    <ul>
-                        <li><strong>One use per customer:</strong> promotional codes are valid for a single use per customer unless explicitly stated otherwise.</li>
-                        <li><strong>Expiry:</strong> all promotions have an expiry date which will be clearly communicated at the time the offer is presented. Expired codes will not be applied.</li>
-                        <li><strong>No cash value:</strong> promotional discounts have no cash equivalent and cannot be combined with other offers unless expressly stated.</li>
-                        <li><strong>Not transferable:</strong> promotional codes are personal and non-transferable.</li>
-                        <li><strong>Subject to change:</strong> we reserve the right to modify or cancel any promotion at any time, provided that changes do not affect orders already confirmed.</li>
-                    </ul>
-                    <p><strong>Newsletter subscription:</strong> subscribing to our newsletter ("Cookie Club") grants access to exclusive news, new flavor announcements, and seasonal updates. The newsletter does not include promotional discount codes or any financial benefit. Subscribing does not automatically enroll you in any paid service or recurring charge. See Section 6 for full newsletter terms.</p>
-
-                    <h3>6. Newsletter Subscription ("Cookie Club")</h3>
-                    <p>Our email newsletter, referred to on our website as the "Cookie Club," is a <strong>free, voluntary subscription</strong> to receive news, exclusive flavors, and baking updates from Cookies by Jackie.</p>
-                    <ul>
-                        <li><strong>Opt-in only:</strong> you will only be added to our mailing list if you explicitly submit your email address in the newsletter signup form and confirm your subscription. No pre-selected checkboxes or assumed consent.</li>
-                        <li><strong>What you receive:</strong> promotional emails, seasonal offers, new product announcements, and baking content. Frequency is ★ approximately 1–4 emails per month.</li>
-                        <li><strong>Unsubscribe anytime:</strong> every email includes an unsubscribe link. You may also unsubscribe by emailing <a href="mailto:customerservice@cookiesbyjackie.com">customerservice@cookiesbyjackie.com</a>. Unsubscription takes effect within ★ 5 business days.</li>
-                        <li><strong>No charge:</strong> the newsletter subscription is entirely free. Subscribing does not create any financial obligation or recurring charge.</li>
-                    </ul>
-
-                    <h3>7. ★ Recurring Subscriptions &amp; Trial Periods</h3>
-                    <p>Cookies by Jackie may offer recurring subscription products in the future (e.g., weekly cookie boxes). If and when such products are offered, the following terms will apply and will be clearly disclosed before enrollment:</p>
-                    <ul>
-                        <li>The recurring charge amount, billing frequency, and next billing date will be shown on the product page and at checkout before payment.</li>
-                        <li>No subscription will be activated without your explicit, affirmative consent (no pre-checked boxes, no assumed enrollment).</li>
-                        <li>If a free trial period is offered, its duration, what happens at expiry, and the charge amount after the trial will be clearly stated before you provide payment information.</li>
-                        <li>You may cancel at any time as described in our Refunds &amp; Cancellations policy.</li>
-                    </ul>
-                    <p>As of the date of this policy, <strong>no recurring subscription products are currently active</strong> on our website.</p>
-
-                    <h3>8. Negative Option Marketing — Our Commitment</h3>
-                    <p>We are committed to transparent and honest billing practices. We explicitly prohibit the following practices on our platform:</p>
-                    <ul>
-                        <li><strong>No pre-checked subscription boxes:</strong> we will never enroll you in a recurring paid service via a pre-selected checkbox or by default.</li>
-                        <li><strong>No hidden fees:</strong> all fees (product price, taxes, delivery) are fully disclosed before you confirm your order. No charges will appear on your statement that were not shown at checkout.</li>
-                        <li><strong>No unapproved charges:</strong> your payment method will only be charged for amounts you have explicitly authorized during the checkout process.</li>
-                        <li><strong>No misleading free trials:</strong> if a trial converts to a paid subscription, you will receive clear notice of the conversion date and the amount to be charged at least ★ 7 days in advance.</li>
-                        <li><strong>Easy cancellation:</strong> any subscription or recurring service can be cancelled easily at any time, without calling a phone number or navigating hidden menus.</li>
-                    </ul>
-
-                    <h3>9. Intellectual Property</h3>
-                    <p>All content on this website — including but not limited to product photographs, brand name, logo, text, recipes, and design — is the exclusive intellectual property of Cookies by Jackie and is protected by applicable copyright, trademark, and trade dress laws. Unauthorized reproduction, distribution, or use of any content from this site without prior written consent is strictly prohibited.</p>
-
-                    <h3>10. Limitation of Liability</h3>
-                    <p>To the fullest extent permitted by applicable law, Cookies by Jackie shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of our website or products, including but not limited to loss of profits, data, or goodwill, even if we have been advised of the possibility of such damages. Our total liability for any claim arising from a purchase shall not exceed the amount paid for that specific order.</p>
-                    <p>We are not liable for allergic reactions or dietary concerns. Customers with food allergies must consult with us directly at <a href="mailto:customerservice@cookiesbyjackie.com">customerservice@cookiesbyjackie.com</a> before placing an order. Our products are made in a facility that handles common allergens including gluten, dairy, eggs, tree nuts, and peanuts.</p>
-
-                    <h3>11. Governing Law &amp; Jurisdiction</h3>
-                    <p>These Terms shall be governed by and construed in accordance with the laws of the <strong>State of New York, United States</strong>, without regard to its conflict of law provisions. Any disputes arising under or in connection with these Terms shall be subject to the exclusive jurisdiction of the state and federal courts located in New York County, New York.</p>
-
-                    <h3>12. Changes to These Terms</h3>
-                    <p>We reserve the right to update or modify these Terms at any time. The "Last updated" date at the top of this document reflects the most recent revision. Your continued use of our website following any changes constitutes acceptance of the updated Terms.</p>
-
-                    <hr>
-
-                    <h3>13. Contact Us</h3>
-                    <p><strong>Cookies by Jackie</strong><br>
-                    Columbus Circle Underground Market<br>
-                    New York, NY 10019<br>
-                    <a href="mailto:customerservice@cookiesbyjackie.com">customerservice@cookiesbyjackie.com</a><br>
-                    <a href="tel:+12123896151">+1 212-389-6151</a></p>
-                </div>
-
-                <!-- ── VERSIÓN EN ESPAÑOL ───────────────────────────── -->
-                <div class="policy-lang" data-policy-lang="es" style="display:none;">
-                    <p class="policy-updated">Última actualización: junio 2025 &nbsp;·&nbsp; <em>Los valores marcados con ★ están sujetos a confirmación por parte del negocio.</em></p>
-
-                    <h3>1. Aceptación de los Términos</h3>
-                    <p>Al acceder a nuestro sitio web o realizar un pedido, usted acepta quedar vinculado por estos Términos del Servicio ("Términos"). Si no está de acuerdo con alguna parte de estos Términos, le rogamos que no utilice nuestro sitio web ni nuestros servicios. Estos Términos aplican a todos los visitantes, clientes y usuarios del sitio.</p>
-
-                    <h3>2. Productos y Servicios — Descripción Exhaustiva</h3>
-                    <p>Cookies by Jackie es una pastelería artesanal que ofrece productos horneados frescos a diario con ingredientes premium. Nuestro catálogo de productos incluye las siguientes categorías:</p>
-                    <ul>
-                        <li><strong>Galletas:</strong> galletas artesanales individuales y cajas Pick-6 con sabores de temporada y de autor rotativos (p. ej., Chispas de Chocolate, Red Velvet, Snickerdoodle, Caramelo Salado, Oreo, Pistacho, Nutella, Brookie, y más).</li>
-                        <li><strong>Cupcakes:</strong> cupcakes individuales y en caja con sabores clásicos y de especialidad incluyendo Vainilla, Chocolate, Red Velvet y Zanahoria, con crema de mantequilla o queso crema.</li>
-                        <li><strong>Macarons:</strong> macarons estilo francés en sabores variados: Vainilla, Frambuesa, Pistacho, Churro, Tiramisú, Cumpleaños y Crème Brûlée.</li>
-                        <li><strong>Mini Postres Individuales:</strong> pasteles y cheesecakes de una porción, incluyendo Cheesecake Clásico, Red Velvet, Chocolate, Confetti, Zanahoria, Fresa, Oreo, Tres Leches, Tiramisú, Fruity Pebbles, Cannoli, Caramelo, Chocolate Bañado y Fudge de Chocolate.</li>
-                        <li><strong>Pastries:</strong> artículos de pastelería artesanal incluyendo Cinnamon Rolls, Donuts glaseados y de especialidad, Brownies, Scones de Arándano y Pan de Plátano.</li>
-                        <li><strong>Pasteles:</strong> pasteles de tamaño completo incluyendo Cookie Cake de Chispas de Chocolate (10"), Cookie Cake de Doble Capa, Chocolate Fudge Brownie Cake y Naked Cakes personalizables disponibles en múltiples tamaños.</li>
-                        <li><strong>Tartas:</strong> tartas enteras de temporada incluyendo Apple Caramel Crumb, Peach Crumb y Bourbon Pecan Pie (9").</li>
-                        <li><strong>Packs y Prepacks de Especialidad:</strong> cajas surtidas curadas incluyendo Cookie de Especialidad de 6 y 12 unidades, Cupcake de Especialidad de 12 unidades, Macaron de 6 y 12 unidades, y Mini Cupcake de 12 unidades.</li>
-                    </ul>
-                    <p>Todos los productos se elaboran frescos bajo pedido con ingredientes naturales. La disponibilidad puede variar según la temporada o el día. Las imágenes son representativas; pueden existir ligeras variaciones visuales por la naturaleza artesanal de los productos. Nos reservamos el derecho de modificar nuestro catálogo en cualquier momento sin previo aviso.</p>
-
-                    <h3>3. Precios y Divisa de Cobro</h3>
-                    <p>Todos los precios mostrados en nuestro sitio web están expresados en <strong>Dólares Estadounidenses (USD)</strong>. Los cargos se procesan exclusivamente en USD en el momento del pago a través de Stripe, Inc.</p>
-                    <ul>
-                        <li>Los precios pueden cambiar en cualquier momento sin previo aviso. El precio que aparece en la confirmación de su pedido es el importe que se le cobrará.</li>
-                        <li>★ El impuesto sobre las ventas aplicable se calculará y mostrará en el proceso de pago en función de su dirección de entrega y los tipos impositivos aplicables del Estado de Nueva York.</li>
-                        <li>Los gastos de envío (si aplican) se muestran por separado e incluidos en el total antes de la confirmación del pago.</li>
-                        <li><strong>Sin tarifas ocultas:</strong> el importe total mostrado en la pantalla de confirmación del pago — incluyendo el precio del producto, impuestos aplicables y gastos de envío — es el importe exacto que se cargará a su método de pago. No se realizarán cargos adicionales tras la confirmación del pedido.</li>
-                    </ul>
-
-                    <h3>4. Proceso de Pedido y Confirmación</h3>
-                    <p>Un pedido no se considera confirmado hasta que reciba un correo electrónico de confirmación de nuestra parte. La recepción del pago no constituye la aceptación del pedido; nos reservamos el derecho de cancelar cualquier pedido por falta de disponibilidad del producto, errores de precio o actividad fraudulenta sospechosa, en cuyo caso se emitirá un reembolso completo de inmediato.</p>
-
-                    <h3>5. Promociones, Códigos de Descuento y Ofertas</h3>
-                    <p>Periódicamente podemos ofrecer descuentos promocionales, códigos de cupón u ofertas de tiempo limitado. Los siguientes términos aplican a todas las promociones:</p>
-                    <ul>
-                        <li><strong>Un uso por cliente:</strong> los códigos promocionales son válidos para un único uso por cliente, salvo que se indique expresamente lo contrario.</li>
-                        <li><strong>Fecha de caducidad:</strong> todas las promociones tienen una fecha de vencimiento que se comunicará claramente en el momento en que se presente la oferta. Los códigos caducados no se aplicarán.</li>
-                        <li><strong>Sin valor en efectivo:</strong> los descuentos promocionales no tienen equivalencia en efectivo y no pueden combinarse con otras ofertas salvo que se indique expresamente.</li>
-                        <li><strong>No transferibles:</strong> los códigos promocionales son personales e intransferibles.</li>
-                        <li><strong>Sujetos a cambio:</strong> nos reservamos el derecho de modificar o cancelar cualquier promoción en cualquier momento, siempre que los cambios no afecten a pedidos ya confirmados.</li>
-                    </ul>
-                    <p><strong>Suscripción al boletín:</strong> suscribirse a nuestro boletín ("Cookie Club") da acceso a noticias exclusivas, anuncios de nuevos sabores y actualizaciones de temporada. El boletín no incluye códigos de descuento promocional ni ningún beneficio económico. Suscribirse no le inscribe automáticamente en ningún servicio de pago ni cargo recurrente. Consulte la Sección 6 para los términos completos del boletín.</p>
-
-                    <h3>6. Suscripción al Boletín ("Cookie Club")</h3>
-                    <p>Nuestro boletín electrónico, denominado en nuestro sitio web "Cookie Club", es una <strong>suscripción gratuita y voluntaria</strong> para recibir noticias, sabores exclusivos y actualizaciones de Cookies by Jackie.</p>
-                    <ul>
-                        <li><strong>Solo por opt-in:</strong> únicamente se le añadirá a nuestra lista de correo si envía explícitamente su dirección en el formulario de suscripción y confirma su alta. Sin casillas preseleccionadas ni consentimiento asumido.</li>
-                        <li><strong>Qué recibirá:</strong> correos promocionales, ofertas de temporada, anuncios de nuevos productos y contenido de repostería. La frecuencia es de ★ aproximadamente 1–4 correos al mes.</li>
-                        <li><strong>Baja en cualquier momento:</strong> todos los correos incluyen un enlace para darse de baja. También puede cancelar la suscripción escribiendo a <a href="mailto:customerservice@cookiesbyjackie.com">customerservice@cookiesbyjackie.com</a>. La baja surte efecto en ★ 5 días hábiles.</li>
-                        <li><strong>Sin coste:</strong> la suscripción al boletín es totalmente gratuita. Suscribirse no genera ninguna obligación económica ni cargo recurrente.</li>
-                    </ul>
-
-                    <h3>7. ★ Suscripciones Recurrentes y Períodos de Prueba</h3>
-                    <p>Cookies by Jackie podrá ofrecer en el futuro productos de suscripción recurrente (p. ej., cajas de galletas semanales). En caso de que dichos productos se ofrezcan, los siguientes términos aplicarán y se comunicarán claramente antes de la inscripción:</p>
-                    <ul>
-                        <li>El importe del cargo recurrente, la frecuencia de facturación y la fecha del próximo cobro se mostrarán en la página del producto y en el proceso de pago antes del cobro.</li>
-                        <li>Ninguna suscripción se activará sin su consentimiento explícito y afirmativo (sin casillas preseleccionadas, sin inscripción automática).</li>
-                        <li>Si se ofrece un período de prueba gratuito, su duración, qué sucede al vencimiento y el importe que se cobrará tras la prueba se indicarán claramente antes de que facilite su información de pago.</li>
-                        <li>Puede cancelar en cualquier momento según se describe en nuestra política de Reembolsos y Cancelaciones.</li>
-                    </ul>
-                    <p>A la fecha de esta política, <strong>no hay productos de suscripción recurrente activos</strong> en nuestro sitio web.</p>
-
-                    <h3>8. Marketing de Opción Negativa — Nuestro Compromiso</h3>
-                    <p>Estamos comprometidos con prácticas de facturación transparentes y honestas. Prohibimos expresamente las siguientes prácticas en nuestra plataforma:</p>
-                    <ul>
-                        <li><strong>Sin casillas de suscripción preseleccionadas:</strong> nunca le inscribiremos en un servicio de pago recurrente mediante una casilla preseleccionada o por defecto.</li>
-                        <li><strong>Sin tarifas ocultas:</strong> todos los cargos (precio del producto, impuestos, envío) se comunican íntegramente antes de que confirme su pedido. En su extracto no aparecerá ningún cargo que no haya sido mostrado en el proceso de pago.</li>
-                        <li><strong>Sin cargos no autorizados:</strong> su método de pago solo se cargará por importes que haya autorizado explícitamente durante el proceso de compra.</li>
-                        <li><strong>Sin períodos de prueba engañosos:</strong> si una prueba se convierte en suscripción de pago, recibirá un aviso claro de la fecha de conversión y el importe a cobrar con al menos ★ 7 días de antelación.</li>
-                        <li><strong>Cancelación sencilla:</strong> cualquier suscripción o servicio recurrente puede cancelarse fácilmente en cualquier momento, sin necesidad de llamar por teléfono ni navegar por menús ocultos.</li>
-                    </ul>
-
-                    <h3>9. Propiedad Intelectual</h3>
-                    <p>Todo el contenido de este sitio web — incluyendo pero sin limitarse a fotografías de productos, nombre de marca, logotipo, textos, recetas y diseño — es propiedad intelectual exclusiva de Cookies by Jackie y está protegido por las leyes aplicables de derechos de autor, marcas y trade dress. La reproducción, distribución o uso no autorizado de cualquier contenido de este sitio sin consentimiento previo por escrito está estrictamente prohibido.</p>
-
-                    <h3>10. Limitación de Responsabilidad</h3>
-                    <p>En la máxima medida permitida por la ley aplicable, Cookies by Jackie no será responsable de ningún daño indirecto, incidental, especial, consecuente o punitivo derivado del uso de nuestro sitio web o productos, incluidos, entre otros, la pérdida de beneficios, datos o reputación, incluso si se nos ha advertido de la posibilidad de dichos daños. Nuestra responsabilidad total por cualquier reclamación derivada de una compra no excederá el importe pagado por ese pedido concreto.</p>
-                    <p>No nos hacemos responsables de reacciones alérgicas o preocupaciones dietéticas. Los clientes con alergias alimentarias deben consultarnos directamente en <a href="mailto:customerservice@cookiesbyjackie.com">customerservice@cookiesbyjackie.com</a> antes de realizar un pedido. Nuestros productos se elaboran en instalaciones donde se manipulan alérgenos habituales como gluten, lácteos, huevos, frutos secos y cacahuetes.</p>
-
-                    <h3>11. Legislación Aplicable y Jurisdicción</h3>
-                    <p>Estos Términos se regirán e interpretarán de conformidad con las leyes del <strong>Estado de Nueva York, Estados Unidos</strong>, sin tener en cuenta sus disposiciones sobre conflicto de leyes. Cualquier disputa derivada de estos Términos o relacionada con ellos estará sujeta a la jurisdicción exclusiva de los tribunales estatales y federales ubicados en el Condado de Nueva York, Nueva York.</p>
-
-                    <h3>12. Modificaciones de los Términos</h3>
-                    <p>Nos reservamos el derecho de actualizar o modificar estos Términos en cualquier momento. La fecha de "Última actualización" en la parte superior de este documento refleja la revisión más reciente. El uso continuado de nuestro sitio web tras cualquier cambio implica la aceptación de los Términos actualizados.</p>
-
-                    <hr>
-
-                    <h3>13. Contáctenos</h3>
-                    <p><strong>Cookies by Jackie</strong><br>
-                    Columbus Circle Underground Market<br>
-                    New York, NY 10019<br>
-                    <a href="mailto:customerservice@cookiesbyjackie.com">customerservice@cookiesbyjackie.com</a><br>
-                    <a href="tel:+12123896151">+1 212-389-6151</a></p>
-                </div>
-
-            </div><!-- /policy-modal-body -->
-        </div><!-- /policy-modal -->
-    </div><!-- /terms-modal-overlay -->
-
-    <!-- ═══════════════════════════════════════════
-         CONTACT MODAL — Canales de Contacto Directo
-         ═══════════════════════════════════════════ -->
-    <div class="policy-modal-overlay" id="contact-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
-        <div class="policy-modal">
-            <div class="policy-modal-header">
-                <h2 id="contact-modal-title">Contact Us / Contáctanos</h2>
-                <button class="policy-modal-close" id="contact-modal-close" aria-label="Close">&times;</button>
-            </div>
-            <div class="policy-modal-body">
-
-                <!-- ═══════════ ENGLISH ═══════════ -->
-                <div class="policy-lang" data-policy-lang="en">
-
-                    <div class="policy-stripe-badge">
-                        <i class="fas fa-headset"></i>&nbsp; Direct Contact &amp; Issue Resolution — We're here to help before you reach out to your bank.
-                    </div>
-
-                    <p>At <strong>Cookies by Jackie</strong> we prioritize your satisfaction. If anything goes wrong with your order, please contact us first — we resolve most issues within 24–48 hours and will always work to find a fair solution.</p>
-
-                    <h3>1. Primary Commercial Email</h3>
-                    <p>For orders, questions, changes, or complaints:<br>
-                    <a href="mailto:customerservice@cookiesbyjackie.com" style="color:var(--color-primary);font-weight:600;">customerservice@cookiesbyjackie.com</a></p>
-                    <p>For catering inquiries and corporate events:<br>
-                    <a href="mailto:customerservice@cookiesbyjackie.com" style="color:var(--color-primary);font-weight:600;">customerservice@cookiesbyjackie.com</a></p>
-                    <p><em>We monitor both inboxes daily. Expected response time: <strong>24–48 hours</strong> on business days. ★</em></p>
-
-                    <h3>2. Direct Phone</h3>
-                    <p>Call or text us directly:<br>
-                    <a href="tel:+12123896151" style="color:var(--color-primary);font-weight:600;">+1 (212) 389-6151</a></p>
-                    <p>Available during business hours (see Section 4). For fastest response outside hours, email is preferred.</p>
-
-                    <h3>3. Physical Location</h3>
-                    <p>
-                        <strong>Cookies by Jackie</strong><br>
-                        Columbus Circle Underground Market<br>
-                        New York, NY 10019<br>
-                        United States
-                    </p>
-                    <p><a href="https://maps.google.com/?q=Columbus+Circle+Underground+Market+New+York+NY+10019" target="_blank" rel="noopener noreferrer" style="color:var(--color-primary);">📍 View on Google Maps</a></p>
-
-                    <h3>4. Business Hours</h3>
-                    <table style="width:100%;border-collapse:collapse;font-size:0.9rem;">
-                        <thead>
-                            <tr style="background:rgba(0,0,0,0.04);">
-                                <th style="padding:8px 12px;text-align:left;border-bottom:1px solid rgba(0,0,0,0.1);">Day</th>
-                                <th style="padding:8px 12px;text-align:left;border-bottom:1px solid rgba(0,0,0,0.1);">Hours</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td style="padding:8px 12px;border-bottom:1px solid rgba(0,0,0,0.06);">Monday – Sunday</td><td style="padding:8px 12px;border-bottom:1px solid rgba(0,0,0,0.06);">7:00 AM – 10:00 PM (ET)</td></tr>
-                        </tbody>
-                    </table>
-                    <p style="font-size:0.85rem;opacity:0.7;margin-top:0.5rem;">Hours are subject to change on public holidays. ★</p>
-
-                    <h3>5. Resolve Issues With Us First</h3>
-                    <div style="background:rgba(var(--color-primary-rgb,180,120,60),0.08);border-left:4px solid var(--color-primary);padding:1rem 1.2rem;border-radius:0 8px 8px 0;margin-bottom:1rem;">
-                        <p style="margin:0 0 0.5rem;font-weight:600;">⚠️ Before filing a dispute with your bank or card issuer:</p>
-                        <p style="margin:0;">Please reach out to us directly. We are committed to resolving any issues — wrong items, missing orders, quality concerns, or billing questions — quickly and fairly. A chargeback negatively affects small businesses; in most cases we can resolve your concern much faster by working together.</p>
-                    </div>
-                    <p><strong>What to include in your message:</strong></p>
-                    <ul>
-                        <li>Your name and order date</li>
-                        <li>A brief description of the issue</li>
-                        <li>A photo (if the issue is product-related)</li>
-                    </ul>
-                    <p>We will acknowledge your message within <strong>24 hours</strong> ★ and offer a resolution (replacement, store credit, or refund) within <strong>48 hours</strong> ★ of receiving all required information.</p>
-
-                    <h3>6. Social Media Channels</h3>
-                    <p>You can also reach us or follow our latest news on:</p>
-                    <ul>
-                        <li><strong>Instagram:</strong> <a href="https://www.instagram.com/cookiesbyjackienyc" target="_blank" rel="noopener noreferrer" style="color:var(--color-primary);">@cookiesbyjackienyc</a></li>
-                        <li><strong>TikTok:</strong> <a href="https://www.tiktok.com/@cookiesbyjackienyc" target="_blank" rel="noopener noreferrer" style="color:var(--color-primary);">@cookiesbyjackienyc</a></li>
-                        <li><strong>Facebook:</strong> <a href="https://www.facebook.com/cookiesbyjackienyc" target="_blank" rel="noopener noreferrer" style="color:var(--color-primary);">Cookies by Jackie</a></li>
-                        <li><strong>YouTube:</strong> <a href="https://www.youtube.com/@cookiesbyjackienyc" target="_blank" rel="noopener noreferrer" style="color:var(--color-primary);">@cookiesbyjackienyc</a></li>
-                        <li><strong>X (Twitter):</strong> <a href="https://x.com/cookiesbyjackie" target="_blank" rel="noopener noreferrer" style="color:var(--color-primary);">@cookiesbyjackie</a></li>
-                    </ul>
-                    <p style="font-size:0.85rem;opacity:0.7;">Social media DMs are monitored but may have slower response times than email or phone. For urgent matters, please use the contact methods above.</p>
-
-                    <p style="font-size:0.85rem;opacity:0.6;margin-top:2rem;border-top:1px solid rgba(0,0,0,0.1);padding-top:1rem;">★ Values marked with ★ are pending final confirmation with the business owner and may be updated. Last updated: June 2025.</p>
-
-                </div><!-- /policy-lang en -->
-
-                <!-- ═══════════ ESPAÑOL ═══════════ -->
-                <div class="policy-lang" data-policy-lang="es" style="display:none;">
-
-                    <div class="policy-stripe-badge">
-                        <i class="fas fa-headset"></i>&nbsp; Contacto Directo y Resolución de Incidencias — Estamos aquí para ayudarte antes de que contactes a tu banco.
-                    </div>
-
-                    <p>En <strong>Cookies by Jackie</strong> tu satisfacción es nuestra prioridad. Si algo sale mal con tu pedido, contáctanos primero — resolvemos la mayoría de los problemas en 24–48 horas y siempre buscaremos una solución justa.</p>
-
-                    <h3>1. Correo Electrónico Comercial</h3>
-                    <p>Para pedidos, consultas, cambios o reclamaciones:<br>
-                    <a href="mailto:customerservice@cookiesbyjackie.com" style="color:var(--color-primary);font-weight:600;">customerservice@cookiesbyjackie.com</a></p>
-                    <p>Para consultas de catering y eventos corporativos:<br>
-                    <a href="mailto:customerservice@cookiesbyjackie.com" style="color:var(--color-primary);font-weight:600;">customerservice@cookiesbyjackie.com</a></p>
-                    <p><em>Monitorizamos ambas bandejas de entrada a diario. Tiempo de respuesta estimado: <strong>24–48 horas</strong> en días hábiles. ★</em></p>
-
-                    <h3>2. Teléfono Directo</h3>
-                    <p>Llámanos o envíanos un mensaje directamente:<br>
-                    <a href="tel:+12123896151" style="color:var(--color-primary);font-weight:600;">+1 (212) 389-6151</a></p>
-                    <p>Disponible durante el horario comercial (ver Sección 4). Para respuestas más rápidas fuera del horario, se prefiere el correo electrónico.</p>
-
-                    <h3>3. Ubicación Física</h3>
-                    <p>
-                        <strong>Cookies by Jackie</strong><br>
-                        Columbus Circle Underground Market<br>
-                        New York, NY 10019<br>
-                        Estados Unidos
-                    </p>
-                    <p><a href="https://maps.google.com/?q=Columbus+Circle+Underground+Market+New+York+NY+10019" target="_blank" rel="noopener noreferrer" style="color:var(--color-primary);">📍 Ver en Google Maps</a></p>
-
-                    <h3>4. Horario Comercial</h3>
-                    <table style="width:100%;border-collapse:collapse;font-size:0.9rem;">
-                        <thead>
-                            <tr style="background:rgba(0,0,0,0.04);">
-                                <th style="padding:8px 12px;text-align:left;border-bottom:1px solid rgba(0,0,0,0.1);">Día</th>
-                                <th style="padding:8px 12px;text-align:left;border-bottom:1px solid rgba(0,0,0,0.1);">Horario</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td style="padding:8px 12px;border-bottom:1px solid rgba(0,0,0,0.06);">Lunes – Domingo</td><td style="padding:8px 12px;border-bottom:1px solid rgba(0,0,0,0.06);">7:00 AM – 10:00 PM (ET)</td></tr>
-                        </tbody>
-                    </table>
-                    <p style="font-size:0.85rem;opacity:0.7;margin-top:0.5rem;">El horario puede variar en festivos oficiales. ★</p>
-
-                    <h3>5. Resuelve Incidencias con Nosotros Primero</h3>
-                    <div style="background:rgba(var(--color-primary-rgb,180,120,60),0.08);border-left:4px solid var(--color-primary);padding:1rem 1.2rem;border-radius:0 8px 8px 0;margin-bottom:1rem;">
-                        <p style="margin:0 0 0.5rem;font-weight:600;">⚠️ Antes de presentar una disputa ante tu banco o emisor de tarjeta:</p>
-                        <p style="margin:0;">Contáctanos directamente. Estamos comprometidos a resolver cualquier incidencia — artículos incorrectos, pedidos no recibidos, problemas de calidad o dudas de facturación — de forma rápida y justa. Un contracargo afecta negativamente a los pequeños negocios; en la mayoría de los casos podemos solucionar tu problema mucho más rápido trabajando juntos.</p>
-                    </div>
-                    <p><strong>Qué incluir en tu mensaje:</strong></p>
-                    <ul>
-                        <li>Tu nombre y fecha del pedido</li>
-                        <li>Una breve descripción del problema</li>
-                        <li>Una foto (si el problema está relacionado con el producto)</li>
-                    </ul>
-                    <p>Acusaremos recibo de tu mensaje en <strong>24 horas</strong> ★ y ofreceremos una resolución (reposición, crédito en tienda o reembolso) en <strong>48 horas</strong> ★ tras recibir toda la información necesaria.</p>
-
-                    <h3>6. Redes Sociales</h3>
-                    <p>También puedes contactarnos o seguir nuestras novedades en:</p>
-                    <ul>
-                        <li><strong>Instagram:</strong> <a href="https://www.instagram.com/cookiesbyjackienyc" target="_blank" rel="noopener noreferrer" style="color:var(--color-primary);">@cookiesbyjackienyc</a></li>
-                        <li><strong>TikTok:</strong> <a href="https://www.tiktok.com/@cookiesbyjackienyc" target="_blank" rel="noopener noreferrer" style="color:var(--color-primary);">@cookiesbyjackienyc</a></li>
-                        <li><strong>Facebook:</strong> <a href="https://www.facebook.com/cookiesbyjackienyc" target="_blank" rel="noopener noreferrer" style="color:var(--color-primary);">Cookies by Jackie</a></li>
-                        <li><strong>YouTube:</strong> <a href="https://www.youtube.com/@cookiesbyjackienyc" target="_blank" rel="noopener noreferrer" style="color:var(--color-primary);">@cookiesbyjackienyc</a></li>
-                        <li><strong>X (Twitter):</strong> <a href="https://x.com/cookiesbyjackie" target="_blank" rel="noopener noreferrer" style="color:var(--color-primary);">@cookiesbyjackie</a></li>
-                    </ul>
-                    <p style="font-size:0.85rem;opacity:0.7;">Los mensajes directos en redes sociales se monitorizan, pero pueden tener tiempos de respuesta más lentos que el correo o el teléfono. Para asuntos urgentes, utiliza los canales de contacto indicados arriba.</p>
-
-                    <p style="font-size:0.85rem;opacity:0.6;margin-top:2rem;border-top:1px solid rgba(0,0,0,0.1);padding-top:1rem;">★ Los valores marcados con ★ están pendientes de confirmación definitiva con la propietaria y pueden actualizarse. Última actualización: junio 2025.</p>
-
-                </div><!-- /policy-lang es -->
-
-            </div><!-- /policy-modal-body -->
-        </div><!-- /policy-modal -->
-    </div><!-- /contact-modal-overlay -->
-
-    <script src="script.js?v=5.20"></script>
+    <script src="script.js?v=5.26"></script>
     <script src="panel.js"></script>
     <script>
         // Scroll Animations

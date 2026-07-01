@@ -126,21 +126,88 @@ img {
     100% { transform: translateX(-50%); }
 }
 
-/* Header */
+/* Top Bar (Zaro-inspired header — visible by default, hides on scroll) */
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9001;
+    background: var(--color-primary);
+    color: var(--color-bg);
+    padding: 1.1rem 0 0.9rem;
+    transition: transform 0.35s ease, opacity 0.3s ease;
+}
+
+.top-bar.is-hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.top-bar-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.9rem;
+}
+
+.top-bar-brand-block {
+    text-align: center;
+    line-height: 1.3;
+}
+
+.top-bar-logo-img {
+    height: 5.5rem;
+    width: auto;
+    object-fit: contain;
+}
+
+.top-bar-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    padding-top: 0.75rem;
+    width: 100%;
+}
+
+.top-bar-nav .nav-link {
+    color: var(--color-bg);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.top-bar-nav .nav-link-pickup {
+    color: var(--color-secondary);
+}
+
+.top-bar-nav .nav-link::after {
+    background: var(--color-secondary);
+}
+
+/* Header (Cookies by Jackie — hidden by default, appears on scroll) */
 .header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 9000;
-    background: transparent;
-    padding: 1.5rem 0;
+    background: var(--color-bg);
+    padding: 1rem 0;
+    opacity: 0;
+    transform: translateY(-16px);
+    pointer-events: none;
     transition: all 0.3s ease;
 }
 
 .header.scrolled {
-    background: var(--color-bg);
-    padding: 1rem 0;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
     box-shadow: 0 5px 20px rgba(0,0,0,0.03);
 }
 
@@ -153,17 +220,18 @@ img {
 .nav-links {
     display: flex;
     justify-content: center;
-    gap: 2.5rem;
+    gap: 1.8rem;
     flex: 1;
 }
 
 .nav-link {
-    font-weight: 500;
-    font-size: 1.15rem;
-    text-transform: capitalize;
+    font-weight: 700;
+    font-size: 0.92rem;
+    text-transform: uppercase;
     letter-spacing: 0.02em;
     position: relative;
     color: var(--color-text);
+    white-space: nowrap;
 }
 
 .nav-link::after {
@@ -181,6 +249,12 @@ img {
     width: 100%;
 }
 
+.nav-link-pickup {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--color-text);
+}
+
 /* --- Delivery Dropdown --- */
 .nav-dropdown-wrapper {
     position: relative;
@@ -194,6 +268,7 @@ img {
     align-items: center;
     gap: 0.35rem;
     user-select: none;
+    text-transform: uppercase;
 }
 
 .nav-dropdown-arrow {
@@ -282,7 +357,7 @@ img {
 .logo-text {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .logo-img {
@@ -293,7 +368,7 @@ img {
 }
 
 .logo-main {
-    font-family: 'Pacifico', cursive;
+    font-family: 'Abril Fatface', serif;
     font-weight: 400;
     font-size: 1.3rem;
     color: var(--color-text);
@@ -302,10 +377,10 @@ img {
 }
 
 .logo-sub {
-    font-family: 'Pacifico', cursive;
+    font-family: 'Cookie', cursive;
     font-style: normal;
     font-weight: 400;
-    font-size: 1rem;
+    font-size: 1.3rem;
     color: var(--color-primary);
     text-transform: none;
     margin-top: 2px;
@@ -1260,8 +1335,8 @@ img {
     border: none;
     font-size: 1.1rem;
     font-weight: 600;
-    color: #D12529;
-    opacity: 0.35;
+    color: var(--color-text);
+    opacity: 0.55;
     cursor: pointer;
     padding: 0.5rem 0;
     transition: all 0.3s ease;
@@ -1273,7 +1348,7 @@ img {
 }
 
 .shop-tab:hover {
-    opacity: 0.6;
+    opacity: 0.85;
 }
 
 .shop-tab.active {
@@ -3014,7 +3089,25 @@ img {
 @media (max-width: 992px) {
     .mobile-only { display: block !important; }
     .desktop-only { display: none !important; }
-    .mobile-menu-btn { 
+
+    .top-bar {
+        padding: 0.85rem 0.75rem 0.7rem;
+    }
+
+    .top-bar-logo-img {
+        height: 3.4rem;
+    }
+
+    .top-bar-nav {
+        gap: 0.9rem 1.4rem;
+        padding-top: 0.6rem;
+    }
+
+    .top-bar-nav .nav-link {
+        font-size: 0.72rem;
+    }
+
+    .mobile-menu-btn {
         display: block; 
         z-index: 3000;
         position: relative;
@@ -3066,6 +3159,7 @@ img {
     .single-hero {
         flex-direction: column;
         height: auto;
+        min-height: 70vh;
         padding-top: 180px;
         padding-bottom: 3rem;
         margin-top: -80px;

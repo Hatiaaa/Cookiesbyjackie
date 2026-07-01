@@ -8,9 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Translation System ---
     const translations = {
         es: {
-            nav_shop: "tienda",
+            nav_shop: "pick up",
             nav_delivery: "delivery",
-            nav_contact: "contacto",
+            nav_contact: "ubicación",
+            nav_bundle: "bundle gifts",
             hero_label: "Repostería de Autor",
             hero_title: "Fresco Cada Día.<br>Hecho con Amor.",
             hero_desc: "Cada día horneamos postres frescos y artesanales con los ingredientes de mayor calidad, sabores irresistibles y un toque especial de amor. Descubre la alegría de disfrutar delicias auténticas creadas para cautivar tus sentidos.",
@@ -23,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
             prod_red: "red velvet supreme",
             prod_heart: "vintage heart",
             prod_brownie: "fudge brownies",
-            trending_title: "nuestros packs especiales",
+            trending_title: "bundle gifts",
             tab_cookies: "galletas",
             tab_cakes: "pasteles",
             tab_cupcakes: "cupcakes",
@@ -31,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
             tab_macarons: "macarons",
             tab_minis: "mini individual",
             tab_pies: "tartas",
-            tab_packs: "packs especiales",
+            tab_packs: "bundle gifts",
             cart_title: "tu carrito",
             cart_total: "Total:",
             cart_checkout: "Ir a Pagar",
@@ -46,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
             faq_q1: "¿Realizan envíos a domicilio?",
             faq_a1: "¡Sí! Realizamos entregas a domicilio a través de <a href='https://www.ubereats.com/store/cookies-by-jackie/unP0-ZwaV229nPo_rFi9_A' target='_blank' rel='noopener' style='color:#06c167; font-weight:700;'>UberEats</a>. Haz tu pedido desde la app y recíbelo en la puerta de tu casa.",
             faq_q2: "¿Dónde están ubicados?",
-            faq_a2: "Nos encontramos en el <strong>Underground Market de Columbus Circle</strong>, en el corazón de Nueva York. Un lugar perfecto para una pausa dulce.",
+            faq_a2: "Nos encontramos en el <strong>Underground Turnstyle Market de Columbus Circle</strong>, en el corazón de Nueva York. Un lugar perfecto para una pausa dulce.",
             footer_tagline: "Horneando recuerdos cada día con ingredientes premium y pasión artesanal en el corazón de NYC.",
             footer_order_on: "Pide también por:",
             footer_contact_title: "Contacto",
@@ -59,10 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
             footer_copyright: "&copy; 2024 Cookies by Jackie. Todos los derechos reservados.",
             footer_dev: "Diseñado &amp; desarrollado por",
             privacy_link: "Política de Privacidad",
-            refund_link: "Reembolsos y Cancelaciones",
-            shipping_link: "Envíos y Entregas",
-            terms_link: "Términos del Servicio",
-            contact_link: "Contacto",
             checkout_title: "Resumen de Compra",
             checkout_subtitle: "Completa tus datos para proceder al pago",
             checkout_order_title: "tu pedido",
@@ -111,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
             story_p2: "Más que una pastelería, es una experiencia creada para la vida de NYC: acelerada, audaz y llena de momentos que vale la pena celebrar. Cada receta combina la tradición casera con ingredientes de alta calidad, ofreciendo sabores auténticos que destacan en el corazón de la ciudad.",
             story_p3: "Ya sea un antojo de media tarde, un regalo detallista o una celebración especial, Cookies by Jackie está hecha para aportar algo dulce y memorable a cada historia de Nueva York.",
             story_mobile: "Desde 2024, Cookies by Jackie es el destino dulce imprescindible en Nueva York. Ofrecemos una experiencia única que combina tradición casera con la más alta calidad, perfecta para regalar o darte un momento de pausa en medio del ritmo de la ciudad.",
-            story_cta: "📍 Visítanos en el Underground Market de Columbus Circle y descubre por qué todo el mundo habla de nosotros.",
+            story_cta: "📍 Visítanos en el Underground Turnstyle Market de Columbus Circle y descubre por qué todo el mundo habla de nosotros.",
             story_slogan: "Cookies by Jackie: el sabor que Nueva York merece.",
             visit_find_us: "encuéntranos.",
             visit_contact_title: "Contacto",
@@ -142,6 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
             btn_add: "Agregar",
             btn_select: "Elige tus opciones",
             btn_customize: "Personalizar",
+            btn_load_more: "ver más",
             modal_add_cart: "¡Añadir al Carrito!",
             modal_count: "Llevas {0} de {1}",
             modal_cookies_title: "Elige tus {0} galletas",
@@ -162,6 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cake_label_frosting: "Cobertura (Frosting)",
             cake_label_message: "Mensaje en el Pastel (máx. 30 caracteres)",
             cake_label_message_color: "Color del Mensaje",
+            cake_label_delivery_date: "Fecha de entrega (mínimo 3 días de anticipación)",
             cake_label_want_message: "¿Quieres un mensaje?",
             cake_want_message_no: "No",
             cake_want_message_yes: "Con mensaje",
@@ -175,6 +174,8 @@ document.addEventListener('DOMContentLoaded', () => {
             cake_detail_frosting: "Cobertura",
             cake_detail_message: "Mensaje",
             cake_detail_message_color: "Color del mensaje",
+            cake_detail_delivery_date: "Fecha de entrega",
+            cake_alert_date_required: "Por favor selecciona una fecha de entrega (mínimo 3 días de anticipación).",
             cake_detail_cherries: "Cerezas",
             cake_detail_bows: "Moños",
             cook1_desc: "Un delicioso surtido de cuatro galletas recién horneadas: Chocolate Chip, Salted Caramel Chocolate Chip, Brookie y Snickerdoodle.",
@@ -223,9 +224,10 @@ document.addEventListener('DOMContentLoaded', () => {
             fav4_pill1: "chocolate", fav4_pill2: "mantequilla", fav4_pill3: "vainilla"
         },
         en: {
-            nav_shop: "the collection",
+            nav_shop: "pick up",
             nav_delivery: "delivery",
-            nav_contact: "get in touch",
+            nav_contact: "location",
+            nav_bundle: "bundle gifts",
             hero_label: "Signature Pastry",
             hero_title: "Freshly Made Daily<br>with Love",
             hero_desc: "Every day we bake fresh, handcrafted treats made with the highest quality ingredients, irresistible flavors, and a special touch of love. Discover the joy of enjoying authentic delights created to captivate your senses.",
@@ -238,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
             prod_red: "red velvet supreme",
             prod_heart: "vintage heart cake",
             prod_brownie: "fudge brownies",
-            trending_title: "our exclusive packs",
+            trending_title: "bundle gifts",
             tab_cookies: "cookies",
             tab_cakes: "cakes",
             tab_cupcakes: "cupcakes",
@@ -246,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
             tab_macarons: "macarons",
             tab_minis: "mini individual",
             tab_pies: "pies",
-            tab_packs: "prepacks",
+            tab_packs: "bundle gifts",
             cart_title: "Your Bag",
             cart_total: "Total Amount:",
             cart_checkout: "Secure Checkout",
@@ -261,7 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
             faq_q1: "Do you offer delivery?",
             faq_a1: "Yes! We deliver through <a href='https://www.ubereats.com/store/cookies-by-jackie/unP0-ZwaV229nPo_rFi9_A' target='_blank' rel='noopener' style='color:#06c167; font-weight:700;'>UberEats</a>. Order from the app and enjoy our freshly baked treats delivered right to your door.",
             faq_q2: "Where can I find you?",
-            faq_a2: "We are located at the <strong>Columbus Circle Underground Market</strong>, in the heart of NYC. The perfect sanctuary for a sweet escape.",
+            faq_a2: "We are located at the <strong>Columbus Circle Underground Turnstyle Market</strong>, in the heart of NYC. The perfect sanctuary for a sweet escape.",
             faq_q3: "What are your opening hours?",
             faq_a3: "We are open every day, Monday through Sunday, from 7:00 AM to 10:00 PM.",
             faq_q4: "Do you offer catering services?",
@@ -280,10 +282,6 @@ document.addEventListener('DOMContentLoaded', () => {
             footer_copyright: "&copy; 2024 Cookies by Jackie. All rights reserved.",
             footer_dev: "Designed &amp; developed by",
             privacy_link: "Privacy Policy",
-            refund_link: "Refunds & Cancellations",
-            shipping_link: "Shipping & Delivery",
-            terms_link: "Terms of Service",
-            contact_link: "Contact",
             checkout_title: "Order Summary",
             checkout_subtitle: "Complete your details to proceed to payment",
             checkout_order_title: "your order",
@@ -332,7 +330,7 @@ document.addEventListener('DOMContentLoaded', () => {
             story_p2: "More than a bakery, it's an experience crafted for the NYC lifestyle: fast-paced, bold, and full of moments worth celebrating. Each recipe blends home-style tradition with high-quality ingredients, delivering authentic flavors that stand out in the heart of the city.",
             story_p3: "Whether it's a mid-afternoon craving, a thoughtful gift, or a special celebration, Cookies by Jackie is made to bring something sweet and memorable to every New York story.",
             story_mobile: "Since 2024, Cookies by Jackie is the ultimate sweet destination in NYC. We offer a unique experience blending home tradition with the highest quality, perfect for gifting or taking a moment for yourself.",
-            story_cta: "📍 Visit us at the Columbus Circle Underground Market and discover why everyone is talking about us.",
+            story_cta: "📍 Visit us at the Columbus Circle Underground Turnstyle Market and discover why everyone is talking about us.",
             story_slogan: "Cookies by Jackie: the flavor New York deserves.",
             visit_find_us: "find us.",
             visit_contact_title: "Contact",
@@ -357,6 +355,7 @@ document.addEventListener('DOMContentLoaded', () => {
             btn_add: "Add",
             btn_select: "Choose Options",
             btn_customize: "Customize",
+            btn_load_more: "view more",
             modal_add_cart: "Add to Cart!",
             modal_count: "{0} of {1} selected",
             modal_cookies_title: "Choose your {0} cookies",
@@ -377,6 +376,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cake_label_frosting: "Frosting",
             cake_label_message: "Cake Message (max. 30 characters)",
             cake_label_message_color: "Message Color",
+            cake_label_delivery_date: "Delivery date (minimum 3 days in advance)",
             cake_label_want_message: "Add a message?",
             cake_want_message_no: "No",
             cake_want_message_yes: "With a message",
@@ -390,6 +390,8 @@ document.addEventListener('DOMContentLoaded', () => {
             cake_detail_frosting: "Frosting",
             cake_detail_message: "Message",
             cake_detail_message_color: "Message color",
+            cake_detail_delivery_date: "Delivery date",
+            cake_alert_date_required: "Please select a delivery date (minimum 3 days in advance).",
             cake_detail_cherries: "Cherries",
             cake_detail_bows: "Bows",
             cook1_desc: "A delicious assortment of four freshly baked cookies: Chocolate Chip, Salted Caramel Chocolate Chip, Brookie, and Snickerdoodle.",
@@ -875,9 +877,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Favorites "Ver más" → activar tab del shop
-    document.querySelectorAll('.fav-view-btn').forEach(btn => {
+    // Botón "Ver más" dentro de cada tab de la tienda (revela productos ocultos tras el 8vo)
+    document.querySelectorAll('.btn-load-more').forEach(btn => {
         btn.addEventListener('click', () => {
+            const grid = btn.closest('.tab-content').querySelector('.tabbed-product-grid');
+            if (grid) grid.classList.add('show-all');
+            btn.classList.add('hidden');
+        });
+    });
+
+    // Favorites "Ver más" → activar tab del shop
+    document.querySelectorAll('.fav-view-btn, .nav-link-bundle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
             const tabTarget = btn.getAttribute('data-tab');
             const tabBtn = document.querySelector(`.shop-tab[data-target="${tabTarget}"]`);
             if (tabBtn) tabBtn.click();
@@ -924,13 +936,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Header Scroll Effect
+    // Header Scroll Effect (swap: top-bar estilo Zaro por defecto → header Cookies by Jackie al hacer scroll)
     const header = document.querySelector('.header');
+    const topBar = document.querySelector('.top-bar');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
+            if (topBar) topBar.classList.add('is-hidden');
         } else {
             header.classList.remove('scrolled');
+            if (topBar) topBar.classList.remove('is-hidden');
         }
     });
 
@@ -1458,8 +1473,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Color del mensaje (compartido vintage + cookie/brownie cakes)
     const messageColors = {
-        es: ["Blanco", "Rojo", "Rosa Azulado"],
-        en: ["White", "Red", "Blue Pink"]
+        es: ["Blanco", "Rojo", "Azul", "Rosa"],
+        en: ["White", "Red", "Blue", "Pink"]
     };
 
     const cakeOptions = {
@@ -1558,6 +1573,19 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     `;
 
+    // Fecha de entrega: bloquea los próximos 3 días (todos los cakes requieren 3 días de anticipación)
+    const dateBlock = (t) => {
+        const minDate = new Date();
+        minDate.setDate(minDate.getDate() + 3);
+        const minDateStr = minDate.toISOString().split('T')[0];
+        return `
+        <div class="cake-option-group">
+            <label>${t.cake_label_delivery_date}</label>
+            <input type="date" class="cake-select" id="cake-delivery-date" min="${minDateStr}" required>
+        </div>
+        `;
+    };
+
     const renderCakeOptions = (type) => {
         const t = translations[currentLang];
         const lang = currentLang;
@@ -1610,10 +1638,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         ${cakeOptions.naked.frostings[lang].map(o => `<option value="${o.label}" data-extra="${o.extra}">${o.label}</option>`).join('')}
                     </select>
                 </div>
+                ${messageBlock(t, lang)}
             `;
         } else if (type === 'message') {
             html += messageBlock(t, lang);
         }
+        // Todos los cakes/bundles del modal requieren mínimo 3 días de anticipación
+        html += dateBlock(t);
         cakeOptionsContainer.innerHTML = html;
         // Recalcular precio ante cualquier cambio
         cakeOptionsContainer.querySelectorAll('select, input').forEach(el => {
@@ -1675,6 +1706,11 @@ document.addEventListener('DOMContentLoaded', () => {
             parts.push(`${t.cake_detail_size}: ${sizeLabel}`);
             parts.push(`${t.cake_detail_flavor}: ${valOf('cake-flavor')}`);
             parts.push(`${t.cake_detail_frosting}: ${labelOf('cake-frosting')}`);
+            const nakedMsg = valOf('cake-message').trim();
+            if (nakedMsg) {
+                parts.push(`${t.cake_detail_message}: "${nakedMsg}"`);
+                parts.push(`${t.cake_detail_message_color}: ${valOf('cake-message-color')}`);
+            }
         } else if (currentCakeData.type === 'message') {
             const msg = valOf('cake-message').trim();
             if (msg) {
@@ -1682,6 +1718,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 parts.push(`${t.cake_detail_message_color}: ${valOf('cake-message-color')}`);
             }
         }
+
+        const deliveryDate = valOf('cake-delivery-date');
+        if (!deliveryDate) {
+            alert(t.cake_alert_date_required);
+            return;
+        }
+        parts.push(`${t.cake_detail_delivery_date}: ${deliveryDate}`);
 
         const imagePath = cakeImagePaths[currentCakeData.name] || `assets/v2/cakes/${currentCakeData.name}.webp`;
 
@@ -2154,105 +2197,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ─── Refund Policy Modal ──────────────────────────────────────────────────
-    const refundOverlay  = document.getElementById('refund-modal-overlay');
-    const refundCloseBtn = document.getElementById('refund-modal-close');
-    const openRefundBtn  = document.getElementById('open-refund-btn');
-
-    if (refundOverlay && openRefundBtn) {
-        const openRefund = () => {
-            refundOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            refundOverlay.scrollTop = 0;
-        };
-        const closeRefund = () => {
-            refundOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-        };
-        openRefundBtn.addEventListener('click', openRefund);
-        refundCloseBtn.addEventListener('click', closeRefund);
-        refundOverlay.addEventListener('click', e => {
-            if (e.target === refundOverlay) closeRefund();
-        });
-        document.addEventListener('keydown', e => {
-            if (e.key === 'Escape' && refundOverlay.classList.contains('active')) closeRefund();
-        });
-    }
-
-    // ─── Shipping & Delivery Policy Modal ────────────────────────────────────
-    const shippingOverlay  = document.getElementById('shipping-modal-overlay');
-    const shippingCloseBtn = document.getElementById('shipping-modal-close');
-    const openShippingBtn  = document.getElementById('open-shipping-btn');
-
-    if (shippingOverlay && openShippingBtn) {
-        const openShipping = () => {
-            shippingOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            shippingOverlay.scrollTop = 0;
-        };
-        const closeShipping = () => {
-            shippingOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-        };
-        openShippingBtn.addEventListener('click', openShipping);
-        shippingCloseBtn.addEventListener('click', closeShipping);
-        shippingOverlay.addEventListener('click', e => {
-            if (e.target === shippingOverlay) closeShipping();
-        });
-        document.addEventListener('keydown', e => {
-            if (e.key === 'Escape' && shippingOverlay.classList.contains('active')) closeShipping();
-        });
-    }
-
-    // ─── Terms of Service Modal ───────────────────────────────────────────────
-    const termsOverlay  = document.getElementById('terms-modal-overlay');
-    const termsCloseBtn = document.getElementById('terms-modal-close');
-    const openTermsBtn  = document.getElementById('open-terms-btn');
-
-    if (termsOverlay && openTermsBtn) {
-        const openTerms = () => {
-            termsOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            termsOverlay.scrollTop = 0;
-        };
-        const closeTerms = () => {
-            termsOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-        };
-        openTermsBtn.addEventListener('click', openTerms);
-        termsCloseBtn.addEventListener('click', closeTerms);
-        termsOverlay.addEventListener('click', e => {
-            if (e.target === termsOverlay) closeTerms();
-        });
-        document.addEventListener('keydown', e => {
-            if (e.key === 'Escape' && termsOverlay.classList.contains('active')) closeTerms();
-        });
-    }
-
-    // ─── Contact Modal ────────────────────────────────────────────────────────
-    const contactOverlay  = document.getElementById('contact-modal-overlay');
-    const contactCloseBtn = document.getElementById('contact-modal-close');
-    const openContactBtn  = document.getElementById('open-contact-btn');
-
-    if (contactOverlay && openContactBtn) {
-        const openContact = () => {
-            contactOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            contactOverlay.scrollTop = 0;
-        };
-        const closeContact = () => {
-            contactOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-        };
-        openContactBtn.addEventListener('click', openContact);
-        contactCloseBtn.addEventListener('click', closeContact);
-        contactOverlay.addEventListener('click', e => {
-            if (e.target === contactOverlay) closeContact();
-        });
-        document.addEventListener('keydown', e => {
-            if (e.key === 'Escape' && contactOverlay.classList.contains('active')) closeContact();
-        });
-    }
 
     // Initialize Language
     changeLanguage(currentLang);
