@@ -78,6 +78,35 @@ document.addEventListener('DOMContentLoaded', () => {
             checkout_total_label: "Total a Pagar:",
             checkout_btn: "Proceder al Pago Seguro",
             checkout_alert_required: "Por favor completa todos los campos requeridos (nombre, email, teléfono, fecha y hora de recogida).",
+            checkout_create_account_label: "¿Deseas crear una cuenta con estos datos para ver tu historial de pedidos?",
+            checkout_password_label: "Contraseña",
+            checkout_password_ph: "Mínimo 8 caracteres",
+            checkout_logged_in_prefix: "Sesión iniciada como",
+            account_greeting_prefix: "Hola,",
+            account_my_orders: "Mis pedidos",
+            account_logout: "Cerrar sesión",
+            account_modal_title: "Mi Cuenta",
+            orders_modal_title: "Mis Pedidos",
+            orders_empty: "Aún no tienes pedidos.",
+            orders_loading: "Cargando tus pedidos...",
+            orders_error: "No se pudieron cargar tus pedidos. Intenta de nuevo.",
+            orders_reorder: "Volver a pedir",
+            orders_pickup_prefix: "Recogida:",
+            order_status_nuevo: "Nuevo",
+            order_status_confirmado: "Confirmado",
+            order_status_listo: "Listo",
+            order_status_entregado: "Entregado",
+            order_status_cancelado: "Cancelado",
+            account_tab_login: "Iniciar sesión",
+            account_tab_register: "Crear cuenta",
+            account_login_submit: "Iniciar sesión",
+            account_register_submit: "Crear cuenta",
+            account_birthday_label: "Fecha de nacimiento",
+            account_error_birthday: "Por favor ingresa una fecha de nacimiento válida.",
+            account_error_required: "Por favor completa todos los campos.",
+            account_error_password_length: "La contraseña debe tener al menos 8 caracteres.",
+            account_error_generic: "Algo salió mal. Intenta de nuevo.",
+            checkout_success_msg: "¡Pedido recibido! Nos pondremos en contacto para confirmar los detalles.",
             chat_name: "jackie's helper",
             chat_status: "en línea ahora",
             add_to_cart: "añadir al carrito",
@@ -300,6 +329,35 @@ document.addEventListener('DOMContentLoaded', () => {
             checkout_total_label: "Total to Pay:",
             checkout_btn: "Proceed to Secure Payment",
             checkout_alert_required: "Please fill in all required fields (name, email, phone, and pickup date and time).",
+            checkout_create_account_label: "Would you like to create an account with this info to see your order history?",
+            checkout_password_label: "Password",
+            checkout_password_ph: "Minimum 8 characters",
+            checkout_logged_in_prefix: "Signed in as",
+            account_greeting_prefix: "Hi,",
+            account_my_orders: "My orders",
+            account_logout: "Log out",
+            orders_modal_title: "My Orders",
+            orders_empty: "You don't have any orders yet.",
+            orders_loading: "Loading your orders...",
+            orders_error: "Couldn't load your orders. Please try again.",
+            orders_reorder: "Reorder",
+            orders_pickup_prefix: "Pickup:",
+            order_status_nuevo: "New",
+            order_status_confirmado: "Confirmed",
+            order_status_listo: "Ready",
+            order_status_entregado: "Delivered",
+            order_status_cancelado: "Cancelled",
+            account_modal_title: "My Account",
+            account_tab_login: "Log in",
+            account_tab_register: "Create account",
+            account_login_submit: "Log in",
+            account_register_submit: "Create account",
+            account_birthday_label: "Date of birth",
+            account_error_birthday: "Please enter a valid date of birth.",
+            account_error_required: "Please fill in all fields.",
+            account_error_password_length: "Password must be at least 8 characters.",
+            account_error_generic: "Something went wrong. Please try again.",
+            checkout_success_msg: "Order received! We'll be in touch to confirm the details.",
             chat_name: "jackie's helper",
             chat_status: "online now",
             add_to_cart: "add to cart",
@@ -1236,16 +1294,238 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Lógica del Checkout Modal ---
     const checkoutBtn = document.querySelector('.checkout-btn');
+    // --- Sistema de Cuenta de Cliente ---
+    // Backend desplegado en Railway (staging/demo). Cambiar si se migra a Hostinger u otro host.
+    const API_BASE_URL = 'https://backend-production-08a5.up.railway.app';
+
+    function getCustomerSession() {
+        const token = localStorage.getItem('customerToken');
+        const dataRaw = localStorage.getItem('customerData');
+        if (!token || !dataRaw) return null;
+        try {
+            return { token, customer: JSON.parse(dataRaw) };
+        } catch {
+            return null;
+        }
+    }
+
+    function setCustomerSession(token, customer) {
+        localStorage.setItem('customerToken', token);
+        localStorage.setItem('customerData', JSON.stringify(customer));
+        updateAccountUI();
+    }
+
+    function clearCustomerSession() {
+        localStorage.removeItem('customerToken');
+        localStorage.removeItem('customerData');
+        updateAccountUI();
+    }
+
+    function updateAccountUI() {
+        const session = getCustomerSession();
+        const t = translations[currentLang];
+        document.querySelectorAll('.account-btn').forEach(btn => {
+            btn.classList.toggle('logged-in', !!session);
+        });
+        document.querySelectorAll('.account-dropdown-greeting').forEach(el => {
+            el.textContent = session ? `${t.account_greeting_prefix} ${session.customer.name}` : '';
+        });
+    }
+
+    function setupAccountButton(btnId, dropdownId) {
+        const btn = document.getElementById(btnId);
+        const dropdown = document.getElementById(dropdownId);
+        if (!btn || !dropdown) return;
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (getCustomerSession()) {
+                document.querySelectorAll('.account-dropdown.active').forEach(d => {
+                    if (d !== dropdown) d.classList.remove('active');
+                });
+                dropdown.classList.toggle('active');
+            } else {
+                openAccountModal('login');
+            }
+        });
+    }
+    setupAccountButton('account-btn-topbar', 'account-dropdown-topbar');
+    setupAccountButton('account-btn-header', 'account-dropdown-header');
+
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.account-dropdown.active').forEach(d => d.classList.remove('active'));
+    });
+
+    document.querySelectorAll('.account-dropdown-logout').forEach(btn => {
+        btn.addEventListener('click', () => {
+            clearCustomerSession();
+            document.querySelectorAll('.account-dropdown.active').forEach(d => d.classList.remove('active'));
+        });
+    });
+
+
+    // Modal de Login / Registro
+    const accountModalOverlay = document.getElementById('account-modal-overlay');
+    const accountModalClose = document.getElementById('account-modal-close');
+    const accountError = document.getElementById('account-error');
+    const accountLoginForm = document.getElementById('account-login-form');
+    const accountRegisterForm = document.getElementById('account-register-form');
+    const accountTabs = document.querySelectorAll('.account-tab');
+
+    function switchAccountTab(tab) {
+        accountTabs.forEach(t => t.classList.toggle('active', t.dataset.accountTab === tab));
+        accountLoginForm.style.display = tab === 'login' ? 'block' : 'none';
+        accountRegisterForm.style.display = tab === 'register' ? 'block' : 'none';
+        accountError.style.display = 'none';
+    }
+
+    function openAccountModal(tab) {
+        switchAccountTab(tab || 'login');
+        accountModalOverlay.classList.add('active');
+    }
+
+    function showAccountError(msg) {
+        accountError.textContent = msg;
+        accountError.style.display = 'block';
+    }
+
+    accountTabs.forEach(tab => {
+        tab.addEventListener('click', () => switchAccountTab(tab.dataset.accountTab));
+    });
+
+    if (accountModalClose) {
+        accountModalClose.addEventListener('click', () => {
+            accountModalOverlay.classList.remove('active');
+        });
+    }
+    if (accountModalOverlay) {
+        accountModalOverlay.addEventListener('click', (e) => {
+            if (e.target === accountModalOverlay) accountModalOverlay.classList.remove('active');
+        });
+    }
+
+    if (accountLoginForm) {
+        accountLoginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value.trim();
+            const password = document.getElementById('login-password').value;
+            if (!email || !password) {
+                showAccountError(translations[currentLang].account_error_required);
+                return;
+            }
+            try {
+                const res = await fetch(`${API_BASE_URL}/api/customers/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password }),
+                });
+                const data = await res.json();
+                if (!res.ok) {
+                    showAccountError(data.error || translations[currentLang].account_error_generic);
+                    return;
+                }
+                setCustomerSession(data.token, data.customer);
+                accountModalOverlay.classList.remove('active');
+                accountLoginForm.reset();
+            } catch {
+                showAccountError(translations[currentLang].account_error_generic);
+            }
+        });
+    }
+
+    if (accountRegisterForm) {
+        accountRegisterForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('register-name').value.trim();
+            const email = document.getElementById('register-email').value.trim();
+            const phone = document.getElementById('register-phone').value.trim();
+            const birthday = document.getElementById('register-birthday').value;
+            const password = document.getElementById('register-password').value;
+
+            if (!name || !email || !phone || !birthday || !password) {
+                showAccountError(translations[currentLang].account_error_required);
+                return;
+            }
+            if (password.length < 8) {
+                showAccountError(translations[currentLang].account_error_password_length);
+                return;
+            }
+            try {
+                const res = await fetch(`${API_BASE_URL}/api/customers/register`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, phone, birthday, password }),
+                });
+                const data = await res.json();
+                if (!res.ok) {
+                    showAccountError(data.error || translations[currentLang].account_error_generic);
+                    return;
+                }
+                setCustomerSession(data.token, data.customer);
+                accountModalOverlay.classList.remove('active');
+                accountRegisterForm.reset();
+            } catch {
+                showAccountError(translations[currentLang].account_error_generic);
+            }
+        });
+    }
+
+    updateAccountUI();
+
+    // --- Recibir productos de "Volver a pedir" desde mi-cuenta.html ---
+    const pendingReorderRaw = localStorage.getItem('pendingReorder');
+    if (pendingReorderRaw) {
+        try {
+            const items = JSON.parse(pendingReorderRaw);
+            items.forEach(product => {
+                const existing = cart.find(c => c.title === product.title && c.details === product.details);
+                if (existing) {
+                    existing.quantity += (parseInt(product.quantity) || 1);
+                } else {
+                    cart.push({ ...product, quantity: parseInt(product.quantity) || 1 });
+                }
+            });
+            updateCartUI();
+            toggleCart();
+        } catch {
+            // JSON corrupto: se ignora
+        }
+        localStorage.removeItem('pendingReorder');
+    }
+
+    // Abrir el modal de login automáticamente si venimos de mi-cuenta.html sin sesión
+    if (new URLSearchParams(window.location.search).get('login') === '1') {
+        openAccountModal('login');
+        window.history.replaceState({}, '', window.location.pathname);
+    }
+
+    // Evitar seleccionar una fecha de nacimiento futura
+    const todayStr = new Date().toISOString().split('T')[0];
+    document.querySelectorAll('#register-birthday, #checkout-birthday').forEach(el => {
+        el.max = todayStr;
+    });
+
     const checkoutModalOverlay = document.getElementById('checkout-modal-overlay');
     const checkoutModalClose = document.getElementById('checkout-modal-close');
     const checkoutOrderSummary = document.getElementById('checkout-order-summary');
     const checkoutFinalTotal = document.getElementById('checkout-final-total');
     const stripeCheckoutBtn = document.getElementById('stripe-checkout-btn');
 
+    let checkoutWasLoggedIn = false;
+    const checkoutCreateAccountGroup = document.getElementById('checkout-create-account-group');
+    const checkoutLoggedInNote = document.getElementById('checkout-logged-in-note');
+    const checkoutCreateAccountCheckbox = document.getElementById('checkout-create-account');
+    const checkoutPasswordField = document.getElementById('checkout-password-field');
+
+    if (checkoutCreateAccountCheckbox) {
+        checkoutCreateAccountCheckbox.addEventListener('change', () => {
+            checkoutPasswordField.style.display = checkoutCreateAccountCheckbox.checked ? 'block' : 'none';
+        });
+    }
+
     if (checkoutBtn) {
         checkoutBtn.addEventListener('click', () => {
             if (cart.length === 0) return; // No abrir si está vacío
-            
+
             // Llenar resumen
             let summaryHtml = '';
             cart.forEach(item => {
@@ -1262,6 +1542,30 @@ document.addEventListener('DOMContentLoaded', () => {
             checkoutOrderSummary.innerHTML = summaryHtml;
             checkoutFinalTotal.textContent = cartTotalElement.textContent;
 
+            // Reflejar estado de sesión: si ya inició sesión, precargar datos y ocultar el checkbox
+            const session = getCustomerSession();
+            if (session) {
+                checkoutCreateAccountGroup.style.display = 'none';
+                checkoutLoggedInNote.style.display = 'block';
+                checkoutLoggedInNote.textContent = `${translations[currentLang].checkout_logged_in_prefix} ${session.customer.name}`;
+                document.getElementById('checkout-name').value = session.customer.name;
+                document.getElementById('checkout-email').value = session.customer.email;
+                document.getElementById('checkout-phone').value = session.customer.phone;
+            } else {
+                checkoutCreateAccountGroup.style.display = 'block';
+                checkoutLoggedInNote.style.display = 'none';
+                checkoutCreateAccountCheckbox.checked = false;
+                checkoutPasswordField.style.display = 'none';
+                document.getElementById('checkout-birthday').value = '';
+                document.getElementById('checkout-password').value = '';
+                if (checkoutWasLoggedIn) {
+                    document.getElementById('checkout-name').value = '';
+                    document.getElementById('checkout-email').value = '';
+                    document.getElementById('checkout-phone').value = '';
+                }
+            }
+            checkoutWasLoggedIn = !!session;
+
             // Cerrar carrito y abrir modal
             toggleCart();
             checkoutModalOverlay.classList.add('active');
@@ -1276,32 +1580,89 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (stripeCheckoutBtn) {
-        stripeCheckoutBtn.addEventListener('click', () => {
+        stripeCheckoutBtn.addEventListener('click', async () => {
+            const t = translations[currentLang];
+
             // Validar formulario
             const name = document.getElementById('checkout-name').value;
             const email = document.getElementById('checkout-email').value;
             const phone = document.getElementById('checkout-phone').value;
             const date = document.getElementById('checkout-date').value;
             const time = document.getElementById('checkout-time').value;
+            const notes = document.getElementById('checkout-notes').value;
 
-            if(!name || !email || !phone || !date || !time) {
-                alert(translations[currentLang].checkout_alert_required);
+            if (!name || !email || !phone || !date || !time) {
+                alert(t.checkout_alert_required);
                 return;
             }
 
-            // Preparar metadatos para Stripe (Fase 3)
-            const orderMetadata = {
+            let session = getCustomerSession();
+            const wantsAccount = !session && checkoutCreateAccountCheckbox.checked;
+
+            // Si marcó "crear cuenta", registrar primero para asociar el pedido a la nueva cuenta
+            if (wantsAccount) {
+                const birthday = document.getElementById('checkout-birthday').value;
+                const password = document.getElementById('checkout-password').value;
+                if (!birthday) {
+                    alert(t.account_error_birthday);
+                    return;
+                }
+                if (!password || password.length < 8) {
+                    alert(t.account_error_password_length);
+                    return;
+                }
+                try {
+                    const res = await fetch(`${API_BASE_URL}/api/customers/register`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ name, email, phone, birthday, password }),
+                    });
+                    const data = await res.json();
+                    if (!res.ok) {
+                        alert(data.error || t.account_error_generic);
+                        return;
+                    }
+                    setCustomerSession(data.token, data.customer);
+                    session = getCustomerSession();
+                } catch {
+                    alert(t.account_error_generic);
+                    return;
+                }
+            }
+
+            const orderPayload = {
                 customerName: name,
                 customerEmail: email,
                 customerPhone: phone,
                 pickupDate: date,
                 pickupTime: time,
-                notes: document.getElementById('checkout-notes').value,
-                orderItems: cart
+                notes,
+                orderItems: cart,
+                language: currentLang,
             };
 
-            console.log("Stripe Metadata Preparada:", orderMetadata);
-            alert("Redirecting to Stripe...\n\n(Payment gateway integration pending)");
+            try {
+                const headers = { 'Content-Type': 'application/json' };
+                if (session) headers['Authorization'] = `Bearer ${session.token}`;
+
+                const res = await fetch(`${API_BASE_URL}/api/orders`, {
+                    method: 'POST',
+                    headers,
+                    body: JSON.stringify(orderPayload),
+                });
+                const data = await res.json();
+                if (!res.ok) {
+                    alert(data.error || t.account_error_generic);
+                    return;
+                }
+
+                cart = [];
+                updateCartUI();
+                checkoutModalOverlay.classList.remove('active');
+                alert(t.checkout_success_msg);
+            } catch {
+                alert(t.account_error_generic);
+            }
         });
     }
 

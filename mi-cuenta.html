@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Cuenta | Cookies by Jackie</title>
+    <meta name="robots" content="noindex">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@400;600;800;900&family=Outfit:wght@300;400;600&family=Pacifico&family=Abril+Fatface&family=Cookie&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css?v=5.19">
+
+    <!-- FontAwesome -->
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+</head>
+<body class="account-page-body">
+
+    <!-- Header simple de la página de cuenta -->
+    <header class="account-page-header">
+        <div class="container account-page-header-inner">
+            <a href="index.html" class="account-page-logo">
+                <div class="logo-text">
+                    <span class="logo-main">COOKIES</span>
+                    <span class="logo-sub">by Jackie</span>
+                </div>
+            </a>
+            <div class="account-page-header-actions">
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="es">ES</button>
+                </div>
+                <a href="index.html" class="account-page-back">
+                    <i class="fas fa-arrow-left"></i> <span data-i18n="back_to_shop">Back to shop</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="account-page-main">
+        <div class="container">
+
+            <!-- Estado: no ha iniciado sesión -->
+            <div id="account-guest-state" class="account-guest-state" style="display:none;">
+                <i class="fas fa-user-circle"></i>
+                <h1 data-i18n="account_guest_title">Log in to view your account</h1>
+                <p data-i18n="account_guest_desc">You need to log in to see your order history and account details.</p>
+                <a href="index.html?login=1" class="btn btn-primary" data-i18n="account_guest_btn">Go to log in</a>
+            </div>
+
+            <!-- Estado: cuenta logueada -->
+            <div id="account-page-content" style="display:none;">
+                <div class="account-page-title-row">
+                    <div>
+                        <h1 data-i18n="account_page_title">My Account</h1>
+                        <p class="account-page-greeting" id="account-page-greeting"></p>
+                    </div>
+                    <button class="account-page-logout-btn" id="account-page-logout" data-i18n="account_logout">Log out</button>
+                </div>
+
+                <section class="account-info-card" id="account-info-card"></section>
+
+                <section class="account-suggestions" id="account-suggestions-section" style="display:none;">
+                    <h2 data-i18n="account_suggestions_title">Your favorites</h2>
+                    <p class="account-suggestions-subtitle" data-i18n="account_suggestions_subtitle">Based on what you order most</p>
+                    <div class="suggestions-grid" id="suggestions-grid"></div>
+                </section>
+
+                <section class="account-orders-section">
+                    <h2 data-i18n="account_orders_title">Order history</h2>
+                    <div id="orders-list"></div>
+                </section>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="account.js?v=2"></script>
+</body>
+</html>

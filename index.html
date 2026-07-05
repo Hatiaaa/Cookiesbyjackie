@@ -17,7 +17,7 @@
     <link rel="preload" as="image" href="assets/Hero/hero-1-mobile.webp" media="(max-width: 992px)" fetchpriority="high">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="style.css?v=5.16">
+    <link rel="stylesheet" href="style.css?v=5.19">
 
     <!-- FontAwesome (carga diferida para no bloquear el render) -->
     <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
@@ -50,6 +50,15 @@
 
                 <a href="#faq" class="nav-link" data-i18n="nav_contact">contacto</a>
             </nav>
+
+            <div class="top-bar-actions">
+                <button class="account-btn" id="account-btn-topbar" aria-label="Mi cuenta"><i class="fas fa-user"></i></button>
+                <div class="account-dropdown" id="account-dropdown-topbar">
+                    <p class="account-dropdown-greeting"></p>
+                    <a href="mi-cuenta.html" class="account-dropdown-orders" data-i18n="account_my_orders">Mis pedidos</a>
+                    <button class="account-dropdown-logout" data-i18n="account_logout">Cerrar sesión</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -93,6 +102,14 @@
                 <div class="lang-switcher">
                     <button class="lang-btn active" data-lang="en">EN</button>
                     <button class="lang-btn" data-lang="es">ES</button>
+                </div>
+                <div class="account-btn-wrapper">
+                    <button class="account-btn" id="account-btn-header" aria-label="Mi cuenta"><i class="fas fa-user"></i></button>
+                    <div class="account-dropdown" id="account-dropdown-header">
+                        <p class="account-dropdown-greeting"></p>
+                        <a href="mi-cuenta.html" class="account-dropdown-orders" data-i18n="account_my_orders">Mis pedidos</a>
+                        <button class="account-dropdown-logout" data-i18n="account_logout">Cerrar sesión</button>
+                    </div>
                 </div>
                 <button class="search-btn" id="search-open-btn" aria-label="Buscar"><i class="fas fa-search"></i></button>
                 <a href="#" class="cart-toggle" id="cart-btn" aria-label="View Cart">
@@ -1356,6 +1373,9 @@
 
                 <div class="checkout-section">
                     <h3 style="font-size: 1rem; margin: 1.5rem 0 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem;" data-i18n="checkout_data_title">tus datos</h3>
+
+                    <p class="checkout-logged-in-note" id="checkout-logged-in-note" style="display:none;"></p>
+
                     <div class="form-group" style="margin-bottom: 1rem;">
                         <label style="display: block; font-size: 0.85rem; margin-bottom: 5px; font-weight: 500;" data-i18n="checkout_name_label">Nombre Completo</label>
                         <input type="text" id="checkout-name" class="checkout-input" placeholder="Ej. Ana Pérez" data-i18n="checkout_name_ph" required>
@@ -1367,6 +1387,19 @@
                     <div class="form-group" style="margin-bottom: 1rem;">
                         <label style="display: block; font-size: 0.85rem; margin-bottom: 5px; font-weight: 500;" data-i18n="checkout_phone_label">Teléfono</label>
                         <input type="tel" id="checkout-phone" class="checkout-input" placeholder="Ej. +1 234 567 8900" data-i18n="checkout_phone_ph" required>
+                    </div>
+
+                    <div class="form-group checkout-create-account-group" id="checkout-create-account-group" style="margin-bottom: 1rem;">
+                        <label class="checkout-checkbox-label">
+                            <input type="checkbox" id="checkout-create-account">
+                            <span data-i18n="checkout_create_account_label">¿Deseas crear una cuenta con estos datos para ver tu historial de pedidos?</span>
+                        </label>
+                        <div id="checkout-password-field" style="display:none; margin-top: 0.75rem;">
+                            <label style="display: block; font-size: 0.85rem; margin-bottom: 5px; font-weight: 500;" data-i18n="account_birthday_label">Fecha de nacimiento</label>
+                            <input type="date" id="checkout-birthday" class="checkout-input" style="margin-bottom: 1rem;">
+                            <label style="display: block; font-size: 0.85rem; margin-bottom: 5px; font-weight: 500;" data-i18n="checkout_password_label">Contraseña</label>
+                            <input type="password" id="checkout-password" class="checkout-input" placeholder="Mínimo 8 caracteres" data-i18n="checkout_password_ph">
+                        </div>
                     </div>
                 </div>
 
@@ -1382,6 +1415,10 @@
                             <input type="time" id="checkout-time" class="checkout-input" required>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label style="display: block; font-size: 0.85rem; margin-bottom: 5px; font-weight: 500;" data-i18n="checkout_notes_label">Notas adicionales (opcional)</label>
+                        <textarea id="checkout-notes" class="checkout-input" rows="2" placeholder="Ej. Sin nueces" data-i18n="checkout_notes_ph"></textarea>
+                    </div>
                 </div>
             </div>
 
@@ -1394,6 +1431,64 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal de Login / Crear Cuenta -->
+    <div class="modal-overlay" id="account-modal-overlay">
+        <div class="cookie-modal account-modal">
+            <div class="cookie-modal-header">
+                <h2 data-i18n="account_modal_title">Mi Cuenta</h2>
+                <button class="cookie-modal-close" id="account-modal-close">&times;</button>
+            </div>
+
+            <div class="cookie-modal-body">
+                <div class="account-tabs">
+                    <button class="account-tab active" data-account-tab="login" data-i18n="account_tab_login">Iniciar sesión</button>
+                    <button class="account-tab" data-account-tab="register" data-i18n="account_tab_register">Crear cuenta</button>
+                </div>
+
+                <p class="account-error" id="account-error" style="display:none;"></p>
+
+                <!-- Formulario de Login -->
+                <form class="account-form" id="account-login-form">
+                    <div class="form-group" style="margin-bottom: 1rem;">
+                        <label data-i18n="checkout_email_label">Correo Electrónico</label>
+                        <input type="email" id="login-email" class="checkout-input" required>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 1rem;">
+                        <label data-i18n="checkout_password_label">Contraseña</label>
+                        <input type="password" id="login-password" class="checkout-input" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="account-login-submit" data-i18n="account_login_submit">Iniciar sesión</button>
+                </form>
+
+                <!-- Formulario de Registro -->
+                <form class="account-form" id="account-register-form" style="display:none;">
+                    <div class="form-group" style="margin-bottom: 1rem;">
+                        <label data-i18n="checkout_name_label">Nombre Completo</label>
+                        <input type="text" id="register-name" class="checkout-input" required>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 1rem;">
+                        <label data-i18n="checkout_email_label">Correo Electrónico</label>
+                        <input type="email" id="register-email" class="checkout-input" required>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 1rem;">
+                        <label data-i18n="checkout_phone_label">Teléfono</label>
+                        <input type="tel" id="register-phone" class="checkout-input" required>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 1rem;">
+                        <label data-i18n="account_birthday_label">Fecha de nacimiento</label>
+                        <input type="date" id="register-birthday" class="checkout-input" required>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 1rem;">
+                        <label data-i18n="checkout_password_label">Contraseña</label>
+                        <input type="password" id="register-password" class="checkout-input" placeholder="Mínimo 8 caracteres" data-i18n="checkout_password_ph" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="account-register-submit" data-i18n="account_register_submit">Crear cuenta</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Modal de Personalización de Pasteles -->
     <div class="modal-overlay" id="cake-modal-overlay">
@@ -1565,7 +1660,7 @@
     </div><!-- /policy-modal-overlay -->
 
 
-    <script src="script.js?v=5.27"></script>
+    <script src="script.js?v=5.34"></script>
     <script src="panel.js"></script>
     <script>
         // Scroll Animations
