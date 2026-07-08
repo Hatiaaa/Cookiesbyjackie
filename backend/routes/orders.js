@@ -11,27 +11,30 @@ function parsePrice(raw) {
   return parseFloat(String(raw).replace(/[^0-9.]/g, '')) || 0;
 }
 
-// POST /api/orders — público, recibe pedido desde el sitio web
-// Si viene un token de cliente válido (Authorization: Bearer), el pedido queda
-// asociado a esa cuenta. Si no, el pedido se guarda como invitado (customer_id = NULL).
-router.post('/', optionalCustomerAuth, async (req, res) => {
-  const {
-    customerName, customerEmail, customerPhone,
-    pickupDate, pickupTime, notes,
-    orderItems, language,
-  } = req.body || {};
-
+// Valida el payload de un pedido. Devuelve un mensaje de error o null si es válido.
+function validateOrderData(data) {
+  const { customerName, customerEmail, customerPhone, pickupDate, pickupTime, orderItems } = data || {};
   if (!customerName || !customerEmail || !customerPhone ||
       !pickupDate || !pickupTime ||
       !Array.isArray(orderItems) || orderItems.length === 0) {
-    return res.status(400).json({ error: 'Faltan campos requeridos' });
+    return 'Faltan campos requeridos';
   }
+  return null;
+}
+
+// Crea un pedido + sus items en una transacción. Reutilizable desde el flujo de
+// checkout con Stripe. El pedido se crea SIEMPRE como 'unpaid'; el webhook de
+// Stripe lo marca 'paid' cuando el cobro se confirma.
+// Devuelve { orderId, total }.
+async function createOrder(data, customerId = null) {
+  const {
+    customerName, customerEmail, customerPhone,
+    pickupDate, pickupTime, notes, orderItems, language,
+  } = data;
 
   const total = orderItems.reduce((sum, item) => {
     return sum + parsePrice(item.price) * (parseInt(item.quantity) || 1);
   }, 0);
-
-  const customerId = req.customer ? req.customer.customerId : null;
 
   const conn = await pool.getConnection();
   try {
@@ -40,8 +43,8 @@ router.post('/', optionalCustomerAuth, async (req, res) => {
     const [result] = await conn.query(
       `INSERT INTO orders
          (customer_id, customer_name, customer_email, customer_phone,
-          pickup_date, pickup_time, notes, language, total_amount)
-       VALUES (?,?,?,?,?,?,?,?,?)`,
+          pickup_date, pickup_time, notes, language, total_amount, payment_status)
+       VALUES (?,?,?,?,?,?,?,?,?, 'unpaid')`,
       [customerId, customerName, customerEmail, customerPhone,
        pickupDate, pickupTime, notes || null,
        language || 'en', total.toFixed(2)]
@@ -59,25 +62,57 @@ router.post('/', optionalCustomerAuth, async (req, res) => {
       );
     }
 
+    // Primer registro del historial de estados (para el timeline del dashboard)
+    await conn.query(
+      `INSERT INTO order_status_history (order_id, status, changed_by) VALUES (?, 'nuevo', 'sistema')`,
+      [orderId]
+    );
+
     await conn.commit();
-    res.status(201).json({ ok: true, orderId });
+    return { orderId, total };
   } catch (err) {
     await conn.rollback();
-    console.error('Error saving order:', err);
-    res.status(500).json({ error: 'Error al guardar el pedido' });
+    throw err;
   } finally {
     conn.release();
   }
+}
+
+// POST /api/orders — LEGACY / manual. Crea un pedido sin pasar por Stripe
+// (queda como 'unpaid', invisible en el dashboard). El sitio web ya NO usa esta
+// ruta; el checkout real pasa por POST /api/checkout/session. Se conserva por
+// compatibilidad y para altas manuales.
+router.post('/', optionalCustomerAuth, async (req, res) => {
+  const data = req.body || {};
+  const validationError = validateOrderData(data);
+  if (validationError) return res.status(400).json({ error: validationError });
+
+  const customerId = req.customer ? req.customer.customerId : null;
+  try {
+    const { orderId } = await createOrder(data, customerId);
+    res.status(201).json({ ok: true, orderId });
+  } catch (err) {
+    console.error('Error saving order:', err);
+    res.status(500).json({ error: 'Error al guardar el pedido' });
+  }
 });
 
-// GET /api/orders — protegido (admin), lista pedidos con filtros opcionales
+// GET /api/orders — protegido (admin/dashboard).
+// Por defecto solo devuelve pedidos PAGADOS (payment=paid). Usa ?payment=all
+// para ver todos, o ?payment=unpaid para los no pagados/abandonados.
+// Filtros de fecha: ?date= (fecha de RETIRO/pickup_date) y
+// ?order_date= (fecha en que se HIZO el pedido/created_at) — el dashboard usa ambos.
 router.get('/', requireAuth, async (req, res) => {
-  const { status, date, page = 1, limit = 50 } = req.query;
+  const { status, date, order_date, payment = 'paid', page = 1, limit = 50 } = req.query;
   const offset = (parseInt(page) - 1) * parseInt(limit);
 
   const conditions = [];
   const params     = [];
 
+  if (payment && payment !== 'all') {
+    conditions.push('o.payment_status = ?');
+    params.push(payment);
+  }
   if (status && VALID_STATUSES.includes(status)) {
     conditions.push('o.status = ?');
     params.push(status);
@@ -86,6 +121,10 @@ router.get('/', requireAuth, async (req, res) => {
     conditions.push('o.pickup_date = ?');
     params.push(date);
   }
+  if (order_date) {
+    conditions.push('DATE(o.created_at) = ?');
+    params.push(order_date);
+  }
 
   const where = conditions.length ? `WHERE ${conditions.join(' AND ')}` : '';
 
@@ -93,7 +132,7 @@ router.get('/', requireAuth, async (req, res) => {
 
   try {
     const [rows] = await pool.query(
-      `SELECT o.id, o.created_at, o.status,
+      `SELECT o.id, o.created_at, o.status, o.payment_status,
               o.customer_name, o.customer_email, o.customer_phone,
               o.pickup_date, o.pickup_time, o.notes, o.language, o.total_amount,
               COUNT(i.id) AS item_count
@@ -112,7 +151,7 @@ router.get('/', requireAuth, async (req, res) => {
   }
 });
 
-// GET /api/orders/:id — protegido (admin), detalle completo con items
+// GET /api/orders/:id — protegido (admin), detalle completo con items + historial de estados
 router.get('/:id', requireAuth, async (req, res) => {
   const id = parseInt(req.params.id);
   if (!id) return res.status(400).json({ error: 'ID inválido' });
@@ -127,8 +166,12 @@ router.get('/:id', requireAuth, async (req, res) => {
       'SELECT * FROM order_items WHERE order_id = ? ORDER BY id',
       [id]
     );
+    const [historyRows] = await pool.query(
+      'SELECT status, changed_at, changed_by FROM order_status_history WHERE order_id = ? ORDER BY changed_at ASC, id ASC',
+      [id]
+    );
 
-    res.json({ ...orderRows[0], items: itemRows });
+    res.json({ ...orderRows[0], items: itemRows, status_history: historyRows });
   } catch (err) {
     console.error('Error fetching order detail:', err);
     res.status(500).json({ error: 'Error al obtener el pedido' });
@@ -148,6 +191,8 @@ router.patch('/:id/status', requireAuth, async (req, res) => {
     });
   }
 
+  const changedBy = process.env.ADMIN_USERNAME || 'admin';
+
   try {
     const [result] = await pool.query(
       'UPDATE orders SET status = ? WHERE id = ?',
@@ -156,12 +201,20 @@ router.patch('/:id/status', requireAuth, async (req, res) => {
     if (result.affectedRows === 0) {
       return res.status(404).json({ error: 'Pedido no encontrado' });
     }
+    await pool.query(
+      'INSERT INTO order_status_history (order_id, status, changed_by) VALUES (?, ?, ?)',
+      [id, status, changedBy]
+    );
     const [rows] = await pool.query('SELECT * FROM orders WHERE id = ?', [id]);
-    res.json(rows[0]);
+    const [historyRows] = await pool.query(
+      'SELECT status, changed_at, changed_by FROM order_status_history WHERE order_id = ? ORDER BY changed_at ASC, id ASC',
+      [id]
+    );
+    res.json({ ...rows[0], status_history: historyRows });
   } catch (err) {
     console.error('Error updating status:', err);
     res.status(500).json({ error: 'Error al actualizar estado' });
   }
 });
 
-module.exports = router;
+module.exports = { router, createOrder, validateOrderData, parsePrice };

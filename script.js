@@ -106,7 +106,8 @@ document.addEventListener('DOMContentLoaded', () => {
             account_error_required: "Por favor completa todos los campos.",
             account_error_password_length: "La contraseña debe tener al menos 8 caracteres.",
             account_error_generic: "Algo salió mal. Intenta de nuevo.",
-            checkout_success_msg: "¡Pedido recibido! Nos pondremos en contacto para confirmar los detalles.",
+            checkout_success_msg: "¡Pago recibido! Nos pondremos en contacto para confirmar los detalles de tu pedido.",
+            checkout_cancel_msg: "Pago cancelado. Tu carrito sigue guardado por si quieres volver a intentarlo.",
             chat_name: "jackie's helper",
             chat_status: "en línea ahora",
             add_to_cart: "añadir al carrito",
@@ -357,7 +358,8 @@ document.addEventListener('DOMContentLoaded', () => {
             account_error_required: "Please fill in all fields.",
             account_error_password_length: "Password must be at least 8 characters.",
             account_error_generic: "Something went wrong. Please try again.",
-            checkout_success_msg: "Order received! We'll be in touch to confirm the details.",
+            checkout_success_msg: "Payment received! We'll be in touch to confirm your order details.",
+            checkout_cancel_msg: "Payment cancelled. Your cart is saved in case you'd like to try again.",
             chat_name: "jackie's helper",
             chat_status: "online now",
             add_to_cart: "add to cart",
@@ -707,7 +709,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // State
     let cart = [];
-    
+    // Recuperar carrito guardado (sobrevive al redirect a Stripe / recargas)
+    try {
+        const savedCart = JSON.parse(localStorage.getItem('cartData'));
+        if (Array.isArray(savedCart)) cart = savedCart;
+    } catch { /* carrito corrupto: se ignora */ }
+
     // Elements
     const cartBtn = document.getElementById('cart-btn');
     const closeCart = document.getElementById('close-cart');
@@ -724,10 +731,13 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const updateCartUI = () => {
+        // Persistir carrito en cada cambio
+        localStorage.setItem('cartData', JSON.stringify(cart));
+
         // Update count
         const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
         cartCountElement.textContent = totalItems;
-        
+
         // Update list
         if (cart.length === 0) {
             cartItemsContainer.innerHTML = `<p style="text-align: center; opacity: 0.5; margin-top: 2rem; font-family: var(--font-body);">${translations[currentLang].cart_empty}</p>`;
@@ -1498,6 +1508,21 @@ document.addEventListener('DOMContentLoaded', () => {
         window.history.replaceState({}, '', window.location.pathname);
     }
 
+    // --- Retorno desde Stripe Checkout ---
+    const checkoutStatus = new URLSearchParams(window.location.search).get('checkout');
+    if (checkoutStatus === 'success') {
+        // Pago exitoso: vaciar carrito y confirmar
+        cart = [];
+        localStorage.removeItem('cartData');
+        updateCartUI();
+        alert(translations[currentLang].checkout_success_msg);
+        window.history.replaceState({}, '', window.location.pathname);
+    } else if (checkoutStatus === 'cancel') {
+        // Pago cancelado: el carrito se conserva
+        alert(translations[currentLang].checkout_cancel_msg);
+        window.history.replaceState({}, '', window.location.pathname);
+    }
+
     // Evitar seleccionar una fecha de nacimiento futura
     const todayStr = new Date().toISOString().split('T')[0];
     document.querySelectorAll('#register-birthday, #checkout-birthday').forEach(el => {
@@ -1645,21 +1670,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 const headers = { 'Content-Type': 'application/json' };
                 if (session) headers['Authorization'] = `Bearer ${session.token}`;
 
-                const res = await fetch(`${API_BASE_URL}/api/orders`, {
+                // Crear sesión de pago en Stripe y redirigir a la pasarela.
+                // El pedido se registra en el backend como 'unpaid' y se marca
+                // 'paid' vía webhook cuando el cobro se confirma.
+                const res = await fetch(`${API_BASE_URL}/api/checkout/session`, {
                     method: 'POST',
                     headers,
                     body: JSON.stringify(orderPayload),
                 });
                 const data = await res.json();
-                if (!res.ok) {
+                if (!res.ok || !data.url) {
                     alert(data.error || t.account_error_generic);
                     return;
                 }
 
-                cart = [];
-                updateCartUI();
-                checkoutModalOverlay.classList.remove('active');
-                alert(t.checkout_success_msg);
+                // Redirigir a Stripe Checkout. El carrito queda guardado en
+                // localStorage; se limpia al volver con ?checkout=success.
+                window.location.href = data.url;
             } catch {
                 alert(t.account_error_generic);
             }
