@@ -1,0 +1,27 @@
+# Cookies by Jackie — hosting estático (Hostinger / Apache)
+
+# El backend (Express/Node) NO se ejecuta aquí — vive aparte, como app Node
+# en un subdominio (ver backend/README-DEPLOY.md). Si el repo completo llega
+# a subirse a la raíz pública, esto evita que esos archivos queden accesibles
+# por URL (schema.sql, .env.example, código fuente del servidor, etc).
+<IfModule mod_alias.c>
+  RedirectMatch 404 ^/backend(/.*)?$
+</IfModule>
+
+# Bloquear extensiones de configuración/documentación que no deben servirse
+<FilesMatch "\.(sql|env|md|sh)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+# Forzar HTTPS
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>

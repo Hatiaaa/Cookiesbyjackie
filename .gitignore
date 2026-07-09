@@ -4,6 +4,11 @@
 
 # Dev tools (no van en producción)
 translate.py
+optimizar-imagenes.sh
 
 # Imágenes de trabajo / borradores sueltos
 assets/*_pixian_ai.png
+
+# Basura de OS / editor
+.DS_Store
+Thumbs.db
