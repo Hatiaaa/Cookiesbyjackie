@@ -5,7 +5,7 @@
 */
 
 document.addEventListener('DOMContentLoaded', () => {
-    const API_BASE_URL = 'https://backend-production-08a5.up.railway.app';
+    const API_BASE_URL = 'https://aqua-guanaco-736873.hostingersite.com';
 
     const translations = {
         es: {
