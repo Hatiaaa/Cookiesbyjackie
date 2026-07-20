@@ -12,3 +12,6 @@ assets/*_pixian_ai.png
 # Basura de OS / editor
 .DS_Store
 Thumbs.db
+
+# Docs internos de arreglos/instrucciones del cliente (no son parte del sitio)
+Nuevos cambios*/

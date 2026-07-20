@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
             nav_shop: "pick up",
             nav_delivery: "delivery",
             nav_contact: "ubicación",
-            nav_bundle: "bundle gifts",
+            nav_bundle: "gifts bundle",
             hero_label: "Repostería de Autor",
             hero_title: "Fresco Cada Día.<br>Hecho con Amor.",
             hero_desc: "Cada día horneamos postres frescos y artesanales con los ingredientes de mayor calidad, sabores irresistibles y un toque especial de amor. Descubre la alegría de disfrutar delicias auténticas creadas para cautivar tus sentidos.",
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
             prod_red: "red velvet supreme",
             prod_heart: "vintage heart",
             prod_brownie: "fudge brownies",
-            trending_title: "bundle gifts",
+            trending_title: "gifts bundle",
             tab_cookies: "galletas",
             tab_cakes: "pasteles",
             tab_cupcakes: "cupcakes",
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
             tab_macarons: "macarons",
             tab_minis: "mini individual",
             tab_pies: "tartas",
-            tab_packs: "bundle gifts",
+            tab_packs: "gifts bundle",
             cart_title: "tu carrito",
             cart_total: "Total:",
             cart_checkout: "Ir a Pagar",
@@ -73,11 +73,11 @@ document.addEventListener('DOMContentLoaded', () => {
             checkout_pickup_title: "recogida del pedido",
             checkout_date_label: "Fecha",
             checkout_time_label: "Hora",
-            checkout_notes_label: "Instrucciones Especiales (Opcional)",
-            checkout_notes_ph: "Alguna nota para nosotros...",
+            checkout_date_note: "Nota: tu pedido incluye un pastel, que requiere mínimo 3 días de anticipación. Esta fecha aplica para todo el pedido.",
             checkout_total_label: "Total a Pagar:",
             checkout_btn: "Proceder al Pago Seguro",
             checkout_alert_required: "Por favor completa todos los campos requeridos (nombre, email, teléfono, fecha y hora de recogida).",
+            checkout_alert_time_range: "La hora de recogida debe estar entre las 10:00 am y las 8:00 pm.",
             checkout_create_account_label: "¿Deseas crear una cuenta con estos datos para ver tu historial de pedidos?",
             checkout_password_label: "Contraseña",
             checkout_password_ph: "Mínimo 8 caracteres",
@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cake_label_frosting: "Cobertura (Frosting)",
             cake_label_message: "Mensaje en el Pastel (máx. 30 caracteres)",
             cake_label_message_color: "Color del Mensaje",
-            cake_label_delivery_date: "Fecha de entrega (mínimo 3 días de anticipación)",
+            cake_label_delivery_date: "Fecha del pedido (mínimo 3 días de anticipación)",
             cake_label_want_message: "¿Quieres un mensaje?",
             cake_want_message_no: "No",
             cake_want_message_yes: "Con mensaje",
@@ -204,8 +204,8 @@ document.addEventListener('DOMContentLoaded', () => {
             cake_detail_frosting: "Cobertura",
             cake_detail_message: "Mensaje",
             cake_detail_message_color: "Color del mensaje",
-            cake_detail_delivery_date: "Fecha de entrega",
-            cake_alert_date_required: "Por favor selecciona una fecha de entrega (mínimo 3 días de anticipación).",
+            cake_detail_delivery_date: "Fecha del pedido",
+            cake_alert_date_required: "Por favor selecciona una fecha del pedido (mínimo 3 días de anticipación).",
             cake_detail_cherries: "Cerezas",
             cake_detail_bows: "Moños",
             cook1_desc: "Un delicioso surtido de cuatro galletas recién horneadas: Chocolate Chip, Salted Caramel Chocolate Chip, Brookie y Snickerdoodle.",
@@ -257,7 +257,7 @@ document.addEventListener('DOMContentLoaded', () => {
             nav_shop: "pick up",
             nav_delivery: "delivery",
             nav_contact: "location",
-            nav_bundle: "bundle gifts",
+            nav_bundle: "gifts bundle",
             hero_label: "Signature Pastry",
             hero_title: "Freshly Made Daily<br>with Love",
             hero_desc: "Every day we bake fresh, handcrafted treats made with the highest quality ingredients, irresistible flavors, and a special touch of love. Discover the joy of enjoying authentic delights created to captivate your senses.",
@@ -270,7 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
             prod_red: "red velvet supreme",
             prod_heart: "vintage heart cake",
             prod_brownie: "fudge brownies",
-            trending_title: "bundle gifts",
+            trending_title: "gifts bundle",
             tab_cookies: "cookies",
             tab_cakes: "cakes",
             tab_cupcakes: "cupcakes",
@@ -278,7 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
             tab_macarons: "macarons",
             tab_minis: "mini individual",
             tab_pies: "pies",
-            tab_packs: "bundle gifts",
+            tab_packs: "gifts bundle",
             cart_title: "Your Bag",
             cart_total: "Total Amount:",
             cart_checkout: "Secure Checkout",
@@ -325,11 +325,11 @@ document.addEventListener('DOMContentLoaded', () => {
             checkout_pickup_title: "order pickup",
             checkout_date_label: "Date",
             checkout_time_label: "Time",
-            checkout_notes_label: "Special Instructions (Optional)",
-            checkout_notes_ph: "Any notes for us...",
+            checkout_date_note: "Note: your order includes a cake, which requires at least 3 days advance notice. This date applies to your whole order.",
             checkout_total_label: "Total to Pay:",
             checkout_btn: "Proceed to Secure Payment",
             checkout_alert_required: "Please fill in all required fields (name, email, phone, and pickup date and time).",
+            checkout_alert_time_range: "Pickup time must be between 10:00 am and 8:00 pm.",
             checkout_create_account_label: "Would you like to create an account with this info to see your order history?",
             checkout_password_label: "Password",
             checkout_password_ph: "Minimum 8 characters",
@@ -436,7 +436,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cake_label_frosting: "Frosting",
             cake_label_message: "Cake Message (max. 30 characters)",
             cake_label_message_color: "Message Color",
-            cake_label_delivery_date: "Delivery date (minimum 3 days in advance)",
+            cake_label_delivery_date: "Order date (minimum 3 days in advance)",
             cake_label_want_message: "Add a message?",
             cake_want_message_no: "No",
             cake_want_message_yes: "With a message",
@@ -450,8 +450,8 @@ document.addEventListener('DOMContentLoaded', () => {
             cake_detail_frosting: "Frosting",
             cake_detail_message: "Message",
             cake_detail_message_color: "Message color",
-            cake_detail_delivery_date: "Delivery date",
-            cake_alert_date_required: "Please select a delivery date (minimum 3 days in advance).",
+            cake_detail_delivery_date: "Order date",
+            cake_alert_date_required: "Please select an order date (minimum 3 days in advance).",
             cake_detail_cherries: "Cherries",
             cake_detail_bows: "Bows",
             cook1_desc: "A delicious assortment of four freshly baked cookies: Chocolate Chip, Salted Caramel Chocolate Chip, Brookie, and Snickerdoodle.",
@@ -1591,6 +1591,27 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             checkoutWasLoggedIn = !!session;
 
+            // Fecha mínima de recogida: si el carrito incluye un pastel (requiere
+            // mínimo 3 días de anticipación), esa regla aplica a TODO el pedido
+            // (una sola fecha/hora de recogida por pedido — decisión del cliente).
+            const advanceItem = cart.find(item => item.requiresAdvance);
+            const checkoutDateInput = document.getElementById('checkout-date');
+            const checkoutDateNote = document.getElementById('checkout-date-note');
+            const todayMin = new Date().toISOString().split('T')[0];
+            if (advanceItem) {
+                const advanceMin = new Date();
+                advanceMin.setDate(advanceMin.getDate() + 3);
+                const advanceMinStr = advanceMin.toISOString().split('T')[0];
+                checkoutDateInput.min = advanceMinStr;
+                if (!checkoutDateInput.value || checkoutDateInput.value < advanceMinStr) {
+                    checkoutDateInput.value = advanceItem.preferredDate || advanceMinStr;
+                }
+                checkoutDateNote.style.display = 'block';
+            } else {
+                checkoutDateInput.min = todayMin;
+                checkoutDateNote.style.display = 'none';
+            }
+
             // Cerrar carrito y abrir modal
             toggleCart();
             checkoutModalOverlay.classList.add('active');
@@ -1614,10 +1635,18 @@ document.addEventListener('DOMContentLoaded', () => {
             const phone = document.getElementById('checkout-phone').value;
             const date = document.getElementById('checkout-date').value;
             const time = document.getElementById('checkout-time').value;
-            const notes = document.getElementById('checkout-notes').value;
+            const notes = '';
 
             if (!name || !email || !phone || !date || !time) {
                 alert(t.checkout_alert_required);
+                return;
+            }
+
+            // Horario de recogida permitido: 10:00 am - 8:00 pm (validación
+            // defensiva; el input ya trae min/max="10:00"/"20:00", pero no todos
+            // los navegadores lo hacen cumplir de forma estricta).
+            if (time < '10:00' || time > '20:00') {
+                alert(t.checkout_alert_time_range);
                 return;
             }
 
@@ -2131,7 +2160,9 @@ document.addEventListener('DOMContentLoaded', () => {
             title: currentCakeData.name,
             price: `$${currentCakeData.currentPrice.toFixed(2)}`,
             image: imagePath,
-            details: parts.join(', ')
+            details: parts.join(', '),
+            requiresAdvance: true,
+            preferredDate: deliveryDate
         });
 
         cakeModalOverlay.classList.remove('active');
