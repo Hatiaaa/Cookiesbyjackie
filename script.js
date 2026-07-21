@@ -77,7 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
             checkout_total_label: "Total a Pagar:",
             checkout_btn: "Proceder al Pago Seguro",
             checkout_alert_required: "Por favor completa todos los campos requeridos (nombre, email, teléfono, fecha y hora de recogida).",
-            checkout_alert_time_range: "La hora de recogida debe estar entre las 10:00 am y las 8:00 pm.",
             checkout_create_account_label: "¿Deseas crear una cuenta con estos datos para ver tu historial de pedidos?",
             checkout_password_label: "Contraseña",
             checkout_password_ph: "Mínimo 8 caracteres",
@@ -329,7 +328,6 @@ document.addEventListener('DOMContentLoaded', () => {
             checkout_total_label: "Total to Pay:",
             checkout_btn: "Proceed to Secure Payment",
             checkout_alert_required: "Please fill in all required fields (name, email, phone, and pickup date and time).",
-            checkout_alert_time_range: "Pickup time must be between 10:00 am and 8:00 pm.",
             checkout_create_account_label: "Would you like to create an account with this info to see your order history?",
             checkout_password_label: "Password",
             checkout_password_ph: "Minimum 8 characters",
@@ -1529,6 +1527,42 @@ document.addEventListener('DOMContentLoaded', () => {
         el.max = todayStr;
     });
 
+    // --- Selector de hora de recogida (10:00am - 8:00pm) ---
+    // Dos <select> en vez de un <input type="time"> para poder bloquear de
+    // verdad las horas fuera de rango (el navegador no lo hace visualmente
+    // con min/max en un input nativo, solo al enviar el formulario).
+    const checkoutTimeHour = document.getElementById('checkout-time-hour');
+    const checkoutTimeMinute = document.getElementById('checkout-time-minute');
+
+    function populateMinuteOptions(maxMinute) {
+        const current = checkoutTimeMinute.value;
+        checkoutTimeMinute.innerHTML = '<option value="" disabled selected>--</option>';
+        for (let m = 0; m <= maxMinute; m++) {
+            const val = String(m).padStart(2, '0');
+            checkoutTimeMinute.insertAdjacentHTML('beforeend', `<option value="${val}">${val}</option>`);
+        }
+        // Conservar el minuto elegido si sigue siendo válido con el nuevo límite
+        if (current && parseInt(current, 10) <= maxMinute) {
+            checkoutTimeMinute.value = current;
+        }
+    }
+
+    if (checkoutTimeHour && checkoutTimeMinute) {
+        checkoutTimeHour.innerHTML = '<option value="" disabled selected>--</option>';
+        for (let h = 10; h <= 20; h++) {
+            const val = String(h).padStart(2, '0');
+            const label = h < 12 ? `${h}:00 am` : (h === 12 ? '12:00 pm' : `${h - 12}:00 pm`);
+            checkoutTimeHour.insertAdjacentHTML('beforeend', `<option value="${val}">${label}</option>`);
+        }
+        populateMinuteOptions(59);
+
+        checkoutTimeHour.addEventListener('change', () => {
+            // A las 8:00pm en punto solo se permite el minuto :00 (no se puede
+            // recoger después de las 8pm, ej. 8:30pm ya no es válido).
+            populateMinuteOptions(checkoutTimeHour.value === '20' ? 0 : 59);
+        });
+    }
+
     const checkoutModalOverlay = document.getElementById('checkout-modal-overlay');
     const checkoutModalClose = document.getElementById('checkout-modal-close');
     const checkoutOrderSummary = document.getElementById('checkout-order-summary');
@@ -1634,19 +1668,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const email = document.getElementById('checkout-email').value;
             const phone = document.getElementById('checkout-phone').value;
             const date = document.getElementById('checkout-date').value;
-            const time = document.getElementById('checkout-time').value;
+            const timeHour = document.getElementById('checkout-time-hour').value;
+            const timeMinute = document.getElementById('checkout-time-minute').value;
+            const time = (timeHour && timeMinute) ? `${timeHour}:${timeMinute}` : '';
             const notes = '';
 
             if (!name || !email || !phone || !date || !time) {
                 alert(t.checkout_alert_required);
-                return;
-            }
-
-            // Horario de recogida permitido: 10:00 am - 8:00 pm (validación
-            // defensiva; el input ya trae min/max="10:00"/"20:00", pero no todos
-            // los navegadores lo hacen cumplir de forma estricta).
-            if (time < '10:00' || time > '20:00') {
-                alert(t.checkout_alert_time_range);
                 return;
             }
 
