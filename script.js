@@ -73,6 +73,8 @@ document.addEventListener('DOMContentLoaded', () => {
             checkout_pickup_title: "recogida del pedido",
             checkout_date_label: "Fecha",
             checkout_time_label: "Hora",
+            checkout_time_placeholder: "Selecciona la hora",
+            checkout_time_confirm_btn: "Listo",
             checkout_date_note: "Nota: tu pedido incluye un pastel, que requiere mínimo 3 días de anticipación. Esta fecha aplica para todo el pedido.",
             checkout_total_label: "Total a Pagar:",
             checkout_btn: "Proceder al Pago Seguro",
@@ -324,6 +326,8 @@ document.addEventListener('DOMContentLoaded', () => {
             checkout_pickup_title: "order pickup",
             checkout_date_label: "Date",
             checkout_time_label: "Time",
+            checkout_time_placeholder: "Select time",
+            checkout_time_confirm_btn: "Done",
             checkout_date_note: "Note: your order includes a cake, which requires at least 3 days advance notice. This date applies to your whole order.",
             checkout_total_label: "Total to Pay:",
             checkout_btn: "Proceed to Secure Payment",
@@ -518,6 +522,13 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.lang-btn').forEach(btn => {
             btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
         });
+
+        // Si ya se eligió una hora de recogida, no perderla al cambiar de idioma
+        // (el bucle de arriba la reemplazó por el placeholder al llevar data-i18n)
+        if (typeof checkoutTimeSelected === 'string' && checkoutTimeSelected && checkoutTimeDisplay) {
+            const [h, m] = checkoutTimeSelected.split(':');
+            checkoutTimeDisplay.textContent = formatTimeDisplay(h, m);
+        }
 
         // Actualizar botones de carrito y badges
         document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
@@ -1533,6 +1544,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // con min/max en un input nativo, solo al enviar el formulario).
     const checkoutTimeHour = document.getElementById('checkout-time-hour');
     const checkoutTimeMinute = document.getElementById('checkout-time-minute');
+    const checkoutTimeDisplay = document.getElementById('checkout-time-display');
+    const checkoutTimePopover = document.getElementById('checkout-time-popover');
+    const checkoutTimeConfirm = document.getElementById('checkout-time-confirm');
+    let checkoutTimeSelected = ''; // valor en formato 24h "HH:MM", vacío si no se eligió
 
     function populateMinuteOptions(maxMinute) {
         const current = checkoutTimeMinute.value;
@@ -1547,12 +1562,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    if (checkoutTimeHour && checkoutTimeMinute) {
+    function hourLabel12h(h) {
+        return h < 12 ? `${h} am` : (h === 12 ? '12 pm' : `${h - 12} pm`);
+    }
+
+    // Formatea "18:10" -> "6:10 pm" para mostrar en el campo de hora del checkout
+    function formatTimeDisplay(hStr, mStr) {
+        return hourLabel12h(parseInt(hStr, 10)).replace(/^(\d+) /, `$1:${mStr} `);
+    }
+
+    if (checkoutTimeHour && checkoutTimeMinute && checkoutTimeDisplay && checkoutTimePopover) {
         checkoutTimeHour.innerHTML = '<option value="" disabled selected>--</option>';
         for (let h = 10; h <= 20; h++) {
             const val = String(h).padStart(2, '0');
-            const label = h < 12 ? `${h} am` : (h === 12 ? '12 pm' : `${h - 12} pm`);
-            checkoutTimeHour.insertAdjacentHTML('beforeend', `<option value="${val}">${label}</option>`);
+            checkoutTimeHour.insertAdjacentHTML('beforeend', `<option value="${val}">${hourLabel12h(h)}</option>`);
         }
         populateMinuteOptions(59);
 
@@ -1560,6 +1583,27 @@ document.addEventListener('DOMContentLoaded', () => {
             // A las 8:00pm en punto solo se permite el minuto :00 (no se puede
             // recoger después de las 8pm, ej. 8:30pm ya no es válido).
             populateMinuteOptions(checkoutTimeHour.value === '20' ? 0 : 59);
+        });
+
+        checkoutTimeDisplay.addEventListener('click', (e) => {
+            e.stopPropagation();
+            checkoutTimePopover.style.display = checkoutTimePopover.style.display === 'none' ? 'flex' : 'none';
+        });
+
+        checkoutTimeConfirm.addEventListener('click', () => {
+            const h = checkoutTimeHour.value;
+            const m = checkoutTimeMinute.value;
+            if (!h || !m) return; // faltan datos, no cerrar todavía
+            checkoutTimeSelected = `${h}:${m}`;
+            checkoutTimeDisplay.textContent = formatTimeDisplay(h, m);
+            checkoutTimePopover.style.display = 'none';
+        });
+
+        // Cerrar el popover al hacer clic afuera
+        document.addEventListener('click', (e) => {
+            if (!checkoutTimePopover.contains(e.target) && e.target !== checkoutTimeDisplay) {
+                checkoutTimePopover.style.display = 'none';
+            }
         });
     }
 
@@ -1668,9 +1712,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const email = document.getElementById('checkout-email').value;
             const phone = document.getElementById('checkout-phone').value;
             const date = document.getElementById('checkout-date').value;
-            const timeHour = document.getElementById('checkout-time-hour').value;
-            const timeMinute = document.getElementById('checkout-time-minute').value;
-            const time = (timeHour && timeMinute) ? `${timeHour}:${timeMinute}` : '';
+            const time = checkoutTimeSelected;
             const notes = '';
 
             if (!name || !email || !phone || !date || !time) {

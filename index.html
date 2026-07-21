@@ -1424,12 +1424,14 @@
                             <label style="display: block; font-size: 0.85rem; margin-bottom: 5px; font-weight: 500;" data-i18n="checkout_date_label">Fecha</label>
                             <input type="date" id="checkout-date" class="checkout-input" required>
                         </div>
-                        <div class="form-group" style="flex: 1;">
+                        <div class="form-group" style="flex: 1; position: relative;">
                             <label style="display: block; font-size: 0.85rem; margin-bottom: 5px; font-weight: 500;" data-i18n="checkout_time_label">Hora</label>
-                            <div style="display: flex; gap: 6px; align-items: center;">
-                                <select id="checkout-time-hour" class="checkout-input" style="flex: 1;" required></select>
+                            <button type="button" id="checkout-time-display" class="checkout-input" style="width: 100%; text-align: left; background: #fff; cursor: pointer;" data-i18n="checkout_time_placeholder">Selecciona la hora</button>
+                            <div id="checkout-time-popover" style="display:none; position:absolute; z-index:20; top:100%; left:0; margin-top:4px; background:#fff; border:1px solid #ddd; border-radius:10px; padding:12px; box-shadow:0 6px 18px rgba(0,0,0,.15); display:flex; gap:8px; align-items:center; white-space:nowrap;">
+                                <select id="checkout-time-hour" class="checkout-input" style="flex: 1;"></select>
                                 <span>:</span>
-                                <select id="checkout-time-minute" class="checkout-input" style="flex: 1;" required></select>
+                                <select id="checkout-time-minute" class="checkout-input" style="flex: 1;"></select>
+                                <button type="button" id="checkout-time-confirm" class="btn btn-primary" style="padding: 6px 14px; font-size: 0.85rem;" data-i18n="checkout_time_confirm_btn">Listo</button>
                             </div>
                         </div>
                     </div>
@@ -1674,7 +1676,7 @@
     </div><!-- /policy-modal-overlay -->
 
 
-    <script src="script.js?v=5.40"></script>
+    <script src="script.js?v=5.41"></script>
     <script src="panel.js"></script>
     <script>
         // Scroll Animations
