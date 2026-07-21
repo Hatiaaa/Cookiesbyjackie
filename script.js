@@ -1551,7 +1551,7 @@ document.addEventListener('DOMContentLoaded', () => {
         checkoutTimeHour.innerHTML = '<option value="" disabled selected>--</option>';
         for (let h = 10; h <= 20; h++) {
             const val = String(h).padStart(2, '0');
-            const label = h < 12 ? `${h}:00 am` : (h === 12 ? '12:00 pm' : `${h - 12}:00 pm`);
+            const label = h < 12 ? `${h} am` : (h === 12 ? '12 pm' : `${h - 12} pm`);
             checkoutTimeHour.insertAdjacentHTML('beforeend', `<option value="${val}">${label}</option>`);
         }
         populateMinuteOptions(59);
